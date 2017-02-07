@@ -23,7 +23,7 @@ public class ThemedTextLabel extends TextLabel {
 	public ThemedTextLabel(int x, int y, int w, int h, String text) {
 		super(x, y, w, h, text);
 		this.text = text;
-		font = "Hiragino Kaku Gothic Std";
+		font = "Helvetica";
 		size = 20;
 		update();
 	}
