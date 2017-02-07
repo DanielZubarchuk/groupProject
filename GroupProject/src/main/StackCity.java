@@ -27,8 +27,7 @@ public class StackCity extends GUIApplication {
 	 */
 	@Override
 	protected void initScreen() {
-		// TODO Auto-generated method stub
-
+		// for screens of phone and games
 	}
 
 	/**
