@@ -2,12 +2,14 @@ package stockMarket;
 
 import java.awt.Graphics2D;
 import java.util.ArrayList;
+import java.util.List;
 
 import guiPractice8.Screen;
 import guiPractice8.component.ClickableGraphic;
+import guiPractice8.component.ClickableScreen;
 import guiPractice8.component.Visible;
 
-public class StockMenu extends Screen {
+public class StockMenu extends ClickableScreen {
 	
 	private ClickableGraphic buttons;
 	//these fields are for the different parts of the menu that display info about the game.
@@ -25,16 +27,16 @@ public class StockMenu extends Screen {
 		super(width, height);
 		// TODO Auto-generated constructor stub
 	}
-
-	@Override
-	public void initObjects(ArrayList<Visible> clickableObjects) {
-		// TODO Auto-generated method stub
-
-	}
 	
 	public void update(Graphics2D g) {
 	
 	
+	}
+
+	@Override
+	public void initAllObjects(List<Visible> arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
