@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
@@ -5,6 +6,7 @@ import java.util.ArrayList;
 
 import guiPractice.ClickableScreen;
 import guiPractice.Screen;
+import guiPractice.components.Action;
 import guiPractice.components.Button;
 import guiPractice.components.ClickableGraphic;
 import guiPractice.components.Graphic;
@@ -27,6 +29,12 @@ public class MainMenuScreen extends ClickableScreen implements MouseMotionListen
 	public void initObjects(ArrayList<Visible> viewObjects) {
 		advCapLink = new ClickableGraphic(50, 50, .5, "resources/sampleImages/advCapIcon.png");
 		viewObjects.add(advCapLink);
+		homeButton = new Button(150, 200, 100, 30, "Home", new Color(100, 100, 200), new Action(){
+			public void act(){
+				MainMenu.mms.setScreen(MainMenu.menuScreen);
+			}
+		});
+		viewObjects.add(homeButton);
 	}
 
 	public void mouseClicked(MouseEvent e) {
