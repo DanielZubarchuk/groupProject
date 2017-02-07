@@ -1,0 +1,23 @@
+import java.awt.Color;
+
+import guiPractice8.component.Action;
+import guiPractice8.component.Button;
+
+public abstract class PropertyButton extends Button {
+	
+	public int price;
+	public int payout;
+	
+	public PropertyButton(int x, int y, int w, int h, String text, Color color, Action action, int price, int payout) {
+		super(x, y, w, h, text, color, action);
+		this.price = price;
+		this.payout = payout;
+		// TODO Auto-generated constructor stub
+	}
+	
+	public static void 
+	
+	
+	
+
+}
