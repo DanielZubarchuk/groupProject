@@ -3,6 +3,10 @@
  */
 package stockMarket;
 
+import java.util.List;
+
+import guiPractice8.component.Visible;
+
 /**
  * @author Student 8
  *
@@ -27,6 +31,11 @@ public class Transaction {
 			
 		}
 
+	}
+	
+	public void initAllObjects(List<Visible> viewObjects) {
+
+		
 	}
 
 }
