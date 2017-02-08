@@ -1,3 +1,5 @@
+import java.awt.Color;
+import java.awt.Graphics2D;
 import java.util.List;
 
 import guiPractice8.component.ClickableScreen;
@@ -23,10 +25,6 @@ public class ManagerScreen extends ClickableScreen {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-	}
-	
-	public static void display(){
-		
 	}
 
 }
