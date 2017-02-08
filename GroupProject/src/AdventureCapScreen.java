@@ -3,9 +3,9 @@ import java.util.List;
 import guiPractice8.component.ClickableScreen;
 import guiPractice8.component.Visible;
 
-public class AdventureCapGameScreen extends ClickableScreen{
+public class AdventureCapScreen extends ClickableScreen{
 	
-	public AdventureCapGameScreen(int width, int height) {
+	public AdventureCapScreen(int width, int height) {
 		super(width, height);
 		// TODO Auto-generated constructor stub
 	}
@@ -30,11 +30,20 @@ public class AdventureCapGameScreen extends ClickableScreen{
 	private void addSASButton() {
 		// TODO Auto-generated method stub
 		int numberOfSASButtons = 3;
+		for(int i = 0; i<numberOfSASButtons; i++){
+			
+		}
 	}
 
 	private void addBuyButtons() {
 		// TODO Auto-generated method stub
 		int numberOfBuyButtons = 8;
+		
+		for(int i = 0; i<=numberOfBuyButtons/2; i++){
+			for(int j = 0; j<2; j++){
+				
+			}
+		}
 	}
 
 }
