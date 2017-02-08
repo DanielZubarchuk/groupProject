@@ -19,11 +19,12 @@ import guiPractice8.component.Visible;
  */
 public class VictorDemo extends GUIApplication {
 
+	public static Fluctuation fluctuation;
 	/**
 	 * 
 	 */
 	public VictorDemo() {
-		// TODO Auto-generated constructor stub
+		fluctuation = new Fluctuation();
 	}
 
 	/* (non-Javadoc)
@@ -59,13 +60,14 @@ public class VictorDemo extends GUIApplication {
 
 		@Override
 		public void initAllObjects(List<Visible> view) {
-			rewardDisplay = new TextLabel(20, 40, 100, 25, "");
-			beatAMonster = new Button(40, 100, 90, 40, "Beat a monster", Color.blue, new Action() {
+			rewardDisplay = new TextLabel(20, 40, 800, 25, "");
+			beatAMonster = new Button(40, 100, 190, 40, "Beat a monster", Color.blue, new Action() {
 				
 				@Override
 				public void act() {
-					// TODO Auto-generated method stub
-					
+					VictorDemo.fluctuation.outputEvent();
+					rewardDisplay.setText("You earned a reward! Total points = "
+							+ VictorDemo.fluctuation.outputEvent());
 				}
 			});
 			view.add(rewardDisplay);
