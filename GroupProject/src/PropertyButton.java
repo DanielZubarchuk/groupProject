@@ -3,7 +3,7 @@ import java.awt.Color;
 import guiPractice8.component.Action;
 import guiPractice8.component.Button;
 
-public class PropertyButton extends Button{
+public class PropertyButton extends Button implements PropertyButtonInterface{
 	
 	private int price;
 	private int payout;
