@@ -3,10 +3,10 @@ import java.awt.Color;
 import guiPractice8.component.Action;
 import guiPractice8.component.Button;
 
-public abstract class PropertyButton extends Button {
+public abstract class PropertyButton extends Button{
 	
-	public int price;
-	public int payout;
+	private int price;
+	private int payout;
 	
 	public PropertyButton(int x, int y, int w, int h, String text, Color color, Action action, int price, int payout) {
 		super(x, y, w, h, text, color, action);
@@ -15,7 +15,13 @@ public abstract class PropertyButton extends Button {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public static void 
+	public int getPrice(){
+		return price;
+	}
+	
+	public int getPayout(){
+		return payout;
+	}
 	
 	
 	
