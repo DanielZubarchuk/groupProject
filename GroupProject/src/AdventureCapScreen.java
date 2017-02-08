@@ -30,20 +30,20 @@ public class AdventureCapScreen extends ClickableScreen{
 	private void addSASButton() {
 		// TODO Auto-generated method stub
 		int numberOfSASButtons = 3;
-		for(int i = 0; i<numberOfSASButtons; i++){
-			
-		}
+//		for(int i = 0; i<numberOfSASButtons; i++){
+//			
+//		}
 	}
 
 	private void addBuyButtons() {
 		// TODO Auto-generated method stub
 		int numberOfBuyButtons = 8;
 		
-		for(int i = 0; i<=numberOfBuyButtons/2; i++){
-			for(int j = 0; j<2; j++){
-				
-			}
-		}
+//		for(int i = 0; i<=numberOfBuyButtons/2; i++){
+//			for(int j = 0; j<2; j++){
+//				
+//			}
+//		}
 	}
 
 }
