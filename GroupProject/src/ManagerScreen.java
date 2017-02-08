@@ -1,5 +1,6 @@
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.util.ArrayList;
 import java.util.List;
 
 import guiPractice8.component.ClickableScreen;
@@ -10,6 +11,9 @@ import guiPractice8.component.Visible;
  *
  */
 public class ManagerScreen extends ClickableScreen {
+	
+	private ArrayList<ManagerInterface> managers;
+	private ArrayList<PropertyButtonInterface> properties;
 
 	public ManagerScreen(int width, int height) {
 		super(width, height);
