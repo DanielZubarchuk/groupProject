@@ -10,12 +10,12 @@ import guiPractice8.component.Visible;
  * @author Katherine
  *
  */
-public class ManagerScreen extends ClickableScreen {
+public class Manager extends ClickableScreen {
 	
 	private ArrayList<ManagerInterface> managers;
 	private ArrayList<PropertyButtonInterface> properties;
 
-	public ManagerScreen(int width, int height) {
+	public Manager(int width, int height) {
 		super(width, height);
 		// TODO Auto-generated constructor stub
 	}
