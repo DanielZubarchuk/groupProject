@@ -10,10 +10,10 @@ import guiPractice8.component.Visible;
 
 public class KatDemo extends GUIApplication {
 	
-	public static ManagerScreen manager;
+	public static Manager manager;
 
 	public KatDemo() {
-		manager = new ManagerScreen(0, 0);
+		manager = new Manager(0, 0);
 	}
 
 	@Override
