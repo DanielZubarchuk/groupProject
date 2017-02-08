@@ -7,12 +7,12 @@ package stockMarket;
  * @author Student 8
  *
  */
-public class DanielTransaction {
+public class Transaction {
 
 	/**
 	 * 
 	 */
-	public DanielTransaction() {
+	public Transaction() {
 		// TODO Auto-generated constructor stub
 	}
 
