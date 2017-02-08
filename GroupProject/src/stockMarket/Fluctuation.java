@@ -11,11 +11,13 @@ import java.util.ArrayList;
  */
 public class Fluctuation{
 
+	// demo field
+	public static int reward;
 	/**
 	 * FIELDS
 	 */
 	private ArrayList<String> events;
-	
+	//stocks array
 	
 	public Fluctuation() {
 		events = new ArrayList<String>();
