@@ -43,7 +43,7 @@ public class AdventureCapScreen extends ClickableScreen{
 //			for(int j = 0; j<2; j++){
 //				
 //			}
-//		}
+//		} 
 	}
 
 }
