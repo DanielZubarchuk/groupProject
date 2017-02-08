@@ -23,7 +23,13 @@ public class PropertyButton extends Button{
 		return payout;
 	}
 	
+	public void setPrice(int x){
+		this.price = x;
+	}
 	
+	public void setPayout(int x){
+		this.payout = x;
+	}
 	
 
 }
