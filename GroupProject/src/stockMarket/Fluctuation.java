@@ -11,38 +11,66 @@ import java.util.ArrayList;
  */
 public class Fluctuation{
 
-	// demo field
-	public static int reward;
 	/**
 	 * FIELDS
 	 */
+	//events
 	private ArrayList<String> events;
+	private static double currentEvent = 0;
+	
 	//stocks array
+	private String[] stockNames = {"Blackgate","Apple","Samsung","Glascow","General Motors"};
+	private static double[] stockPrices = {100,78,90,120,111,87};
+	private double[] stockGrowths = {1.1,2.6,1.3,.8,.9,2.0};
+	
+	//constants
+	private static final int _BANKRUPT = 0;
+	private static final int _RECESSION = 1;
+	private static final int _STABILITY = 2;
+	private static final int _PROGRESS = 3;
+	private static final int _FORTUNE = 4;
 	
 	public Fluctuation() {
 		events = new ArrayList<String>();
 		fillEvents();
 	}
 	
-	public void fillEvents(){
+	
+
+	public void updateStock(){
 		/**
-		 * Each time END TURN is clicked, the anonymous inner class (act) should call this method to add a new event.
+		 * Each time END TURN is clicked, the anonymous inner class (act) should call this method to update the stocks.
 		 */
-		int randomEvent = (int) (Math.random()*5);
+		fillEvents();
 		
-		if(randomEvent == 0){
+		int eventStock = (int) (Math.random()*stockNames.length-1);
+		double effect = currentEvent/2;
+		double newGrowth = stockGrowths[eventStock] * effect;
+		double newPrice = stockPrices[eventStock] * newGrowth;
+		
+		stockGrowths[eventStock] = newGrowth;
+		stockPrices[eventStock] = newPrice;
+		
+	}
+	
+	public void fillEvents(){
+		
+		int randomEvent = (int) (Math.random()*5);
+		currentEvent = (double) (randomEvent);
+		
+		if(randomEvent == _BANKRUPT){
 			events.add("BANKRUPT");
 		}else{
-			if(randomEvent == 1){
+			if(randomEvent == _RECESSION){
 				events.add("RECESSION");
 			}else{
-				if(randomEvent == 2){
+				if(randomEvent == _STABILITY){
 					events.add("STABILITY");
 				}else{
-					if(randomEvent == 3){
+					if(randomEvent == _PROGRESS){
 						events.add("PROGRESS");
 					}else{
-						if(randomEvent == 4){
+						if(randomEvent == _FORTUNE){
 							events.add("FORTUNE");
 						}
 					}
