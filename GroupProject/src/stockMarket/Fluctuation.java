@@ -46,7 +46,7 @@ public class Fluctuation{
 		int eventStock = (int) (Math.random()*stockNames.length-1);
 		double effect = currentEvent/2;
 		double newGrowth = stockGrowths[eventStock] * effect;
-		double newPrice = stockPrices[eventStock] * newGrowth;
+		double newPrice = (stockPrices[eventStock]) + (stockPrices[eventStock] * newGrowth);
 		
 		stockGrowths[eventStock] = newGrowth;
 		stockPrices[eventStock] = newPrice;
