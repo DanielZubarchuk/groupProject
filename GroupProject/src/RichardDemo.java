@@ -96,7 +96,7 @@ public class RichardDemo extends GUIApplication {
 			viewObjects.add(xNumButton);
 		}
 		
-	}
+	} 
 
 
 
