@@ -88,7 +88,8 @@ public class RichardDemo extends GUIApplication {
 
 				public void act() {
 					// TODO Auto-generated method stub
-						System.out.println("klegjielg");
+						
+					System.out.println("klegjielg");
 						moveToBack(xNumButton2);
 						button2Disabled = !button2Disabled;
 					}
