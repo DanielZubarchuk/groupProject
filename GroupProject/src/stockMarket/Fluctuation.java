@@ -49,7 +49,7 @@ public class Fluctuation{
 
 	public void updateStock(){
 		/**
-		 * Each time END TURN is clicked, the anonymous inner class (act) should call this method to update the stocks.
+		 * Each time BUY/SELL is clicked, the anonymous inner class (act) should call this method to update the stocks.
 		 */
 		fillEvents();
 		
