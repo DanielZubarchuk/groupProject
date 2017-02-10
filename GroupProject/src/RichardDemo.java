@@ -55,6 +55,8 @@ public class RichardDemo extends GUIApplication {
 		private Button xNumButton;
 		private Button mangerButton;
 		private Button xNumButton2;
+		private boolean button1Disabled;
+		private boolean button2Disabled;
 		
 //		private TextLabel buyText;
 		
@@ -77,22 +79,21 @@ public class RichardDemo extends GUIApplication {
 
 				public void act() {
 					// TODO Auto-generated method stub
-						xthing++;
 						System.out.println(xthing);
-						viewObjects.add(xNumButton2);
-//						moveToFront(xNumButton2);
-						
+						moveToBack(xNumButton);
+						button1Disabled = !button1Disabled;
 					}
 				});
-			xNumButton2 = new Button(200, 50, 150, 100, " X " + xthing, new Color(255,255,0), new Action(){
+			xNumButton2 = new Button(200, 50, 150, 100, " X 2" + xthing, new Color(255,255,0), new Action(){
 
 				public void act() {
 					// TODO Auto-generated method stub
 						System.out.println("klegjielg");
-						xthing*=2;
-						
+						moveToBack(xNumButton2);
+						button2Disabled = !button2Disabled;
 					}
 				});
+			viewObjects.add(xNumButton2);
 			viewObjects.add(xNumButton);
 		}
 		
