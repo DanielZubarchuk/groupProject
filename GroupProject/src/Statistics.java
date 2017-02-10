@@ -12,7 +12,7 @@ public class Statistics {
 	}
 	
 	private void setNewPrice(PropertyButton property){
-		
+		int purchasingAmount = 
 	}
 	
 	
