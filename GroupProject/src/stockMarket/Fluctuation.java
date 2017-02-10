@@ -19,8 +19,8 @@ public class Fluctuation{
 	private static double currentEvent = 0;
 	
 	//stocks array
-	private String[] stockNames = {"Blackgate","Apple","Samsung","Glascow","General Motors"};
-	private static double[] stockPrices = {100,78,90,120,111,87};
+	public static String[] stockNames = {"Blackgate","Apple","Samsung","Glascow","General Motors"};
+	public static double[] stockPrices = {100,78,90,120,111,87};
 	private double[] stockGrowths = {1.1,2.6,1.3,.8,.9,2.0};
 	
 	//constants
