@@ -1,6 +1,7 @@
 package stockMarket;
 
 import java.awt.Color;
+import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,8 +13,8 @@ import stackInterfaces.RisaInterface;
 
 public class UserScreen extends ClickableScreen{
 
-	public static ArrayList<RisaInterface> stocks;
-	public static ArrayList<RisaInterface> transactions;
+	public static ArrayList<String> currentStocks;
+	public static ArrayList<RisaInterface> prevTransactions;
 	public static double balance;
 	
 	private Button backButton;
@@ -28,7 +29,7 @@ public class UserScreen extends ClickableScreen{
 
 			@Override
 			public void act() {
-				
+				//StockMenu.game.setScreen(StockMenu.coordScreen);
 			}
 			
 		});
@@ -37,6 +38,8 @@ public class UserScreen extends ClickableScreen{
 		
 	}
 	
-	
+	public void addTransaction(){
+		currentStocks.add();
+	}
 
 }
