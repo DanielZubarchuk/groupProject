@@ -8,18 +8,18 @@ import guiPractice8.component.Action;
 import guiPractice8.component.Button;
 import guiPractice8.component.ClickableScreen;
 import guiPractice8.component.Visible;
+import stackInterfaces.RisaInterface;
 
 public class UserScreen extends ClickableScreen{
 
-	public static ArrayList<StockInterface> stocks;
-	public static ArrayList<TransactionInterface> transactions;
+	public static ArrayList<RisaInterface> stocks;
+	public static ArrayList<RisaInterface> transactions;
 	public static double balance;
 	
 	private Button backButton;
 	
 	public UserScreen(int width, int height) {
 		super(width, height);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
