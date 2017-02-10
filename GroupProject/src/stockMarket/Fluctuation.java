@@ -35,7 +35,17 @@ public class Fluctuation{
 		fillEvents();
 	}
 	
-	
+	/**
+	 * Nockles Suggestion:
+	 * Make a limitOrderInterface that allows the user to 
+	 * set a queue of stocks that the user insta-sells/buys if
+	 * a certain stock value is reached. 
+	 * Maybe an arrayList to represent that queue.
+	 * 
+	 *  boolean limitReached
+	 *  void buy
+	 *  void sell
+	 */
 
 	public void updateStock(){
 		/**
