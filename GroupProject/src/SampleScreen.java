@@ -8,6 +8,8 @@ import guiPractice.components.ClickableGraphic;
 
 public class SampleScreen extends ClickableScreen implements App, MouseMotionListener, MouseListener {
 
+	private Button homeButton;
+	
 	public SampleScreen(int width, int height) {
 		super(width, height);
 		// TODO Auto-generated constructor stub
@@ -21,8 +23,7 @@ public class SampleScreen extends ClickableScreen implements App, MouseMotionLis
 
 	@Override
 	public void setHomeButton(Button homeButton) {
-		// TODO Auto-generated method stub
-
+		this.homeButton = homeButton;
 	}
 
 	public void mouseClicked(MouseEvent e) {

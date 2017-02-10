@@ -27,11 +27,11 @@ public class MainMenuScreen extends ClickableScreen implements MouseMotionListen
 
 	public void initObjects(ArrayList<Visible> viewObjects) {
 		
-		advCapLink = new ClickableGraphic(50, getHeight()/2 - 50, .5, "resources/sampleImages/advCapIcon.png");
-		stockGameLink = new ClickableGraphic(266, getHeight()/2 - 50, .5, "resources/sampleImages/stockMarketIcon.png");
+		advCapLink = new ClickableGraphic((int) (getWidth()/3 - 87.5), getHeight()/2 - 50, .5, "resources/sampleImages/advCapIcon.png");
+		stockGameLink = new ClickableGraphic((int) (2 * getWidth()/3 ), getHeight()/2 - 50, .5, "resources/sampleImages/stockMarketIcon.png");
 		viewObjects.add(advCapLink);
 		viewObjects.add(stockGameLink);
-		homeButton = new Button(getWidth()/2-30, 600, 60, 30, "Home", new Color(0,0,0), new Action(){
+		homeButton = new Button(getWidth()/2-30, (int) (5 * getHeight()/6), 60, 30, "Home", new Color(0,0,0), new Action(){
 			public void act(){
 				MainMenu.mms.setScreen(MainMenu.menuScreen);
 			}
