@@ -18,13 +18,13 @@ public class DanielBetaCode {
 	private ArrayList<DanielInterface> stocks;
 	static Scanner input;
 	
-	private String[] stockNames = 
-		{"BlackRock", "Yahoo", "Ebay", "AMC Entertainment", "Facebook"};
+	private static String[] stockNames = 
+		{"BlackRock", "Yahoo", "Ebay"};
 	
-	private String[] stockPrices = 
-		{"375.26", "45.04", "33.34", "31.10", "134.00"}; 
+	private static int[] stockPrices = 
+		{375, 45, 33}; 
 	
-	private String[] stockInventory = 
+	private static String[] stockInventory = 
 		{}; 
 	
 	public static int userBalance = 5000000;
@@ -35,7 +35,28 @@ public class DanielBetaCode {
 
 	public static void main(String[] args) {
 		DanielBetaCode.print("Do you want to buy or sell?");
-		if(choiceSelection.equals("Buy")){
+		if(input.equals("Buy")){
+			if(userBalance > 0){
+				print("Which stock do you want to buy?Choose: BlackRock, Yahoo, Ebay");
+				if(input.equals("BlackRock")){
+					print("How many shares do you want to buy?");
+					Scanner numberOfStocks = input;
+					if(numberOfStocks*(stockPrices[1])){
+						
+					}
+				}
+				if(input.equals("Yahoo")){
+									
+				}
+				if(input.equals("Ebay")){
+					
+				}
+			}else{
+				print("You do not have enough money to buy stocks! Try selling stocks to improve your balance.");
+				return;
+			}
+		}
+		if(input.equals("Sell")){
 			
 		}
 
