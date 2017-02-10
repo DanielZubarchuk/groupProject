@@ -19,8 +19,8 @@ public class Fluctuation{
 	private static double currentEvent = 0;
 	
 	//stocks array
-	private String[] stockNames = {"Blackgate","Apple","Samsung","Glascow","General Motors"};
-	private static double[] stockPrices = {100,78,90,120,111,87};
+	public static String[] stockNames = {"Blackgate","Apple","Samsung","Glascow","General Motors"};
+	public static double[] stockPrices = {100,78,90,120,111,87};
 	private double[] stockGrowths = {1.1,2.6,1.3,.8,.9,2.0};
 	
 	//constants
@@ -35,7 +35,17 @@ public class Fluctuation{
 		fillEvents();
 	}
 	
-	
+	/**
+	 * Nockles Suggestion:
+	 * Make a limitOrderInterface that allows the user to 
+	 * set a queue of stocks that the user insta-sells/buys if
+	 * a certain stock value is reached. 
+	 * Maybe an arrayList to represent that queue.
+	 * 
+	 *  boolean limitReached
+	 *  void buy
+	 *  void sell
+	 */
 
 	public void updateStock(){
 		/**
