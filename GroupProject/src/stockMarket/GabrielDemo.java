@@ -7,6 +7,7 @@ import guiPractice8.GUIApplication;
 import guiPractice8.component.Action;
 import guiPractice8.component.Button;
 import guiPractice8.component.ClickableScreen;
+import guiPractice8.component.Graphic;
 import guiPractice8.component.Visible;
 import projectComponents.ThemedTextLabel;
 import stockMarket.StockMenu;
@@ -14,6 +15,7 @@ import stockMarket.StockMenu;
 
 public class GabrielDemo extends GUIApplication {
 	//put fields here from StockMenu to add things for project.
+	
 	public static StockMenu logo;
 	
 		public static GabrielDemo game;
@@ -43,7 +45,7 @@ public class GabrielDemo extends GUIApplication {
 //nested inner class
 private class DemoScreen extends ClickableScreen{
 
-	private ThemedTextLabel rewardDisplay;
+	private Graphic background;
 	private Button buy;
 	private Button sell;
 	private Button user;
@@ -56,7 +58,10 @@ private class DemoScreen extends ClickableScreen{
 
 			@Override
 	public void initAllObjects(List<Visible> view) {
-		rewardDisplay = new ThemedTextLabel(20, 40, 100, 25, "");
+		
+		background=new Graphic(0,0,getWidth(),getHeight(),"resources/images/moneybackground.jpg");
+		view.add(background);
+		
 		buy = new Button(40, 100, 90, 40, "Buy", Color.blue, new Action() {
 			
 			@Override
@@ -68,7 +73,6 @@ private class DemoScreen extends ClickableScreen{
 			}
 		});
 		
-		view.add(rewardDisplay);
 		view.add(buy);
 		
 		sell = new Button(40, 300, 90, 40, "Sell", Color.blue, new Action() {
@@ -82,7 +86,6 @@ private class DemoScreen extends ClickableScreen{
 			}
 		});
 		
-		view.add(rewardDisplay);
 		view.add(sell);
 			
 			
@@ -97,7 +100,6 @@ private class DemoScreen extends ClickableScreen{
 				}
 			});
 			
-			view.add(rewardDisplay);
 			view.add(user);
 			
 		end = new Button(300, 300, 100, 40, "End Turn", Color.blue, new Action() {
@@ -111,7 +113,6 @@ private class DemoScreen extends ClickableScreen{
 				}
 			});
 			
-			view.add(rewardDisplay);
 			view.add(end);
 }
 }
