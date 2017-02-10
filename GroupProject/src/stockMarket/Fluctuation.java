@@ -41,6 +41,7 @@ public class Fluctuation{
 	 * set a queue of stocks that the user insta-sells/buys if
 	 * a certain stock value is reached. 
 	 * Maybe an arrayList to represent that queue.
+	 * Thought Bubble: Look at Moles and MoleInterface from WhackAMole
 	 * 
 	 *  boolean limitReached
 	 *  void buy
