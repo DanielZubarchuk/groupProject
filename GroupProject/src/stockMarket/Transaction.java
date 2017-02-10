@@ -1,10 +1,9 @@
 package stockMarket;
 
 import java.util.ArrayList;
+
 import java.util.List;
 import java.util.Scanner;
-
-import groupFiles.DanielMain;
 import guiPractice8.component.TextLabel;
 import guiPractice8.component.Visible;
 import stackInterfaces.DanielInterface;
@@ -22,6 +21,13 @@ public class Transaction {
 		{}; 
 	
 	public static int userBalance = 5000000;
+	private static boolean booleanStock;
+	
+	
+	private static int chosenShareAmount;
+	private static Object chosenStock;
+	
+	
 	
 	public Transaction() {
 		
@@ -32,13 +38,14 @@ public class Transaction {
 		if(input.equals("Buy")){
 			if(userBalance > 0){
 				print("Which stock do you want to buy?");
-				if(Fluctuation.stockNames[1] == ""){
-					print("How many shares do you want to buy?");
-					Scanner numberOfShares = input;
+				if(booleanStock = true){
+					print("How many shares of the Stock do you want to buy?");
+					
 				}
 				
 			}else{
-				print("You do not have money to buy stocks! Try selling stocks to improve your balance.");
+				print("You do not have money to buy stocks!"
+						+ " Try selling stocks to improve your balance.");
 				return;
 			}
 		}
@@ -48,12 +55,30 @@ public class Transaction {
 
 	}
 	
+	public static void stockPriceMatch(){
+		//helper method
+		
+	}
+	
+	public static boolean findStock(){
+		//helper method
+		for(int i = 0;i < Fluctuation.stockNames.length; i++){
+			if(chosenStock.equals(Fluctuation.stockNames[i])){
+				booleanStock = true;
+				return booleanStock;
+			}else{
+				booleanStock = false;
+			}
+		}
+		return booleanStock;
+	}
+	
 //	public void initAllObjects(List<Visible> visible) {
 //		stocks = new ArrayList<DanielInterface>();
 //		
 //	}
 	
-	//Stock Market Helper
+	//Code that I probably won't need
 	
 	public static void print(String s){
         String printString = "";
