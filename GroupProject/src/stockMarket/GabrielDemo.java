@@ -8,8 +8,10 @@ import guiPractice8.component.Action;
 import guiPractice8.component.Button;
 import guiPractice8.component.ClickableScreen;
 import guiPractice8.component.Graphic;
+import guiPractice8.component.TextLabel;
 import guiPractice8.component.Visible;
 import projectComponents.ThemedTextLabel;
+
 import stockMarket.StockMenu;
 
 
@@ -45,6 +47,7 @@ public class GabrielDemo extends GUIApplication {
 //nested inner class
 private class DemoScreen extends ClickableScreen{
 
+	private ThemedTextLabel result;
 	private Graphic background;
 	private Button buy;
 	private Button sell;
@@ -59,14 +62,19 @@ private class DemoScreen extends ClickableScreen{
 			@Override
 	public void initAllObjects(List<Visible> view) {
 		
+		String[] stocks = { "Samsung","Blackgate", "Apple","Glascow","General Motors"};
+		
+		result = new ThemedTextLabel(20, 40, 800, 25, "xd");
+
 		background=new Graphic(0,0,getWidth(),getHeight(),"resources/images/moneybackground.jpg");
 		view.add(background);
 		
-		buy = new Button(40, 100, 90, 40, "Buy", Color.blue, new Action() {
+		buy = new Button(40, 100, 90, 40, "Buy", Color.green, new Action() {
 			
 			@Override
 			public void act() {
-				//SamDemo.reward.getReward(18);
+				result.setText("You bought a stock");
+				
 				//rewardDisplay.setText("You earned a reward total points equals
 				// +"SamDemo.reward.getPoints());
 				
@@ -74,8 +82,9 @@ private class DemoScreen extends ClickableScreen{
 		});
 		
 		view.add(buy);
+		view.add(result);
 		
-		sell = new Button(40, 300, 90, 40, "Sell", Color.blue, new Action() {
+		sell = new Button(40, 300, 90, 40, "Sell", Color.green, new Action() {
 			
 			@Override
 			public void act() {
@@ -89,7 +98,7 @@ private class DemoScreen extends ClickableScreen{
 		view.add(sell);
 			
 			
-		user = new Button(300, 100, 200, 40, "User Inventory", Color.blue, new Action() {
+		user = new Button(300, 100, 200, 40, "User Inventory", Color.green, new Action() {
 				
 				@Override
 				public void act() {
@@ -102,7 +111,7 @@ private class DemoScreen extends ClickableScreen{
 			
 			view.add(user);
 			
-		end = new Button(300, 300, 100, 40, "End Turn", Color.blue, new Action() {
+		end = new Button(300, 300, 100, 40, "End Turn", Color.green, new Action() {
 				
 				@Override
 				public void act() {
