@@ -64,7 +64,7 @@ private class DemoScreen extends ClickableScreen{
 		
 		String[] stocks = { "Samsung","Blackgate", "Apple","Glascow","General Motors"};
 		
-		result = new ThemedTextLabel(20, 40, 800, 25, "xd");
+		result = new ThemedTextLabel(20, 40, 800, 25, "");
 
 		background=new Graphic(0,0,getWidth(),getHeight(),"resources/images/moneybackground.jpg");
 		view.add(background);
