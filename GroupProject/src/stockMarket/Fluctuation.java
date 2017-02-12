@@ -5,11 +5,13 @@ package stockMarket;
 
 import java.util.ArrayList;
 
+import stackInterfaces.MarketInterface;
+
 /**
  * @author hotfi
  *
  */
-public class Fluctuation{
+public class Fluctuation implements MarketInterface{
 
 	/**
 	 * FIELDS
