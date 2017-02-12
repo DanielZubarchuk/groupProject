@@ -48,6 +48,10 @@ public class GabrielDemo extends GUIApplication {
 private class DemoScreen extends ClickableScreen{
 
 	private ThemedTextLabel result;
+	private ThemedTextLabel logo;
+	private ThemedTextLabel goal;
+	private ThemedTextLabel turn;
+	private ThemedTextLabel event;
 	private Graphic background;
 	private Button buy;
 	private Button sell;
@@ -69,7 +73,7 @@ private class DemoScreen extends ClickableScreen{
 		background=new Graphic(0,0,getWidth(),getHeight(),"resources/images/moneybackground.jpg");
 		view.add(background);
 		
-		buy = new Button(40, 100, 90, 40, "Buy", Color.green, new Action() {
+		buy = new Button(175, 220, 90, 40, "Buy", Color.green, new Action() {
 			
 			@Override
 			public void act() {
@@ -84,7 +88,7 @@ private class DemoScreen extends ClickableScreen{
 		view.add(buy);
 		view.add(result);
 		
-		sell = new Button(40, 300, 90, 40, "Sell", Color.green, new Action() {
+		user = new Button(200, 270, 200, 40, "User Portfolio", Color.green, new Action() {
 			
 			@Override
 			public void act() {
@@ -95,10 +99,10 @@ private class DemoScreen extends ClickableScreen{
 			}
 		});
 		
-		view.add(sell);
+		view.add(user);
 			
 			
-		user = new Button(300, 100, 200, 40, "User Inventory", Color.green, new Action() {
+		sell = new Button(350, 220, 90, 40, "Sell", Color.green, new Action() {
 				
 				@Override
 				public void act() {
@@ -109,9 +113,9 @@ private class DemoScreen extends ClickableScreen{
 				}
 			});
 			
-			view.add(user);
+			view.add(sell);
 			
-		end = new Button(300, 300, 100, 40, "End Turn", Color.green, new Action() {
+		end = new Button(250, 320, 100, 40, "End Turn", Color.green, new Action() {
 				
 				@Override
 				public void act() {
