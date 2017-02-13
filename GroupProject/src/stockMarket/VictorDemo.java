@@ -68,6 +68,7 @@ public class VictorDemo extends GUIApplication {
 					VictorDemo.fluctuation.outputEvent();
 					rewardDisplay.setText("You earned a reward! Total points = "
 							+ VictorDemo.fluctuation.outputEvent());
+					VictorDemo.fluctuation.fillEvents();
 				}
 			});
 			view.add(rewardDisplay);
