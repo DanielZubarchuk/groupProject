@@ -14,7 +14,7 @@ public class Transaction {
 	//here I will code my part without implementing your things. When the time is right, 
 	//I will fix up the code.
 	
-	private ArrayList<DanielInterface> stocks;
+	private ArrayList<String> stocks;
 	static Scanner input;
 	
 	private static String[] stockInventory = 
@@ -32,7 +32,18 @@ public class Transaction {
 	
 	
 	public Transaction() {
+		stocks = new ArrayList<String>();
+		containStocks(stocks);
+	}
+
+	private void containStocks(Object stk) {
+		stocks.add((String) stk);
 		
+		
+		
+//		for(int j = 0; j < stocks.length; j++){
+//			
+//		}
 	}
 
 	public static void main(String[] args) {
@@ -45,6 +56,8 @@ public class Transaction {
 				stockPrice = Fluctuation.stockPrices[i] * chosenShareAmount;
 				if(stockPrice > userBalance){
 					userBalance = userBalance - stockPrice;
+					containStocks(chosenStock);
+					
 					if(userBalance <= 0){
 						userBalance += stockPrice;
 						print("You do not have enough money!");
@@ -64,11 +77,18 @@ public class Transaction {
 			}
 		}
 		if(input.equals("Sell")){
-			
+			print("Which stock do you want to sell?");
+			findStock();
+			print("How many shares of the Stock do you want to sell?");
+			userBalance = (Fluctuation.stockPrices[i] * chosenShareAmount) + userBalance;
 		}
 
 	}
 	
+	public void initAllObjects(List<Visible> visible) {
+		stocks = new ArrayList<String>();
+		
+	}
 //	public static void priceMatch(){
 //		//helper method
 //		
@@ -90,12 +110,7 @@ public class Transaction {
 		/**
 		 * Outputs the newest event for text about fluctuation in main screen
 		 */
-		return events.get(events.size()-1);
-	}
-	
-	public void initAllObjects(List<Visible> visible) {
-		stocks = new ArrayList<DanielInterface>();
-		
+		return stocks.get(stocks.size()-1);
 	}
 	
 	
