@@ -1,29 +1,29 @@
-public class Statistics {
+/**
+ * @author Katherine
+ */
+
+public class Statistics implements StatsInterface{
 	
 	public static int currentBalance;
 	public static int lifetimeEarnings;
-	//public static int[] propertyQuantityArray;
-	//public static int[] propertyTimeArray;
+	public PropertyButton[] properties;
+	public static int[] propertyQuantityArray;
+	public static int[] propertyTimeArray;
 	//public static int[] multiplier;
 	//public static int numResets;
 	
-	public static PropertyButton property;
-	//public PropertyButton[] properties;
+	
 	
 	private static void main(String[] args){ 
-		//idk idk idk
-		init(property);
-		while(property.isClicked()){
-			setNewPrice(property, );
-			setNewPayout(property, );
-		}
+		
+		
 		
 	}
 	
-	private static void init(PropertyButton property){
-		property.setQuantity(1);
-		property.setLevel(0);
-	}
+//	private static void init(PropertyButton property){
+//		property.setQuantity(1);
+//		property.setLevel(0);
+//	}
 	
 	private void setNewPrice(PropertyButton property, double x){
 		
@@ -51,6 +51,11 @@ public class Statistics {
 			property.setPayout(currentPayout*prctIncrease);
 		}	
 		
+	}
+
+	public int getMoney() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 	
 }
