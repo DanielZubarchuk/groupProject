@@ -19,11 +19,12 @@ public class Fluctuation implements MarketInterface{
 	//events
 	private ArrayList<String> events;
 	private static double currentEvent = 0;
+	public int eventStock;
 	
 	//stocks array
 	public static String[] stockNames = {"Blackgate","Apple","Samsung","Glascow","General Motors"};
 	public static double[] stockPrices = {100,78,90,120,111,87};
-	private double[] stockGrowths = {1.1,2.6,1.3,.8,.9,2.0};
+	public static double[] stockGrowths = {1.1,2.6,1.3,.8,.9,2.0};
 	
 	//constants
 	private static final int _BANKRUPT = 0;
@@ -56,7 +57,7 @@ public class Fluctuation implements MarketInterface{
 		 */
 		fillEvents();
 		
-		int eventStock = (int) (Math.random()*stockNames.length-1);
+		eventStock = (int) (Math.random()*stockNames.length-1);
 		double effect = currentEvent/2;
 		double newGrowth = stockGrowths[eventStock] * effect;
 		double newPrice = stockPrices[eventStock] * newGrowth;
