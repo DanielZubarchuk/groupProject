@@ -39,12 +39,14 @@ public class Statistics {
 		double prctIncrease = x;
 		if(property.getLevel() == 0){
 			currentBalance += property.getPayout();
+			lifetimeEarnings += property.getPayout();
 			double currentPayout = property.getPayout();
 			property.setPayout(currentPayout*prctIncrease);
 		}
 		else if(property.getLevel() != 0 && property.getQuantity() % 25 == 0){
 			prctIncrease++;
 			currentBalance += property.getPayout();
+			lifetimeEarnings += property.getPayout();
 			double currentPayout = property.getPayout();
 			property.setPayout(currentPayout*prctIncrease);
 		}	
