@@ -34,7 +34,7 @@ public class GabrielDemo extends GUIApplication {
 		}
 
 		/**
-		 * @param args
+		
 		 */
 		public static void main(String[] args) {
 			GabrielDemo demo = new GabrielDemo();
