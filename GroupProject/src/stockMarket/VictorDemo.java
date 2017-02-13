@@ -50,8 +50,8 @@ public class VictorDemo extends GUIApplication {
 	//nested inner class;
 	private class DemoScreen extends ClickableScreen{
 
-		private TextLabel rewardDisplay;
-		private Button beatAMonster;
+		private TextLabel eventDisplay;
+		private Button updateStock;
 		
 		public DemoScreen(int width, int height) {
 			super(width, height);
@@ -60,19 +60,19 @@ public class VictorDemo extends GUIApplication {
 
 		@Override
 		public void initAllObjects(List<Visible> view) {
-			rewardDisplay = new TextLabel(20, 40, 800, 25, "");
-			beatAMonster = new Button(40, 100, 190, 40, "Beat a monster", Color.blue, new Action() {
+			eventDisplay = new TextLabel(20, 40, 800, 25, "");
+			updateStock = new Button(40, 100, 190, 40, "Update Stock", Color.blue, new Action() {
 				
 				@Override
 				public void act() {
 					VictorDemo.fluctuation.outputEvent();
-					rewardDisplay.setText("You earned a reward! Total points = "
+					eventDisplay.setText("Today "
 							+ VictorDemo.fluctuation.outputEvent());
 					VictorDemo.fluctuation.fillEvents();
 				}
 			});
-			view.add(rewardDisplay);
-			view.add(beatAMonster);
+			view.add(eventDisplay);
+			view.add(updateStock);
 		}
 		
 	}

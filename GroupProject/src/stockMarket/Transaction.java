@@ -14,11 +14,9 @@ public class Transaction {
 	//here I will code my part without implementing your things. When the time is right, 
 	//I will fix up the code.
 	
-	private static ArrayList<String> stocks;
+	private static ArrayList<String> transactionHistory;
 	static Scanner input;
 	
-	private static String[] stockInventory = 
-		{}; 
 	
 	public static double userBalance = 5000000;
 	//private static boolean booleanStock;
@@ -32,19 +30,19 @@ public class Transaction {
 	
 	
 	public Transaction() {
-		stocks = new ArrayList<String>();
-		containStocks(stocks);
+//		stocks = new ArrayList<String>();
+//		containStocks(stocks);
 	}
 
-	private static void containStocks(Object stk) {
-		stocks.add((String) stk);
-		
-		
-		
-//		for(int j = 0; j < stocks.length; j++){
-//			
-//		}
-	}
+//	private static void containStocks(Object stk) {
+//		stocks.add((String) stk);
+//		
+//		
+//		
+////		for(int j = 0; j < stocks.length; j++){
+////			
+////		}
+//	}
 
 	public static void main(String[] args) {
 		Transaction.print("Do you want to buy or sell?");
@@ -56,7 +54,7 @@ public class Transaction {
 				stockPrice = Fluctuation.stockPrices[i] * chosenShareAmount;
 				if(stockPrice > userBalance){
 					userBalance = userBalance - stockPrice;
-					containStocks(chosenStock);
+//					containStocks(chosenStock);
 					
 					if(userBalance <= 0){
 						userBalance += stockPrice;
@@ -86,7 +84,7 @@ public class Transaction {
 	}
 	
 	public void initAllObjects(List<Visible> visible) {
-		stocks = new ArrayList<String>();
+//		stocks = new ArrayList<String>();
 		
 	}
 //	public static void priceMatch(){
@@ -106,12 +104,12 @@ public class Transaction {
 		return -1;
 	}
 	
-	public String outputEvent(){
-		/**
-		 * Outputs the newest event for text about fluctuation in main screen
-		 */
-		return stocks.get(stocks.size()-1);
-	}
+//	public String outputEvent(){
+//		/**
+//		 * Outputs the newest event for text about fluctuation in main screen
+//		 */
+//		return stocks.get(stocks.size()-1);
+//	}
 	
 	
 	

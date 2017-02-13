@@ -14,7 +14,7 @@ import guiPractice8.component.TextLabel;
 import guiPractice8.component.Visible;
 
 /**
- * @author hotfi
+ * @author daniel
  *
  */
 public class DanielDemo extends GUIApplication {
@@ -65,9 +65,9 @@ public class DanielDemo extends GUIApplication {
 				
 				@Override
 				public void act() {
-					DanielDemo.transaction.outputEvent();
+//					DanielDemo.transaction.outputEvent();
 					actionDisplay.setText("You have a total balance of: "
-							+ DanielDemo.transaction.outputEvent());
+							);
 				}
 			});
 			view.add(actionDisplay);
