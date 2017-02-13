@@ -27,6 +27,21 @@ public class ThemedTextLabel extends TextLabel {
 		size = 20;
 		update();
 	}
+	
+	public void setText(String s){
+		this.text = s;
+		update();
+	}
+	
+	public void setSize(int size){
+		this.size = size;
+		update();
+	}
+	
+	public void setFont(String font){
+		this.font = font;
+		update();
+	}
 
 	public void update(Graphics2D g) {
 		g = clear(); // clears image and gets new graphics
