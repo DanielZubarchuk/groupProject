@@ -15,9 +15,6 @@ import stockMarket.StockMenu;
 
 
 public class GabrielDemo extends GUIApplication {
-	//put fields here from StockMenu to add things for project.
-	
-	public static StockMenu logo;
 	
 		public static GabrielDemo game;
 		
@@ -46,6 +43,17 @@ public class GabrielDemo extends GUIApplication {
 //nested inner class
 private class DemoScreen extends ClickableScreen{
 
+	/**
+	 * Checklist:
+	 * - Drop Down list
+	 * - Share number input
+	 * - Display events
+	 * - Buy/Sell buttons to work
+	 * - User Portfolio button to go to new Screen
+	 * - End Turn button to increased turn count by 1
+	 * - Fix bugs
+	 */
+
 	private ThemedTextLabel result;
 	private Graphic logo;
 	private ThemedTextLabel goal;
@@ -56,6 +64,8 @@ private class DemoScreen extends ClickableScreen{
 	private Button sell;
 	private Button user;
 	private Button end;
+	private int turncount;
+	private int goalcount;
 	
 	public DemoScreen(int width, int height) {
 		super(width, height);
@@ -66,22 +76,29 @@ private class DemoScreen extends ClickableScreen{
 	public void initAllObjects(List<Visible> view) {
 		
 		String[] stocks = { "Samsung","Blackgate", "Apple","Glascow","General Motors"};
+		result = new ThemedTextLabel(220, 50, 800, 25, "Choose an action.");
+		turncount = 0;
+		goalcount = 50000;
 		
-		result = new ThemedTextLabel(220, 150, 800, 25, "Choose an action.");
-		
-
 		background=new Graphic(0,0,getWidth(),getHeight(),"resources/images/moneybackground.jpg");
 		view.add(background);
 		
 		logo = new Graphic(40, 50, 90, 90, "resources/images/logo.png"); 
 		view.add(logo);
 		
-		buy = new Button(175, 220, 90, 40, "Buy", Color.green, new Action() {
+		turn = new ThemedTextLabel(510, 0, 90,90,"Turn " + turncount);
+		view.add(turn);
+		
+		goal = new ThemedTextLabel(470, 25, 200,90,"Goal:$" + goalcount);
+		view.add(goal);
+		
+		buy = new Button(175, 260, 90, 40, "Buy", Color.green, new Action() {
 			
 			@Override
 			public void act() {
 				result.setText("You bought a stock");
 				System.out.println("You bought a stock");
+			
 				//result.setText("You bought a stock");
 				
 				//rewardDisplay.setText("You earned a reward total points equals
@@ -94,7 +111,7 @@ private class DemoScreen extends ClickableScreen{
 		view.add(result);
 		//view.add(result);
 		
-		user = new Button(200, 270, 200, 40, "User Portfolio", Color.green, new Action() {
+		user = new Button(200, 305, 200, 40, "User Portfolio", Color.green, new Action() {
 			
 			@Override
 			public void act() {
@@ -111,7 +128,7 @@ private class DemoScreen extends ClickableScreen{
 		view.add(result);
 			
 			
-		sell = new Button(350, 220, 90, 40, "Sell", Color.green, new Action() {
+		sell = new Button(350, 260, 90, 40, "Sell", Color.green, new Action() {
 				
 				@Override
 				public void act() {
@@ -126,12 +143,13 @@ private class DemoScreen extends ClickableScreen{
 			view.add(sell);
 			view.add(result);
 			
-		end = new Button(250, 320, 100, 40, "End Turn", Color.green, new Action() {
+		end = new Button(250, 350, 100, 40, "End Turn", Color.green, new Action() {
 				
 				@Override
 				public void act() {
 					System.out.println("Turn ended.");
 					result.setText("Ending your turn");
+					turncount++;
 					//SamDemo.reward.getReward(18);
 					//rewardDisplay.setText("You earned a reward total points equals
 					// +"SamDemo.reward.getPoints());
@@ -140,6 +158,7 @@ private class DemoScreen extends ClickableScreen{
 			});
 			view.add(result);
 			view.add(end);
+			
 }
 }
 }

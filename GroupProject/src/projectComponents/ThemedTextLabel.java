@@ -23,7 +23,7 @@ public class ThemedTextLabel extends TextLabel {
 	public ThemedTextLabel(int x, int y, int w, int h, String text) {
 		super(x, y, w, h, text);
 		this.text = text;
-		font = "Papyrus";//yes
+		font = "Helvetica";//yes
 		size = 20;
 		update();
 	}
