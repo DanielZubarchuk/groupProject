@@ -6,12 +6,13 @@ package stockMarket;
 import java.util.ArrayList;
 
 import stackInterfaces.MarketInterface;
+import stackInterfaces.StockInterface;
 
 /**
  * @author hotfi
  *
  */
-public class Fluctuation implements MarketInterface{
+public class Fluctuation implements MarketInterface, StockInterface{
 
 	/**
 	 * FIELDS
@@ -44,7 +45,6 @@ public class Fluctuation implements MarketInterface{
 	 * set a queue of stocks that the user insta-sells/buys if
 	 * a certain stock value is reached. 
 	 * Maybe an arrayList to represent that queue.
-	 * Thought Bubble: Look at Moles and MoleInterface from WhackAMole
 	 * 
 	 *  boolean limitReached
 	 *  void buy
@@ -98,6 +98,24 @@ public class Fluctuation implements MarketInterface{
 		 * Outputs the newest event for text about fluctuation in main screen
 		 */
 		return events.get(events.size()-1);
+	}
+
+	@Override
+	public String getStockName(String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public double getStockPrice(double price) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public double getBalance() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }
