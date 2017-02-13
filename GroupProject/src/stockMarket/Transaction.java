@@ -20,7 +20,7 @@ public class Transaction {
 	private static String[] stockInventory = 
 		{}; 
 	
-	public static int userBalance = 5000000;
+	public static double userBalance = 5000000;
 	//private static boolean booleanStock;
 	
 	
@@ -42,9 +42,21 @@ public class Transaction {
 				print("Which stock do you want to buy?");
 				findStock();
 				print("How many shares of the Stock do you want to buy?");
-				stockPrice = Fluctuation.stockPrices[i];
-				
-				
+				stockPrice = Fluctuation.stockPrices[i] * chosenShareAmount;
+				if(stockPrice > userBalance){
+					userBalance = userBalance - stockPrice;
+					if(userBalance <= 0){
+						userBalance += stockPrice;
+						print("You do not have enough money!");
+						return;
+					}
+					if(userBalance == 0){
+						return;
+					}
+				}else{
+					print("You do not have enough money!");
+					return;
+				}	
 			}else{
 				print("You do not have money to buy stocks!"
 						+ " Try selling stocks to improve your balance.");
@@ -57,11 +69,11 @@ public class Transaction {
 
 	}
 	
-	public static void priceMatch(){
-		//helper method
-		
-		
-	}
+//	public static void priceMatch(){
+//		//helper method
+//		
+//		
+//	}
 	
 	public static int findStock(){
 		//helper method
@@ -72,6 +84,13 @@ public class Transaction {
 			}
 		}
 		return -1;
+	}
+	
+	public String outputEvent(){
+		/**
+		 * Outputs the newest event for text about fluctuation in main screen
+		 */
+		return events.get(events.size()-1);
 	}
 	
 //	public void initAllObjects(List<Visible> visible) {
