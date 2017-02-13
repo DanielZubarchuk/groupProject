@@ -29,7 +29,7 @@ public class AmountButton extends Button implements AmountButtonInterface {
 		showing = false;
 	}
 	public void setTrue(){
-		showing = false;
+		showing = true;
 	}
 
 }
