@@ -61,12 +61,12 @@ public class DanielDemo extends GUIApplication {
 		@Override
 		public void initAllObjects(List<Visible> view) {
 			actionDisplay = new TextLabel(20, 40, 800, 25, "");
-			buyAStock = new Button(40, 100, 190, 40, "Beat a monster", Color.blue, new Action() {
+			buyAStock = new Button(40, 100, 190, 40, "Buy a Stock", Color.blue, new Action() {
 				
 				@Override
 				public void act() {
 					DanielDemo.transaction.outputEvent();
-					actionDisplay.setText("You earned a reward! Total points = "
+					actionDisplay.setText("You have a total balance of: "
 							+ DanielDemo.transaction.outputEvent());
 				}
 			});

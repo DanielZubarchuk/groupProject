@@ -14,7 +14,7 @@ public class Transaction {
 	//here I will code my part without implementing your things. When the time is right, 
 	//I will fix up the code.
 	
-	private ArrayList<String> stocks;
+	private static ArrayList<String> stocks;
 	static Scanner input;
 	
 	private static String[] stockInventory = 
@@ -36,7 +36,7 @@ public class Transaction {
 		containStocks(stocks);
 	}
 
-	private void containStocks(Object stk) {
+	private static void containStocks(Object stk) {
 		stocks.add((String) stk);
 		
 		
