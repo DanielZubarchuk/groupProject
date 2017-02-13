@@ -24,5 +24,12 @@ public class AmountButton extends Button implements AmountButtonInterface {
 		// TODO Auto-generated method stub
 		return showing;
 	}
+	
+	public void setFalse(){
+		showing = false;
+	}
+	public void setTrue(){
+		showing = false;
+	}
 
 }
