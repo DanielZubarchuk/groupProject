@@ -45,16 +45,20 @@ private class DemoScreen extends ClickableScreen{
 
 	/**
 	 * Checklist:
-	 * - Drop Down list
-	 * - Share number input
 	 * - Display events
 	 * - Buy/Sell buttons to work
 	 * - User Portfolio button to go to new Screen
 	 * - End Turn button to increased turn count by 1
+	 * - Array of plus/minus buttons?? 
 	 * - Fix bugs
 	 */
 
 	private ThemedTextLabel result;
+	private ThemedTextLabel samsung;
+	private ThemedTextLabel blackgate;
+	private ThemedTextLabel apple;
+	private ThemedTextLabel glascow;
+	private ThemedTextLabel generalmotors;
 	private Graphic logo;
 	private ThemedTextLabel goal;
 	private ThemedTextLabel turn;
@@ -75,7 +79,7 @@ private class DemoScreen extends ClickableScreen{
 			@Override
 	public void initAllObjects(List<Visible> view) {
 		
-		String[] stocks = { "Samsung","Blackgate", "Apple","Glascow","General Motors"};
+		//String[] stocks = { "Samsung","Blackgate", "Apple","Glascow","General Motors"};
 		result = new ThemedTextLabel(220, 50, 800, 25, "Choose an action.");
 		turncount = 0;
 		goalcount = 50000;
@@ -92,6 +96,22 @@ private class DemoScreen extends ClickableScreen{
 		goal = new ThemedTextLabel(470, 25, 200,90,"Goal:$" + goalcount);
 		view.add(goal);
 		
+		samsung = new ThemedTextLabel(40, 90, 90, 90, "Samsung");
+		view.add(samsung);
+		
+		blackgate = new ThemedTextLabel(40, 110, 90, 90, "Blackgate");
+		view.add(blackgate);
+		
+		apple = new ThemedTextLabel(40, 130, 90, 90, "Apple");
+		view.add(apple);
+		
+		glascow = new ThemedTextLabel(40, 150, 90, 90, "Glascow");
+		view.add(glascow);
+		
+		generalmotors = new ThemedTextLabel(40, 170, 150, 90, "General Motors");
+		view.add(generalmotors);
+		
+		
 		buy = new Button(175, 260, 90, 40, "Buy", Color.green, new Action() {
 			
 			@Override
@@ -106,7 +126,6 @@ private class DemoScreen extends ClickableScreen{
 				
 			}
 		});
-		
 		view.add(buy);
 		view.add(result);
 		//view.add(result);
@@ -138,10 +157,10 @@ private class DemoScreen extends ClickableScreen{
 					// +"SamDemo.reward.getPoints());
 					
 				}
-			});
-			
-			view.add(sell);
-			view.add(result);
+		});
+		
+		view.add(sell);
+		view.add(result);
 			
 		end = new Button(250, 350, 100, 40, "End Turn", Color.green, new Action() {
 				
@@ -155,11 +174,12 @@ private class DemoScreen extends ClickableScreen{
 					// +"SamDemo.reward.getPoints());
 					
 				}
-			});
-			view.add(result);
-			view.add(end);
+		});
+		
+		view.add(result);
+		view.add(end);
 			
-}
-}
+	}
+	}
 }
 
