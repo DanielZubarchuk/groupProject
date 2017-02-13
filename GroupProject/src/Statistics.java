@@ -2,7 +2,7 @@
  * @author Katherine
  */
 
-public class Statistics {
+public class Statistics implements StatsInterface{
 	
 	public static int currentBalance;
 	public static int lifetimeEarnings;
@@ -51,6 +51,11 @@ public class Statistics {
 			property.setPayout(currentPayout*prctIncrease);
 		}	
 		
+	}
+
+	public int getMoney() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 	
 }
