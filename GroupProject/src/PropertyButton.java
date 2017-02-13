@@ -1,3 +1,7 @@
+/**
+ * @author Joey
+ */
+
 import java.awt.Color;
 
 import guiPractice8.component.Action;
