@@ -21,11 +21,13 @@ public class Transaction {
 		{}; 
 	
 	public static int userBalance = 5000000;
-	private static boolean booleanStock;
+	//private static boolean booleanStock;
 	
 	
 	private static int chosenShareAmount;
 	private static Object chosenStock;
+	private static int i;
+	private static double stockPrice;
 	
 	
 	
@@ -38,10 +40,10 @@ public class Transaction {
 		if(input.equals("Buy")){
 			if(userBalance > 0){
 				print("Which stock do you want to buy?");
-				if(booleanStock = true){
-					print("How many shares of the Stock do you want to buy?");
-					
-				}
+				findStock();
+				print("How many shares of the Stock do you want to buy?");
+				stockPrice = Fluctuation.stockPrices[i];
+				
 				
 			}else{
 				print("You do not have money to buy stocks!"
@@ -55,22 +57,21 @@ public class Transaction {
 
 	}
 	
-	public static void stockPriceMatch(){
+	public static void priceMatch(){
 		//helper method
+		
 		
 	}
 	
-	public static boolean findStock(){
+	public static int findStock(){
 		//helper method
+		
 		for(int i = 0;i < Fluctuation.stockNames.length; i++){
 			if(chosenStock.equals(Fluctuation.stockNames[i])){
-				booleanStock = true;
-				return booleanStock;
-			}else{
-				booleanStock = false;
+				return i;
 			}
 		}
-		return booleanStock;
+		return -1;
 	}
 	
 //	public void initAllObjects(List<Visible> visible) {
