@@ -26,10 +26,6 @@ public class PropertyButton extends Button implements PropertyButtonInterface{
 		return false;
 	}
 	
-	public void setQuantity(int x) {
-		this.quantity = x;
-	}
-	
 	public void setPrice(double x){
 		this.price = x;
 	}
@@ -38,13 +34,7 @@ public class PropertyButton extends Button implements PropertyButtonInterface{
 		this.payout = x;
 	}
 
-	public void setLevel(int x) {
-		this.level = x;
-	}
 	
-	public int getQuantity() {
-		return quantity;
-	}
 	
 	public double getPrice(){
 		return price;
@@ -54,8 +44,5 @@ public class PropertyButton extends Button implements PropertyButtonInterface{
 		return payout;
 	}
 
-	public int getLevel() {
-		return level;
-	}	
 
 }
