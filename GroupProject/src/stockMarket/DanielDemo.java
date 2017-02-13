@@ -19,12 +19,12 @@ import guiPractice8.component.Visible;
  */
 public class DanielDemo extends GUIApplication {
 
-	public static Fluctuation fluctuation;
+	public static Transaction transaction;
 	/**
 	 * 
 	 */
 	public DanielDemo() {
-		fluctuation = new Fluctuation();
+		transaction = new Transaction();
 	}
 
 	/* (non-Javadoc)
@@ -50,8 +50,8 @@ public class DanielDemo extends GUIApplication {
 	//nested inner class;
 	private class DemoScreen extends ClickableScreen{
 
-		private TextLabel rewardDisplay;
-		private Button beatAMonster;
+		private TextLabel actionDisplay;
+		private Button buyAStock;
 		
 		public DemoScreen(int width, int height) {
 			super(width, height);
@@ -60,18 +60,18 @@ public class DanielDemo extends GUIApplication {
 
 		@Override
 		public void initAllObjects(List<Visible> view) {
-			rewardDisplay = new TextLabel(20, 40, 800, 25, "");
-			beatAMonster = new Button(40, 100, 190, 40, "Beat a monster", Color.blue, new Action() {
+			actionDisplay = new TextLabel(20, 40, 800, 25, "");
+			buyAStock = new Button(40, 100, 190, 40, "Beat a monster", Color.blue, new Action() {
 				
 				@Override
 				public void act() {
-					VictorDemo.fluctuation.outputEvent();
-					rewardDisplay.setText("You earned a reward! Total points = "
-							+ DanielDemo.fluctuation.outputEvent());
+					DanielDemo.transaction.outputEvent();
+					actionDisplay.setText("You earned a reward! Total points = "
+							+ DanielDemo.transaction.outputEvent());
 				}
 			});
-			view.add(rewardDisplay);
-			view.add(beatAMonster);
+			view.add(actionDisplay);
+			view.add(buyAStock);
 		}
 		
 	}

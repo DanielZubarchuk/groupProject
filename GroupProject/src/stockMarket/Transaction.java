@@ -93,10 +93,13 @@ public class Transaction {
 		return events.get(events.size()-1);
 	}
 	
-//	public void initAllObjects(List<Visible> visible) {
-//		stocks = new ArrayList<DanielInterface>();
-//		
-//	}
+	public void initAllObjects(List<Visible> visible) {
+		stocks = new ArrayList<DanielInterface>();
+		
+	}
+	
+	
+	
 	
 	//Code that I probably won't need
 	
