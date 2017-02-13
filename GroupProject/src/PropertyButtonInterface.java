@@ -1,5 +1,5 @@
 public interface PropertyButtonInterface {
-	
+	 
 	public boolean isClicked();
 	public void setQuantity(int x);
 	public void setPrice(double x);

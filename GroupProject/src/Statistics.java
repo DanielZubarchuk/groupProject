@@ -11,7 +11,7 @@ public class Statistics {
 	//public PropertyButton[] properties;
 	
 	private static void main(String[] args){ 
-		
+		 
 		init(property);
 		while(property.isClicked()){
 			setNewPrice(property, );
