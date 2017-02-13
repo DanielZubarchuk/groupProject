@@ -12,7 +12,7 @@ import guiPractice.components.ClickableGraphic;
 import guiPractice.components.Graphic;
 import guiPractice.components.Visible;
 
-public class MainMenuScreen extends ClickableScreen implements MouseMotionListener, MouseListener{
+public class MainMenuScreen extends ClickableScreen implements MouseMotionListener, MouseListener, App{
 
 	private Button homeButton;
 	private ClickableGraphic stockGameLink;
@@ -83,6 +83,18 @@ public class MainMenuScreen extends ClickableScreen implements MouseMotionListen
 	@Override
 	public void mouseMoved(MouseEvent arg0) {
 		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public ClickableGraphic getGraphic() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setHomeButton(Button homeButton) {
+		this.homeButton = homeButton;
 		
 	}
 }
