@@ -9,40 +9,26 @@ import guiPractice8.component.Visible;
 import stackInterfaces.DanielInterface;
 
 public class Transaction {
-
-	//I am making this as a major template for the project,
-	//here I will code my part without implementing your things. When the time is right, 
-	//I will fix up the code.
 	
 	private static ArrayList<String> transactionHistory;
 	static Scanner input;
 	
-	
-	public static double userBalance = 5000000;
 	//private static boolean booleanStock;
-	
 	
 	private static int chosenShareAmount;
 	private static Object chosenStock;
 	private static int i;
 	private static double stockPrice;
 	
+	public static double userBalance = 50000;
+	public static String[] secondStocks = {"Blackgate","Apple","Samsung",
+			"Glascow","General Motors"};
+	public static double[] secondPrices = {100,78,90,120,111,87};
+	
 	
 	
 	public Transaction() {
-//		stocks = new ArrayList<String>();
-//		containStocks(stocks);
 	}
-
-//	private static void containStocks(Object stk) {
-//		stocks.add((String) stk);
-//		
-//		
-//		
-////		for(int j = 0; j < stocks.length; j++){
-////			
-////		}
-//	}
 
 	public static void main(String[] args) {
 		Transaction.print("Do you want to buy or sell?");
@@ -55,6 +41,7 @@ public class Transaction {
 				if(stockPrice > userBalance){
 					userBalance = userBalance - stockPrice;
 //					containStocks(chosenStock);
+					fillTransaction();
 					
 					if(userBalance <= 0){
 						userBalance += stockPrice;
@@ -83,15 +70,15 @@ public class Transaction {
 
 	}
 	
-	public void initAllObjects(List<Visible> visible) {
-//		stocks = new ArrayList<String>();
+	private static void fillTransaction() {
+		
 		
 	}
-//	public static void priceMatch(){
-//		//helper method
-//		
-//		
-//	}
+
+	public void initAllObjects(List<Visible> visible) {
+		transactionHistory = new ArrayList<String>();
+		
+	}
 	
 	public static int findStock(){
 		//helper method
