@@ -1,6 +1,10 @@
+/**
+ * @author Katherine
+ */
 
 public interface StatsInterface {
-	int getMoney();
+	
+	public int getMoney();
 	
 	
 }
