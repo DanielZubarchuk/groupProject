@@ -11,7 +11,7 @@ import guiPractice8.component.ClickableScreen;
 import guiPractice8.component.Visible;
 import projectComponents.ThemedTextLabel;
 import stackInterfaces.DanielInterface;
-import stackInterfaces.RisaInterface;
+import stackInterfaces.StockInterface;
 
 public class UserScreen extends ClickableScreen implements DanielInterface{
 
@@ -20,7 +20,7 @@ public class UserScreen extends ClickableScreen implements DanielInterface{
 	}
 
 	public static ArrayList<String> currentStocks;
-	public static ArrayList<RisaInterface> prevTransactions;
+	public static ArrayList<StockInterface> prevTransactions;
 	public static double balance;
 	
 	private Button backButton;

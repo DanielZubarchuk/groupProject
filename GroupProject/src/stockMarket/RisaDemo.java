@@ -14,10 +14,11 @@ import guiPractice8.component.ClickableScreen;
 import guiPractice8.component.Graphic;
 import guiPractice8.component.Visible;
 import projectComponents.ThemedTextLabel;
-import stackInterfaces.RisaInterface;
+import stackInterfaces.StockInterface;
+import stackInterfaces.StockInventory;
 
 /**
- * @author Student 6
+ * @author Risa
  *
  */
 public class RisaDemo extends GUIApplication {
@@ -25,12 +26,12 @@ public class RisaDemo extends GUIApplication {
 	public static UserScreen user;
 	
 	public static ArrayList<ArrayList<Object>> currentStocks;
-	public static ArrayList<RisaInterface> prevTransactions; //??????
+	public static ArrayList<StockInterface> prevTransactions; //??????
 	public static double balance;
 
 	public RisaDemo() {
 		currentStocks = new ArrayList<ArrayList<Object>>();
-		prevTransactions = new ArrayList<RisaInterface>();
+		prevTransactions = new ArrayList<StockInterface>();
 	}
 
 	/* (non-Javadoc)
@@ -60,6 +61,8 @@ public class RisaDemo extends GUIApplication {
 		private ThemedTextLabel stocksDisplay;
 		private ThemedTextLabel transactions;
 		
+		private StockInventory stockInventory;
+		
 		public DemoScreen(int width, int height) {
 			super(width, height);
 		}
@@ -83,8 +86,14 @@ public class RisaDemo extends GUIApplication {
 			balanceDisplay = new ThemedTextLabel(250, 70, 800, 25, "Balance: $" + balance);
 			viewObjects.add(balanceDisplay);
 			
+			//newStocks();
+			
 			stocksDisplay = new ThemedTextLabel(10, 100, 220, 25, "Current Stocks:");
 			viewObjects.add(stocksDisplay);
+			
+			stockInventory = new Transaction();
+			StockComponent stocks = new StockComponent(10, 140, 250, 25, stockInventory);
+			viewObjects.add(stocks);
 			
 			transactions = new ThemedTextLabel(10, 200, 220, 25, "Transaction History:");
 			viewObjects.add(transactions);
@@ -93,6 +102,13 @@ public class RisaDemo extends GUIApplication {
 		private void newStocks(){
 			//need Daniel's interface??
 			//if statement needed. only add the new stocks
+//			
+//			for(int i = 0; i < ; i++){
+//				for(int j = 0; j < ; j++){
+//					if()
+//				}
+//			}
+			
 			ArrayList<Object> temp = new ArrayList<Object>();
 			String name = "stock 1"; 
 			double price = 2.00;
