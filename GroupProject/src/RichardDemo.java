@@ -19,10 +19,6 @@ import guiPractice8.component.ClickableScreen;
 import guiPractice8.GUIApplication;
 
 /**
- * 
- */
-
-/**
  * @author Richard
  *
  */
@@ -173,61 +169,80 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 			viewObjects.add(xNumButton3);
 			viewObjects.add(mangerButton);
 			
-			addAnimation(viewObjects);
+//			addAnimation(viewObjects);
 		}
-
-		private void addAnimation(ArrayList<Visible> viewObjects) {
-			// TODO Auto-generated method stub
-			AnimatedComponent a = new AnimatedComponent(40,40,150,150);
-		}
-		
 	}
 
 	@Override
-	public void mouseClicked(MouseEvent arg0) {
+	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void mouseEntered(MouseEvent arg0) {
+	public void mouseEntered(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void mouseExited(MouseEvent arg0) {
+	public void mouseExited(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void mousePressed(MouseEvent arg0) {
+	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void mouseReleased(MouseEvent arg0) {
+	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void mouseDragged(MouseEvent arg0) {
+	public void mouseDragged(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void mouseMoved(MouseEvent arg0) {
+	public void mouseMoved(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
-	} 
-
-
-
-
-
-
+	}
 }
+
+//		private void addAnimation(List<Visible> viewObjects) {
+//			// TODO Auto-generated method stub
+//			AnimatedComponent a = new AnimatedComponent(40,40,150,150);
+//			try{
+//				int numberInRow = 7;
+//				int rows = 4;
+//				int w = 80;
+//				int h = 160;
+//				ImageIcon icon = new ImageIcon("resources/sampleImages/zanpto_sprite_sheet.png");
+//				//create a for loop that will take a "sub-length from the sprite grid
+//				for(int i = 0; i < numberInRow*rows; i++){
+//					//declare the "cropped image" 
+//					BufferedImage cropped = new BufferedImage(w,h,BufferedImage.TYPE_INT_ARGB);
+//					int leftMargin = 0;
+//					int topMargin = 0;
+//					int x1 = leftMargin + w*(i%numberInRow);
+//					int y1 = topMargin + h*(1/numberInRow);
+//					Graphics2D g = cropped.createGraphics();
+//					g.drawImage(icon.getImage(), 0, 0, w, h, x1, y1, x1 + w, y1 + h, null);
+//					a.addFrame(cropped, 120);
+//				}
+//			}
+//			catch(Exception e){
+//				e.printStackTrace();
+//			}
+//			viewObjects.add(a);
+//			a.play();
+//		}
+//		
+//	}
