@@ -53,10 +53,12 @@ public class RichardDemo extends GUIApplication {
 
 		private Button buyButton;
 		private Button xNumButton;
-		private Button mangerButton;
 		private Button xNumButton2;
-		private boolean button1Disabled;
-		private boolean button2Disabled;
+		private Button xNumButton3;
+		private Button mangerButton;
+		private boolean button1Disabled = true;
+		private boolean button2Disabled = true;
+		private boolean button3Disabled = false;
 		
 //		private TextLabel buyText;
 		
@@ -79,23 +81,59 @@ public class RichardDemo extends GUIApplication {
 
 				public void act() {
 					// TODO Auto-generated method stub
+					
+					if(button1Disabled == true){
+						System.out.println("button 1 is " + button1Disabled);
+						
+						return;
+					}
+					else{
 						System.out.println(xthing);
-						moveToBack(xNumButton);
+						button3Disabled = !button3Disabled;
 						button1Disabled = !button1Disabled;
+						moveToBack(xNumButton);
+						moveToBack(xNumButton);
+						}
 					}
 				});
-			xNumButton2 = new Button(200, 50, 150, 100, " X 2" + xthing, new Color(255,255,0), new Action(){
+			xNumButton2 = new Button(150, 60, 150, 100, " X 2" + xthing, new Color(255,255,0), new Action(){
 
 				public void act() {
 					// TODO Auto-generated method stub
-						
-					System.out.println("klegjielg");
-						moveToBack(xNumButton2);
-						button2Disabled = !button2Disabled;
+					if(button2Disabled == true){
+						System.out.println("button 2 is " + button2Disabled);
+						return;
 					}
+					else{
+					System.out.println("klegjielg");
+					button1Disabled = !button1Disabled;
+					button2Disabled = !button2Disabled;
+						moveToBack(xNumButton2);
+						moveToBack(xNumButton2);
+						
+					}
+				}
 				});
-			viewObjects.add(xNumButton2);
+			xNumButton3 = new Button(200, 70, 150, 100, " X 3" + xthing, new Color(255,255,0), new Action(){
+
+				public void act() {
+					// TODO Auto-generated method stub
+					if(button3Disabled == true){
+						System.out.println("button 3 is " + button2Disabled);
+						return;
+					}
+					else{
+					System.out.println("rtyeryer");
+					button2Disabled = !button2Disabled;
+					button3Disabled = !button3Disabled;
+						moveToBack(xNumButton3);
+						moveToBack(xNumButton3);
+					}
+				}
+				});
 			viewObjects.add(xNumButton);
+			viewObjects.add(xNumButton2);
+			viewObjects.add(xNumButton3);
 		}
 		
 	} 
