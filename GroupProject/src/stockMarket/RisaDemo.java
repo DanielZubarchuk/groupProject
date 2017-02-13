@@ -57,6 +57,8 @@ public class RisaDemo extends GUIApplication {
 		private ThemedTextLabel balanceDisplay;
 		private Button backButton;
 		private Graphic background;
+		private ThemedTextLabel stocksDisplay;
+		private ThemedTextLabel transactions;
 		
 		public DemoScreen(int width, int height) {
 			super(width, height);
@@ -81,11 +83,14 @@ public class RisaDemo extends GUIApplication {
 			balanceDisplay = new ThemedTextLabel(250, 70, 800, 25, "Balance: $" + balance);
 			viewObjects.add(balanceDisplay);
 			
-			currentStocks.add(newStocks());
+			stocksDisplay = new ThemedTextLabel(10, 100, 220, 25, "Current Stocks:");
+			viewObjects.add(stocksDisplay);
 			
+			transactions = new ThemedTextLabel(10, 200, 220, 25, "Transaction History:");
+			viewObjects.add(transactions);
 		}
 		
-		private ArrayList<Object> newStocks(){
+		private void newStocks(){
 			//need Daniel's interface??
 			//if statement needed. only add the new stocks
 			ArrayList<Object> temp = new ArrayList<Object>();
@@ -94,7 +99,11 @@ public class RisaDemo extends GUIApplication {
 			temp.add(name);
 			temp.add(price);
 			
-			return temp;
+			currentStocks.add(temp);
+		}
+		
+		private void transactionHistory(){
+			
 		}
 		
 	}
