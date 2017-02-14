@@ -53,6 +53,7 @@ public class VictorDemo extends GUIApplication {
 
 		private ThemedTextLabel eventDisplay;
 		private Button updateStock;
+		private Button eventHistory;
 		private Graphic background;
 		
 		public DemoScreen(int width, int height) {
@@ -76,9 +77,18 @@ public class VictorDemo extends GUIApplication {
 					VictorDemo.fluctuation.updateStock();
 				}
 			});
+			eventHistory = new Button(290,100 , 250, 40, "Event History", Color.green, new Action() {
+				
+				@Override
+				public void act() {
+					// show the event history as a toggle 
+					
+				}
+			});
 			view.add(background);
 			view.add(eventDisplay);
 			view.add(updateStock);
+			view.add(eventHistory);
 		}
 		
 	}
