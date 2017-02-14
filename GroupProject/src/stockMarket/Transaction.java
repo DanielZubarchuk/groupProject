@@ -37,43 +37,38 @@ public class Transaction implements StockInventory{
 
 	public static void main(String[] args) {
 		//System.out.println("Do you want to buy or sell?");
-		if(choiceSelection.equals("Buy")){
-			if(userBalance > 0){
-				//System.out.println("Which stock do you want to buy?");
-				findStock();
-				//System.out.println("How many shares of the Stock do you want to buy?");
-				stockPrice = Fluctuation.stockPrices[i] * chosenShareAmount;
-				if(stockPrice > userBalance){
-					userBalance = userBalance - stockPrice;
-//					containStocks(chosenStock);
-					fillStock(chosenStock);
-					fillPrices(stockPrice);
-					
-					if(userBalance <= 0){
-						userBalance += stockPrice;
-						//System.out.println("You do not have enough money!");
-						return;
-					}
-					if(userBalance == 0){
-						return;
-					}
-				}else{
-					//System.out.println("You do not have enough money!");
-					return;
-				}	
-			}else{
-				//System.out.println("You do not have money to buy stocks!"
-						//+ " Try selling stocks to improve your balance.");
-				return;
-			}
-		}
-		if(choiceSelection.equals("Sell")){
-			//System.out.println("Which stock do you want to sell?");
-			findStock();
-			//System.out.println("How many shares of the Stock do you want to sell?");
-			userBalance = (Fluctuation.stockPrices[i] * chosenShareAmount) + userBalance;
-		}
+		
 
+	}
+	
+	public static void buyAStock(){
+		if(userBalance > 0){
+			findStock();
+			stockPrice = Fluctuation.stockPrices[i] * chosenShareAmount;
+			if(stockPrice > userBalance){
+				userBalance = userBalance - stockPrice;
+//				containStocks(chosenStock);
+				fillStock(chosenStock);
+				fillPrices(stockPrice);
+				
+				if(userBalance <= 0){
+					userBalance += stockPrice;
+					return;
+				}
+				if(userBalance == 0){
+					return;
+				}
+			}else{
+				return;
+			}	
+		}else{
+			return;
+		}
+	}
+	
+	public static void sellAStock(){
+		findStock();
+		userBalance = (Fluctuation.stockPrices[i] * chosenShareAmount) + userBalance;
 	}
 	
 	private static void fillStock(String stk) {
@@ -99,6 +94,10 @@ public class Transaction implements StockInventory{
 		}
 		return -1;
 	}
+	
+//	public static void makeDialogue(){
+//		for()
+//	}
 
 	@Override
 	public ArrayList<StockInterface> getStocks() {
