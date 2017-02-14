@@ -27,6 +27,7 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 	public static RichardDemo demos;
 	public static RichardDemo2 demo2;
 	public static RichardDemo3 demo3;
+	private TextLabel reset;
 	public static Screen demo;
 	private static int xthing = 1;
 	/**
@@ -110,6 +111,8 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 			background = new Graphic(1,1,1.0,"Resources/background/cfafa34141.png");
 			iconleft = new Graphic(56,220,1.0, "Resources/icon/dbjhasdfjndfm.jpg");
 			
+			reset = new TextLabel(50, 540, 800, 25, " ");
+			
 			xNumButton = new Button(800, 40, 100, 50, " X 1", new Color(255,255,0), new Action(){
 
 				public void act() {
@@ -183,6 +186,12 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 				}
 			});
 			
+			restartButton = new Button(50, 470, 150, 40, "restart*", new Color(255,255,0), new Action(){
+				public void act(){
+					reset.setText("You have reseted");
+					
+				}
+			});
 			viewObjects.add(background);
 			viewObjects.add(iconleft);
 			
@@ -191,6 +200,9 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 			viewObjects.add(xNumButton3);
 			viewObjects.add(mangerButton);
 			viewObjects.add(statsButton);
+			viewObjects.add(restartButton);
+			
+			viewObjects.add(reset);
 			
 //			addAnimation(viewObjects);
 		}
@@ -237,35 +249,34 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 		// TODO Auto-generated method stub
 		
 	}
+//	private void addAnimation(List<Visible> viewObjects) {
+//		// TODO Auto-generated method stub
+//		AnimatedComponent a = new AnimatedComponent(40,40,150,150);
+//		try{
+//			int numberInRow = 7;
+//			int rows = 4;
+//			int w = 80;
+//			int h = 160;
+//			ImageIcon icon = new ImageIcon("resources/sampleImages/zanpto_sprite_sheet.png");
+//			//create a for loop that will take a "sub-length from the sprite grid
+//			for(int i = 0; i < numberInRow*rows; i++){
+//				//declare the "cropped image" 
+//				BufferedImage cropped = new BufferedImage(w,h,BufferedImage.TYPE_INT_ARGB);
+//				int leftMargin = 0;
+//				int topMargin = 0;
+//				int x1 = leftMargin + w*(i%numberInRow);
+//				int y1 = topMargin + h*(1/numberInRow);
+//				Graphics2D g = cropped.createGraphics();
+//				g.drawImage(icon.getImage(), 0, 0, w, h, x1, y1, x1 + w, y1 + h, null);
+//				a.addFrame(cropped, 120);
+//			}
+//		}
+//		catch(Exception e){
+//			e.printStackTrace();
+//		}
+//		viewObjects.add(a);
+//		a.play();
+//	}
+	
 }
 
-//		private void addAnimation(List<Visible> viewObjects) {
-//			// TODO Auto-generated method stub
-//			AnimatedComponent a = new AnimatedComponent(40,40,150,150);
-//			try{
-//				int numberInRow = 7;
-//				int rows = 4;
-//				int w = 80;
-//				int h = 160;
-//				ImageIcon icon = new ImageIcon("resources/sampleImages/zanpto_sprite_sheet.png");
-//				//create a for loop that will take a "sub-length from the sprite grid
-//				for(int i = 0; i < numberInRow*rows; i++){
-//					//declare the "cropped image" 
-//					BufferedImage cropped = new BufferedImage(w,h,BufferedImage.TYPE_INT_ARGB);
-//					int leftMargin = 0;
-//					int topMargin = 0;
-//					int x1 = leftMargin + w*(i%numberInRow);
-//					int y1 = topMargin + h*(1/numberInRow);
-//					Graphics2D g = cropped.createGraphics();
-//					g.drawImage(icon.getImage(), 0, 0, w, h, x1, y1, x1 + w, y1 + h, null);
-//					a.addFrame(cropped, 120);
-//				}
-//			}
-//			catch(Exception e){
-//				e.printStackTrace();
-//			}
-//			viewObjects.add(a);
-//			a.play();
-//		}
-//		
-//	}
