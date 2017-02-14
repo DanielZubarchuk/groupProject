@@ -32,11 +32,10 @@ public class Fluctuation implements MarketInterface, StockInterface{
 	private static final int _RECESSION = 1;
 	private static final int _STABILITY = 2;
 	private static final int _PROGRESS = 3;
-	private static final int _FORTUNE = 4;
 	
 	public Fluctuation() {
 		events = new ArrayList<String>();
-		fillEvents();
+		updateStock();
 	}
 	
 	/**
@@ -55,9 +54,12 @@ public class Fluctuation implements MarketInterface, StockInterface{
 		/**
 		 * Each time BUY/SELL is clicked, the anonymous inner class (act) should call this method to update the stocks.
 		 */
-		fillEvents();
-		
 		eventStock = (int) (Math.random()*stockNames.length-1);
+		fillEvents();
+			
+		if((int)(stockPrices[eventStock]) == _BANKRUPT){
+			reviveStock(eventStock);
+		}
 		double effect = currentEvent/2;
 		double newGrowth = stockGrowths[eventStock] * effect;
 		double newPrice = stockPrices[eventStock] * newGrowth;
@@ -67,27 +69,25 @@ public class Fluctuation implements MarketInterface, StockInterface{
 		
 	}
 	
+	private void reviveStock(int index) {
+		stockPrices[eventStock] = 70;
+		stockGrowths[eventStock] = 1.0; 
+		
+	}
+
 	public void fillEvents(){
 		
-		int randomEvent = (int) (Math.random()*5);
+		int randomEvent = (int) (Math.random()*3 + 1);
 		currentEvent = (double) (randomEvent);
-		
-		if(randomEvent == _BANKRUPT){
-			events.add("BANKRUPT");
+			
+		if(randomEvent == _RECESSION){
+			events.add("RECESSION");
 		}else{
-			if(randomEvent == _RECESSION){
-				events.add("RECESSION");
+			if(randomEvent == _STABILITY){
+				events.add("STABILITY");
 			}else{
-				if(randomEvent == _STABILITY){
-					events.add("STABILITY");
-				}else{
-					if(randomEvent == _PROGRESS){
-						events.add("PROGRESS");
-					}else{
-						if(randomEvent == _FORTUNE){
-							events.add("FORTUNE");
-						}
-					}
+				if(randomEvent == _PROGRESS){
+					events.add("PROGRESS");
 				}
 			}
 		}

@@ -65,12 +65,11 @@ public class VictorDemo extends GUIApplication {
 				
 				@Override
 				public void act() {
-					eventDisplay.setText("Current state of " + VictorDemo.fluctuation.stockNames[VictorDemo.fluctuation.eventStock] 
+					eventDisplay.setText("Current state of " + Fluctuation.stockNames[VictorDemo.fluctuation.eventStock] 
 							+ ": "
 							+ VictorDemo.fluctuation.outputEvent() 
-							+ "(" + VictorDemo.fluctuation.stockGrowths[VictorDemo.fluctuation.eventStock]
-							+ " )");
-					VictorDemo.fluctuation.fillEvents();
+							+ "(" + String.format( "%.2f", Fluctuation.stockGrowths[VictorDemo.fluctuation.eventStock] )
+							+ " )" + String.format( "%.2f", Fluctuation.stockPrices[VictorDemo.fluctuation.eventStock] ));
 					VictorDemo.fluctuation.updateStock();
 				}
 			});
