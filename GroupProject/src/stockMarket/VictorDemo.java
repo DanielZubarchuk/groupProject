@@ -58,7 +58,6 @@ public class VictorDemo extends GUIApplication {
 		private Button eventHistory;
 		private Graphic background;
 		private Graphic logo;
-		private Graphics2D g;
 		
 		public DemoScreen(int width, int height) {
 			super(width, height);
@@ -68,7 +67,7 @@ public class VictorDemo extends GUIApplication {
 		@Override
 		public void initAllObjects(List<Visible> view) {
 			eventDisplay = new ThemedTextLabel(40, 150, 800, 25, "");
-			background = new Graphic(0,0,getWidth(),getHeight(),"resources/images/moneybackground.jpg");
+			background = new Graphic(0,0,getWidth(),getHeight(),"resources/images/newmoneybackground.png");
 			logo = new Graphic(40, 50, 90, 90, "resources/images/logo.png"); 
 			updateStock = new Button(40, 200, 190, 40, "Update Stock", Color.blue, new Action() {
 				
@@ -96,13 +95,6 @@ public class VictorDemo extends GUIApplication {
 			view.add(eventHistory);
 			view.add(logo);
 		}
-		
-//		public void update(){
-//			g = image.createGraphics();
-//			g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-//			g.setColor(Color.green);
-//			g.drawRect(20, 150, 800, 25);
-//		}
 		
 	}
 
