@@ -49,8 +49,8 @@ private class DemoScreen extends ClickableScreen{
 	 * - Display events
 	 * - Buy/Sell buttons to work
 	 * - User Portfolio button to go to new Screen
-	 * - End Turn button to increased turn count by 1
 	 * - Array of plus/minus buttons?? 
+	 * - Create interface
 	 * - Fix bugs
 	 */
 
@@ -77,12 +77,6 @@ private class DemoScreen extends ClickableScreen{
 		super(width, height);
 				
 	}
-	
-	//public void createRectangle (Graphics g) {    
-	//	g.drawRect(30, 70, 170, 170);    //can use either of the two//
-	 //   g.fillRect(30, 70, 170, 170);
-	 //   g.setColor(Color.green);
-	//}
 	
 	@Override
 	public void initAllObjects(List<Visible> view) {
