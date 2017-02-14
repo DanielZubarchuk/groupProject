@@ -17,7 +17,7 @@ import guiPractice8.component.Visible;
 import projectComponents.ThemedTextLabel;
 
 /**
- * @author daniel
+ * @author Daniel
  *
  */
 public class DanielDemo extends GUIApplication {
