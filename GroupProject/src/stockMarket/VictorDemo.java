@@ -4,6 +4,8 @@
 package stockMarket;
 
 import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.RenderingHints;
 import java.util.List;
 
 import guiPractice8.GUIApplication;
@@ -56,6 +58,7 @@ public class VictorDemo extends GUIApplication {
 		private Button eventHistory;
 		private Graphic background;
 		private Graphic logo;
+		private Graphics2D g;
 		
 		public DemoScreen(int width, int height) {
 			super(width, height);
@@ -93,6 +96,13 @@ public class VictorDemo extends GUIApplication {
 			view.add(eventHistory);
 			view.add(logo);
 		}
+		
+//		public void update(){
+//			Graphics2D g = image.createGraphics();
+//			g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+//			g.setColor(Color.green);
+//			g.drawRect(20, 150, 800, 25);
+//		}
 		
 	}
 
