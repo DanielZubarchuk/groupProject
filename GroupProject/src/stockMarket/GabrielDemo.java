@@ -180,6 +180,7 @@ private class DemoScreen extends ClickableScreen{
 					System.out.println("Turn ended.");
 					result.setText("Ending your turn");
 					turncount++;
+					turn.setText("Turn " + turncount); 
 					//SamDemo.reward.getReward(18);
 					//rewardDisplay.setText("You earned a reward total points equals
 					// +"SamDemo.reward.getPoints());
