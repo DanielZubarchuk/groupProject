@@ -52,10 +52,8 @@ private class DemoScreen extends ClickableScreen{
 	 * Checklist:
 	 * - Display events
 	 * - Buy/Sell buttons to work
-	 * - User Portfolio button to go to new Screen
 	 * - Array of plus/minus buttons?? 
 	 * - Create interface
-	 * - Fix bugs
 	 */
 
 	private ThemedTextLabel result;
