@@ -10,6 +10,7 @@ import guiPractice8.GUIApplication;
 import guiPractice8.component.Action;
 import guiPractice8.component.Button;
 import guiPractice8.component.ClickableScreen;
+import guiPractice8.component.Graphic;
 import guiPractice8.component.TextLabel;
 import guiPractice8.component.Visible;
 
@@ -52,6 +53,7 @@ public class DanielDemo extends GUIApplication {
 
 		private TextLabel actionDisplay;
 		private Button buyAStock;
+		private Graphic rectangle;
 		
 		public DemoScreen(int width, int height) {
 			super(width, height);
@@ -71,6 +73,9 @@ public class DanielDemo extends GUIApplication {
 			});
 			view.add(actionDisplay);
 			view.add(buyAStock);
+			
+			rectangle = new Graphic(40, 100, 190, 40,"resources/images/greenrect.png");
+			view.add(rectangle);
 		}
 		
 	}
