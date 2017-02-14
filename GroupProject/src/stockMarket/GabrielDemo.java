@@ -62,6 +62,26 @@ private class DemoScreen extends ClickableScreen{
 	private ThemedTextLabel apple;
 	private ThemedTextLabel glascow;
 	private ThemedTextLabel generalmotors;
+	private int share1;
+	private int share2;
+	private int share3;
+	private int share4;
+	private int share5;
+	private ThemedTextLabel s1;
+	private ThemedTextLabel s2;
+	private ThemedTextLabel s3;
+	private ThemedTextLabel s4;
+	private ThemedTextLabel s5;
+	private Button plus1;
+	private Button plus2;
+	private Button plus3;
+	private Button plus4;
+	private Button plus5;
+	private Button minus1;
+	private Button minus2;
+	private Button minus3;
+	private Button minus4;
+	private Button minus5;
 	private Graphic logo;
 	private ThemedTextLabel goal;
 	private ThemedTextLabel turn;
@@ -85,6 +105,11 @@ private class DemoScreen extends ClickableScreen{
 		
 		//String[] stocks = { "Samsung","Blackgate", "Apple","Glascow","General Motors"};
 		result = new ThemedTextLabel(220, 50, 800, 25, "Choose an action.");
+		share1 = 0;
+		share2 = 0;
+		share3 = 0;
+		share4 = 0;
+		share5 = 0;
 		turncount = 0;
 		goalcount = 50000;
 		
@@ -105,6 +130,24 @@ private class DemoScreen extends ClickableScreen{
 				
 		samsung = new ThemedTextLabel(40, 80, 90, 90, "Samsung");
 		view.add(samsung);
+		s1 = new ThemedTextLabel(160,80,90,90,Integer.toString(share1));
+		view.add(s1);
+		plus1 = new Button(185,148,25,20,"+",Color.green, new Action() {
+			@Override
+			public void act() {
+				share1++;
+				s1.setText(Integer.toString(share1));
+			}
+		});
+		view.add(plus1);
+		minus1 = new Button(135,148,25,20,"-",Color.green, new Action() {
+			@Override
+			public void act() {
+				share1--;
+				s1.setText(Integer.toString(share1));
+			}
+		});
+		view.add(minus1);
 		
 		blackgate = new ThemedTextLabel(40, 100, 90, 90, "Blackgate");
 		view.add(blackgate);
@@ -174,7 +217,7 @@ private class DemoScreen extends ClickableScreen{
 				@Override
 				public void act() {
 					System.out.println("Turn ended.");
-					result.setText("Ending your turn");
+					result.setText("Turn ended.");
 					turncount++;
 					turn.setText("Turn " + turncount); 
 					//SamDemo.reward.getReward(18);
