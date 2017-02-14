@@ -58,6 +58,7 @@ public class VictorDemo extends GUIApplication {
 		private Button eventHistory;
 		private Graphic background;
 		private Graphic logo;
+		private ThemedTextLabel historyDisplay;
 		
 		public DemoScreen(int width, int height) {
 			super(width, height);
@@ -69,8 +70,8 @@ public class VictorDemo extends GUIApplication {
 			eventDisplay = new ThemedTextLabel(40, 150, 800, 25, "");
 			background = new Graphic(0,0,getWidth(),getHeight(),"resources/images/newmoneybackground.png");
 			logo = new Graphic(40, 50, 90, 90, "resources/images/logo.png"); 
+			historyDisplay = new ThemedTextLabel(40, 250, getWidth() - 50, 100,"");	
 			updateStock = new Button(40, 200, 190, 40, "Update Stock", Color.blue, new Action() {
-				
 				@Override
 				public void act() {
 					eventDisplay.setText("Current state of " + Fluctuation.stockNames[VictorDemo.fluctuation.eventStock] 
@@ -86,6 +87,7 @@ public class VictorDemo extends GUIApplication {
 				@Override
 				public void act() {
 					// show the event history as a toggle 
+					
 					
 				}
 			});
