@@ -1,5 +1,5 @@
 /**
- * @author Katherine
+ * @author Joey and Richard
  */
 
 public interface StatsInterface {
