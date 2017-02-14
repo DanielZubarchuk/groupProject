@@ -10,8 +10,9 @@ import guiPractice8.GUIApplication;
 import guiPractice8.component.Action;
 import guiPractice8.component.Button;
 import guiPractice8.component.ClickableScreen;
-import guiPractice8.component.TextLabel;
+import guiPractice8.component.Graphic;
 import guiPractice8.component.Visible;
+import projectComponents.ThemedTextLabel;
 
 /**
  * @author hotfi
@@ -50,8 +51,9 @@ public class VictorDemo extends GUIApplication {
 	//nested inner class;
 	private class DemoScreen extends ClickableScreen{
 
-		private TextLabel eventDisplay;
+		private ThemedTextLabel eventDisplay;
 		private Button updateStock;
+		private Graphic background;
 		
 		public DemoScreen(int width, int height) {
 			super(width, height);
@@ -60,7 +62,8 @@ public class VictorDemo extends GUIApplication {
 
 		@Override
 		public void initAllObjects(List<Visible> view) {
-			eventDisplay = new TextLabel(20, 40, 800, 25, "");
+			eventDisplay = new ThemedTextLabel(20, 40, 800, 25, "");
+			background = new Graphic(0,0,getWidth(),getHeight(),"resources/images/moneybackground.jpg");
 			updateStock = new Button(40, 100, 190, 40, "Update Stock", Color.blue, new Action() {
 				
 				@Override
@@ -73,6 +76,7 @@ public class VictorDemo extends GUIApplication {
 					VictorDemo.fluctuation.updateStock();
 				}
 			});
+			view.add(background);
 			view.add(eventDisplay);
 			view.add(updateStock);
 		}
