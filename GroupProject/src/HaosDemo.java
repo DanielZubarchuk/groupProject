@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import guiPractice.ClickableScreen;
 import guiPractice.GUIApplication;
 import guiPractice.Screen;
+import guiPractice.TextLabel;
 import guiPractice.components.Action;
 import guiPractice.components.Button;
 import guiPractice.components.ClickableGraphic;
@@ -54,6 +55,7 @@ public class HaosDemo extends GUIApplication{
 
 		private Button homeButton;
 		private ClickableGraphic testAppLink;
+		private TextLabel test;
 		
 		public DemoScreen(int width, int height) {
 			super(width, height);
@@ -62,7 +64,7 @@ public class HaosDemo extends GUIApplication{
 		}
 		
 		public void initAllObjects(ArrayList<Visible> view){
-			testAppLink = new ClickableGraphic((int) (getWidth()/3 - 87.5), getHeight()/2 - 50, .5, "resources/sampleImages/testAppIcon.jpg");
+			testAppLink = new ClickableGraphic((int) (getWidth()/2 - 43.75), getHeight()/2 - 50, .5, "resources/sampleImages/testAppIcon.jpg");
 			testAppLink.setAction(new Action() {
 				public void act(){
 					HaosDemo.demos.setScreen(HaosDemo.test);
@@ -73,8 +75,10 @@ public class HaosDemo extends GUIApplication{
 					HaosDemo.demos.setScreen(HaosDemo.demo);
 				}
 			});
+			test = new TextLabel(getWidth()/2 - 200, getHeight()/3, 760, 40, "Click the black icon to go to the Sample Screen");
 			view.add(testAppLink);
 			view.add(homeButton);
+			view.add(test);
 		}
 		
 	}

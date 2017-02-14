@@ -16,6 +16,7 @@ public class SampleScreen extends ClickableScreen implements App, MouseMotionLis
 
 	private Button homeButton;
 	private TextLabel sample;
+	private TextLabel sample2;
 	
 	public SampleScreen(int width, int height) {
 		super(width, height);
@@ -39,9 +40,12 @@ public class SampleScreen extends ClickableScreen implements App, MouseMotionLis
 				HaosDemo.demos.setScreen(HaosDemo.demo);
 			}
 		});
-		sample = new TextLabel(getWidth()/2 - 125, getHeight()/2, 760, 40, "This is the Sample Screen");
+		sample = new TextLabel(getWidth()/2 - 125, getHeight()/3, 760, 40, "This is the Sample Screen");
+		sample2 = new TextLabel(getWidth()/2 - 150, getHeight()/2, 760, 40, "Click the home button to go back");
+
 		view.add(homeButton);
 		view.add(sample);
+		view.add(sample2);
 	}
 	public void mouseClicked(MouseEvent e) {
 		  if(homeButton.isHovered(e.getX(), e.getY())){
