@@ -10,11 +10,8 @@ import guiPractice8.GUIApplication;
 import guiPractice8.component.Action;
 import guiPractice8.component.Button;
 import guiPractice8.component.ClickableScreen;
-<<<<<<< HEAD
 import guiPractice8.component.TextArea;
-=======
 import guiPractice8.component.Graphic;
->>>>>>> branch 'stockTeam' of https://github.com/DanielZubarchuk/groupProject
 import guiPractice8.component.TextLabel;
 import guiPractice8.component.Visible;
 
@@ -72,7 +69,7 @@ public class DanielDemo extends GUIApplication {
 				@Override
 				public void act() {
 //					DanielDemo.transaction.outputEvent();
-					actionDisplay.setText(title);
+					//actionDisplay.setText(title);
 			}
 			});
 			view.add(actionDisplay);
