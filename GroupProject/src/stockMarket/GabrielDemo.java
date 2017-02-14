@@ -18,6 +18,7 @@ import stockMarket.StockMenu;
 public class GabrielDemo extends GUIApplication {
 	
 		public static GabrielDemo game;
+		public static GabrielDemoInventoryScreen inventoryDemo;
 		
 		public GabrielDemo() {
 			
@@ -28,6 +29,7 @@ public class GabrielDemo extends GUIApplication {
 		protected void initScreen() {
 			// for screens of phone and games
 			DemoScreen demo = new DemoScreen(getWidth(), getHeight());
+			inventoryDemo = new GabrielDemoInventoryScreen();
 			setScreen(demo);
 		}
 
@@ -71,7 +73,7 @@ private class DemoScreen extends ClickableScreen{
 	private Button end;
 	private int turncount;
 	private int goalcount;
-	private Graphic stockRect;
+	//private Graphic stockRect;
 	
 	public DemoScreen(int width, int height) {
 		super(width, height);
@@ -86,7 +88,7 @@ private class DemoScreen extends ClickableScreen{
 		turncount = 0;
 		goalcount = 50000;
 		
-		background=new Graphic(0,0,getWidth(),getHeight(),"resources/images/moneybackground.jpg");
+		background=new Graphic(0,0,getWidth(),getHeight(),"resources/images/newmoneybackground.png");
 		view.add(background);
 		
 		logo = new Graphic(40, 50, 90, 90, "resources/images/logo.png"); 
@@ -98,8 +100,8 @@ private class DemoScreen extends ClickableScreen{
 		goal = new ThemedTextLabel(470, 25, 200,90,"Goal:$" + goalcount);
 		view.add(goal);
 		
-		stockRect = new Graphic(30, 145, 170, 110, "resources/images/greenrect.png");
-		view.add(stockRect);
+		//stockRect = new Graphic(30, 145, 170, 110, "resources/images/greenrect.png");
+		//view.add(stockRect);
 				
 		samsung = new ThemedTextLabel(40, 80, 90, 90, "Samsung");
 		view.add(samsung);
