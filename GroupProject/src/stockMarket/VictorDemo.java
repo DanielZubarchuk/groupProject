@@ -92,7 +92,8 @@ public class VictorDemo extends GUIApplication {
 				
 				@Override
 				public void act() {
-					historyDisplay.setText("Hello" + "\n" + "World");
+					//each line should be another element in eventHistory
+					historyDisplay.setText("");
 					
 					
 				}
