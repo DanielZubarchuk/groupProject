@@ -26,6 +26,7 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 
 	public static RichardDemo demos;
 	public static RichardDemo2 demo2;
+	public static RichardDemo3 demo3;
 	public static Screen demo;
 	private static int xthing = 1;
 	/**
@@ -40,8 +41,9 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 	 */
 	@Override
 	protected void initScreen() {
-		demo2 = new RichardDemo2(getWidth(), getHeight());
-		demo = new DemoScreen(getWidth(), getHeight());
+		demo3 = new RichardDemo3(1000, 600);
+		demo2 = new RichardDemo2(1000, 600);
+		demo = new DemoScreen(1000, 600);
 		setScreen(demo);
 	}
 
@@ -68,11 +70,13 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 		private Button mangerButton;//made
 		//same thing as manager button(new screen)
 		private Button statsButton;
-		private Button restartButton;
+		private Button restartButton;	
 		
+		private Graphic iconleft;
+		private Graphic background;
 		private Graphic lemon;
 		private Graphic newspaper;
-		private Graphic carWash;
+		private Graphic carwash;
 		private Graphic pizza;
 		private Graphic donut;
 		private Graphic shrimp;
@@ -94,16 +98,19 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 		@Override
 		public void initAllObjects(List<Visible> viewObjects) {
 			// TODO Auto-generated method stub
-			int numberOfBB = 8;
-			int numberOfXNB = 1;
-			int numberOfMB = 1;
+//			int numberOfBB = 8;
+//			int numberOfXNB = 1;
+//			int numberOfMB = 1;
 			
 			//showing == true
 			//everything else false 
 			//if showing act
 			//if not dont act
 			
-			xNumButton = new Button(100, 50, 150, 100, " X " + xthing, new Color(255,255,0), new Action(){
+			background = new Graphic(1,1,1.0,"Resources/background/cfafa34141.png");
+			iconleft = new Graphic(56,220,1.0, "Resources/icon/dbjhasdfjndfm.jpg");
+			
+			xNumButton = new Button(800, 40, 100, 50, " X 1", new Color(255,255,0), new Action(){
 
 				public void act() {
 					// TODO Auto-generated method stub
@@ -118,10 +125,12 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 						button1Disabled = !button1Disabled;
 						moveToBack(xNumButton);
 						moveToBack(xNumButton);
+						moveToBack(background);
+						moveToBack(background);
 						}
 					}
 				});
-			xNumButton2 = new Button(150, 60, 150, 100, " X 2" + xthing, new Color(255,255,0), new Action(){
+			xNumButton2 = new Button(807, 50, 100, 50, " X 10", new Color(255,255,0), new Action(){
 
 				public void act() {
 					// TODO Auto-generated method stub
@@ -135,11 +144,12 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 					button2Disabled = !button2Disabled;
 						moveToBack(xNumButton2);
 						moveToBack(xNumButton2);
-						
+						moveToBack(background);
+						moveToBack(background);
 					}
 				}
 				});
-			xNumButton3 = new Button(200, 70, 150, 100, " X 3" + xthing, new Color(255,255,0), new Action(){
+			xNumButton3 = new Button(793, 45, 100, 50, " X 50", new Color(255,255,0), new Action(){
 
 				
 					public void act() {
@@ -154,20 +164,33 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 							button3Disabled = !button3Disabled;
 							moveToBack(xNumButton3);
 							moveToBack(xNumButton3);
+							moveToBack(background);
+							moveToBack(background);
 						}
 					}
 				});
 			
-			mangerButton = new Button(50, 200, 100, 40, "MANAGER", new Color(255,255,0), new Action(){
+			mangerButton = new Button(50, 350, 150, 40, "MANAGER", new Color(255,255,0), new Action(){
 				public void act(){
 					//take me to manager screen
 					RichardDemo.demos.setScreen(demo2);
 				}
 			});
+			
+			statsButton = new Button(50, 410, 150, 40, "STATISTICS", new Color(255,255,0), new Action(){
+				public void act(){
+					RichardDemo.demos.setScreen(demo3);
+				}
+			});
+			
+			viewObjects.add(background);
+			viewObjects.add(iconleft);
+			
 			viewObjects.add(xNumButton);
 			viewObjects.add(xNumButton2);
 			viewObjects.add(xNumButton3);
 			viewObjects.add(mangerButton);
+			viewObjects.add(statsButton);
 			
 //			addAnimation(viewObjects);
 		}
