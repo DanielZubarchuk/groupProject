@@ -1,4 +1,4 @@
-package guiPractice;
+package guiPractice8;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -9,7 +9,7 @@ import java.awt.event.MouseMotionListener;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
-import guiPractice.component.Visible;
+import guiPractice8.component.Visible;
 
 public abstract class Screen {
 	private int width;

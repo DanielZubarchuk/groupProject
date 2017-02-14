@@ -1,4 +1,4 @@
-package guiPractice.component;
+package guiPractice8.component;
 
 import java.awt.Color;
 import java.awt.Font;

@@ -1,6 +1,6 @@
-package guiPractice.sampleGames;
+package guiPractice8.sampleGames;
 
-import guiPractice.GUIApplication;
+import guiPractice8.GUIApplication;
 
 public class MouseFollower extends GUIApplication {
 

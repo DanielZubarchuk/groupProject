@@ -1,7 +1,7 @@
-package guiPractice.sampleGames;
+package guiPractice8.sampleGames;
 
-import guiPractice.GUIApplication;
-import guiPractice.Screen;
+import guiPractice8.GUIApplication;
+import guiPractice8.Screen;
 
 public class TheBlankScreenGame extends GUIApplication {
 

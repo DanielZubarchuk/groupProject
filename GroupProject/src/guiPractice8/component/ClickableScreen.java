@@ -1,11 +1,11 @@
-package guiPractice.component;
+package guiPractice8.component;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.List;
 
-import guiPractice.Screen;
+import guiPractice8.Screen;
 
 public abstract class ClickableScreen extends Screen implements MouseListener{
 

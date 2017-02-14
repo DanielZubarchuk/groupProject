@@ -1,7 +1,7 @@
-package guiPractice.sampleGames;
+package guiPractice8.sampleGames;
 
-import guiPractice.GUIApplication;
-import guiPractice.component.ClickGraphicScreen;
+import guiPractice8.GUIApplication;
+import guiPractice8.component.ClickGraphicScreen;
 
 public class ClickGraphicsGame extends GUIApplication {
 

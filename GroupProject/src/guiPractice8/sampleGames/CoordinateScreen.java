@@ -1,4 +1,4 @@
-package guiPractice.sampleGames;
+package guiPractice8.sampleGames;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -10,16 +10,16 @@ import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 
-import guiPractice.Screen;
-import guiPractice.component.Action;
-import guiPractice.component.AnimatedComponent;
-import guiPractice.component.Button;
-import guiPractice.component.ClickableGraphic;
-import guiPractice.component.Graphic;
-import guiPractice.component.MovingComponent;
-import guiPractice.component.TextArea;
-import guiPractice.component.TextLabel;
-import guiPractice.component.Visible;
+import guiPractice8.Screen;
+import guiPractice8.component.Action;
+import guiPractice8.component.AnimatedComponent;
+import guiPractice8.component.Button;
+import guiPractice8.component.ClickableGraphic;
+import guiPractice8.component.Graphic;
+import guiPractice8.component.MovingComponent;
+import guiPractice8.component.TextArea;
+import guiPractice8.component.TextLabel;
+import guiPractice8.component.Visible;
 
 public class CoordinateScreen extends Screen implements MouseMotionListener, MouseListener{
 
