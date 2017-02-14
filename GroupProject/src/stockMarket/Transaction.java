@@ -11,12 +11,14 @@ import stackInterfaces.DanielInterface;
 public class Transaction {
 	
 	private static ArrayList<String> transactionHistory;
+	private static ArrayList<Double> transactionPrices;
+	
 	static Scanner input;
 	
 	//private static boolean booleanStock;
 	
 	private static int chosenShareAmount;
-	private static Object chosenStock;
+	private static String chosenStock;
 	private static int i;
 	private static double stockPrice;
 	
@@ -41,7 +43,8 @@ public class Transaction {
 				if(stockPrice > userBalance){
 					userBalance = userBalance - stockPrice;
 //					containStocks(chosenStock);
-					fillTransaction();
+					fillStock(chosenStock);
+					fillPrices(stockPrice);
 					
 					if(userBalance <= 0){
 						userBalance += stockPrice;
@@ -70,15 +73,18 @@ public class Transaction {
 
 	}
 	
-	private static void fillTransaction() {
-		
-		
+	private static void fillStock(String stk) {
+		transactionHistory.add(stk);
+	}
+	
+	private static void fillPrices(Double prc){
+		transactionPrices.add(prc);
 	}
 
-	public void initAllObjects(List<Visible> visible) {
-		transactionHistory = new ArrayList<String>();
-		
-	}
+//	public void initAllObjects(List<Visible> visible) {
+//		transactionHistory = new ArrayList<String>();
+//		
+//	}
 	
 	public static int findStock(){
 		//helper method

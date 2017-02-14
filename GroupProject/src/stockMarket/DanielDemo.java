@@ -66,9 +66,8 @@ public class DanielDemo extends GUIApplication {
 				@Override
 				public void act() {
 //					DanielDemo.transaction.outputEvent();
-					actionDisplay.setText("You have a total balance of: "
-							);
-				}
+					actionDisplay.setText(title);
+			}
 			});
 			view.add(actionDisplay);
 			view.add(buyAStock);
