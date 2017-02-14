@@ -29,7 +29,7 @@ public class GabrielDemo extends GUIApplication {
 		protected void initScreen() {
 			// for screens of phone and games
 			DemoScreen demo = new DemoScreen(getWidth(), getHeight());
-			inventoryDemo = new GabrielDemoInventoryScreen();
+			inventoryDemo = new GabrielDemoInventoryScreen(getWidth(), getHeight());
 			setScreen(demo);
 		}
 
