@@ -67,26 +67,32 @@ public class VictorDemo extends GUIApplication {
 
 		@Override
 		public void initAllObjects(List<Visible> view) {
-			eventDisplay = new ThemedTextLabel(40, 150, 800, 25, "");
+			eventDisplay = new ThemedTextLabel(40, 170, 800, 25, "");
 			background = new Graphic(0,0,getWidth(),getHeight(),"resources/images/newmoneybackground.png");
 			logo = new Graphic(40, 50, 90, 90, "resources/images/logo.png"); 
 			historyDisplay = new ThemedTextLabel(40, 250, getWidth() - 50, 100,"");	
-			updateStock = new Button(40, 200, 190, 40, "Update Stock", Color.blue, new Action() {
+			updateStock = new Button(40, 220, 190, 40, "Update Stock", Color.blue, new Action() {
 				@Override
 				public void act() {
-					eventDisplay.setText("Current state of " + Fluctuation.stockNames[VictorDemo.fluctuation.eventStock] 
+					Fluctuation.getEventHistory().add("Current state of " + Fluctuation.getStockNames()[VictorDemo.fluctuation.getEventStock()] 
 							+ ": "
 							+ VictorDemo.fluctuation.outputEvent() 
-							+ "(" + String.format( "%.2f", Fluctuation.stockGrowths[VictorDemo.fluctuation.eventStock] )
-							+ " )" + String.format( "%.2f", Fluctuation.stockPrices[VictorDemo.fluctuation.eventStock] ));
+							+ "(" + String.format( "%.2f", Fluctuation.getStockGrowths()[VictorDemo.fluctuation.getEventStock()] )
+							+ " )" + String.format( "%.2f", Fluctuation.getStockPrices()[VictorDemo.fluctuation.getEventStock()] ));
+					
+					eventDisplay.setText("Current state of " + Fluctuation.getStockNames()[VictorDemo.fluctuation.getEventStock()] 
+							+ ": "
+							+ VictorDemo.fluctuation.outputEvent() 
+							+ "(" + String.format( "%.2f", Fluctuation.getStockGrowths()[VictorDemo.fluctuation.getEventStock()] )
+							+ " )" + String.format( "%.2f", Fluctuation.getStockPrices()[VictorDemo.fluctuation.getEventStock()] ));
 					VictorDemo.fluctuation.updateStock();
 				}
 			});
-			eventHistory = new Button(290,200 , 250, 40, "Event History", Color.green, new Action() {
+			eventHistory = new Button(290,220 , 250, 40, "Event History", Color.green, new Action() {
 				
 				@Override
 				public void act() {
-					// show the event history as a toggle 
+					historyDisplay.setText("Hello" + "\n" + "World");
 					
 					
 				}
@@ -96,6 +102,7 @@ public class VictorDemo extends GUIApplication {
 			view.add(updateStock);
 			view.add(eventHistory);
 			view.add(logo);
+			view.add(historyDisplay);
 		}
 		
 	}

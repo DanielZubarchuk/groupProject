@@ -19,13 +19,15 @@ public class Fluctuation implements MarketInterface, StockInterface{
 	 */
 	//events
 	private ArrayList<String> events;
+	private static ArrayList<String> eventHistory;
 	private static double currentEvent = 0;
-	public int eventStock;
+	private int eventStock;
 	
+
 	//stocks array
-	public static String[] stockNames = {"Blackgate","Apple","Samsung","Glascow","General Motors"};
-	public static double[] stockPrices = {100,78,90,120,111,87};
-	public static double[] stockGrowths = {1.1,2.6,1.3,.8,.9,2.0};
+	private static String[] stockNames = {"Blackgate","Apple","Samsung","Glascow","General Motors"};
+	private static double[] stockPrices = {100,78,90,120,111,87};
+	private static double[] stockGrowths = {1.1,2.6,1.3,.8,.9,2.0};
 	
 	//constants
 	private static final int _BANKRUPT = 0;
@@ -35,6 +37,7 @@ public class Fluctuation implements MarketInterface, StockInterface{
 	
 	public Fluctuation() {
 		events = new ArrayList<String>();
+		eventHistory = new ArrayList<String>();
 		updateStock();
 	}
 	
@@ -100,6 +103,7 @@ public class Fluctuation implements MarketInterface, StockInterface{
 		return events.get(events.size()-1);
 	}
 
+	// SETTERS AND GETTERS
 	@Override
 	public String getStockName(String name) {
 		// TODO Auto-generated method stub
@@ -112,10 +116,29 @@ public class Fluctuation implements MarketInterface, StockInterface{
 		return 0;
 	}
 
+	public static String[] getStockNames() {
+		return stockNames;
+	}
+
+	public static double[] getStockPrices() {
+		return stockPrices;
+	}
+
+	public static double[] getStockGrowths() {
+		return stockGrowths;
+	}
+
 	@Override
 	public double getBalance() {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	public static ArrayList<String> getEventHistory() {
+		return eventHistory;
+	}
+	public int getEventStock() {
+		return eventStock;
 	}
 
 }
