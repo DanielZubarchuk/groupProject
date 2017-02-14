@@ -63,15 +63,24 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 		//joey making these
 		//all i need to do is set x and set y
 		//wait for him for more info
-		private Button buyButton;
 		
 		private Button xNumButton;//made
 		private Button xNumButton2;//made
 		private Button xNumButton3;//made
+		
 		private Button mangerButton;//made
-		//same thing as manager button(new screen)
-		private Button statsButton;
-		private Button restartButton;	
+		private Button statsButton;//made
+		private Button restartButton;//made
+		
+		private Button buyButton;
+		private Button buyButton2;
+		private Button buyButton3;
+		private Button buyButton4;
+		private Button buyButton5;
+		private Button buyButton6;
+		private Button buyButton7;
+		private Button buyButton8;
+		
 		
 		private Graphic iconleft;
 		private Graphic background;
@@ -108,10 +117,13 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 			//if showing act
 			//if not dont act
 			
+			
 			background = new Graphic(1,1,1.0,"Resources/background/cfafa34141.png");
 			iconleft = new Graphic(56,220,1.0, "Resources/icon/dbjhasdfjndfm.jpg");
 			
 			reset = new TextLabel(50, 540, 800, 25, " ");
+			
+//			buyButton = new Button()
 			
 			xNumButton = new Button(800, 40, 100, 50, " X 1", new Color(255,255,0), new Action(){
 
@@ -192,6 +204,8 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 					
 				}
 			});
+			
+			
 			viewObjects.add(background);
 			viewObjects.add(iconleft);
 			
