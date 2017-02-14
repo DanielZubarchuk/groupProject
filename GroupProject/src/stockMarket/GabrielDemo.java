@@ -5,6 +5,7 @@ import java.awt.Graphics;
 import java.util.List;
 
 import guiPractice8.GUIApplication;
+import guiPractice8.Screen;
 import guiPractice8.component.Action;
 import guiPractice8.component.Button;
 import guiPractice8.component.ClickableScreen;
@@ -17,8 +18,9 @@ import stockMarket.StockMenu;
 
 public class GabrielDemo extends GUIApplication {
 	
-		public static GabrielDemo game;
+		public static GabrielDemo mainDemoScreen;
 		public static GabrielDemoInventoryScreen inventoryDemo;
+		public static Screen demo;
 		
 		public GabrielDemo() {
 			
@@ -28,7 +30,7 @@ public class GabrielDemo extends GUIApplication {
 		@Override
 		protected void initScreen() {
 			// for screens of phone and games
-			DemoScreen demo = new DemoScreen(getWidth(), getHeight());
+			demo = new DemoScreen(getWidth(), getHeight());
 			inventoryDemo = new GabrielDemoInventoryScreen(getWidth(), getHeight());
 			setScreen(demo);
 		}
@@ -37,8 +39,8 @@ public class GabrielDemo extends GUIApplication {
 		
 		 */
 		public static void main(String[] args) {
-			GabrielDemo demo = new GabrielDemo();
-			Thread app = new Thread(demo);
+			mainDemoScreen = new GabrielDemo();
+			Thread app = new Thread(mainDemoScreen);
 			app.start();
 
 		}
@@ -142,7 +144,7 @@ private class DemoScreen extends ClickableScreen{
 			@Override
 			public void act() {
 				System.out.println("Transporting to your portfolio");
-				
+				GabrielDemo.mainDemoScreen.setScreen(inventoryDemo);
 				//SamDemo.reward.getReward(18);
 				//rewardDisplay.setText("You earned a reward total points equals
 				// +"SamDemo.reward.getPoints());
