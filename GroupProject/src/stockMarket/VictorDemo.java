@@ -97,6 +97,8 @@ public class VictorDemo extends GUIApplication {
 					* for(String s: Fluctuation.getEventHistory){
 					* 	// either use scrollpanes or
 					*	// use y+getFontMetrics() to show multiple lines of events
+					*	// make a new text label component for multi lined strings 
+					*	// but change the g.drawString method
 					* }
 					**/
 					historyDisplay.setText("");
