@@ -7,6 +7,7 @@ import guiPractice.Screen;
 import guiPractice.components.Action;
 import guiPractice.components.Button;
 import guiPractice.components.ClickableGraphic;
+import guiPractice.components.Graphic;
 import guiPractice.components.Visible;
 
 /**
@@ -17,7 +18,7 @@ import guiPractice.components.Visible;
  * @author Hao
  *
  */
-public class HaosDemo extends GUIApplication {
+public class HaosDemo extends GUIApplication{
 
 	public static HaosDemo demos;
 	public static Screen demo;
@@ -62,12 +63,17 @@ public class HaosDemo extends GUIApplication {
 		
 		public void initAllObjects(ArrayList<Visible> view){
 			testAppLink = new ClickableGraphic((int) (getWidth()/3 - 87.5), getHeight()/2 - 50, .5, "resources/sampleImages/testAppIcon.jpg");
+			testAppLink.setAction(new Action() {
+				public void act(){
+					HaosDemo.demos.setScreen(HaosDemo.test);
+				}
+			});
 			homeButton = new Button(getWidth()/2-30, (int) (5 * getHeight()/6), 60, 30, "Home", new Color(0,0,0), new Action(){
 				public void act(){
 					HaosDemo.demos.setScreen(HaosDemo.demo);
 				}
 			});
-			
+			view.add(testAppLink);
 			view.add(homeButton);
 		}
 		

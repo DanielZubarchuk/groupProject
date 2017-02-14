@@ -1,14 +1,21 @@
+import java.awt.Color;
+import java.awt.TextArea;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.util.ArrayList;
 
 import guiPractice.ClickableScreen;
+import guiPractice.TextLabel;
+import guiPractice.components.Action;
 import guiPractice.components.Button;
 import guiPractice.components.ClickableGraphic;
+import guiPractice.components.Visible;
 
 public class SampleScreen extends ClickableScreen implements App, MouseMotionListener, MouseListener {
 
 	private Button homeButton;
+	private TextLabel sample;
 	
 	public SampleScreen(int width, int height) {
 		super(width, height);
@@ -26,6 +33,16 @@ public class SampleScreen extends ClickableScreen implements App, MouseMotionLis
 		this.homeButton = homeButton;
 	}
 
+	public void initObjects(ArrayList<Visible> view) {
+		homeButton = new Button(getWidth()/2-30, (int) (5 * getHeight()/6), 60, 30, "Home", new Color(0,0,0), new Action(){
+			public void act(){
+				HaosDemo.demos.setScreen(HaosDemo.demo);
+			}
+		});
+		sample = new TextLabel(getWidth()/2 - 125, getHeight()/2, 760, 40, "This is the Sample Screen");
+		view.add(homeButton);
+		view.add(sample);
+	}
 	public void mouseClicked(MouseEvent e) {
 		  if(homeButton.isHovered(e.getX(), e.getY())){
 		  homeButton.act();
@@ -72,5 +89,7 @@ public class SampleScreen extends ClickableScreen implements App, MouseMotionLis
 		// TODO Auto-generated method stub
 		
 	}
+
+
 
 }
