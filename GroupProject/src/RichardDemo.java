@@ -27,7 +27,7 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 	public static RichardDemo demos;
 	public static RichardDemo2 demo2;
 	public static RichardDemo3 demo3;
-	private TextLabel reset;
+	
 	public static Screen demo;
 	private static int xthing = 1;
 	/**
@@ -72,7 +72,7 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 		private Button statsButton;//made
 		private Button restartButton;//made
 		
-		private Button buyButton;
+		private Button buyButton1;
 		private Button buyButton2;
 		private Button buyButton3;
 		private Button buyButton4;
@@ -81,6 +81,8 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 		private Button buyButton7;
 		private Button buyButton8;
 		
+		private TextLabel reset;
+		private TextLabel buyText;
 		
 		private Graphic iconleft;
 		private Graphic background;
@@ -96,6 +98,8 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 		private boolean button1Disabled = true;
 		private boolean button2Disabled = true;
 		private boolean button3Disabled = false;
+		
+		private int[][] xyPos;
 		
 //		private TextLabel buyText;
 		
@@ -117,13 +121,13 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 			//if showing act
 			//if not dont act
 			
+			xyPos = new int[2][8];
 			
 			background = new Graphic(1,1,1.0,"Resources/background/cfafa34141.png");
 			iconleft = new Graphic(56,220,1.0, "Resources/icon/dbjhasdfjndfm.jpg");
 			
 			reset = new TextLabel(50, 540, 800, 25, " ");
-			
-//			buyButton = new Button()
+			buyText = new TextLabel(250, 50, 800, 25, " ");
 			
 			xNumButton = new Button(800, 40, 100, 50, " X 1", new Color(255,255,0), new Action(){
 
@@ -205,6 +209,46 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 				}
 			});
 			
+			buyButton1 = new Button(420, 180, 150, 40, "BUY", new Color(255,255,0), new Action(){
+				public void act(){
+					buyText.setText("You have bought girgwiglg1");
+				}
+			});
+			buyButton2 = new Button(820, 180, 150, 40, "BUY", new Color(255,255,0), new Action(){
+				public void act(){
+					buyText.setText("You have bought girgwiglg2");
+				}
+			});
+			buyButton3 = new Button(420, 280, 150, 40, "BUY", new Color(255,255,0), new Action(){
+				public void act(){
+					buyText.setText("You have bought girgwiglg3");
+				}
+			});
+			buyButton4 = new Button(820, 280, 150, 40, "BUY", new Color(255,255,0), new Action(){
+				public void act(){
+					buyText.setText("You have bought girgwiglg4");
+				}
+			});
+			buyButton5 = new Button(420, 380, 150, 40, "BUY", new Color(255,255,0), new Action(){
+				public void act(){
+					buyText.setText("You have bought girgwiglg5");
+				}
+			});
+			buyButton6 = new Button(820, 380, 150, 40, "BUY", new Color(255,255,0), new Action(){
+				public void act(){
+					buyText.setText("You have bought girgwiglg6");
+				}
+			});
+			buyButton7 = new Button(420, 480, 150, 40, "BUY", new Color(255,255,0), new Action(){
+				public void act(){
+					buyText.setText("You have bought girgwiglg7");
+				}
+			});
+			buyButton8 = new Button(820, 480, 150, 40, "BUY", new Color(255,255,0), new Action(){
+				public void act(){
+					buyText.setText("You have bought girgwiglg8");
+				}
+			});
 			
 			viewObjects.add(background);
 			viewObjects.add(iconleft);
@@ -212,11 +256,23 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 			viewObjects.add(xNumButton);
 			viewObjects.add(xNumButton2);
 			viewObjects.add(xNumButton3);
+			
 			viewObjects.add(mangerButton);
 			viewObjects.add(statsButton);
 			viewObjects.add(restartButton);
 			
+			viewObjects.add(buyButton1);
+			viewObjects.add(buyButton2);
+			viewObjects.add(buyButton3);
+			viewObjects.add(buyButton4);
+			viewObjects.add(buyButton5);
+			viewObjects.add(buyButton6);
+			viewObjects.add(buyButton7);
+			viewObjects.add(buyButton8);
+			
+			
 			viewObjects.add(reset);
+			viewObjects.add(buyText);
 			
 //			addAnimation(viewObjects);
 		}
