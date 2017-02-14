@@ -1,6 +1,7 @@
 package stockMarket;
 
 import java.awt.Color;
+import java.awt.Graphics;
 import java.util.List;
 
 import guiPractice8.GUIApplication;
@@ -70,13 +71,20 @@ private class DemoScreen extends ClickableScreen{
 	private Button end;
 	private int turncount;
 	private int goalcount;
+	private Graphic stockRect;
 	
 	public DemoScreen(int width, int height) {
 		super(width, height);
 				
 	}
-
-			@Override
+	
+	//public void createRectangle (Graphics g) {    
+	//	g.drawRect(30, 70, 170, 170);    //can use either of the two//
+	 //   g.fillRect(30, 70, 170, 170);
+	 //   g.setColor(Color.green);
+	//}
+	
+	@Override
 	public void initAllObjects(List<Visible> view) {
 		
 		//String[] stocks = { "Samsung","Blackgate", "Apple","Glascow","General Motors"};
@@ -96,19 +104,22 @@ private class DemoScreen extends ClickableScreen{
 		goal = new ThemedTextLabel(470, 25, 200,90,"Goal:$" + goalcount);
 		view.add(goal);
 		
-		samsung = new ThemedTextLabel(40, 90, 90, 90, "Samsung");
+		stockRect = new Graphic(30, 145, 170, 110, "resources/images/greenrect.png");
+		view.add(stockRect);
+				
+		samsung = new ThemedTextLabel(40, 80, 90, 90, "Samsung");
 		view.add(samsung);
 		
-		blackgate = new ThemedTextLabel(40, 110, 90, 90, "Blackgate");
+		blackgate = new ThemedTextLabel(40, 100, 90, 90, "Blackgate");
 		view.add(blackgate);
 		
-		apple = new ThemedTextLabel(40, 130, 90, 90, "Apple");
+		apple = new ThemedTextLabel(40, 120, 90, 90, "Apple");
 		view.add(apple);
 		
-		glascow = new ThemedTextLabel(40, 150, 90, 90, "Glascow");
+		glascow = new ThemedTextLabel(40, 140, 90, 90, "Glascow");
 		view.add(glascow);
 		
-		generalmotors = new ThemedTextLabel(40, 170, 150, 90, "General Motors");
+		generalmotors = new ThemedTextLabel(40, 160, 150, 90, "General Motors");
 		view.add(generalmotors);
 		
 		
@@ -180,6 +191,9 @@ private class DemoScreen extends ClickableScreen{
 		view.add(end);
 			
 	}
+
+
+			
 	}
 }
 
