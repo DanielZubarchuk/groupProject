@@ -50,28 +50,23 @@ private class DemoScreen extends ClickableScreen{
 
 	/**
 	 * Checklist:
+	 * - Link share# to
 	 * - Display events
 	 * - Buy/Sell buttons to work
-	 * - Array of plus/minus buttons?? 
 	 * - Create interface
 	 */
 
 	private ThemedTextLabel result;
-	private ThemedTextLabel samsung;
-	private ThemedTextLabel blackgate;
-	private ThemedTextLabel apple;
-	private ThemedTextLabel glascow;
-	private ThemedTextLabel generalmotors;
+	private ThemedTextLabel Samsung;
+	private ThemedTextLabel Blackgate;
+	private ThemedTextLabel Apple;
+	private ThemedTextLabel Glascow;
+	private ThemedTextLabel Generalmotors;
 	private int share1;
 	private int share2;
 	private int share3;
 	private int share4;
 	private int share5;
-	private ThemedTextLabel s1;
-	private ThemedTextLabel s2;
-	private ThemedTextLabel s3;
-	private ThemedTextLabel s4;
-	private ThemedTextLabel s5;
 	private Button plus1;
 	private Button plus2;
 	private Button plus3;
@@ -128,15 +123,15 @@ private class DemoScreen extends ClickableScreen{
 		//stockRect = new Graphic(30, 145, 170, 110, "resources/images/greenrect.png");
 		//view.add(stockRect);
 				
-		samsung = new ThemedTextLabel(40, 80, 90, 90, "Samsung");
-		view.add(samsung);
-		s1 = new ThemedTextLabel(160,80,90,90,Integer.toString(share1));
-		view.add(s1);
+		//Samsung = new ThemedTextLabel(40, 80, 90, 90, "Samsung");
+		//view.add(Samsung);
+		Samsung = new ThemedTextLabel(160,80,150,90,"Samsung " + share1);
+		view.add(Samsung);
 		plus1 = new Button(185,148,25,20,"+",Color.green, new Action() {
 			@Override
 			public void act() {
 				share1++;
-				s1.setText(Integer.toString(share1));
+				Samsung.setText("Samsung "+ share1 );
 			}
 		});
 		view.add(plus1);
@@ -144,22 +139,22 @@ private class DemoScreen extends ClickableScreen{
 			@Override
 			public void act() {
 				share1--;
-				s1.setText(Integer.toString(share1));
+				Samsung.setText("Samsung "+ share1);
 			}
 		});
 		view.add(minus1);
 		
-		blackgate = new ThemedTextLabel(40, 100, 90, 90, "Blackgate");
-		view.add(blackgate);
+		Blackgate = new ThemedTextLabel(40, 100, 90, 90, "Blackgate");
+		view.add(Blackgate);
 		
-		apple = new ThemedTextLabel(40, 120, 90, 90, "Apple");
-		view.add(apple);
+		Apple = new ThemedTextLabel(40, 120, 90, 90, "Apple");
+		view.add(Apple);
 		
-		glascow = new ThemedTextLabel(40, 140, 90, 90, "Glascow");
-		view.add(glascow);
+		Glascow = new ThemedTextLabel(40, 140, 90, 90, "Glascow");
+		view.add(Glascow);
 		
-		generalmotors = new ThemedTextLabel(40, 160, 150, 90, "General Motors");
-		view.add(generalmotors);
+		Generalmotors = new ThemedTextLabel(40, 160, 150, 90, "General Motors");
+		view.add(Generalmotors);
 		
 		
 		buy = new Button(175, 260, 90, 40, "Buy", Color.green, new Action() {
