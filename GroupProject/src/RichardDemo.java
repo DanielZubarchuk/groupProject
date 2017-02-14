@@ -31,6 +31,25 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 	public static Screen demo;
 	private static int xthing = 1;
 	/**
+	 * TTTTTTTTTTTTTTTTTTT   HHHHH    HHHHH   IIIII   NNNNNNN   NNNNN      GGGGGG          SSSS        
+	 *  TTTTTTTTTTTTTTTTT     HHH      HHH     III     NNNNN     NNN     GGGGGGGGGG     SSSSSSSSSS
+	 *   T     TTT     T      HHH      HHH     III     NNN NN    NNN    GGG      GGG   SSS 
+	 *         TTT            HHH      HHH     III     NNN  NN   NNN   GGG             SSSS     
+	 *         TTT            HHHHHHHHHHHH     III     NNN   NN  NNN   GGG               SSSSSSS
+	 *         TTT            HHH      HHH     III     NNN    NN NNN   GGG      GGGG        SSSSSSS
+	 *         TTT            HHH      HHH     III     NNN     NNNNN    GGG      GGG            SSS
+	 *         TTT            HHH      HHH     III     NNN      NNNN     GGG    GGG     SSSSSSSSSS  
+	 *        TTTTT          HHHHH    HHHHH   IIIII   NNNNN    NNNNNN     GGGGGGGG         SSSS
+	 * 
+	 * - Re-photoshop the background
+	 * - get a background for stats and manager
+	 * - get icons
+	 * - FIX DANIEL'S GUI
+	 * - make loading bar
+	 * - make manager screen 
+	 * - make stats screen
+	 * 
+	 * 
 	 * 
 	 */
 	public RichardDemo() {
