@@ -101,7 +101,6 @@ public class Transaction implements StockInventory{
 
 	@Override
 	public ArrayList<StockInterface> getStocks() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 	
