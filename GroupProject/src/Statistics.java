@@ -10,15 +10,16 @@ public class Statistics implements StatsInterface{
 	//public static int[] propertyTimeArray;
 	public static int numResets;
 	
-	private static void main(String[] args){ 
-		
-		currentBalance = 0;
-		lifetimeEarnings = 0;
+	public int getMoney() {
+		return currentBalance;
+	}
+	
+	public void updateBalance(){
 		
 	}
 	
-	public int getMoney() {
-		return currentBalance;
+	public void updateEarnings(){
+		
 	}
 	
 //	private void setNewPrice(PropertyButton property, double x){
