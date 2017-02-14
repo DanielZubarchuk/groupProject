@@ -93,6 +93,12 @@ public class VictorDemo extends GUIApplication {
 				@Override
 				public void act() {
 					//each line should be another element in eventHistory
+					/**
+					* for(String s: Fluctuation.getEventHistory){
+					* 	// either use scrollpanes or
+					*	// use y+getFontMetrics() to show multiple lines of events
+					* }
+					**/
 					historyDisplay.setText("");
 					
 					
