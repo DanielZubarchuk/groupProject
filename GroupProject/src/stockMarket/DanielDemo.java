@@ -53,6 +53,16 @@ public class DanielDemo extends GUIApplication {
 	//nested inner class;
 	private class DemoScreen extends ClickableScreen{
 
+		public String[] buyLog = {"Which stock do you want to buy?", 
+				"How many shares of the Stock do you want to buy?", 
+				"You do not have enough money!",
+				"You do not have enough money!", 
+				"You do not have money to buy stocks! Try selling stocks to improve your balance."
+				};
+		public String[] sellLog = {"Which stock do you want to sell?",
+				"How many shares of the Stock do you want to sell?"
+				};
+		
 		private TextLabel actionDisplay;
 		private Button buyAStock;
 		private Graphic rectangle;
@@ -71,17 +81,18 @@ public class DanielDemo extends GUIApplication {
 			transactionDisplay = new ThemedTextLabel(40, 150, 800, 25, "");
 			logo = new Graphic(40, 50, 90, 90, "resources/images/logo.png");
 			
-			buyAStock = new Button(40, 200, 190, 40, "AddTransaction", Color.blue, new Action() {
-				//click this to but a stock
+			buyAStock = new Button(40, 200, 190, 40, "Add Transaction", Color.blue, new Action() {
+				//click this to buy a stock
 			@Override
 				public void act() {
 				transactionDisplay.setText(Transaction.transactionHistory[i] + " was bought for " + Transaction.transactionPrices[i]);
-				}
+				
+			}
 			});
 			view.add(actionDisplay);
 			view.add(buyAStock);
 			
-			sellAStock = new Button(290,200 , 250, 40, "AddTransaction", Color.blue, new Action() {			
+			sellAStock = new Button(290,200 , 250, 40, "Add Transaction", Color.blue, new Action() {			
 				//click this to sell a stock
 				@Override
 					public void act() {

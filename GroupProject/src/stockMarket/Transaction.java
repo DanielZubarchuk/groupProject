@@ -23,6 +23,7 @@ public class Transaction implements StockInventory{
 	private static String chosenStock;
 	private static int i;
 	private static double stockPrice;
+	private static Object choiceSelection;
 	
 	public static double userBalance = 50000;
 	public static String[] secondStocks = {"Blackgate","Apple","Samsung",
@@ -35,12 +36,12 @@ public class Transaction implements StockInventory{
 	}
 
 	public static void main(String[] args) {
-		System.out.println("Do you want to buy or sell?");
-		if(input.equals("Buy")){
+		//System.out.println("Do you want to buy or sell?");
+		if(choiceSelection.equals("Buy")){
 			if(userBalance > 0){
-				System.out.println("Which stock do you want to buy?");
+				//System.out.println("Which stock do you want to buy?");
 				findStock();
-				System.out.println("How many shares of the Stock do you want to buy?");
+				//System.out.println("How many shares of the Stock do you want to buy?");
 				stockPrice = Fluctuation.stockPrices[i] * chosenShareAmount;
 				if(stockPrice > userBalance){
 					userBalance = userBalance - stockPrice;
@@ -50,26 +51,26 @@ public class Transaction implements StockInventory{
 					
 					if(userBalance <= 0){
 						userBalance += stockPrice;
-						System.out.println("You do not have enough money!");
+						//System.out.println("You do not have enough money!");
 						return;
 					}
 					if(userBalance == 0){
 						return;
 					}
 				}else{
-					System.out.println("You do not have enough money!");
+					//System.out.println("You do not have enough money!");
 					return;
 				}	
 			}else{
-				System.out.println("You do not have money to buy stocks!"
-						+ " Try selling stocks to improve your balance.");
+				//System.out.println("You do not have money to buy stocks!"
+						//+ " Try selling stocks to improve your balance.");
 				return;
 			}
 		}
-		if(input.equals("Sell")){
-			System.out.println("Which stock do you want to sell?");
+		if(choiceSelection.equals("Sell")){
+			//System.out.println("Which stock do you want to sell?");
 			findStock();
-			System.out.println("How many shares of the Stock do you want to sell?");
+			//System.out.println("How many shares of the Stock do you want to sell?");
 			userBalance = (Fluctuation.stockPrices[i] * chosenShareAmount) + userBalance;
 		}
 
