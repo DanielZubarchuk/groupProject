@@ -142,7 +142,7 @@ private class DemoScreen extends ClickableScreen{
 			@Override
 			public void act() {
 				System.out.println("Transporting to your portfolio");
-				result.setText("Moving to your portfolio.");
+				
 				//SamDemo.reward.getReward(18);
 				//rewardDisplay.setText("You earned a reward total points equals
 				// +"SamDemo.reward.getPoints());

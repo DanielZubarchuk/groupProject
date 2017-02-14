@@ -9,7 +9,7 @@ public class GabrielDemoInventoryScreen extends ClickableScreen{
 
 	public GabrielDemoInventoryScreen(int width, int height) {
 		super(width, height);
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	@Override
