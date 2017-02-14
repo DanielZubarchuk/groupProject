@@ -18,6 +18,7 @@ import stockMarket.StockMenu;
 public class GabrielDemo extends GUIApplication {
 	
 		public static GabrielDemo game;
+		public static GabrielDemoInventoryScreen inventoryDemo;
 		
 		public GabrielDemo() {
 			
@@ -28,6 +29,7 @@ public class GabrielDemo extends GUIApplication {
 		protected void initScreen() {
 			// for screens of phone and games
 			DemoScreen demo = new DemoScreen(getWidth(), getHeight());
+			inventoryDemo = new GabrielDemoInventoryScreen();
 			setScreen(demo);
 		}
 
