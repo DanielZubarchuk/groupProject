@@ -116,6 +116,8 @@ public class DanielDemo extends GUIApplication {
 				}
 			});
 			
+			view.add(sellAStock);
+			
 			makeADialogue = new Button(290,200, 250, 40, "Run the Dialogue", Color.blue, new Action() {			
 				//click this to run the dialogue
 				@Override
@@ -134,6 +136,8 @@ public class DanielDemo extends GUIApplication {
 				
 				}
 			});
+			
+			view.add(makeADialogue);
 			
 //			rectangle = new Graphic(40, 100, 190, 40,"resources/images/greenrect.png");
 //			view.add(rectangle);
