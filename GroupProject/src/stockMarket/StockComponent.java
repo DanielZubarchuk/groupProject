@@ -1,6 +1,8 @@
 package stockMarket;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.RenderingHints;
 
 import guiPractice8.component.Component;
 import stackInterfaces.StockInterface;
@@ -18,11 +20,15 @@ public class StockComponent extends Component {
 
 	@Override
 	public void update(Graphics2D g) {
-		int x = 0;
+		int y = 0;
 		if(inventory != null){
+			System.out.println("inventory");
 			for(StockInterface s : inventory.getStocks()){
-				
-				x += 40;
+				g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+				g.setColor(Color.black);
+				g.fillRect(10, y, 60, 40);
+				g.drawRect(10, y, 60, 40);
+				y += 40;
 			}
 		}
 	}

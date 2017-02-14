@@ -24,6 +24,7 @@ import stackInterfaces.StockInventory;
 public class RisaDemo extends GUIApplication {
 
 	public static UserScreen user;
+	public static RisaDemo demo;
 	
 	public static ArrayList<ArrayList<Object>> currentStocks;
 	public static ArrayList<StockInterface> prevTransactions; //??????
@@ -47,7 +48,7 @@ public class RisaDemo extends GUIApplication {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		RisaDemo demo = new RisaDemo();
+		demo = new RisaDemo();
 		Thread app = new Thread(demo);
 		app.start();
 	}
@@ -76,7 +77,7 @@ public class RisaDemo extends GUIApplication {
 			backButton = new Button(10, 30, 90, 40, "back", Color.blue, new Action(){
 				
 				public void act(){
-					//GabrielDemo.game.setScreen(GabrielDemo.game);
+					RisaDemo.demo.setScreen(GabrielDemo.demo);
 					System.out.println("goes back to main menu");
 				}
 			});
@@ -85,8 +86,6 @@ public class RisaDemo extends GUIApplication {
 			balance = Transaction.userBalance;
 			balanceDisplay = new ThemedTextLabel(250, 70, 800, 25, "Balance: $" + balance);
 			viewObjects.add(balanceDisplay);
-			
-			//newStocks();
 			
 			stocksDisplay = new ThemedTextLabel(10, 100, 220, 25, "Current Stocks:");
 			viewObjects.add(stocksDisplay);
@@ -97,31 +96,7 @@ public class RisaDemo extends GUIApplication {
 			
 			transactions = new ThemedTextLabel(10, 200, 220, 25, "Transaction History:");
 			viewObjects.add(transactions);
-		}
-		
-		private void newStocks(){
-			//need Daniel's interface??
-			//if statement needed. only add the new stocks
-//			
-//			for(int i = 0; i < ; i++){
-//				for(int j = 0; j < ; j++){
-//					if()
-//				}
-//			}
-			
-			ArrayList<Object> temp = new ArrayList<Object>();
-			String name = "stock 1"; 
-			double price = 2.00;
-			temp.add(name);
-			temp.add(price);
-			
-			currentStocks.add(temp);
-		}
-		
-		private void transactionHistory(){
-			
-		}
-		
+		}		
 	}
 
 }
