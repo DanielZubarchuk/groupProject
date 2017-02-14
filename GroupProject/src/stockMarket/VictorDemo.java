@@ -98,7 +98,7 @@ public class VictorDemo extends GUIApplication {
 		}
 		
 //		public void update(){
-//			Graphics2D g = image.createGraphics();
+//			g = image.createGraphics();
 //			g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 //			g.setColor(Color.green);
 //			g.drawRect(20, 150, 800, 25);
