@@ -12,16 +12,18 @@ import stackInterfaces.StockInventory;
 
 public class Transaction implements StockInventory{
 	
-	public static ArrayList<String> transactionHistory;
-	public static ArrayList<Double> transactionPrices;
+	public static ArrayList<String> transactionHistory = new ArrayList<String>();
+	public static ArrayList<Double> transactionPrices  = new ArrayList<Double>();
 	
 	static Scanner input;
 	
 	//private static boolean booleanStock;
 	
-	private static int chosenShareAmount;
+	private static int chosenShareAmount = 1;
+	
 	public static String chosenStock;
 	private static int i;
+	private static int buyIndex = 0;
 	public static double stockPrice;
 	private static Object choiceSelection;
 	
@@ -30,9 +32,6 @@ public class Transaction implements StockInventory{
 			"Glascow","General Motors"};
 	public static double[] secondPrices = {100,78,90,120,111,87};
 	
-	public Transaction() {
-	}
-
 	public static void main(String[] args) {
 		//System.out.println("Do you want to buy or sell?");
 		
@@ -40,10 +39,12 @@ public class Transaction implements StockInventory{
 	}
 	
 	public static void buyAStock(){
+		chosenStock = secondStocks[buyIndex];
+		buyIndex = (buyIndex + 1) % secondStocks.length;
 		if(userBalance > 0){
 			findStock();
 			stockPrice = Fluctuation.getStockPrices()[i] * chosenShareAmount;
-			if(stockPrice > userBalance){
+			if(stockPrice < userBalance){
 				userBalance = userBalance - stockPrice;
 //				containStocks(chosenStock);
 				fillStock(chosenStock);
@@ -70,13 +71,13 @@ public class Transaction implements StockInventory{
 	}
 	
 	private static void fillStock(String stk) {
-		//System.out.println(stk);
-		transactionHistory.add(stk);
+		System.out.println(stk);
+		transactionHistory.add(0,stk);
 	}
 	
 	private static void fillPrices(double prc){
-		//System.out.println(prc);
-		transactionPrices.add(prc);
+		System.out.println(prc);
+		transactionPrices.add(0,prc);
 	}
 
 //	public void initAllObjects(List<Visible> visible) {
@@ -101,7 +102,12 @@ public class Transaction implements StockInventory{
 
 	@Override
 	public ArrayList<StockInterface> getStocks() {
-		return null;
+		ArrayList<StockInterface> stocks = new ArrayList<StockInterface>();
+		for(int a = 0;a < transactionHistory.size(); a++){
+			Stock s = new Stock(transactionHistory.get(a), transactionPrices.get(a));
+			stocks.add(s);
+		}
+		return stocks;
 	}
 	
 //	public String outputEvent(){

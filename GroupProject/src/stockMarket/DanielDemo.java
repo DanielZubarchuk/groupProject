@@ -91,27 +91,27 @@ public class DanielDemo extends GUIApplication {
 			startDialogue = new TextLabel(130,230,300,40,"Do you want to buy or sell?");
 			//userBal = new TextLabel(130,230,300,40, Transaction.userBalance);
 			
-			buyAStock = new Button(40, 200, 190, 40, "Add Transaction", Color.blue, new Action() {
+			buyAStock = new Button(40, 200, 190, 40, "Buy", Color.blue, new Action() {
 			//click this to buy a stock
 			@Override
 				public void act() {
 				dialogueBuy = true;
 				transaction.buyAStock();
 				transactionDisplay.setText(Transaction.transactionHistory.get(index) + " was bought for " + Transaction.transactionPrices.get(index));
-				index++;
+//				index++;
+				view.add(transactionDisplay);
 			}
 			});
-			view.add(actionDisplay);
 			view.add(buyAStock);
 			
-			sellAStock = new Button(290,200, 250, 40, "Add Transaction", Color.blue, new Action() {			
+			sellAStock = new Button(290,200, 250, 40, "Sell", Color.blue, new Action() {			
 				//click this to sell a stock
 				@Override
 				public void act() {
 					dialogueBuy = false;
-					transaction.sellAStock();
 					transactionDisplay.setText(Transaction.transactionHistory.get(index) + " was sold for " + Transaction.transactionPrices.get(index));
-					index++;
+					transaction.sellAStock();
+//					index++;
 				}
 			});
 			
@@ -138,7 +138,7 @@ public class DanielDemo extends GUIApplication {
 //				}
 //			});
 			
-			view.add(makeADialogue);
+			//view.add(makeADialogue);
 			
 //			rectangle = new Graphic(40, 100, 190, 40,"resources/images/greenrect.png");
 //			view.add(rectangle);
