@@ -50,6 +50,8 @@ private class DemoScreen extends ClickableScreen{
 	 * Checklist:
 	 * - Select Stock button
 	 * - Display events
+	 * - Link to other code
+	 * - Make the buy and sell buttons display which stock affected and how many shares of it
 	 */
 
 	private ThemedTextLabel result;
