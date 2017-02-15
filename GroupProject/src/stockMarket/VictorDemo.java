@@ -6,6 +6,7 @@ package stockMarket;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
+import java.util.ArrayList;
 import java.util.List;
 
 import guiPractice8.GUIApplication;
@@ -60,18 +61,41 @@ public class VictorDemo extends GUIApplication {
 		private Graphic background;
 		private Graphic logo;
 		private MultiLineTextLabel historyDisplay;
+		private MultiLineTextLabel historyDisplay2;
+		private MultiLineTextLabel historyDisplay3;
+//		private ArrayList<ThemedTextLabel> stockDisplay;
+		
 		
 		public DemoScreen(int width, int height) {
 			super(width, height);
 			// TODO Auto-generated constructor stub
 		}
 
+//		private void instantiateStocksDisplay(){
+//			stockDisplay = new ArrayList<ThemedTextLabel>();
+//			int previousHeight = 50;
+//			for(int i = 0; i < 6; i++){
+//				stockDisplay.add(new ThemedTextLabel(120, previousHeight + 50, 800, 25, ""));
+//			}
+//			int index = 0;
+//			for(ThemedTextLabel stock: stockDisplay){
+//				if(index < 5)
+//				stock.setText(Fluctuation.getStockNames()[index]);
+//				index++;
+//			}
+//		}
+		
 		@Override
 		public void initAllObjects(List<Visible> view) {
+//			instantiateStocksDisplay();
+			
 			eventDisplay = new ThemedTextLabel(40, 170, 800, 25, "");
 			background = new Graphic(0,0,getWidth(),getHeight(),"resources/images/newmoneybackground.png");
 			logo = new Graphic(40, 50, 90, 90, "resources/images/logo.png"); 
-			historyDisplay = new MultiLineTextLabel(40, 250, 800, 50,"");	
+			historyDisplay = new MultiLineTextLabel(40, 250, 800, 50,"");
+			historyDisplay2 = new MultiLineTextLabel(40, 270, 800, 50,"");
+			historyDisplay3 = new MultiLineTextLabel(40, 290, 800, 50,"");
+			
 			updateStock = new Button(40, 220, 190, 40, "Update Stock", Color.blue, new Action() {
 				@Override
 				public void act() {
@@ -102,8 +126,14 @@ public class VictorDemo extends GUIApplication {
 					*	// but change the g.drawString method
 					* }
 					**/
-					for(String s: Fluctuation.getEventHistory()){
-						historyDisplay.setText(s);
+					if(Fluctuation.getEventHistory().size() >= 1){
+						historyDisplay.setText(Fluctuation.getEventHistory().get(Fluctuation.getEventHistory().size()-1) );
+					}
+					if(Fluctuation.getEventHistory().size() >= 2){
+						historyDisplay2.setText(Fluctuation.getEventHistory().get(Fluctuation.getEventHistory().size()-2) );
+					}
+					if(Fluctuation.getEventHistory().size() >= 3){
+						historyDisplay3.setText(Fluctuation.getEventHistory().get(Fluctuation.getEventHistory().size()-3) );
 					}
 //					historyDisplay.setText("Hello\nWorld");
 					
@@ -112,9 +142,14 @@ public class VictorDemo extends GUIApplication {
 			view.add(background);
 			view.add(eventDisplay);
 			view.add(historyDisplay);
+			view.add(historyDisplay2);
+			view.add(historyDisplay3);
 			view.add(updateStock);
 			view.add(eventHistory);
 			view.add(logo);
+//			for(ThemedTextLabel stock: stockDisplay){
+//				view.add(stock);
+//			}
 			
 		}
 		
