@@ -78,7 +78,7 @@ public class VictorDemo extends GUIApplication {
 					Fluctuation.getEventHistory().add("Current state of " + Fluctuation.getStockNames()[VictorDemo.fluctuation.getEventStock()] 
 							+ ": "
 							+ VictorDemo.fluctuation.outputEvent() 
-							+ "(" + String.format( "%.2f", VictorDemo.fluctuation.getStockGrowths()[VictorDemo.fluctuation.getEventStock()] )
+							+ "(" + String.format( "%.2f", Fluctuation.getStockGrowths()[VictorDemo.fluctuation.getEventStock()] )
 							+ " )" + String.format( "%.2f", Fluctuation.getStockPrices()[VictorDemo.fluctuation.getEventStock()] ) + "\n");
 					
 					eventDisplay.setText("Current state of " + Fluctuation.getStockNames()[VictorDemo.fluctuation.getEventStock()] 
