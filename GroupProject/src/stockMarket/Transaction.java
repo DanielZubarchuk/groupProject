@@ -44,7 +44,7 @@ public class Transaction implements StockInventory{
 	public static void buyAStock(){
 		if(userBalance > 0){
 			findStock();
-			stockPrice = Fluctuation.stockPrices[i] * chosenShareAmount;
+			stockPrice = Fluctuation.getStockPrices()[i] * chosenShareAmount;
 			if(stockPrice > userBalance){
 				userBalance = userBalance - stockPrice;
 //				containStocks(chosenStock);
@@ -68,7 +68,7 @@ public class Transaction implements StockInventory{
 	
 	public static void sellAStock(){
 		findStock();
-		userBalance = (Fluctuation.stockPrices[i] * chosenShareAmount) + userBalance;
+		userBalance = (Fluctuation.getStockPrices()[i] * chosenShareAmount) + userBalance;
 	}
 	
 	private static void fillStock(String stk) {
@@ -88,7 +88,7 @@ public class Transaction implements StockInventory{
 		//helper method
 		
 		for(int i = 0;i < Fluctuation.stockNames.length; i++){
-			if(chosenStock.equals(Fluctuation.stockNames[i])){
+			if(chosenStock.equals(Fluctuation.getStockNames()[i])){
 				return i;
 			}
 		}
