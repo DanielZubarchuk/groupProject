@@ -57,7 +57,7 @@ public class Fluctuation implements MarketInterface, StockInterface{
 		/**
 		 * Each time BUY/SELL is clicked, the anonymous inner class (act) should call this method to update the stocks.
 		 */
-		eventStock = (int) (Math.random()*stockNames.length-1);
+		eventStock = (int) (Math.random()*stockNames.length);
 		fillEvents();
 			
 		if((int)(stockPrices[eventStock]) == _BANKRUPT){
