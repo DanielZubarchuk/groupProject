@@ -12,8 +12,8 @@ import stackInterfaces.StockInventory;
 
 public class Transaction implements StockInventory{
 	
-	private static ArrayList<String> transactionHistory;
-	private static ArrayList<Double> transactionPrices;
+	public static ArrayList<String> transactionHistory;
+	public static ArrayList<Double> transactionPrices;
 	
 	static Scanner input;
 	
@@ -22,15 +22,13 @@ public class Transaction implements StockInventory{
 	private static int chosenShareAmount;
 	public static String chosenStock;
 	private static int i;
-	private static double stockPrice;
+	public static double stockPrice;
 	private static Object choiceSelection;
 	
 	public static double userBalance = 50000;
 	public static String[] secondStocks = {"Blackgate","Apple","Samsung",
 			"Glascow","General Motors"};
 	public static double[] secondPrices = {100,78,90,120,111,87};
-	
-	
 	
 	public Transaction() {
 	}
@@ -76,7 +74,7 @@ public class Transaction implements StockInventory{
 		transactionHistory.add(stk);
 	}
 	
-	private static void fillPrices(Double prc){
+	private static void fillPrices(double prc){
 		//System.out.println(prc);
 		transactionPrices.add(prc);
 	}

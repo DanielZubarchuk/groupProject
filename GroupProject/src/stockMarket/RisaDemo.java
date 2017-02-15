@@ -4,6 +4,7 @@
 package stockMarket;
 
 import java.awt.Color;
+import java.awt.Graphics2D;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,13 +27,11 @@ public class RisaDemo extends GUIApplication {
 	public static UserScreen user;
 	public static RisaDemo demo;
 	
-	public static ArrayList<ArrayList<Object>> currentStocks;
-	public static ArrayList<StockInterface> prevTransactions; //??????
 	public static double balance;
+	private ArrayList<String> history;
 
 	public RisaDemo() {
-		currentStocks = new ArrayList<ArrayList<Object>>();
-		prevTransactions = new ArrayList<StockInterface>();
+
 	}
 
 	/* (non-Javadoc)
@@ -58,9 +57,14 @@ public class RisaDemo extends GUIApplication {
 		
 		private ThemedTextLabel balanceDisplay;
 		private Button backButton;
+		private Button viewAllStocks;
+		private Button viewAllTransactions;
 		private Graphic background;
-		private ThemedTextLabel stocksDisplay;
-		private ThemedTextLabel transactions;
+		private Graphics2D allStockTemp;
+		private ThemedTextLabel stocksTitle;
+		private ThemedTextLabel allStocks;
+		private ThemedTextLabel transactionTitle;
+		private ThemedTextLabel allTransactions;
 		
 		private StockInventory stockInventory;
 		
@@ -87,16 +91,51 @@ public class RisaDemo extends GUIApplication {
 			balanceDisplay = new ThemedTextLabel(250, 70, 800, 25, "Balance: $" + balance);
 			viewObjects.add(balanceDisplay);
 			
-			stocksDisplay = new ThemedTextLabel(10, 100, 220, 25, "Current Stocks:");
-			viewObjects.add(stocksDisplay);
+			stocksTitle = new ThemedTextLabel(10, 130, 220, 25, "Current Stocks:");
+			viewObjects.add(stocksTitle);
 			
 			stockInventory = new Transaction();
-			StockComponent stocks = new StockComponent(10, 140, 250, 25, stockInventory);
+			StockComponent stocks = new StockComponent(10, 170, 250, 25, stockInventory);
 			viewObjects.add(stocks);
 			
-			transactions = new ThemedTextLabel(10, 200, 220, 25, "Transaction History:");
-			viewObjects.add(transactions);
-		}		
-	}
+			viewAllStocks = new Button(250, 130, 100, 30, "View All", Color.blue, new Action(){
 
+				@Override
+				public void act() {
+					allStocks = new ThemedTextLabel(15, 170, 300, 25, "You don't own any stocks!");
+					viewObjects.add(allStocks);
+				}
+				
+			});
+			viewObjects.add(viewAllStocks);
+			
+			transactionTitle = new ThemedTextLabel(10, 230, 220, 25, "Transaction History:");
+			viewObjects.add(transactionTitle);
+			
+			updateTransactionHistory();
+			
+			viewAllTransactions = new Button(250, 230, 100, 30, "View All", Color.blue, new Action(){
+
+				@Override
+				public void act() {
+					allTransactions = new ThemedTextLabel(15, 270, 400, 25, "There are no previous transactions!");
+					viewObjects.add(allTransactions);
+				}
+				
+			});
+			viewObjects.add(viewAllTransactions);
+		}		
+	
+		private void updateTransactionHistory(){
+			if(Transaction.transactionHistory != null){
+				for(int i = 0; i < Transaction.transactionHistory.size(); i++){
+					history.add("You bought " + " shares of " + Transaction.transactionHistory.get(i) + " for $" + Transaction.transactionPrices.get(i));
+				}
+					
+			}
+		}
+		
+		
+		
+	}
 }

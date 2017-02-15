@@ -37,7 +37,6 @@ public class DanielDemo extends GUIApplication {
 	protected void initScreen() {
 		DemoScreen demo = new DemoScreen(getWidth(), getHeight());
 		setScreen(demo);
-
 	}
 
 	/**
@@ -47,7 +46,6 @@ public class DanielDemo extends GUIApplication {
 		DanielDemo demo = new DanielDemo();
 		Thread app = new Thread(demo);
 		app.start();
-
 	}
 	
 	//nested inner class;
@@ -79,7 +77,7 @@ public class DanielDemo extends GUIApplication {
 		private boolean dialogueBuy;
 		private TextLabel userBal;
 		
-		
+		private int index = 0;
 		
 		public DemoScreen(int width, int height) {
 			super(width, height);
@@ -99,8 +97,8 @@ public class DanielDemo extends GUIApplication {
 				public void act() {
 				dialogueBuy = true;
 				transaction.buyAStock();
-				transactionDisplay.setText(Transaction.transactionHistory[i] + " was bought for " + Transaction.transactionPrices[i]);
-				
+				transactionDisplay.setText(Transaction.transactionHistory.get(index) + " was bought for " + Transaction.transactionPrices.get(index));
+				index++;
 			}
 			});
 			view.add(actionDisplay);
@@ -112,11 +110,14 @@ public class DanielDemo extends GUIApplication {
 				public void act() {
 					dialogueBuy = false;
 					transaction.sellAStock();
-					transactionDisplay.setText(Transaction.transactionHistory[i] + " was sold for " + Transaction.transactionPrices[i]);
+					transactionDisplay.setText(Transaction.transactionHistory.get(index) + " was sold for " + Transaction.transactionPrices.get(index));
+					index++;
 				}
 			});
 			
 			view.add(sellAStock);
+			
+			view.add(transactionDisplay);
 			
 //			makeADialogue = new Button(290,200, 250, 40, "Run the Dialogue", Color.blue, new Action() {			
 //				//click this to run the dialogue
