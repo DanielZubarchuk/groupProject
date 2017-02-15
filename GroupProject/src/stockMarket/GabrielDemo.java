@@ -13,9 +13,6 @@ import guiPractice8.component.Graphic;
 import guiPractice8.component.Visible;
 import projectComponents.ThemedTextLabel;
 
-import stockMarket.StockMenu;
-
-
 public class GabrielDemo extends GUIApplication {
 	
 		public static GabrielDemo mainDemoScreen;
@@ -50,6 +47,7 @@ private class DemoScreen extends ClickableScreen{
 
 	/**
 	 * Checklist:
+	 * - Select Stock button 
 	 * - Link share# to
 	 * - Display events
 	 * - Buy/Sell buttons to work
@@ -57,17 +55,18 @@ private class DemoScreen extends ClickableScreen{
 	 */
 
 	private ThemedTextLabel result;
+	private String SamsungTest;
 	private ThemedTextLabel Samsung;
 	private ThemedTextLabel Blackgate;
 	private ThemedTextLabel Apple;
 	private ThemedTextLabel Glascow;
 	private ThemedTextLabel Generalmotors;
-	private int share1;
-	private int share2;
-	private int share3;
-	private int share4;
-	private int share5;
-	private Button plus1;
+	private int share1; //int that refers to shares of Samsung
+	private int share2; //int that refers to shares of Blackgate
+	private int share3; //int that refers to shares of Apple
+	private int share4;//int that refers to shares of Glascow
+	private int share5;//int that refers to shares of General Motors
+	private Button plus1; //plus and minus buttons are for increasing/decreasing the shares of their respective #
 	private Button plus2;
 	private Button plus3;
 	private Button plus4;
@@ -125,9 +124,9 @@ private class DemoScreen extends ClickableScreen{
 				
 		//Samsung = new ThemedTextLabel(40, 80, 90, 90, "Samsung");
 		//view.add(Samsung);
-		Samsung = new ThemedTextLabel(160,80,150,90,"Samsung " + share1);
+		Samsung = new ThemedTextLabel(40,80,150,90,"Samsung " + share1);
 		view.add(Samsung);
-		plus1 = new Button(185,148,25,20,"+",Color.green, new Action() {
+		plus1 = new Button(185,145,25,20,"+",Color.green, new Action() {
 			@Override
 			public void act() {
 				share1++;
@@ -135,27 +134,105 @@ private class DemoScreen extends ClickableScreen{
 			}
 		});
 		view.add(plus1);
-		minus1 = new Button(135,148,25,20,"-",Color.green, new Action() {
+		minus1 = new Button(150,145,25,20,"-",Color.green, new Action() {
 			@Override
 			public void act() {
-				share1--;
+				if(share1 > 0){
+					share1--;
+				}
+				
 				Samsung.setText("Samsung "+ share1);
 			}
 		});
 		view.add(minus1);
 		
-		Blackgate = new ThemedTextLabel(40, 100, 90, 90, "Blackgate");
+		Blackgate = new ThemedTextLabel(40, 100, 120, 90, "Blackgate " + share2);
 		view.add(Blackgate);
+		plus2 = new Button(185,165,25,20,"+",Color.green, new Action() {
+			@Override
+			public void act() {
+				share2++;
+				Blackgate.setText("Blackgate "+ share2 );
+			}
+		});
+		view.add(plus2);
+		minus2 = new Button(150,165,25,20,"-",Color.green, new Action() {
+			@Override
+			public void act() {
+				if(share2 > 0){
+					share2--;
+				}
+				
+				Blackgate.setText("Blackgate "+ share2);
+			}
+		});
+		view.add(minus2);
 		
-		Apple = new ThemedTextLabel(40, 120, 90, 90, "Apple");
+		Apple = new ThemedTextLabel(40, 120, 90, 90, "Apple "+ share3);
 		view.add(Apple);
+		plus3 = new Button(185,187,25,20,"+",Color.green, new Action() {
+			@Override
+			public void act() {
+				share3++;
+				Apple.setText("Apple "+ share3 );
+			}
+		});
+		view.add(plus3);
+		minus3 = new Button(150,187,25,20,"-",Color.green, new Action() {
+			@Override
+			public void act() {
+				if(share3 > 0){
+					share3--;
+				}
+				
+				Apple.setText("Apple "+ share3);
+			}
+		});
+		view.add(minus3);
 		
-		Glascow = new ThemedTextLabel(40, 140, 90, 90, "Glascow");
+		Glascow = new ThemedTextLabel(40, 140, 120, 90, "Glascow "+share4);
 		view.add(Glascow);
+		plus4 = new Button(185,205,25,20,"+",Color.green, new Action() {
+			@Override
+			public void act() {
+				share4++;
+				Glascow.setText("Glascow "+ share4 );
+			}
+		});
+		view.add(plus4);
+		minus4 = new Button(150,205,25,20,"-",Color.green, new Action() {
+			@Override
+			public void act() {
+				if(share4 > 0){
+					share4--;
+				}
+				
+				Glascow.setText("Glascow "+ share4);
+			}
+		});
+		view.add(minus4);
 		
-		Generalmotors = new ThemedTextLabel(40, 160, 150, 90, "General Motors");
+		Generalmotors = new ThemedTextLabel(40, 160, 170, 90, "General Motors "+share5);
 		view.add(Generalmotors);
-		
+		plus5 = new Button(240,225,25,20,"+",Color.green, new Action() {
+			@Override
+			public void act() {
+				share5++;
+				Generalmotors.setText("General Motors "+ share5 );
+			}
+		});
+		view.add(plus5);
+		minus5 = new Button(215,225,25,20,"-",Color.green, new Action() {
+			@Override
+			public void act() {
+				if(share5 > 0){
+					share5--;
+				}
+				
+				Generalmotors.setText("General Motors "+ share5);
+			}
+		});
+		view.add(minus5);
 		
 		buy = new Button(175, 260, 90, 40, "Buy", Color.green, new Action() {
 			
