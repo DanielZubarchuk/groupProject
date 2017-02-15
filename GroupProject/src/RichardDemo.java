@@ -269,6 +269,11 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 				}
 			});
 			
+			lemon = new Graphic(260,130,.75, "Resources/icon/dddd3.png");
+			newspaper = new Graphic(260,230,.75, "Resources/icon/eeee6.png");
+			carwash = new Graphic(260,330,.75, "Resources/icon/ffff2.png");
+			pizza = new Graphic(260,430,.75, "Resources/icon/gggg2.png");
+			
 			viewObjects.add(background);
 			viewObjects.add(iconleft);
 			
@@ -289,6 +294,10 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 			viewObjects.add(buyButton7);
 			viewObjects.add(buyButton8);
 			
+			viewObjects.add(lemon);
+			viewObjects.add(newspaper);
+			viewObjects.add(carwash);
+			viewObjects.add(pizza);
 			
 			viewObjects.add(reset);
 			viewObjects.add(buyText);
