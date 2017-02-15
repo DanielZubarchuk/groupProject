@@ -12,7 +12,7 @@ import stackInterfaces.StockInterface;
  * @author hotfi
  *
  */
-public class Fluctuation implements MarketInterface, StockInterface{
+public class Fluctuation implements MarketInterface{
 
 	/**
 	 * FIELDS
@@ -104,17 +104,7 @@ public class Fluctuation implements MarketInterface, StockInterface{
 	}
 
 	// SETTERS AND GETTERS
-	@Override
-	public String getStockName(String name) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
-	@Override
-	public double getStockPrice(double price) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 
 	public static String[] getStockNames() {
 		return stockNames;
@@ -128,11 +118,6 @@ public class Fluctuation implements MarketInterface, StockInterface{
 		return stockGrowths;
 	}
 
-	@Override
-	public double getBalance() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 
 	public static ArrayList<String> getEventHistory() {
 		return eventHistory;
