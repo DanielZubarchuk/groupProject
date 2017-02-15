@@ -14,6 +14,7 @@ import guiPractice8.component.Button;
 import guiPractice8.component.ClickableScreen;
 import guiPractice8.component.Graphic;
 import guiPractice8.component.Visible;
+import projectComponents.MultiLineTextLabel;
 import projectComponents.ThemedTextLabel;
 
 /**
@@ -58,7 +59,7 @@ public class VictorDemo extends GUIApplication {
 		private Button eventHistory;
 		private Graphic background;
 		private Graphic logo;
-		private ThemedTextLabel historyDisplay;
+		private MultiLineTextLabel historyDisplay;
 		
 		public DemoScreen(int width, int height) {
 			super(width, height);
@@ -70,7 +71,7 @@ public class VictorDemo extends GUIApplication {
 			eventDisplay = new ThemedTextLabel(40, 170, 800, 25, "");
 			background = new Graphic(0,0,getWidth(),getHeight(),"resources/images/newmoneybackground.png");
 			logo = new Graphic(40, 50, 90, 90, "resources/images/logo.png"); 
-			historyDisplay = new ThemedTextLabel(40, 250, getWidth() - 50, 100,"");	
+			historyDisplay = new MultiLineTextLabel(40, 250, 800, 50,"");	
 			updateStock = new Button(40, 220, 190, 40, "Update Stock", Color.blue, new Action() {
 				@Override
 				public void act() {
@@ -78,7 +79,7 @@ public class VictorDemo extends GUIApplication {
 							+ ": "
 							+ VictorDemo.fluctuation.outputEvent() 
 							+ "(" + String.format( "%.2f", Fluctuation.getStockGrowths()[VictorDemo.fluctuation.getEventStock()] )
-							+ " )" + String.format( "%.2f", Fluctuation.getStockPrices()[VictorDemo.fluctuation.getEventStock()] ));
+							+ " )" + String.format( "%.2f", Fluctuation.getStockPrices()[VictorDemo.fluctuation.getEventStock()] ) + "\n");
 					
 					eventDisplay.setText("Current state of " + Fluctuation.getStockNames()[VictorDemo.fluctuation.getEventStock()] 
 							+ ": "
@@ -101,17 +102,20 @@ public class VictorDemo extends GUIApplication {
 					*	// but change the g.drawString method
 					* }
 					**/
-					historyDisplay.setText("");
-					
+					for(String s: Fluctuation.getEventHistory()){
+						historyDisplay.setText(s);
+					}
+//					historyDisplay.setText("Hello\nWorld");
 					
 				}
 			});
 			view.add(background);
 			view.add(eventDisplay);
+			view.add(historyDisplay);
 			view.add(updateStock);
 			view.add(eventHistory);
 			view.add(logo);
-			view.add(historyDisplay);
+			
 		}
 		
 	}
