@@ -50,7 +50,7 @@ public class MultiLineTextLabel extends ThemedTextLabel {
 		g = clear(); // clears image and gets new graphics
 		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
 				RenderingHints.VALUE_ANTIALIAS_ON);
-		g.setColor(Color.black);
+		g.setColor(Color.blue);
 		if(text != null){
 			g.setFont(new Font(font,Font.PLAIN,size));
 			g.drawString(text, 4, getHeight()-5);

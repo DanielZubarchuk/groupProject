@@ -55,7 +55,7 @@ public class VictorDemo extends GUIApplication {
 	//nested inner class;
 	private class DemoScreen extends ClickableScreen{
 
-		private ThemedTextLabel eventDisplay;
+		private MultiLineTextLabel eventDisplay;
 		private Button updateStock;
 		private Button eventHistory;
 		private Graphic background;
@@ -89,7 +89,7 @@ public class VictorDemo extends GUIApplication {
 		public void initAllObjects(List<Visible> view) {
 //			instantiateStocksDisplay();
 			
-			eventDisplay = new ThemedTextLabel(40, 170, 800, 25, "");
+			eventDisplay = new MultiLineTextLabel(40, 170, 800, 25, "");
 			background = new Graphic(0,0,getWidth(),getHeight(),"resources/images/newmoneybackground.png");
 			logo = new Graphic(40, 50, 90, 90, "resources/images/logo.png"); 
 			historyDisplay = new MultiLineTextLabel(40, 250, 800, 50,"");
