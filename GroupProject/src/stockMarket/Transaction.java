@@ -20,7 +20,7 @@ public class Transaction implements StockInventory{
 	//private static boolean booleanStock;
 	
 	private static int chosenShareAmount;
-	private static String chosenStock;
+	public static String chosenStock;
 	private static int i;
 	private static double stockPrice;
 	private static Object choiceSelection;
