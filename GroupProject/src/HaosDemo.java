@@ -76,12 +76,12 @@ public class HaosDemo extends GUIApplication{
 					HaosDemo.demos.setScreen(HaosDemo.demo);
 				}
 			});
-			backgroundTest = new Graphic(100, 600, 1000, 500, "resources/sampleImages/background.png");
+//			backgroundTest = new Graphic(100, 600, 1000, 500, "resources/sampleImages/background.png");
 			test = new TextLabel(getWidth()/2 - 200, getHeight()/3, 760, 40, "Click the black icon to go to the Sample Screen");
 			view.add(testAppLink);
 			view.add(homeButton);
 			view.add(test);
-			view.add(backgroundTest);
+//			view.add(backgroundTest);
 		}
 		
 	}
