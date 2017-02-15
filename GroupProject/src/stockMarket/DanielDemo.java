@@ -118,24 +118,24 @@ public class DanielDemo extends GUIApplication {
 			
 			view.add(sellAStock);
 			
-			makeADialogue = new Button(290,200, 250, 40, "Run the Dialogue", Color.blue, new Action() {			
-				//click this to run the dialogue
-				@Override
-				public void act() {
-					startDialogue.setText("");
-					if(dialogueBuy == true){
-						for(int n = 0; n < buyLog.length; n++){
-							
-						}
-					}else{
-						for(int m = 0; m < sellLog.length; m++){
-							
-						}
-					}
-					
-				
-				}
-			});
+//			makeADialogue = new Button(290,200, 250, 40, "Run the Dialogue", Color.blue, new Action() {			
+//				//click this to run the dialogue
+//				@Override
+//				public void act() {
+//					startDialogue.setText("");
+//					if(dialogueBuy == true){
+//						for(int n = 0; n < buyLog.length; n++){
+//							
+//						}
+//					}else{
+//						for(int m = 0; m < sellLog.length; m++){
+//							
+//						}
+//					}
+//					
+//				
+//				}
+//			});
 			
 			view.add(makeADialogue);
 			

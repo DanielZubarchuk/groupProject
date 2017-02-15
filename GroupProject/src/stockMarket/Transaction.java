@@ -72,10 +72,12 @@ public class Transaction implements StockInventory{
 	}
 	
 	private static void fillStock(String stk) {
+		//System.out.println(stk);
 		transactionHistory.add(stk);
 	}
 	
 	private static void fillPrices(Double prc){
+		//System.out.println(prc);
 		transactionPrices.add(prc);
 	}
 
@@ -87,7 +89,7 @@ public class Transaction implements StockInventory{
 	public static int findStock(){
 		//helper method
 		
-		for(int i = 0;i < Fluctuation.stockNames.length; i++){
+		for(int i = 0;i < Fluctuation.getStockNames().length; i++){
 			if(chosenStock.equals(Fluctuation.getStockNames()[i])){
 				return i;
 			}
