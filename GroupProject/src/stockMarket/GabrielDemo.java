@@ -17,6 +17,7 @@ public class GabrielDemo extends GUIApplication {
 	
 		public static GabrielDemo mainDemoScreen;
 		public static GabrielDemoInventoryScreen inventoryDemo;
+		public static UserScreen inventoryScreen;
 		public static Screen demo;
 		
 		public GabrielDemo() {
@@ -47,20 +48,22 @@ private class DemoScreen extends ClickableScreen{
 
 	/**
 	 * Checklist:
-	 * - Select Stock button 
-	 * - Link share# to
+	 * - Select Stock button
 	 * - Display events
-	 * - Buy/Sell buttons to work
-	 * - Create interface
 	 */
 
 	private ThemedTextLabel result;
-	private String SamsungTest;
-	private ThemedTextLabel Samsung;
-	private ThemedTextLabel Blackgate;
-	private ThemedTextLabel Apple;
-	private ThemedTextLabel Glascow;
-	private ThemedTextLabel Generalmotors;
+	private String Samsung;
+	private String Blackgate;
+	private String Apple;
+	private String Glascow;
+	private String Generalmotors;
+	private String testString;
+	private ThemedTextLabel SamsungLabel;
+	private ThemedTextLabel BlackgateLabel;
+	private ThemedTextLabel AppleLabel;
+	private ThemedTextLabel GlascowLabel;
+	private ThemedTextLabel GeneralmotorsLabel;
 	private int share1; //int that refers to shares of Samsung
 	private int share2; //int that refers to shares of Blackgate
 	private int share3; //int that refers to shares of Apple
@@ -76,10 +79,15 @@ private class DemoScreen extends ClickableScreen{
 	private Button minus3;
 	private Button minus4;
 	private Button minus5;
+	private Button select1;//buttons for selecting which stock the user wants to buy or sell
+	private Button select2;
+	private Button select3;
+	private Button select4;
+	private Button select5;
 	private Graphic logo;
 	private ThemedTextLabel goal;
 	private ThemedTextLabel turn;
-	private ThemedTextLabel event;
+	//private ThemedTextLabel event;
 	private Graphic background;
 	private Button buy;
 	private Button sell;
@@ -87,7 +95,6 @@ private class DemoScreen extends ClickableScreen{
 	private Button end;
 	private int turncount;
 	private int goalcount;
-	//private Graphic stockRect;
 	
 	public DemoScreen(int width, int height) {
 		super(width, height);
@@ -98,7 +105,12 @@ private class DemoScreen extends ClickableScreen{
 	public void initAllObjects(List<Visible> view) {
 		
 		//String[] stocks = { "Samsung","Blackgate", "Apple","Glascow","General Motors"};
-		result = new ThemedTextLabel(220, 50, 800, 25, "Choose an action.");
+		Samsung = "Samsung";
+		Blackgate = "Blackgate";
+		Apple = "Apple";
+		Glascow = "Glascow";
+		Generalmotors = "General Motors";
+		result = new ThemedTextLabel(150, 50, 800, 25, "Choose an action.");
 		share1 = 0;
 		share2 = 0;
 		share3 = 0;
@@ -113,24 +125,28 @@ private class DemoScreen extends ClickableScreen{
 		logo = new Graphic(40, 50, 90, 90, "resources/images/logo.png"); 
 		view.add(logo);
 		
-		turn = new ThemedTextLabel(510, 0, 90,90,"Turn " + turncount);
+		turn = new ThemedTextLabel(510, 10, 90,90,"Turn " + turncount);
 		view.add(turn);
 		
-		goal = new ThemedTextLabel(470, 25, 200,90,"Goal:$" + goalcount);
+		goal = new ThemedTextLabel(470, 35, 200,90,"Goal:$" + goalcount);
 		view.add(goal);
 		
-		//stockRect = new Graphic(30, 145, 170, 110, "resources/images/greenrect.png");
-		//view.add(stockRect);
-				
-		//Samsung = new ThemedTextLabel(40, 80, 90, 90, "Samsung");
-		//view.add(Samsung);
-		Samsung = new ThemedTextLabel(40,80,150,90,"Samsung " + share1);
-		view.add(Samsung);
+		//SamsungLabel = new ThemedTextLabel(40,80,150,90,"Samsung " + share1);
+		SamsungLabel = new ThemedTextLabel(120,80,70,90,Integer.toString(share1));
+		view.add(SamsungLabel);
+		select1 = new Button(20,140,90,30,"Samsung", Color.green,new Action() {
+			@Override
+			public void act() {
+				testString = Samsung;
+				result.setText("You selected "+testString+" as your stock");	
+			}
+		});
+		view.add(select1);
 		plus1 = new Button(185,145,25,20,"+",Color.green, new Action() {
 			@Override
 			public void act() {
 				share1++;
-				Samsung.setText("Samsung "+ share1 );
+				SamsungLabel.setText(Integer.toString(share1) );
 			}
 		});
 		view.add(plus1);
@@ -141,100 +157,132 @@ private class DemoScreen extends ClickableScreen{
 					share1--;
 				}
 				
-				Samsung.setText("Samsung "+ share1);
+				SamsungLabel.setText(Integer.toString(share1));
 			}
 		});
 		view.add(minus1);
 		
-		Blackgate = new ThemedTextLabel(40, 100, 120, 90, "Blackgate " + share2);
-		view.add(Blackgate);
-		plus2 = new Button(185,165,25,20,"+",Color.green, new Action() {
+		BlackgateLabel = new ThemedTextLabel(120, 120, 120, 90, Integer.toString(share2));
+		view.add(BlackgateLabel);
+		select2 = new Button(20,180,90,30,"Blackgate", Color.green,new Action() {
+			@Override
+			public void act() {
+				testString = Blackgate;
+				result.setText("You selected "+testString+" as your stock");	
+			}
+		});
+		view.add(select2);
+		plus2 = new Button(185,190,25,20,"+",Color.green, new Action() {
 			@Override
 			public void act() {
 				share2++;
-				Blackgate.setText("Blackgate "+ share2 );
+				BlackgateLabel.setText(Integer.toString(share2));
 			}
 		});
 		view.add(plus2);
-		minus2 = new Button(150,165,25,20,"-",Color.green, new Action() {
+		minus2 = new Button(150,190,25,20,"-",Color.green, new Action() {
 			@Override
 			public void act() {
 				if(share2 > 0){
 					share2--;
 				}
 				
-				Blackgate.setText("Blackgate "+ share2);
+				BlackgateLabel.setText(Integer.toString(share2));
 			}
 		});
 		view.add(minus2);
 		
-		Apple = new ThemedTextLabel(40, 120, 90, 90, "Apple "+ share3);
-		view.add(Apple);
-		plus3 = new Button(185,187,25,20,"+",Color.green, new Action() {
+		AppleLabel = new ThemedTextLabel(120, 155, 90, 90, Integer.toString(share3));
+		view.add(AppleLabel);
+		select3 = new Button(20,215,90,30,"Apple", Color.green,new Action() {
+			@Override
+			public void act() {
+				testString = Apple;
+				result.setText("You selected "+testString+" as your stock");	
+			}
+		});
+		view.add(select3);
+		plus3 = new Button(185,220,25,20,"+",Color.green, new Action() {
 			@Override
 			public void act() {
 				share3++;
-				Apple.setText("Apple "+ share3 );
+				AppleLabel.setText(Integer.toString(share3));
 			}
 		});
 		view.add(plus3);
-		minus3 = new Button(150,187,25,20,"-",Color.green, new Action() {
+		minus3 = new Button(150,220,25,20,"-",Color.green, new Action() {
 			@Override
 			public void act() {
 				if(share3 > 0){
 					share3--;
 				}
 				
-				Apple.setText("Apple "+ share3);
+				AppleLabel.setText(Integer.toString(share3));
 			}
 		});
 		view.add(minus3);
 		
-		Glascow = new ThemedTextLabel(40, 140, 120, 90, "Glascow "+share4);
-		view.add(Glascow);
-		plus4 = new Button(185,205,25,20,"+",Color.green, new Action() {
+		GlascowLabel = new ThemedTextLabel(120, 185, 120, 90, Integer.toString(share4));
+		view.add(GlascowLabel);
+		select4 = new Button(20,250,90,30,"Glascow", Color.green,new Action() {
+			@Override
+			public void act() {
+				testString = Glascow;
+				result.setText("You selected "+testString+" as your stock");	
+			}
+		});
+		view.add(select4);
+		plus4 = new Button(185,253,25,20,"+",Color.green, new Action() {
 			@Override
 			public void act() {
 				share4++;
-				Glascow.setText("Glascow "+ share4 );
+				GlascowLabel.setText(Integer.toString(share4));
 			}
 		});
 		view.add(plus4);
-		minus4 = new Button(150,205,25,20,"-",Color.green, new Action() {
+		minus4 = new Button(150,253,25,20,"-",Color.green, new Action() {
 			@Override
 			public void act() {
 				if(share4 > 0){
 					share4--;
 				}
 				
-				Glascow.setText("Glascow "+ share4);
+				GlascowLabel.setText(Integer.toString(share4));
 			}
 		});
 		view.add(minus4);
 		
-		Generalmotors = new ThemedTextLabel(40, 160, 170, 90, "General Motors "+share5);
-		view.add(Generalmotors);
-		plus5 = new Button(240,225,25,20,"+",Color.green, new Action() {
+		GeneralmotorsLabel = new ThemedTextLabel(180, 230, 170, 90, Integer.toString(share5));
+		view.add(GeneralmotorsLabel);
+		select5 = new Button(20,290,145,30,"General Motors", Color.green,new Action() {
+			@Override
+			public void act() {
+				testString = Generalmotors;
+				result.setText("You selected "+testString+" as your stock");	
+			}
+		});
+		view.add(select5);
+		plus5 = new Button(245,295,25,20,"+",Color.green, new Action() {
 			@Override
 			public void act() {
 				share5++;
-				Generalmotors.setText("General Motors "+ share5 );
+				GeneralmotorsLabel.setText(Integer.toString(share5));
 			}
 		});
 		view.add(plus5);
-		minus5 = new Button(215,225,25,20,"-",Color.green, new Action() {
+		minus5 = new Button(210,295,25,20,"-",Color.green, new Action() {
 			@Override
 			public void act() {
 				if(share5 > 0){
 					share5--;
 				}
 				
-				Generalmotors.setText("General Motors "+ share5);
+				GeneralmotorsLabel.setText(Integer.toString(share5));
 			}
 		});
 		view.add(minus5);
 		
-		buy = new Button(175, 260, 90, 40, "Buy", Color.green, new Action() {
+		buy = new Button(350, 260, 90, 40, "Buy", Color.green, new Action() {
 			
 			@Override
 			public void act() {
@@ -252,7 +300,7 @@ private class DemoScreen extends ClickableScreen{
 		view.add(result);
 		//view.add(result);
 		
-		user = new Button(200, 305, 200, 40, "User Portfolio", Color.green, new Action() {
+		user = new Button(350, 305, 200, 40, "User Portfolio", Color.green, new Action() {
 			
 			@Override
 			public void act() {
@@ -269,7 +317,7 @@ private class DemoScreen extends ClickableScreen{
 		view.add(result);
 			
 			
-		sell = new Button(350, 260, 90, 40, "Sell", Color.green, new Action() {
+		sell = new Button(450, 260, 90, 40, "Sell", Color.green, new Action() {
 				
 				@Override
 				public void act() {
@@ -284,7 +332,7 @@ private class DemoScreen extends ClickableScreen{
 		view.add(sell);
 		view.add(result);
 			
-		end = new Button(250, 350, 100, 40, "End Turn", Color.green, new Action() {
+		end = new Button(350, 350, 100, 40, "End Turn", Color.green, new Action() {
 				
 				@Override
 				public void act() {
