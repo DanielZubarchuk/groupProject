@@ -3,8 +3,8 @@
  */
 package main;
 
-import guiPractice8.GUIApplication;
-import guiPractice8.component.Button;
+import guiPractice.GUIApplication;
+import guiPractice.components.Button;
 
 /**
  * @author Daniel
