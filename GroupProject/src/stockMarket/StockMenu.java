@@ -11,11 +11,11 @@ import guiPractice8.component.ClickableScreen;
 import guiPractice8.component.TextLabel;
 import guiPractice8.component.Visible;
 import projectComponents.ThemedTextLabel;
-import stackInterfaces.GabrielInterface;
+import stackInterfaces.StockMenuInterface;
 
 public class StockMenu extends ClickableScreen {
 
-	private GabrielInterface[] buttons;
+	private StockMenuInterface[] buttons;
 	private ThemedTextLabel logo;
 	private ThemedTextLabel goal;
 	private ThemedTextLabel turn;
