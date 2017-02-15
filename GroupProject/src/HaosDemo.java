@@ -77,7 +77,7 @@ public class HaosDemo extends GUIApplication{
 				}
 			});
 //			backgroundTest = new Graphic(100, 600, 1000, 500, "resources/sampleImages/background.png");
-			test = new TextLabel(getWidth()/2 - 200, getHeight()/3, 760, 40, "Click the black icon to go to the Sample Screen");
+			test = new TextLabel(getWidth()/2 - 200, getHeight()/4, 760, 40, "Click the black icon to go to the Sample Screen");
 			view.add(testAppLink);
 			view.add(homeButton);
 			view.add(test);
