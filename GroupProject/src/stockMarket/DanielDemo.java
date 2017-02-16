@@ -118,30 +118,6 @@ public class DanielDemo extends GUIApplication {
 			view.add(sellAStock);
 			
 			view.add(transactionDisplay);
-			
-//			makeADialogue = new Button(290,200, 250, 40, "Run the Dialogue", Color.blue, new Action() {			
-//				//click this to run the dialogue
-//				@Override
-//				public void act() {
-//					startDialogue.setText("");
-//					if(dialogueBuy == true){
-//						for(int n = 0; n < buyLog.length; n++){
-//							
-//						}
-//					}else{
-//						for(int m = 0; m < sellLog.length; m++){
-//							
-//						}
-//					}
-//					
-//				
-//				}
-//			});
-			
-			//view.add(makeADialogue);
-			
-//			rectangle = new Graphic(40, 100, 190, 40,"resources/images/greenrect.png");
-//			view.add(rectangle);
 		}
 		
 	}

@@ -17,8 +17,6 @@ public class Transaction implements StockInventory{
 	
 	static Scanner input;
 	
-	//private static boolean booleanStock;
-	
 	private static int chosenShareAmount = 1;
 	
 	public static String chosenStock;
@@ -33,8 +31,6 @@ public class Transaction implements StockInventory{
 	public static double[] secondPrices = {100,78,90,120,111,87};
 	
 	public static void main(String[] args) {
-		//System.out.println("Do you want to buy or sell?");
-		
 
 	}
 	
@@ -79,11 +75,6 @@ public class Transaction implements StockInventory{
 		System.out.println(prc);
 		transactionPrices.add(0,prc);
 	}
-
-//	public void initAllObjects(List<Visible> visible) {
-//		transactionHistory = new ArrayList<String>();
-//		
-//	}
 	
 	public static int findStock(){
 		//helper method
@@ -95,10 +86,6 @@ public class Transaction implements StockInventory{
 		}
 		return -1;
 	}
-	
-//	public static void makeDialogue(){
-//		for()
-//	}
 
 	@Override
 	public ArrayList<StockInterface> getStocks() {
@@ -109,11 +96,4 @@ public class Transaction implements StockInventory{
 		}
 		return stocks;
 	}
-	
-//	public String outputEvent(){
-//	/**
-//	 * Outputs the newest event for text about fluctuation in main screen
-//	 */
-//	return stocks.get(stocks.size()-1);
-//}
 }
