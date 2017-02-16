@@ -14,11 +14,17 @@ public class Statistics implements StatsInterface{
 		return currentBalance;
 	}
 	
-	public void updateBalance(){
-		
-	}
-	
-	public void updateEarnings(){
+//	public void updateBalance(){
+//		
+//	}
+//	
+//	public void updateEarnings(){
+//		
+//	}
+
+	@Override
+	public void setMoney() {
+		// TODO Auto-generated method stub
 		
 	}
 	
