@@ -10,15 +10,6 @@ public class Statistics implements StatsInterface{
 	//public static int[] propertyTimeArray;
 	public static int numResets;
 	
-	public int getMoney() {
-		return currentBalance;
-	}
-
-	@Override
-	public void setMoney(int x) {
-		// TODO Auto-generated method stub
-		currentBalance = x;
-	}
 	
 //	public void updateBalance(){
 //		
