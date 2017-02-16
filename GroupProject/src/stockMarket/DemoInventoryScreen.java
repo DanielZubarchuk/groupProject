@@ -9,12 +9,12 @@ import guiPractice8.component.ClickableScreen;
 import guiPractice8.component.Visible;
 import projectComponents.ThemedTextLabel;
 
-public class GabrielDemoInventoryScreen extends ClickableScreen{
+public class DemoInventoryScreen extends ClickableScreen{
 
 	private Button back;
 	private ThemedTextLabel inventory;
 	
-	public GabrielDemoInventoryScreen(int width, int height) {
+	public DemoInventoryScreen(int width, int height) {
 		super(width, height);
 		
 	}
@@ -25,7 +25,7 @@ public class GabrielDemoInventoryScreen extends ClickableScreen{
 			
 			@Override
 			public void act() {
-				GabrielDemo.mainDemoScreen.setScreen(GabrielDemo.demo);
+				StockMainMenu.mainDemoScreen.setScreen(StockMainMenu.demo);
 				
 			}
 		});

@@ -81,7 +81,7 @@ public class RisaDemo extends GUIApplication {
 			backButton = new Button(10, 30, 90, 40, "back", Color.blue, new Action(){
 				
 				public void act(){
-					RisaDemo.demo.setScreen(GabrielDemo.demo);
+					RisaDemo.demo.setScreen(StockMainMenu.demo);
 					System.out.println("goes back to main menu");
 				}
 			});

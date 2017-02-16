@@ -13,14 +13,14 @@ import guiPractice8.component.Graphic;
 import guiPractice8.component.Visible;
 import projectComponents.ThemedTextLabel;
 
-public class GabrielDemo extends GUIApplication {
+public class StockMainMenu extends GUIApplication {
 	
-		public static GabrielDemo mainDemoScreen;
-		public static GabrielDemoInventoryScreen inventoryDemo;
+		public static StockMainMenu mainDemoScreen;
+		public static DemoInventoryScreen inventoryDemo;
 		public static UserScreen inventoryScreen;
 		public static Screen demo;
 		
-		public GabrielDemo() {
+		public StockMainMenu() {
 			
 		}
 		
@@ -29,7 +29,7 @@ public class GabrielDemo extends GUIApplication {
 		protected void initScreen() {
 			// for screens of phone and games
 			demo = new DemoScreen(getWidth(), getHeight());
-			inventoryDemo = new GabrielDemoInventoryScreen(getWidth(), getHeight());
+			inventoryDemo = new DemoInventoryScreen(getWidth(), getHeight());
 			setScreen(demo);
 		}
 
@@ -37,7 +37,7 @@ public class GabrielDemo extends GUIApplication {
 		
 		 */
 		public static void main(String[] args) {
-			mainDemoScreen = new GabrielDemo();
+			mainDemoScreen = new StockMainMenu();
 			Thread app = new Thread(mainDemoScreen);
 			app.start();
 
@@ -312,7 +312,7 @@ private class DemoScreen extends ClickableScreen{
 			@Override
 			public void act() {
 				System.out.println("Transporting to your portfolio");
-				GabrielDemo.mainDemoScreen.setScreen(inventoryDemo);
+				StockMainMenu.mainDemoScreen.setScreen(inventoryDemo);
 			}
 		});
 		view.add(user);
