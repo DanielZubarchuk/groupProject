@@ -5,7 +5,7 @@
 public interface StatsInterface {
 	
 	public int getMoney();
-	public void setMoney();
+	public void setMoney(int x);
 	
 	
 }
