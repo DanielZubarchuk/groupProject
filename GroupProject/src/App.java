@@ -1,9 +1,10 @@
 import guiPractice.components.Button;
 import guiPractice.components.ClickableGraphic;
+import guiPractice.components.Graphic;
 
 public interface App {
 
-	ClickableGraphic getGraphic();
+	Graphic getGraphic();
 	
 	void setHomeButton(Button homeButton);
 	
