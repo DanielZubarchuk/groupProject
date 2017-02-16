@@ -13,6 +13,12 @@ public class Statistics implements StatsInterface{
 	public int getMoney() {
 		return currentBalance;
 	}
+
+	@Override
+	public void setMoney(int x) {
+		// TODO Auto-generated method stub
+		currentBalance = x;
+	}
 	
 //	public void updateBalance(){
 //		
@@ -22,11 +28,7 @@ public class Statistics implements StatsInterface{
 //		
 //	}
 
-	@Override
-	public void setMoney() {
-		// TODO Auto-generated method stub
-		
-	}
+
 	
 //	private void setNewPrice(PropertyButton property, double x){
 //		
