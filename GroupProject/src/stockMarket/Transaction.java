@@ -16,6 +16,7 @@ public class Transaction implements StockInventory{
 	public static ArrayList<Double> transactionPrices  = new ArrayList<Double>();
 	public static ArrayList<StockInterface> stocks = new ArrayList<StockInterface>();
 	
+	
 	static Scanner input;
 	
 	private static int chosenShareAmount = 1;
@@ -27,17 +28,17 @@ public class Transaction implements StockInventory{
 	private static Object choiceSelection;
 	
 	public static double userBalance = 50000;
-	public static String[] secondStocks = {"Blackgate","Apple","Samsung",
+	public static String[] stockNames = {"Blackgate","Apple","Samsung",
 			"Glascow","General Motors"};
-	public static double[] secondPrices = {100,78,90,120,111,87};
+	public static double[] stockPrices = {100,78,90,120,111,87};
 	
 	public static void main(String[] args) {
 
 	}
 	
 	public static void buyAStock(){
-		chosenStock = secondStocks[buyIndex];
-		buyIndex = (buyIndex + 1) % secondStocks.length;
+		chosenStock = stockNames[buyIndex];
+		buyIndex = (buyIndex + 1) % stockNames.length;
 		if(userBalance > 0){
 			findStock();
 			stockPrice = stocks.get(i).getStockPrice() * chosenShareAmount;
@@ -88,12 +89,24 @@ public class Transaction implements StockInventory{
 		return -1;
 	}
 
-	@Override
-	public ArrayList<StockInterface> getStocks() {
-		for(int a = 0;a < transactionHistory.size(); a++){
-			Stock s = new Stock(transactionHistory.get(a), transactionPrices.get(a));
+//	@Override
+//	public ArrayList<StockInterface> getStocks() {
+//		for(int a = 0;a < transactionHistory.size(); a++){
+//			Stock s = new Stock(transactionHistory.get(a), transactionPrices.get(a));
+//			stocks.add(s);
+//		}
+//		return stocks;
+//	}
+	
+	public void fillStockArray(){
+		for(int i = 0; i < stockNames.length; i++){
+			Stock s = new Stock(stockNames[i], stockPrices[i]);
 			stocks.add(s);
 		}
+	}
+
+	@Override
+	public ArrayList<StockInterface> getStocks() {
 		return stocks;
 	}
 }
