@@ -1,6 +1,6 @@
 
 /**
- * @author Joey and Richard
+ * @author Katherine
  */
 public interface StatsInterface {
 	double currentBalance = 0;
