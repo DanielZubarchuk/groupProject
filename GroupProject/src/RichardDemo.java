@@ -159,12 +159,10 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 					}
 					else{
 						System.out.println(xthing);
+						moveToBack(xNumButton3);
+						moveToFront(xNumButton3);
 						button3Disabled = !button3Disabled;
 						button1Disabled = !button1Disabled;
-						moveToBack(xNumButton);
-						moveToBack(xNumButton);
-						moveToBack(background);
-						moveToBack(background);
 						}
 					}
 				});
@@ -177,13 +175,12 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 						return;
 					}
 					else{
-					System.out.println("klegjielg");
-					button1Disabled = !button1Disabled;
-					button2Disabled = !button2Disabled;
-						moveToBack(xNumButton2);
-						moveToBack(xNumButton2);
-						moveToBack(background);
-						moveToBack(background);
+						System.out.println("klegjielg");
+						moveToBack(xNumButton);
+						moveToFront(xNumButton);
+						button1Disabled = !button1Disabled;
+						button2Disabled = !button2Disabled;
+						
 					}
 				}
 				});
@@ -198,12 +195,10 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 						}
 						else{
 							System.out.println("rtyeryer");
+							moveToBack(xNumButton2);
+							moveToFront(xNumButton2);
 							button2Disabled = !button2Disabled;
 							button3Disabled = !button3Disabled;
-							moveToBack(xNumButton3);
-							moveToBack(xNumButton3);
-							moveToBack(background);
-							moveToBack(background);
 						}
 					}
 				});
