@@ -17,7 +17,7 @@ public class StockMainMenu extends GUIApplication {
 	
 		public static StockMainMenu mainDemoScreen;
 		public static DemoInventoryScreen inventoryDemo;
-		public static UserScreen inventoryScreen;
+		public static User inventoryScreen;
 		public static Screen demo;
 		
 		public StockMainMenu() {

@@ -24,7 +24,7 @@ import stackInterfaces.StockInventory;
  */
 public class RisaDemo extends GUIApplication {
 
-	public static UserScreen user;
+	public static User user;
 	public static RisaDemo demo;
 	
 	public static double balance;
@@ -60,7 +60,6 @@ public class RisaDemo extends GUIApplication {
 		private Button viewAllStocks;
 		private Button viewAllTransactions;
 		private Graphic background;
-		private Graphics2D allStockTemp;
 		private ThemedTextLabel stocksTitle;
 		private ThemedTextLabel allStocks;
 		private ThemedTextLabel transactionTitle;
