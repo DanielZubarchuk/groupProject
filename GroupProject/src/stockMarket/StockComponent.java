@@ -12,7 +12,7 @@ import stackInterfaces.StockInventory;
 public class StockComponent extends Component {
 
 	private StockInventory inventory;
-	private ArrayList<String> stocks;
+	private Stock stocks;
 	
 	public StockComponent(int x, int y, int w, int h, StockInventory inventory) {
 		super(x, y, w, h);
@@ -21,30 +21,48 @@ public class StockComponent extends Component {
 
 	@Override
 	public void update(Graphics2D g) {
-		int cntr = 0;
 		int y = 0;
+		
 		if(inventory != null && !inventory.getStocks().isEmpty()){
 			clear();
-			int inventorySize = inventory.getStocks().size();
 			
-			for(int i = inventorySize - 1; i >= 0; i--){
+			for(StockInterface s : inventory.getStocks()){
+				int x = 35;
 				
-				StockInterface s = inventory.getStocks().get(i);
+				g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+				g.setColor(Color.black);
+				g.fillRect(10, y, 60, 40);
+				g.drawRect(10, y, 60, 40);
 				
-				if(cntr < 3){
-					g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-					g.setColor(Color.black);
-					g.fillRect(10, y, 60, 40);
-					g.drawRect(10, y, 60, 40);
+				g.drawString(s.getStockName(), x, y);
+				g.drawString(s.getStockPrice(), x + 50, y);
 				
-//					g.drawString(s.getStockName(Transaction.chosenStock) + s.getStockPrice(Transaction.stockPrice), 35, y);
-				
-					y += 40;
-					cntr++;
-				}else{
-					displayAll(g);
-				}
+				y += 40;
 			}
+			
+			//g.drawString(s.getStockName(Transaction.chosenStock) + s.getStockPrice(Transaction.stockPrice), 35, y);
+			
+			
+//			int inventorySize = inventory.getStocks().size();
+//			
+//			for(int i = inventorySize - 1; i >= 0; i--){
+//				
+//				StockInterface s = inventory.getStocks().get(i);
+//				
+//				if(cntr < 3){
+//					g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+//					g.setColor(Color.black);
+//					g.fillRect(10, y, 60, 40);
+//					g.drawRect(10, y, 60, 40);
+//				
+////					g.drawString(s.getStockName(Transaction.chosenStock) + s.getStockPrice(Transaction.stockPrice), 35, y);
+//				
+//					y += 40;
+//					cntr++;
+//				}else{
+//					displayAll(g);
+//				}
+//			}
 		}
 	}
 	

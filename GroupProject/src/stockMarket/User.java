@@ -39,6 +39,7 @@ public class User extends ClickableScreen{
 	public static double balance;
 	
 	private StockInventory stockInventory;
+	private static ArrayList<StockInterface> stocksInventory = new ArrayList<StockInterface>();
 	
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
@@ -93,6 +94,7 @@ public class User extends ClickableScreen{
 		viewObjects.add(viewAllTransactions);
 	}		
 
+
 	private void updateTransactionHistory(){
 		if(Transaction.transactionHistory != null){
 			for(int i = 0; i < Transaction.transactionHistory.size(); i++){
@@ -102,4 +104,7 @@ public class User extends ClickableScreen{
 		}
 	}
 		
+	public static ArrayList<StockInterface> getStocksInventory() {
+		return stocksInventory;
+	}
 }
