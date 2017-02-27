@@ -1,34 +1,32 @@
 import java.awt.Color;
 import java.util.ArrayList;
+import java.util.List;
 
 import guiPractice8.component.Action;
 import guiPractice8.component.Button;
 
 public class JoeyOperation {
-	public static ArrayList<AmountButtonInterface> amountButtons;
-	public static PropertyButton lemon;
-	public static PropertyButton newspaper;
-	public static PropertyButton car;
-	public static PropertyButton pizza;
-	public static PropertyButton donut;
-	public static PropertyButton shrimp;
-	public static PropertyButton hockey;
-	public static PropertyButton movie;
+	private static ArrayList<AmountButtonInterface> amountButtons;
+	private static PropertyButton lemon;
+	private static PropertyButton newspaper;
+	private static PropertyButton car;
+	private static PropertyButton pizza;
+	private static PropertyButton donut;
+	private static PropertyButton shrimp;
+	private static PropertyButton hockey;
+	private static PropertyButton movie;
 
-	public static AmountButton one;
-	public static AmountButton ten;
-	public static AmountButton hundred;
-	public static AmountButton max;
+	private static AmountButton one;
+	private static AmountButton ten;
+	private static AmountButton hundred;
+	private static AmountButton max;
 
+	public static ArrayList<AmountButton> amountButtonList;
 
-
-
-	private boolean button1Disabled = true;
-	private boolean button2Disabled = true;
-	private boolean button3Disabled = false;
 
 
 	private int[] numbers;
+	private int theButton = 0;
 
 	public static ArrayList<PropertyButton> properties;
 	public static void main(String[] args) {
@@ -56,7 +54,51 @@ public class JoeyOperation {
 	}
 
 	
+	public void createAmountButtons(){
+		
+		one = new AmountButton(800, 40, 100, 50, " x1", new Color(255,255,0), new Action(){
 
+			public void act() {
+				// TODO Auto-generated method stub
+
+				if(one.isShowing()){
+					moveToBack(one);
+					moveToBack(one);
+					ten.setTrue();
+					//						moveToBack(background);
+					//						moveToBack(background);
+				}
+			}
+		}, 1, true);
+		ten = new AmountButton(807, 50, 100, 10, " x10", new Color(255,255,0), new Action(){
+
+			public void act() {
+				// TODO Auto-generated method stub
+				if(ten.isShowing()){
+					moveToBack(ten);
+					moveToBack(ten);
+					hundred.setTrue();
+					//						moveToBack(background);
+					//						moveToBack(background);
+				}
+			}
+		}, 10, false);
+		hundred = new AmountButton(793, 45, 100, 50, " x100", new Color(255,255,0), new Action(){
+
+
+			public void act() {
+				// TODO Auto-generated method stub
+				if(hundred.isShowing()){
+					moveToBack(hundred);
+					moveToBack(hundred);
+					one.setTrue();
+					//						moveToBack(background);
+					//						moveToBack(background);
+				}
+			}
+		}, 100, false);
+		
+	}
 	
 
 
@@ -66,12 +108,21 @@ public class JoeyOperation {
 	}
 	//amount button 900 50
 	//
+	
+	public AmountButton currentAmount(){
+		return amountButtonList.get(theButton );
+	}
+	
+	public int getCurrentAmount(){
+		return 0;
+	}
+	
 	public void generateButtons(){
 		
 		lemon = new PropertyButton(220,180,200,50,"Buy x"+one.getAmount()+"  $4.00", Color.ORANGE, new Action(){
 			public void act(){
-				if(lemon.getPrice()<=playerMoney){
-					quantityOwned[0]+=one.getAmount();
+				if(lemon.getPrice()<=Statistics.getMoney()){
+					quantityOwned[0]+=getCurrentAmount();
 					playerMoney -= lemon.getPrice();
 					buyText.setText("$"+playerMoney);
 					priceScaling(lemon);

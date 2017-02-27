@@ -4,11 +4,15 @@
 
 public class Statistics implements StatsInterface{
 	
-	public static int currentBalance;
+	private static double currentBalance;
 	public static int lifetimeEarnings;
 	public static int[] propertyQuantityArray;
 	//public static int[] propertyTimeArray;
 	public static int numResets;
+	public static double getMoney() {
+		// TODO Auto-generated method stub
+		return currentBalance;
+	}
 	
 	
 //	public void updateBalance(){
