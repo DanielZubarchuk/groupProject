@@ -66,7 +66,14 @@ public class JoeyDemo extends GUIApplication {
 			super(width, height);
 			// TODO Auto-generated constructor stub
 		}
-
+		
+		public double roundNumber(double amount){
+			double newNumber = (((int)(amount*100))/100.00);
+			return newNumber;
+		}
+		
+		
+		
 
 		public void createAmountButtons(){
 			one = new AmountButton(800, 40, 100, 50, " x1", new Color(255,255,0), new Action(){
@@ -114,7 +121,7 @@ public class JoeyDemo extends GUIApplication {
 
 		private void priceScaling(PropertyButton button){
 			double newPrice = Math.pow(1.08, one.getAmount())*button.getPrice();
-			button.setPrice(newPrice);
+			button.setPrice(roundNumber(newPrice));
 		}
 
 		public void generateButtons(){
@@ -123,6 +130,7 @@ public class JoeyDemo extends GUIApplication {
 					if(lemon.getPrice()<=playerMoney){
 						quantityOwned[0]+=one.getAmount();
 						playerMoney -= lemon.getPrice();
+						playerMoney = roundNumber(playerMoney);
 						buyText.setText("$"+playerMoney);
 						priceScaling(lemon);
 						lemon.setText("Buy x"+one.getAmount()+"  $"+lemon.getPrice());
@@ -135,6 +143,7 @@ public class JoeyDemo extends GUIApplication {
 					if(newspaper.getPrice()<=playerMoney){
 						quantityOwned[1]+=one.getAmount();
 						playerMoney -= newspaper.getPrice();
+						playerMoney = roundNumber(playerMoney);
 						buyText.setText("$"+playerMoney);
 						priceScaling(newspaper);
 						newspaper.setText("Buy x"+one.getAmount()+"  $"+newspaper.getPrice());
@@ -147,6 +156,7 @@ public class JoeyDemo extends GUIApplication {
 					if(car.getPrice()<=playerMoney){
 						quantityOwned[2]+=one.getAmount();
 						playerMoney -= car.getPrice();
+						playerMoney = roundNumber(playerMoney);
 						buyText.setText("$"+playerMoney);
 						priceScaling(car);
 						car.setText("Buy x"+one.getAmount()+"  $"+car.getPrice());
@@ -159,6 +169,7 @@ public class JoeyDemo extends GUIApplication {
 					if(pizza.getPrice()<=playerMoney){
 						quantityOwned[3]+=one.getAmount();
 						playerMoney -= pizza.getPrice();
+						playerMoney = roundNumber(playerMoney);
 						buyText.setText("$"+playerMoney);
 						priceScaling(pizza);
 						pizza.setText("Buy x"+one.getAmount()+"  $"+pizza.getPrice());
@@ -171,6 +182,7 @@ public class JoeyDemo extends GUIApplication {
 					if(donut.getPrice()<=playerMoney){
 						quantityOwned[4]+=one.getAmount();
 						playerMoney -= donut.getPrice();
+						playerMoney = roundNumber(playerMoney);
 						buyText.setText("$"+playerMoney);
 						priceScaling(donut);
 						donut.setText("Buy x"+one.getAmount()+"  $"+donut.getPrice());
@@ -183,6 +195,7 @@ public class JoeyDemo extends GUIApplication {
 					if(shrimp.getPrice()<=playerMoney){
 						quantityOwned[5]+=one.getAmount();
 						playerMoney -= shrimp.getPrice();
+						playerMoney = roundNumber(playerMoney);
 						buyText.setText("$"+playerMoney);
 						priceScaling(shrimp);	
 						shrimp.setText("Buy x"+one.getAmount()+"  $"+shrimp.getPrice());		
@@ -195,6 +208,7 @@ public class JoeyDemo extends GUIApplication {
 					if(hockey.getPrice()<=playerMoney){
 						quantityOwned[6]+=one.getAmount();
 						playerMoney -= hockey.getPrice();
+						playerMoney = roundNumber(playerMoney);
 						buyText.setText("$"+playerMoney);
 						priceScaling(hockey);		
 						hockey.setText("Buy x"+one.getAmount()+"  $"+hockey.getPrice());	
@@ -207,9 +221,9 @@ public class JoeyDemo extends GUIApplication {
 					if(movie.getPrice()<=playerMoney){
 						quantityOwned[7]+=one.getAmount();
 						playerMoney -= movie.getPrice();
-						buyText.update();
-						priceScaling(movie);		
-						movie.setText("Buy x"+one.getAmount()+"  $"+movie.getPrice());	
+						playerMoney = roundNumber(playerMoney);
+						buyText.setText("$"+playerMoney);
+						priceScaling(movie);
 					}
 				}
 			}, 179159000, 89579000, 1.09, 768000 );
@@ -235,48 +249,56 @@ public class JoeyDemo extends GUIApplication {
 
 				public void act(){
 					playerMoney += lemon.getPayout() * quantityOwned[0];
+					playerMoney = roundNumber(playerMoney);
 					buyText.setText("$"+playerMoney);
 				}
 			});
 			buyButton2 = new Button(510, 180, 150, 40, "Make Money!", new Color(255,255,0), new Action(){
 				public void act(){
 					playerMoney += newspaper.getPayout() * quantityOwned[1];
+					playerMoney = roundNumber(playerMoney);
 					buyText.setText("$"+playerMoney);
 				}
 			});
 			buyButton3 = new Button(10, 280, 150, 40, "Make Money!", new Color(255,255,0), new Action(){
 				public void act(){
 					playerMoney += car.getPayout() * quantityOwned[2];
+					playerMoney = roundNumber(playerMoney);
 					buyText.setText("$"+playerMoney);
 				}
 			});
 			buyButton4 = new Button(510, 280, 150, 40, "Make Money!", new Color(255,255,0), new Action(){
 				public void act(){
 					playerMoney += pizza.getPayout() * quantityOwned[3];
+					playerMoney = roundNumber(playerMoney);
 					buyText.setText("$"+playerMoney);			
 				}
 			});
 			buyButton5 = new Button(10, 380, 150, 40, "Make Money!", new Color(255,255,0), new Action(){
 				public void act(){
 					playerMoney += donut.getPayout() * quantityOwned[4];
+					playerMoney = roundNumber(playerMoney);
 					buyText.setText("$"+playerMoney);
 				}
 			});
 			buyButton6 = new Button(510, 380, 150, 40, "Make Money!", new Color(255,255,0), new Action(){
 				public void act(){
 					playerMoney += shrimp.getPayout() * quantityOwned[5];
+					playerMoney = roundNumber(playerMoney);
 					buyText.setText("$"+playerMoney);		
 				}
 			});
 			buyButton7 = new Button(10, 480, 150, 40, "Make Money!", new Color(255,255,0), new Action(){
 				public void act(){
 					playerMoney += hockey.getPayout() * quantityOwned[6];
+					playerMoney = roundNumber(playerMoney);
 					buyText.setText("$"+playerMoney);
 				}
 			});
 			buyButton8 = new Button(510, 480, 150, 40, "Make Money!", new Color(255,255,0), new Action(){
 				public void act(){
 					playerMoney += movie.getPayout() * quantityOwned[7];
+					playerMoney = roundNumber(playerMoney);
 					buyText.setText("$"+playerMoney);
 				}
 			});

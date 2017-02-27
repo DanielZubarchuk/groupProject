@@ -7,8 +7,7 @@ import guiPractice8.component.ClickableScreen;
 import guiPractice8.component.Visible;
 
 /**
- * @author Katherine
- *
+ * @author Joey
  */
 public class Manager extends ClickableScreen {
 	

@@ -2,6 +2,9 @@ import java.awt.Color;
 
 import guiPractice8.component.Action;
 import guiPractice8.component.Button;
+/**
+ * @author Joey
+ */
 
 public class AmountButton extends Button implements AmountButtonInterface {
 	private int amount;
