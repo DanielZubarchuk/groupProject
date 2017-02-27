@@ -50,16 +50,6 @@ public class DanielDemo extends GUIApplication {
 	
 	//nested inner class;
 	private class DemoScreen extends ClickableScreen{
-
-		public String[] buyLog = {"Which stock do you want to buy?", 
-				"How many shares of the Stock do you want to buy?", 
-				"You do not have enough money!",
-				"You do not have enough money!", 
-				"You do not have money to buy stocks! Try selling stocks to improve your balance."
-				};
-		public String[] sellLog = {"Which stock do you want to sell?",
-				"How many shares of the Stock do you want to sell?"
-				};
 		
 		private TextLabel actionDisplay;
 		private TextLabel startDialogue;
