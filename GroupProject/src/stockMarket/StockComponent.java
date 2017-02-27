@@ -37,7 +37,7 @@ public class StockComponent extends Component {
 					g.fillRect(10, y, 60, 40);
 					g.drawRect(10, y, 60, 40);
 				
-					g.drawString(s.getStockName(Transaction.chosenStock) + s.getStockPrice(Transaction.stockPrice), 35, y);
+//					g.drawString(s.getStockName(Transaction.chosenStock) + s.getStockPrice(Transaction.stockPrice), 35, y);
 				
 					y += 40;
 					cntr++;
@@ -57,7 +57,7 @@ public class StockComponent extends Component {
 			g.fillRect(10, y, 60, 40);
 			g.drawRect(10, y, 60, 40);
 		
-			g.drawString(s.getStockName(Transaction.chosenStock) + s.getStockPrice(Transaction.stockPrice), 35, y);
+//			g.drawString(s.getStockName(Transaction.chosenStock) + s.getStockPrice(Transaction.stockPrice), 35, y);
 		
 			y += 40;
 		}

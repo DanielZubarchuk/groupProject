@@ -25,9 +25,9 @@ public class Fluctuation implements MarketInterface{
 	
 
 	//stocks array
-	private static String[] stockNames = {"Blackgate","Apple","Samsung","Glascow","General Motors"};
-	private static double[] stockPrices = {100,78,90,120,111,87};
-	private static double[] stockGrowths = {1.1,2.6,1.3,.8,.9,2.0};
+//	private static String[] stockNames = {"Blackgate","Apple","Samsung","Glascow","General Motors"};
+//	private static double[] stockPrices = {100,78,90,120,111,87};
+//	private static double[] stockGrowths = {1.1,2.6,1.3,.8,.9,2.0};
 	
 	//constants
 	private static final int _BANKRUPT = 0;
@@ -57,24 +57,24 @@ public class Fluctuation implements MarketInterface{
 		/**
 		 * Each time BUY/SELL is clicked, the anonymous inner class (act) should call this method to update the stocks.
 		 */
-		eventStock = (int) (Math.random()*stockNames.length);
+		eventStock = (int) (Math.random()*Transaction.stocks.size());
 		fillEvents();
 			
-		if((int)(stockPrices[eventStock]) == _BANKRUPT){
+		if((int)(Transaction.stocks.get(eventStock).getStockPrice()) == _BANKRUPT){
 			reviveStock(eventStock);
 		}
 		double effect = currentEvent/2;
-		double newGrowth = stockGrowths[eventStock] * effect;
-		double newPrice = stockPrices[eventStock] * newGrowth;
+		double newGrowth = Transaction.stocks.get(eventStock).getGrowthRate() * effect;
+		double newPrice = Transaction.stocks.get(eventStock).getStockPrice() * newGrowth;
 		
-		stockGrowths[eventStock] = newGrowth;
-		stockPrices[eventStock] = newPrice;
+		Transaction.stocks.get(eventStock).setGrowthRate(newGrowth);
+		Transaction.stocks.get(eventStock).setStockPrice(newPrice);
 		
 	}
 	
 	private void reviveStock(int index) {
-		stockPrices[eventStock] = 70;
-		stockGrowths[eventStock] = 1.0; 
+		Transaction.stocks.get(eventStock).setStockPrice(70);
+		Transaction.stocks.get(eventStock).setGrowthRate(1.0);
 		
 	}
 
@@ -102,22 +102,6 @@ public class Fluctuation implements MarketInterface{
 		 */
 		return events.get(events.size()-1);
 	}
-
-	// SETTERS AND GETTERS
-
-
-	public static String[] getStockNames() {
-		return stockNames;
-	}
-
-	public static double[] getStockPrices() {
-		return stockPrices;
-	}
-
-	public static double[] getStockGrowths() {
-		return stockGrowths;
-	}
-
 
 	public static ArrayList<String> getEventHistory() {
 		return eventHistory;

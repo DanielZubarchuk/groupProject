@@ -13,32 +13,39 @@ public class Stock implements StockInterface {
 
 	private static String stockName;
 	private static double stockPrice;
+	private static double growthRate;
 	
 	public Stock(String s, double d){
-		this.stockName = s;
-		this.stockPrice = d;
+		setStockName(s);
+		setStockPrice(d);
 	}
 	/* (non-Javadoc)
 	 * @see stackInterfaces.StockInterface#getStockName(java.lang.String)
 	 */
-	@Override
-	public String getStockName(String name) {
-		return null;
-	}
-
-	/* (non-Javadoc)
-	 * @see stackInterfaces.StockInterface#getStockPrice(double)
-	 */
-	@Override
-	public double getStockPrice(double price) {
-		return 0;
-	}
-
+	
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
 
+	}
+	public double getStockPrice() {
+		return stockPrice;
+	}
+	public void setStockPrice(double stockPrice) {
+		Stock.stockPrice = stockPrice;
+	}
+	public String getStockName() {
+		return stockName;
+	}
+	public void setStockName(String stockName) {
+		Stock.stockName = stockName;
+	}
+	public double getGrowthRate() {
+		return growthRate;
+	}
+	public void setGrowthRate(double growthRate) {
+		Stock.growthRate = growthRate;
 	}
 
 }

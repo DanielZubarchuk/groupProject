@@ -99,17 +99,17 @@ public class VictorDemo extends GUIApplication {
 			updateStock = new Button(40, 220, 190, 40, "Update Stock", Color.blue, new Action() {
 				@Override
 				public void act() {
-					Fluctuation.getEventHistory().add("Current state of " + Fluctuation.getStockNames()[VictorDemo.fluctuation.getEventStock()] 
+					Fluctuation.getEventHistory().add("Current state of " + Transaction.stocks.get(VictorDemo.fluctuation.getEventStock()).getStockName()
 							+ ": "
 							+ VictorDemo.fluctuation.outputEvent() 
-							+ "(" + String.format( "%.2f", Fluctuation.getStockGrowths()[VictorDemo.fluctuation.getEventStock()] )
-							+ " )" + String.format( "%.2f", Fluctuation.getStockPrices()[VictorDemo.fluctuation.getEventStock()] ) + "\n");
+							+ "(" + String.format( "%.2f", Transaction.stocks.get(VictorDemo.fluctuation.getEventStock()).getStockPrice() )
+							+ " )" + String.format( "%.2f", Transaction.stocks.get(VictorDemo.fluctuation.getEventStock()).getStockName() ) + "\n");
 					
-					eventDisplay.setText("Current state of " + Fluctuation.getStockNames()[VictorDemo.fluctuation.getEventStock()] 
+					eventDisplay.setText("Current state of " + Transaction.stocks.get(VictorDemo.fluctuation.getEventStock()).getStockName() 
 							+ ": "
 							+ VictorDemo.fluctuation.outputEvent() 
-							+ "(" + String.format( "%.2f", Fluctuation.getStockGrowths()[VictorDemo.fluctuation.getEventStock()] )
-							+ " )" + String.format( "%.2f", Fluctuation.getStockPrices()[VictorDemo.fluctuation.getEventStock()] ));
+							+ "(" + String.format( "%.2f", Transaction.stocks.get(VictorDemo.fluctuation.getEventStock()).getGrowthRate() )
+							+ " )" + String.format( "%.2f", Transaction.stocks.get(VictorDemo.fluctuation.getEventStock()).getStockPrice()));
 					VictorDemo.fluctuation.updateStock();
 				}
 			});

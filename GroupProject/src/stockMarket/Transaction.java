@@ -14,6 +14,7 @@ public class Transaction implements StockInventory{
 	
 	public static ArrayList<String> transactionHistory = new ArrayList<String>();
 	public static ArrayList<Double> transactionPrices  = new ArrayList<Double>();
+	public static ArrayList<StockInterface> stocks = new ArrayList<StockInterface>();
 	
 	static Scanner input;
 	
@@ -39,7 +40,7 @@ public class Transaction implements StockInventory{
 		buyIndex = (buyIndex + 1) % secondStocks.length;
 		if(userBalance > 0){
 			findStock();
-			stockPrice = Fluctuation.getStockPrices()[i] * chosenShareAmount;
+			stockPrice = stocks.get(i).getStockPrice() * chosenShareAmount;
 			if(stockPrice < userBalance){
 				userBalance = userBalance - stockPrice;
 //				containStocks(chosenStock);
@@ -63,7 +64,7 @@ public class Transaction implements StockInventory{
 	
 	public static void sellAStock(){
 		findStock();
-		userBalance = (Fluctuation.getStockPrices()[i] * chosenShareAmount) + userBalance;
+		userBalance = (stocks.get(i).getStockPrice() * chosenShareAmount) + userBalance;
 	}
 	
 	private static void fillStock(String stk) {
@@ -79,8 +80,8 @@ public class Transaction implements StockInventory{
 	public static int findStock(){
 		//helper method
 		
-		for(int i = 0;i < Fluctuation.getStockNames().length; i++){
-			if(chosenStock.equals(Fluctuation.getStockNames()[i])){
+		for(int i = 0;i < stocks.size(); i++){
+			if(chosenStock.equals(stocks.get(i).getStockName())){
 				return i;
 			}
 		}
@@ -89,7 +90,6 @@ public class Transaction implements StockInventory{
 
 	@Override
 	public ArrayList<StockInterface> getStocks() {
-		ArrayList<StockInterface> stocks = new ArrayList<StockInterface>();
 		for(int a = 0;a < transactionHistory.size(); a++){
 			Stock s = new Stock(transactionHistory.get(a), transactionPrices.get(a));
 			stocks.add(s);
