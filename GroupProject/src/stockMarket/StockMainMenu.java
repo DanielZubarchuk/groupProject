@@ -100,8 +100,9 @@ private class DemoScreen extends ClickableScreen{
 	
 	/*
 	 * To Do List:
-	 * - Create method for plus and minus buttons (SimonScreen)
-	 * - 
+	 * - Create method for plus and minus buttons (SimonScreen + Veeraj Screen)
+	 * - Change build path to GUI5
+	 * - Change imports
 	 */
 	
 	public DemoScreen(int width, int height) {
