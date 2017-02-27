@@ -20,8 +20,6 @@ public class MainMenuScreen extends ClickableScreen implements MouseMotionListen
 	private ClickableGraphic advCapLink;
 	private Graphic backgroundPic;
 	private ArrayList<ClickableGraphic> appLinks;
-	static boolean advOpened;
-	static boolean stockOpened;
 	
 	public MainMenuScreen(int width, int height) {
 		super(width, height);
@@ -44,7 +42,13 @@ public class MainMenuScreen extends ClickableScreen implements MouseMotionListen
 		});
 		stockGameLink.setAction(new Action() {
 			public void act(){
-				stockOpened = true;
+				MainMenu.histScreen.stockOpened = true;
+				MainMenu.mms.setScreen(MainMenu.sampleScreen);
+			}
+		});
+		advCapLink.setAction(new Action() {
+			public void act(){
+				MainMenu.histScreen.advOpened = true;
 				MainMenu.mms.setScreen(MainMenu.sampleScreen);
 			}
 		});

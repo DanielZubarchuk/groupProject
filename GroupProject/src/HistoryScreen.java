@@ -17,6 +17,9 @@ public class HistoryScreen extends ClickableScreen implements App, MouseListener
 	private Button close;
 	private Graphic stockIcon;
 	private Graphic advIcon;
+	static boolean advOpened;
+	static boolean stockOpened;
+	private ArrayList<Graphic> appPics;
 	
 	public HistoryScreen(int width, int height) {
 		super(height, height);
@@ -29,19 +32,28 @@ public class HistoryScreen extends ClickableScreen implements App, MouseListener
 				MainMenu.mms.setScreen(MainMenu.menuScreen);
 			}
 		});
-		stockIcon = new Graphic(getWidth()/2-175, (int) (getHeight()/2 - 87.5), .5, "resources/sampleImages/stockMarketIcon.png");
-		if (MainMenuScreen.stockOpened){
+		if(stockOpened){
+			addApp(stockIcon);
 			view.add(stockIcon);
-			close = new Button(stockIcon.getWidth() - 50, stockIcon.getHeight(), 70, 30, "Close", new Color(0,0,0), new Action(){
+			close = new Button(stockIcon.getWidth(), stockIcon.getHeight() - 50, 70, 30, "Close", new Color(0,0,0), new Action(){
 				public void act(){
 					view.remove(stockIcon);
 					view.remove(close);
 				}
 			});
-			view.add(close);
 		}
-		
 		view.add(homeButton);
+	}
+	
+	public void addApp(Graphic g){
+		stockIcon = new Graphic(getWidth()/2-175, (int) (getHeight()/2 - 87.5), .5, "resources/sampleImages/stockMarketIcon.png");
+		advIcon = new Graphic(stockIcon.getWidth() + 50, stockIcon.getHeight(), .5, "resources/sampleImages/advCapIcon.png");
+		if(stockOpened){
+			appPics.add(stockIcon);	
+		}
+		if(advOpened){
+			appPics.add(advIcon);
+		}
 	}
 	
 	@Override
