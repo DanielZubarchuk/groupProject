@@ -60,7 +60,7 @@ private class DemoScreen extends ClickableScreen{
 	private String Apple;
 	private String Glascow;
 	private String Generalmotors;
-	private String testString;
+	private String DanielString;
 	private ThemedTextLabel SamsungLabel;
 	private ThemedTextLabel BlackgateLabel;
 	private ThemedTextLabel AppleLabel;
@@ -98,26 +98,19 @@ private class DemoScreen extends ClickableScreen{
 	private int turncount;
 	private int goalcount;
 	
+	/*
+	 * To Do List:
+	 * - Create method for plus and minus buttons (SimonScreen)
+	 * - 
+	 */
+	
 	public DemoScreen(int width, int height) {
 		super(width, height);
 				
 	}
 	public void selectStock(String stock){
-		testString = stock;
+		DanielString = stock;
 		result.setText("You selected "+stock+" as your stock");
-	}
-	
-	public void addShare(ThemedTextLabel stocklabel, int share){
-		share++;
-		stocklabel.setText(Integer.toString(share) );
-	}
-	
-	public void subtractShare(ThemedTextLabel stocklabel, int share){
-		if(share > 0){
-			share--;
-		}
-		
-		stocklabel.setText(Integer.toString(share));
 	}
 	
 	@Override
