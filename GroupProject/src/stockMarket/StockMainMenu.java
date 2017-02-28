@@ -100,6 +100,7 @@ private class DemoScreen extends ClickableScreen{
 	
 	/*
 	 * To Do List:
+	 * - Only have 1 number and 1 plus and minus button that will do whatever for the selected stock
 	 * - Create method for plus and minus buttons (SimonScreen + Veeraj Screen)
 	 * - Change build path to GUI5
 	 * - Change imports
