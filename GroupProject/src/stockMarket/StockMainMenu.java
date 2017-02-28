@@ -66,21 +66,24 @@ private class DemoScreen extends ClickableScreen{
 	private ThemedTextLabel AppleLabel;
 	private ThemedTextLabel GlascowLabel;
 	private ThemedTextLabel GeneralmotorsLabel;
+	private String selectedStock;
+	private int shareNumber;
+	private ThemedTextLabel shareLabel;
 	private int share1; //int that refers to shares of Samsung
 	private int share2; //int that refers to shares of Blackgate
 	private int share3; //int that refers to shares of Apple
 	private int share4;//int that refers to shares of Glascow
 	private int share5;//int that refers to shares of General Motors
-	private Button plus1; //plus and minus buttons are for increasing/decreasing the shares of their respective #
-	private Button plus2;
-	private Button plus3;
-	private Button plus4;
-	private Button plus5;
-	private Button minus1;
-	private Button minus2;
-	private Button minus3;
-	private Button minus4;
-	private Button minus5;
+	private Button plus; //plus and minus buttons are for increasing/decreasing the shares of their respective #
+	//private Button plus2;
+	//private Button plus3;
+	//private Button plus4;
+	//private Button plus5;
+	private Button minus;
+	//private Button minus2;
+	//private Button minus3;
+	//private Button minus4;
+	//private Button minus5;
 	private Button select1;//buttons for selecting which stock the user wants to buy or sell
 	private Button select2;
 	private Button select3;
@@ -100,7 +103,6 @@ private class DemoScreen extends ClickableScreen{
 	
 	/*
 	 * To Do List:
-	 * - Only have 1 number and 1 plus and minus button that will do whatever for the selected stock
 	 * - Create method for plus and minus buttons (SimonScreen + Veeraj Screen)
 	 * - Change build path to GUI5
 	 * - Change imports
@@ -112,7 +114,8 @@ private class DemoScreen extends ClickableScreen{
 	}
 	public void selectStock(String stock){
 		DanielString = stock;
-		result.setText("You selected "+stock+" as your stock");
+		selectedStock = stock;
+		result.setText("You selected "+selectedStock+" as your stock");
 	}
 	
 	@Override
@@ -125,13 +128,9 @@ private class DemoScreen extends ClickableScreen{
 		Glascow = "Glascow";
 		Generalmotors = "General Motors";
 		result = new ThemedTextLabel(150, 50, 800, 25, "Choose an action.");
-		share1 = 0;
-		share2 = 0;
-		share3 = 0;
-		share4 = 0;
-		share5 = 0;
 		turncount = 0;
 		goalcount = 50000;
+		
 		
 		background=new Graphic(0,0,getWidth(),getHeight(),"resources/images/newmoneybackground.png");
 		view.add(background);
@@ -145,9 +144,9 @@ private class DemoScreen extends ClickableScreen{
 		goal = new ThemedTextLabel(470, 35, 200,90,"Goal:$" + goalcount);
 		view.add(goal);
 		
-		//SamsungLabel = new ThemedTextLabel(40,80,150,90,"Samsung " + share1);
-		SamsungLabel = new ThemedTextLabel(120,80,70,90,Integer.toString(share1));
-		view.add(SamsungLabel);
+		
+		//SamsungLabel = new ThemedTextLabel(120,80,70,90,Integer.toString(share1));
+		//view.add(SamsungLabel);
 		select1 = new Button(20,140,90,30,"Samsung", Color.green,new Action(){
 			@Override
 			public void act() {
@@ -155,28 +154,9 @@ private class DemoScreen extends ClickableScreen{
 			}
 		});
 		view.add(select1);
-		plus1 = new Button(185,145,25,20,"+",Color.green, new Action() {
-			@Override
-			public void act() {
-				share1++;
-				SamsungLabel.setText(Integer.toString(share1) );
-			}
-		});
-		view.add(plus1);
-		minus1 = new Button(150,145,25,20,"-",Color.green, new Action() {
-			@Override
-			public void act() {
-				if(share1 > 0){
-					share1--;
-				}
-				
-				SamsungLabel.setText(Integer.toString(share1));
-			}
-		});
-		view.add(minus1);
 		
-		BlackgateLabel = new ThemedTextLabel(120, 120, 120, 90, Integer.toString(share2));
-		view.add(BlackgateLabel);
+		//BlackgateLabel = new ThemedTextLabel(120, 120, 120, 90, Integer.toString(share2));
+		//view.add(BlackgateLabel);
 		select2 = new Button(20,180,90,30,"Blackgate", Color.green,new Action() {
 			@Override
 			public void act() {
@@ -184,28 +164,9 @@ private class DemoScreen extends ClickableScreen{
 			}
 		});
 		view.add(select2);
-		plus2 = new Button(185,190,25,20,"+",Color.green, new Action() {
-			@Override
-			public void act() {
-				share2++;
-				BlackgateLabel.setText(Integer.toString(share2));
-			}
-		});
-		view.add(plus2);
-		minus2 = new Button(150,190,25,20,"-",Color.green, new Action() {
-			@Override
-			public void act() {
-				if(share2 > 0){
-					share2--;
-				}
-				
-				BlackgateLabel.setText(Integer.toString(share2));
-			}
-		});
-		view.add(minus2);
 		
-		AppleLabel = new ThemedTextLabel(120, 155, 90, 90, Integer.toString(share3));
-		view.add(AppleLabel);
+		//AppleLabel = new ThemedTextLabel(120, 155, 90, 90, Integer.toString(share3));
+		//view.add(AppleLabel);
 		select3 = new Button(20,215,90,30,"Apple", Color.green,new Action() {
 			@Override
 			public void act() {
@@ -213,28 +174,9 @@ private class DemoScreen extends ClickableScreen{
 			}
 		});
 		view.add(select3);
-		plus3 = new Button(185,220,25,20,"+",Color.green, new Action() {
-			@Override
-			public void act() {
-				share3++;
-				AppleLabel.setText(Integer.toString(share3));
-			}
-		});
-		view.add(plus3);
-		minus3 = new Button(150,220,25,20,"-",Color.green, new Action() {
-			@Override
-			public void act() {
-				if(share3 > 0){
-					share3--;
-				}
-				
-				AppleLabel.setText(Integer.toString(share3));
-			}
-		});
-		view.add(minus3);
 		
-		GlascowLabel = new ThemedTextLabel(120, 185, 120, 90, Integer.toString(share4));
-		view.add(GlascowLabel);
+		//GlascowLabel = new ThemedTextLabel(120, 185, 120, 90, Integer.toString(share4));
+		//view.add(GlascowLabel);
 		select4 = new Button(20,250,90,30,"Glascow", Color.green,new Action() {
 			@Override
 			public void act() {
@@ -242,28 +184,9 @@ private class DemoScreen extends ClickableScreen{
 			}
 		});
 		view.add(select4);
-		plus4 = new Button(185,253,25,20,"+",Color.green, new Action() {
-			@Override
-			public void act() {
-				share4++;
-				GlascowLabel.setText(Integer.toString(share4));
-			}
-		});
-		view.add(plus4);
-		minus4 = new Button(150,253,25,20,"-",Color.green, new Action() {
-			@Override
-			public void act() {
-				if(share4 > 0){
-					share4--;
-				}
-				
-				GlascowLabel.setText(Integer.toString(share4));
-			}
-		});
-		view.add(minus4);
 		
-		GeneralmotorsLabel = new ThemedTextLabel(180, 230, 170, 90, Integer.toString(share5));
-		view.add(GeneralmotorsLabel);
+		//GeneralmotorsLabel = new ThemedTextLabel(180, 230, 170, 90, Integer.toString(share5));
+		//view.add(GeneralmotorsLabel);
 		select5 = new Button(20,290,145,30,"General Motors", Color.green,new Action() {
 			@Override
 			public void act() {
@@ -271,32 +194,44 @@ private class DemoScreen extends ClickableScreen{
 			}
 		});
 		view.add(select5);
-		plus5 = new Button(245,295,25,20,"+",Color.green, new Action() {
+		
+		shareLabel = new ThemedTextLabel(175,80,70,90,Integer.toString(shareNumber));
+		view.add(shareLabel);
+		
+		plus = new Button(200,145,25,20,"+",Color.green, new Action() {
 			@Override
 			public void act() {
-				share5++;
-				GeneralmotorsLabel.setText(Integer.toString(share5));
+				shareNumber++;
+				shareLabel.setText(Integer.toString(shareNumber) );
 			}
 		});
-		view.add(plus5);
-		minus5 = new Button(210,295,25,20,"-",Color.green, new Action() {
+		view.add(plus);
+		
+		minus = new Button(150,145,25,20,"-",Color.green, new Action() {
 			@Override
 			public void act() {
-				if(share5 > 0){
-					share5--;
+				if(shareNumber > 0){
+					shareNumber--;
 				}
 				
-				GeneralmotorsLabel.setText(Integer.toString(share5));
+				shareLabel.setText(Integer.toString(shareNumber));
 			}
 		});
-		view.add(minus5);
+		view.add(minus);
 		
 		buy = new Button(350, 260, 90, 40, "Buy", Color.green, new Action() {
 			
 			@Override
 			public void act() {
-				result.setText("You bought a stock");
-				System.out.println("You bought a stock");
+				if(shareNumber == 0 || selectedStock == null){
+					result.setText("You need to select a stock or add shares.");
+				}
+				else{
+					result.setText("You bought " + shareNumber + " shares of "+ selectedStock);
+				}
+				//System.out.println(shareNumber);
+				//System.out.println(selectedStock);
+				//System.out.println("you bought " + shareNumber + "shares of "+ selectedStock);
 			}
 		});
 		view.add(buy);
@@ -342,9 +277,6 @@ private class DemoScreen extends ClickableScreen{
 		view.add(end);
 			
 	}
-
-
-			
+	
 	}
 }
-
