@@ -223,42 +223,42 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 				}
 			});
 			
-			buyButton1 = new Button(420, 180, 150, 40, "BUY", new Color(255,255,0), new Action(){
+			buyButton1 = new Button(420, 180, 120, 40, "BUY", new Color(255,255,0), new Action(){
 				public void act(){
 					buyText.setText("You have bought girgwiglg1");
 				}
 			});
-			buyButton2 = new Button(820, 180, 150, 40, "BUY", new Color(255,255,0), new Action(){
+			buyButton2 = new Button(820, 180, 120, 40, "BUY", new Color(255,255,0), new Action(){
 				public void act(){
 					buyText.setText("You have bought girgwiglg2");
 				}
 			});
-			buyButton3 = new Button(420, 280, 150, 40, "BUY", new Color(255,255,0), new Action(){
+			buyButton3 = new Button(420, 280, 120, 40, "BUY", new Color(255,255,0), new Action(){
 				public void act(){
 					buyText.setText("You have bought girgwiglg3");
 				}
 			});
-			buyButton4 = new Button(820, 280, 150, 40, "BUY", new Color(255,255,0), new Action(){
+			buyButton4 = new Button(820, 280, 120, 40, "BUY", new Color(255,255,0), new Action(){
 				public void act(){
 					buyText.setText("You have bought girgwiglg4");
 				}
 			});
-			buyButton5 = new Button(420, 380, 150, 40, "BUY", new Color(255,255,0), new Action(){
+			buyButton5 = new Button(420, 380, 120, 40, "BUY", new Color(255,255,0), new Action(){
 				public void act(){
 					buyText.setText("You have bought girgwiglg5");
 				}
 			});
-			buyButton6 = new Button(820, 380, 150, 40, "BUY", new Color(255,255,0), new Action(){
+			buyButton6 = new Button(820, 380, 120, 40, "BUY", new Color(255,255,0), new Action(){
 				public void act(){
 					buyText.setText("You have bought girgwiglg6");
 				}
 			});
-			buyButton7 = new Button(420, 480, 150, 40, "BUY", new Color(255,255,0), new Action(){
+			buyButton7 = new Button(420, 480, 120, 40, "BUY", new Color(255,255,0), new Action(){
 				public void act(){
 					buyText.setText("You have bought girgwiglg7");
 				}
 			});
-			buyButton8 = new Button(820, 480, 150, 40, "BUY", new Color(255,255,0), new Action(){
+			buyButton8 = new Button(820, 480, 120, 40, "BUY", new Color(255,255,0), new Action(){
 				public void act(){
 					buyText.setText("You have bought girgwiglg8");
 				}
