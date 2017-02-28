@@ -32,8 +32,8 @@ public class Transaction implements StockInventory{
 			"Glascow","General Motors"};
 	public static double[] stockPrices = {100,78,90,120,111,87};
 	
-	public static void main(String[] args) {
-
+	public Transaction(){
+		fillStockArray();
 	}
 	
 	public static void buyAStock(){
@@ -41,7 +41,7 @@ public class Transaction implements StockInventory{
 		buyIndex = (buyIndex + 1) % stockNames.length;
 		if(userBalance > 0){
 			findStock();
-			stockPrice = stocks.get(i).getStockPrice() * chosenShareAmount;
+			stockPrice = stocks.get(buyIndex).getStockPrice() * chosenShareAmount;
 			if(stockPrice < userBalance){
 				userBalance = userBalance - stockPrice;
 //				containStocks(chosenStock);
@@ -65,7 +65,7 @@ public class Transaction implements StockInventory{
 	
 	public static void sellAStock(){
 		findStock();
-		userBalance = (stocks.get(i).getStockPrice() * chosenShareAmount) + userBalance;
+		userBalance = (stocks.get(buyIndex).getStockPrice() * chosenShareAmount) + userBalance;
 	}
 	
 	private static void fillStock(String stk) {
@@ -99,8 +99,8 @@ public class Transaction implements StockInventory{
 //	}
 	
 	public void fillStockArray(){
-		for(int i = 0; i < stockNames.length; i++){
-			Stock s = new Stock(stockNames[i], stockPrices[i]);
+		for(int a = 0; a < stockNames.length; a++){
+			Stock s = new Stock(stockNames[a], stockPrices[a]);
 			stocks.add(s);
 		}
 	}
