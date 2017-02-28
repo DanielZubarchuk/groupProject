@@ -5,6 +5,7 @@ import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 
 import guiPractice.ClickableScreen;
+import guiPractice.TextLabel;
 import guiPractice.components.Action;
 import guiPractice.components.Button;
 import guiPractice.components.ClickableGraphic;
@@ -17,6 +18,7 @@ public class HistoryScreen extends ClickableScreen implements App, MouseListener
 	private Button close;
 	private Graphic stockIcon;
 	private Graphic advIcon;
+	private TextLabel historyText;
 	static boolean advOpened;
 	static boolean stockOpened;
 	private ArrayList<Graphic> appPics;
@@ -33,28 +35,37 @@ public class HistoryScreen extends ClickableScreen implements App, MouseListener
 			}
 		});
 		if(stockOpened){
-			addApp(stockIcon);
+			stockIcon = new Graphic((int) (2 * getWidth()/3 ), getHeight()/2 - 50, .5, "resources/sampleImages/stockMarketIcon.png");
 			view.add(stockIcon);
+			appPics.add(stockIcon);
 			close = new Button(stockIcon.getWidth(), stockIcon.getHeight() - 50, 70, 30, "Close", new Color(0,0,0), new Action(){
 				public void act(){
 					view.remove(stockIcon);
 					view.remove(close);
+					appPics.remove(stockIcon);
 				}
 			});
 		}
+		if(advOpened){
+			advIcon = new Graphic((int) (getWidth()/3 - 87.5), getHeight()/2 - 50, .5, "resources/sampleImages/advCapIcon.png");
+			view.add(advIcon);
+			appPics.add(advIcon);
+			close = new Button(advIcon.getWidth(), advIcon.getHeight() - 50, 70, 30, "Close", new Color(0,0,0), new Action(){
+				public void act(){
+					view.remove(advIcon);
+					view.remove(close);
+					appPics.remove(advIcon);
+				}
+			});
+		}
+		if(!advOpened && !stockOpened){
+			historyText = new TextLabel(getWidth()/2 - 125, getHeight()/3, 760, 40, "Here is the history for all the apps you have opened. There is currently nothing in here.");
+			view.add(historyText);
+		}
+		
 		view.add(homeButton);
 	}
 	
-	public void addApp(Graphic g){
-		stockIcon = new Graphic(getWidth()/2-175, (int) (getHeight()/2 - 87.5), .5, "resources/sampleImages/stockMarketIcon.png");
-		advIcon = new Graphic(stockIcon.getWidth() + 50, stockIcon.getHeight(), .5, "resources/sampleImages/advCapIcon.png");
-		if(stockOpened){
-			appPics.add(stockIcon);	
-		}
-		if(advOpened){
-			appPics.add(advIcon);
-		}
-	}
 	
 	@Override
 	public void mouseDragged(MouseEvent arg0) {
