@@ -1,4 +1,5 @@
 import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -91,24 +92,42 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 		private Button statsButton;//made
 		private Button restartButton;//made
 		
-		private Button buyButton1;
-		private Button buyButton2;
-		private Button buyButton3;
-		private Button buyButton4;
-		private Button buyButton5;
-		private Button buyButton6;
-		private Button buyButton7;
-		private Button buyButton8;
+		private Button buyButton1;//made
+		private Button buyButton2;//made
+		private Button buyButton3;//made
+		private Button buyButton4;//made
+		private Button buyButton5;//made
+		private Button buyButton6;//made
+		private Button buyButton7;//made
+		private Button buyButton8;//made
 		
-		private TextLabel reset;
-		private TextLabel buyText;
+		private Button makeMoneyButton1;//made
+		private Button makeMoneyButton2;//made
+		private Button makeMoneyButton3;//made
+		private Button makeMoneyButton4;//made
+		private Button makeMoneyButton5;//made
+		private Button makeMoneyButton6;//made
+		private Button makeMoneyButton7;//made
+		private Button makeMoneyButton8;//made
 		
-		private Graphic iconleft;
-		private Graphic background;
-		private Graphic lemon;
-		private Graphic newspaper;
-		private Graphic carwash;
-		private Graphic pizza;
+		private TextLabel reset;//made
+		private TextLabel buyText;//made
+		
+		private TextLabel timer1;
+		private TextLabel timer2;
+		private TextLabel timer3;
+		private TextLabel timer4;
+		private TextLabel timer5;
+		private TextLabel timer6;
+		private TextLabel timer7;
+		private TextLabel timer8;
+		
+		private Graphic iconleft;//made
+		private Graphic background;//made
+		private Graphic lemon;//made
+		private Graphic newspaper;//made
+		private Graphic carwash;//made
+		private Graphic pizza;//made
 		private Graphic donut;
 		private Graphic shrimp;
 		private Graphic hocky;
@@ -223,44 +242,85 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 				}
 			});
 			
-			buyButton1 = new Button(420, 180, 120, 40, "BUY", new Color(255,255,0), new Action(){
+			buyButton1 = new Button(420, 180, 100, 40, "BUY", new Color(255,255,0), new Action(){
 				public void act(){
 					buyText.setText("You have bought girgwiglg1");
 				}
 			});
-			buyButton2 = new Button(820, 180, 120, 40, "BUY", new Color(255,255,0), new Action(){
+			buyButton2 = new Button(790, 180, 100, 40, "BUY", new Color(255,255,0), new Action(){
 				public void act(){
 					buyText.setText("You have bought girgwiglg2");
 				}
 			});
-			buyButton3 = new Button(420, 280, 120, 40, "BUY", new Color(255,255,0), new Action(){
+			buyButton3 = new Button(420, 280, 100, 40, "BUY", new Color(255,255,0), new Action(){
 				public void act(){
 					buyText.setText("You have bought girgwiglg3");
 				}
 			});
-			buyButton4 = new Button(820, 280, 120, 40, "BUY", new Color(255,255,0), new Action(){
+			buyButton4 = new Button(790, 280, 100, 40, "BUY", new Color(255,255,0), new Action(){
 				public void act(){
 					buyText.setText("You have bought girgwiglg4");
 				}
 			});
-			buyButton5 = new Button(420, 380, 120, 40, "BUY", new Color(255,255,0), new Action(){
+			buyButton5 = new Button(420, 380, 100, 40, "BUY", new Color(255,255,0), new Action(){
 				public void act(){
 					buyText.setText("You have bought girgwiglg5");
 				}
 			});
-			buyButton6 = new Button(820, 380, 120, 40, "BUY", new Color(255,255,0), new Action(){
+			buyButton6 = new Button(790, 380, 100, 40, "BUY", new Color(255,255,0), new Action(){
 				public void act(){
 					buyText.setText("You have bought girgwiglg6");
 				}
 			});
-			buyButton7 = new Button(420, 480, 120, 40, "BUY", new Color(255,255,0), new Action(){
+			buyButton7 = new Button(420, 480, 100, 40, "BUY", new Color(255,255,0), new Action(){
 				public void act(){
 					buyText.setText("You have bought girgwiglg7");
 				}
 			});
-			buyButton8 = new Button(820, 480, 120, 40, "BUY", new Color(255,255,0), new Action(){
+			buyButton8 = new Button(790, 480, 100, 40, "BUY", new Color(255,255,0), new Action(){
 				public void act(){
 					buyText.setText("You have bought girgwiglg8");
+				}
+			});
+			
+			makeMoneyButton1 = new Button(521, 180, 100, 40, "$$$", new Color(255,255,0), new Action(){
+				public void act(){
+					buyText.setText("You have dofgjsioprjhbilr1");
+				}
+			});
+			makeMoneyButton2 = new Button(891, 180, 100, 40, "$$$", new Color(255,255,0), new Action(){
+				public void act(){
+					buyText.setText("You have dofgjsioprjhbilr2");
+				}
+			});
+			makeMoneyButton3 = new Button(521, 280, 100, 40, "$$$", new Color(255,255,0), new Action(){
+				public void act(){
+					buyText.setText("You have dofgjsioprjhbilr3");
+				}
+			});
+			makeMoneyButton4 = new Button(891, 280, 100, 40, "$$$", new Color(255,255,0), new Action(){
+				public void act(){
+					buyText.setText("You have dofgjsioprjhbilr4");
+				}
+			});
+			makeMoneyButton5 = new Button(521, 380, 100, 40, "$$$", new Color(255,255,0), new Action(){
+				public void act(){
+					buyText.setText("You have dofgjsioprjhbilr5");
+				}
+			});
+			makeMoneyButton6 = new Button(891, 380, 100, 40, "$$$", new Color(255,255,0), new Action(){
+				public void act(){
+					buyText.setText("You have dofgjsioprjhbilr6");
+				}
+			});
+			makeMoneyButton7 = new Button(521, 480, 100, 40, "$$$", new Color(255,255,0), new Action(){
+				public void act(){
+					buyText.setText("You have dofgjsioprjhbilr7");
+				}
+			});
+			makeMoneyButton8 = new Button(891, 480, 100, 40, "$$$", new Color(255,255,0), new Action(){
+				public void act(){
+					buyText.setText("You have dofgjsioprjhbilr8");
 				}
 			});
 			
@@ -288,6 +348,15 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 			viewObjects.add(buyButton6);
 			viewObjects.add(buyButton7);
 			viewObjects.add(buyButton8);
+			
+			viewObjects.add(makeMoneyButton1);
+			viewObjects.add(makeMoneyButton2);
+			viewObjects.add(makeMoneyButton3);
+			viewObjects.add(makeMoneyButton4);
+			viewObjects.add(makeMoneyButton5);
+			viewObjects.add(makeMoneyButton6);
+			viewObjects.add(makeMoneyButton7);
+			viewObjects.add(makeMoneyButton8);
 			
 			viewObjects.add(lemon);
 			viewObjects.add(newspaper);
