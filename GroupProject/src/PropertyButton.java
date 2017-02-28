@@ -14,14 +14,16 @@ public class PropertyButton extends Button implements PropertyButtonInterface{
 	private double payout;
 	private double rate;
 	private double time;
+	private boolean active;
 	//private int time;
 	
-	public PropertyButton(int x, int y, int w, int h, String text, Color color, Action action, double price, double payout, double rate, double time) {
+	public PropertyButton(int x, int y, int w, int h, String text, Color color, Action action, double price, double payout, double rate, double time, boolean active) {
 		super(x, y, w, h, text, color, action);
 		this.price = price;
 		this.payout = payout;
 		this.rate = rate;
 		this.time = time;
+		this.active = active;
 		// TODO Auto-generated constructor stub
 	}
 	
@@ -36,7 +38,14 @@ public class PropertyButton extends Button implements PropertyButtonInterface{
 	public void setPayout(double x){
 		this.payout = x;
 	}
-
+	
+	public void setActive(boolean a){
+		this.active = a;
+	}
+	
+	
+	
+	
 	
 	
 	public double getPrice(){
@@ -50,6 +59,11 @@ public class PropertyButton extends Button implements PropertyButtonInterface{
 	}
 	public double getPayout(){
 		return payout;
+	}
+
+	public boolean isNotActive() {
+		// TODO Auto-generated method stub
+		return !active;
 	}
 
 
