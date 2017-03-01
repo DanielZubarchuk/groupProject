@@ -17,15 +17,18 @@ public class StockComponent extends Component {
 	public StockComponent(int x, int y, int w, int h, StockInventory inventory) {
 		super(x, y, w, h);
 		this.inventory = inventory;
+		update();
 	}
 
 	@Override
 	public void update(Graphics2D g) {
 		int y = 0;
 		
+		//System.out.println("a");
+		
 		if(inventory != null && !inventory.getStocks().isEmpty()){
 			clear();
-			
+			System.out.println("b");
 			for(StockInterface s : inventory.getStocks()){
 				int x = 35;
 				
@@ -34,8 +37,10 @@ public class StockComponent extends Component {
 				g.fillRect(10, y, 60, 40);
 				g.drawRect(10, y, 60, 40);
 				
+				g.drawString("huhhh", x, y);
+				
 				g.drawString(s.getStockName(), x, y);
-				g.drawString(s.getStockPrice(), x + 50, y);
+				g.drawString(Double.toString(s.getStockPrice()), x + 50, y);
 				
 				y += 40;
 			}
@@ -66,19 +71,19 @@ public class StockComponent extends Component {
 		}
 	}
 	
-	public void displayAll(Graphics2D g){
-		clear();
-		int y = 0;
-		for(StockInterface s : inventory.getStocks()){
-			g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-			g.setColor(Color.black);
-			g.fillRect(10, y, 60, 40);
-			g.drawRect(10, y, 60, 40);
-		
+//	public void displayAll(Graphics2D g){
+//		clear();
+//		int y = 0;
+//		for(StockInterface s : inventory.getStocks()){
+//			g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+//			g.setColor(Color.black);
+//			g.fillRect(10, y, 60, 40);
+//			g.drawRect(10, y, 60, 40);
+//		
 //			g.drawString(s.getStockName(Transaction.chosenStock) + s.getStockPrice(Transaction.stockPrice), 35, y);
-		
-			y += 40;
-		}
-	}
+//		
+//			y += 40;
+//		}
+//	}
 	
 }

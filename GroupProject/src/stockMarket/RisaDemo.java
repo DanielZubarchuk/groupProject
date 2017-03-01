@@ -71,8 +71,7 @@ public class RisaDemo extends GUIApplication {
 			super(width, height);
 		}
 
-		@Override
-		public void initAllObjects(ArrayList<Visible> viewObjects) {
+		public void initAllObjects(List<Visible> viewObjects) {
 			background = new Graphic(0,0,getWidth(),getHeight(),"resources/images/moneybackground.jpg");
 			viewObjects.add(background);
 			
@@ -111,7 +110,7 @@ public class RisaDemo extends GUIApplication {
 			transactionTitle = new ThemedTextLabel(10, 230, 220, 25, "Transaction History:");
 			viewObjects.add(transactionTitle);
 			
-			updateTransactionHistory();
+			//updateTransactionHistory();
 			
 			viewAllTransactions = new Button(250, 230, 100, 30, "View All", Color.blue, new Action(){
 
@@ -125,14 +124,14 @@ public class RisaDemo extends GUIApplication {
 			viewObjects.add(viewAllTransactions);
 		}		
 	
-		private void updateTransactionHistory(){
-			if(Transaction.transactionHistory != null){
-				for(int i = 0; i < Transaction.transactionHistory.size(); i++){
-					history.add("You bought " + " shares of " + Transaction.transactionHistory.get(i) + " for $" + Transaction.transactionPrices.get(i));
-				}
-					
-			}
-		}
+//		private void updateTransactionHistory(){
+//			if(Transaction.transactionHistory != null){
+//				for(int i = 0; i < Transaction.transactionHistory.size(); i++){
+//					history.add("You bought " + " shares of " + Transaction.transactionHistory.get(i) + " for $" + Transaction.transactionPrices.get(i));
+//				}
+//					
+//			}
+//		}
 		
 		
 		

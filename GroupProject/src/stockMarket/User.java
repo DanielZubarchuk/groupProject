@@ -41,8 +41,7 @@ public class User extends ClickableScreen{
 	private StockInventory stockInventory;
 	private static ArrayList<StockInterface> stocksInventory = new ArrayList<StockInterface>();
 	
-	@Override
-	public void initAllObjects(ArrayList<Visible> viewObjects) {
+	public void initAllObjects(List<Visible> viewObjects) {
 		background = new Graphic(0,0,getWidth(),getHeight(),"resources/images/moneybackground.jpg");
 		viewObjects.add(background);
 		
@@ -62,10 +61,6 @@ public class User extends ClickableScreen{
 		stocksTitle = new ThemedTextLabel(10, 130, 220, 25, "Current Stocks:");
 		viewObjects.add(stocksTitle);
 		
-		stockInventory = new Transaction();
-		StockComponent stocks = new StockComponent(10, 170, 250, 25, stockInventory);
-		viewObjects.add(stocks);
-		
 		viewAllStocks = new Button(250, 130, 100, 30, "View All", Color.blue, new Action(){
 
 			@Override
@@ -80,7 +75,7 @@ public class User extends ClickableScreen{
 		transactionTitle = new ThemedTextLabel(10, 230, 220, 25, "Transaction History:");
 		viewObjects.add(transactionTitle);
 		
-		updateTransactionHistory();
+		//updateTransactionHistory();
 		
 		viewAllTransactions = new Button(250, 230, 100, 30, "View All", Color.blue, new Action(){
 
@@ -92,17 +87,23 @@ public class User extends ClickableScreen{
 			
 		});
 		viewObjects.add(viewAllTransactions);
+		
+		stockInventory = new Transaction();
+		StockComponent stocks = new StockComponent(10, 170, 250, 25, stockInventory);
+		viewObjects.add(stocks);
+		
+		
 	}		
 
 
-	private void updateTransactionHistory(){
-		if(Transaction.transactionHistory != null){
-			for(int i = 0; i < Transaction.transactionHistory.size(); i++){
-				history.add("You bought " + " shares of " + Transaction.transactionHistory.get(i) + " for $" + Transaction.transactionPrices.get(i));
-			}
-				
-		}
-	}
+//	private void updateTransactionHistory(){
+//		if(Transaction.transactionHistory != null){
+//			for(int i = 0; i < Transaction.transactionHistory.size(); i++){
+//				history.add("You bought " + " shares of " + Transaction.transactionHistory.get(i) + " for $" + Transaction.transactionPrices.get(i));
+//			}
+//				
+//		}
+//	}
 		
 	public static ArrayList<StockInterface> getStocksInventory() {
 		return stocksInventory;
