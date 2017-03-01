@@ -10,9 +10,11 @@ public class Button extends TextLabel implements Clickable{
 
 	private Color color;
 	private Action action;
+	private boolean enabled;
 
 	public Button(int x, int y, int w, int h, String text, Color color, Action action) {
 		super(x, y, w, h, text);
+		enabled = true;
 		this.color = color;
 		this.action = action;
 		update();
@@ -20,6 +22,15 @@ public class Button extends TextLabel implements Clickable{
 	
 	public Color getColor(){
 		return color;
+	}
+	
+	public void setEnabled(boolean b){
+		System.out.println("Setting enabled to "+b);
+		enabled = b;
+		update();
+	}
+	public boolean isEnabled(){
+		return enabled;
 	}
 	
 	public void setColor(Color c){
@@ -31,7 +42,11 @@ public class Button extends TextLabel implements Clickable{
 		g = clear();
 		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
 				RenderingHints.VALUE_ANTIALIAS_ON);
-		g.setColor(Color.black);
+		if(enabled){
+			g.setColor(Color.black);
+		}else{
+			g.setColor(Color.gray);
+		}
 		g.fillRoundRect(0, 0, getWidth(), getHeight(), 35, 25);
 		g.setColor(Color.blue);
 		g.drawRoundRect(0, 0, getWidth()-1, getHeight()-1, 35, 25);
@@ -57,7 +72,10 @@ public class Button extends TextLabel implements Clickable{
 
 	@Override
 	public void act() {
-		action.act();
+		System.out.println("Clicked a button that is enabled = "+enabled);
+		if(enabled){
+			action.act();
+		}
 	}
 
 	

@@ -39,8 +39,8 @@ public class PropertyButton extends Button implements PropertyButtonInterface{
 		this.payout = x;
 	}
 	
-	public void setActive(boolean a){
-		this.active = a;
+	public void activeSwap(){
+		active = !active;
 	}
 	
 	

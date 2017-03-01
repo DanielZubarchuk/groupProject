@@ -248,30 +248,21 @@ public class JoeyDemo extends GUIApplication {
 			buyButton1 = new Button(10, 180, 150, 40, "Make Money!", new Color(255,255,0), new Action(){
 
 				public void act(){
-					if(lemon.isNotActive()){
-						try{
-							lemon.setActive(true);
-							Thread.sleep((long) lemon.getTime());
-							playerMoney += lemon.getPayout() * quantityOwned[0];
-							playerMoney = roundNumber(playerMoney);
-							buyText.setText("$"+playerMoney);
-							lemon.setActive(false);
-						}catch(InterruptedException e){
-							e.printStackTrace();
-						}
-					}
+					doButtonAction(buyButton1,lemon);
+
+
 				}
 			});
 			buyButton2 = new Button(510, 180, 150, 40, "Make Money!", new Color(255,255,0), new Action(){
 				public void act(){
 					if(newspaper.isNotActive()){
 						try{
-							newspaper.setActive(true);
+							newspaper.activeSwap();
 							Thread.sleep((long) newspaper.getTime());
 							playerMoney += newspaper.getPayout() * quantityOwned[1];
 							playerMoney = roundNumber(playerMoney);
 							buyText.setText("$"+playerMoney);	
-							newspaper.setActive(false);
+							newspaper.activeSwap();
 						}catch(InterruptedException e){
 							e.printStackTrace();
 						}
@@ -282,12 +273,12 @@ public class JoeyDemo extends GUIApplication {
 				public void act(){
 					if(car.isNotActive()){
 						try{
-							car.setActive(true);
+							car.activeSwap();
 							Thread.sleep((long) car.getTime());
 							playerMoney += car.getPayout() * quantityOwned[2];
 							playerMoney = roundNumber(playerMoney);
 							buyText.setText("$"+playerMoney);	
-							car.setActive(false);
+							car.activeSwap();
 						}catch(InterruptedException e){
 							e.printStackTrace();
 						}
@@ -298,12 +289,12 @@ public class JoeyDemo extends GUIApplication {
 				public void act(){
 					if(pizza.isNotActive()){
 						try{
-							pizza.setActive(true);
+							pizza.activeSwap();
 							Thread.sleep((long) pizza.getTime());
 							playerMoney += pizza.getPayout() * quantityOwned[3];
 							playerMoney = roundNumber(playerMoney);
 							buyText.setText("$"+playerMoney);
-							pizza.setActive(false);
+							pizza.activeSwap();
 						}catch(InterruptedException e){
 							e.printStackTrace();
 						}
@@ -315,12 +306,12 @@ public class JoeyDemo extends GUIApplication {
 				public void act(){
 					if(donut.isNotActive()){
 						try{
-							donut.setActive(true);
+							donut.activeSwap();
 							Thread.sleep((long) donut.getTime());
 							playerMoney += donut.getPayout() * quantityOwned[4];
 							playerMoney = roundNumber(playerMoney);
 							buyText.setText("$"+playerMoney);
-							donut.setActive(false);
+							donut.activeSwap();
 						}catch(InterruptedException e){
 							e.printStackTrace();
 						}
@@ -331,12 +322,12 @@ public class JoeyDemo extends GUIApplication {
 				public void act(){
 					if(shrimp.isNotActive()){
 						try{
-							shrimp.setActive(true);
+							shrimp.activeSwap();
 							Thread.sleep((long) shrimp.getTime());
 							playerMoney += shrimp.getPayout() * quantityOwned[5];
 							playerMoney = roundNumber(playerMoney);
 							buyText.setText("$"+playerMoney);	
-							shrimp.setActive(false);
+							shrimp.activeSwap();
 						}catch(InterruptedException e){
 							e.printStackTrace();
 						}
@@ -347,12 +338,12 @@ public class JoeyDemo extends GUIApplication {
 				public void act(){
 					if(hockey.isNotActive()){
 						try{
-							hockey.setActive(true);
+							hockey.activeSwap();
 							Thread.sleep((long) hockey.getTime());
 							playerMoney += hockey.getPayout() * quantityOwned[6];
 							playerMoney = roundNumber(playerMoney);
 							buyText.setText("$"+playerMoney);
-							hockey.setActive(false);
+							hockey.activeSwap();
 						}catch(InterruptedException e){
 							e.printStackTrace();
 						}
@@ -363,12 +354,12 @@ public class JoeyDemo extends GUIApplication {
 				public void act(){
 					if(movie.isNotActive()){
 						try{
-							movie.setActive(true);
+							movie.activeSwap();
 							Thread.sleep((long) movie.getTime());
 							playerMoney += movie.getPayout() * quantityOwned[7];
 							playerMoney = roundNumber(playerMoney);
 							buyText.setText("$"+playerMoney);	
-							movie.setActive(false);
+							movie.activeSwap();
 						}catch(InterruptedException e){
 							e.printStackTrace();
 						}
@@ -397,6 +388,40 @@ public class JoeyDemo extends GUIApplication {
 			viewObjects.add(movie);
 
 		}
+		//		public void createTimerLabels(){
+		//			TextLabel lemonTimer = new TextLabel(int x, int y, int w, int h, String text);
+		//		}
 
+		protected void doButtonAction(Button buyButton1, PropertyButton lemon) {
+			
+			Thread actionToDo = new Thread(new Runnable(){
+
+				@Override
+				public void run() {
+					buyButton1.setEnabled(false);
+					//			if(lemon.isNotActive()){
+					try{
+						//					lemon.activeSwap();
+						System.out.println("Attempting to sleep for "+(long) lemon.getTime());
+						Thread.sleep((long) lemon.getTime());
+						System.out.println("Finished sleeping.");
+					}catch(InterruptedException e){
+						e.printStackTrace();
+					}
+					System.out.println("Running other code.");
+					playerMoney += lemon.getPayout() * quantityOwned[0];
+					playerMoney = roundNumber(playerMoney);
+					buyText.setText("$"+playerMoney);
+					//					lemon.activeSwap();
+					buyButton1.setEnabled(true);
+				}
+					
+			});
+			actionToDo.start();
+			
+			
+		}
 	}
+
+
 }
