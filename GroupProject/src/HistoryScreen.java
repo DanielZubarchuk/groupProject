@@ -24,7 +24,7 @@ public class HistoryScreen extends ClickableScreen implements App, MouseListener
 	private ArrayList<Graphic> appPics;
 	
 	public HistoryScreen(int width, int height) {
-		super(height, height);
+		super(width, height);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -35,7 +35,7 @@ public class HistoryScreen extends ClickableScreen implements App, MouseListener
 			}
 		});
 		if(stockOpened){
-			stockIcon = new Graphic((int) (2 * getWidth()/3 ), getHeight()/2 - 50, .5, "resources/sampleImages/stockMarketIcon.png");
+			stockIcon = new Graphic((int) (2 * getWidth()/3 ), getHeight()/2 - 50, "resources/sampleImages/stockMarketIcon.png");
 			view.add(stockIcon);
 			appPics.add(stockIcon);
 			close = new Button(stockIcon.getWidth(), stockIcon.getHeight() - 50, 70, 30, "Close", new Color(0,0,0), new Action(){
@@ -47,7 +47,7 @@ public class HistoryScreen extends ClickableScreen implements App, MouseListener
 			});
 		}
 		if(advOpened){
-			advIcon = new Graphic((int) (getWidth()/3 - 87.5), getHeight()/2 - 50, .5, "resources/sampleImages/advCapIcon.png");
+			advIcon = new Graphic((int) (getWidth()/3 - 87.5), getHeight()/2 - 50, "resources/sampleImages/advCapIcon.png");
 			view.add(advIcon);
 			appPics.add(advIcon);
 			close = new Button(advIcon.getWidth(), advIcon.getHeight() - 50, 70, 30, "Close", new Color(0,0,0), new Action(){
@@ -59,7 +59,7 @@ public class HistoryScreen extends ClickableScreen implements App, MouseListener
 			});
 		}
 		if(!advOpened && !stockOpened){
-			historyText = new TextLabel(getWidth()/2 - 125, getHeight()/3, 760, 40, "Here is the history for all the apps you have opened. There is currently nothing in here.");
+			historyText = new TextLabel(getWidth()/2 - 400, getHeight()/4, 760, 40, "Here is the history for all the apps you have opened. There is currently nothing in here.");
 			view.add(historyText);
 		}
 		

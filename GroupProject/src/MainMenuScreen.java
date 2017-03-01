@@ -52,6 +52,8 @@ public class MainMenuScreen extends ClickableScreen implements MouseMotionListen
 				MainMenu.mms.setScreen(MainMenu.sampleScreen);
 			}
 		});
+		backgroundPic = new Graphic(50, 100, "resources/sampleImages/background.png");
+		viewObjects.add(backgroundPic);
 		viewObjects.add(homeButton);
 		viewObjects.add(history);
 		viewObjects.add(advCapLink);
