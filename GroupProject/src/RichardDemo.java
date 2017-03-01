@@ -10,14 +10,14 @@ import java.util.List;
 
 import javax.swing.ImageIcon;
 
-import guiPractice8.Screen;
-import guiPractice8.component.Action;
-import guiPractice8.component.Button;
-import guiPractice8.component.Graphic;
-import guiPractice8.component.TextLabel;
-import guiPractice8.component.Visible;
-import guiPractice8.component.ClickableScreen;
-import guiPractice8.GUIApplication;
+import guiPractice.Screen;
+import guiPractice.components.Action;
+import guiPractice.components.Button;
+import guiPractice.components.Graphic;
+import guiPractice.TextLabel;
+import guiPractice.components.Visible;
+import guiPractice.ClickableScreen;
+import guiPractice.GUIApplication;
 
 /**
  * @author Richard
@@ -28,7 +28,6 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 	public static RichardDemo demos;
 	public static RichardDemo2 demo2;
 	public static RichardDemo3 demo3;
-	public static ArrayList<Button> button;
 	
 	public static Screen demo;
 	private static int xthing = 1;
@@ -85,6 +84,8 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 		//all i need to do is set x and set y
 		//wait for him for more info
 		
+		public ArrayList<Button> buttonArray;
+		
 		private Button xNumButton;//made
 		private Button xNumButton2;//made
 		private Button xNumButton3;//made
@@ -129,10 +130,10 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 		private Graphic newspaper;//made
 		private Graphic carwash;//made
 		private Graphic pizza;//made
-		private Graphic donut;
-		private Graphic shrimp;
-		private Graphic hocky;
-		private Graphic film;
+		private Graphic donut;//made
+		private Graphic shrimp;//made
+		private Graphic hocky;//made
+		private Graphic film;//made
 		
 		private boolean button1Disabled = true;
 		private boolean button2Disabled = true;
@@ -144,12 +145,11 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 		
 		public DemoScreen(int width, int height) {
 			super(width, height);
-			// TODO Auto-generated constructor stub
 		
 		}
 		
 		@Override
-		public void initAllObjects(List<Visible> viewObjects) {
+		public void initAllObjects(ArrayList<Visible> viewObjects) {
 			// TODO Auto-generated method stub
 //			int numberOfBB = 8;
 //			int numberOfXNB = 1;
@@ -167,6 +167,8 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 			
 			reset = new TextLabel(50, 540, 800, 25, " ");
 			buyText = new TextLabel(250, 50, 800, 25, " ");
+			
+			buttonArray = new ArrayList<Button>();
 			
 			xNumButton = new Button(800, 40, 100, 50, " X 1", new Color(255,255,0), new Action(){
 
@@ -222,6 +224,10 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 						}
 					}
 				});
+			
+			buttonArray.add(xNumButton);
+			buttonArray.add(xNumButton2);
+			buttonArray.add(xNumButton3);
 			
 			mangerButton = new Button(50, 350, 150, 40, "MANAGER", new Color(255,255,0), new Action(){
 				public void act(){
@@ -329,6 +335,11 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 			newspaper = new Graphic(260,230,.75, "Resources/icon/eeee6.png");
 			carwash = new Graphic(260,330,.75, "Resources/icon/ffff2.png");
 			pizza = new Graphic(260,430,.75, "Resources/icon/gggg2.png");
+			donut = new Graphic(630,130,.75, "Resources/icon/hhhh2.png");		
+			shrimp = new Graphic(630,230,.75, "Resources/icon/iiii2.png");		
+			hocky = new Graphic(630,330,.75, "Resources/icon/jjjj.png");		
+			film = new Graphic(630,430,.75, "Resources/icon/kkkk2.png");
+			
 			
 			viewObjects.add(background);
 			viewObjects.add(iconleft);
@@ -336,10 +347,6 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 			viewObjects.add(xNumButton);
 			viewObjects.add(xNumButton2);
 			viewObjects.add(xNumButton3);
-			
-			button.add(xNumButton);
-			button.add(xNumButton2);
-			button.add(xNumButton3);
 			
 			viewObjects.add(mangerButton);
 			viewObjects.add(statsButton);
@@ -367,6 +374,10 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 			viewObjects.add(newspaper);
 			viewObjects.add(carwash);
 			viewObjects.add(pizza);
+			viewObjects.add(donut);		
+			viewObjects.add(shrimp);		
+			viewObjects.add(hocky);		
+			viewObjects.add(film);
 			
 			viewObjects.add(reset);
 			viewObjects.add(buyText);

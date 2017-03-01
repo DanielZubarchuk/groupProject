@@ -5,12 +5,12 @@ import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 import java.util.List;
 
-import guiPractice8.Screen;
-import guiPractice8.component.Action;
-import guiPractice8.component.Button;
-import guiPractice8.component.ClickableScreen;
-import guiPractice8.component.Graphic;
-import guiPractice8.component.Visible;
+import guiPractice.Screen;
+import guiPractice.components.Action;
+import guiPractice.components.Button;
+import guiPractice.ClickableScreen;
+import guiPractice.components.Graphic;
+import guiPractice.components.Visible;
 
 public class RichardDemo2 extends Screen implements MouseMotionListener, MouseListener{
 
