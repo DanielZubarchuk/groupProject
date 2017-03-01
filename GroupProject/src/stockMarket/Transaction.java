@@ -31,6 +31,7 @@ public class Transaction implements StockInventory{
 	public static String[] stockNames = {"Blackgate","Apple","Samsung",
 			"Glascow","General Motors"};
 	public static double[] stockPrices = {100,78,90,120,111,87};
+	public static double[] stockGrowths = {1.1,1.3,1.2,1.0,1.0,1.2};
 	
 	public Transaction(){
 		fillStockArray();
@@ -100,7 +101,7 @@ public class Transaction implements StockInventory{
 	
 	public void fillStockArray(){
 		for(int a = 0; a < stockNames.length; a++){
-			Stock s = new Stock(stockNames[a], stockPrices[a]);
+			Stock s = new Stock(stockNames[a], stockPrices[a], stockGrowths[a]);
 			stocks.add(s);
 		}
 	}

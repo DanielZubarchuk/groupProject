@@ -20,7 +20,7 @@ public class Fluctuation implements MarketInterface{
 	//events
 	private ArrayList<String> events;
 	private static ArrayList<String> eventHistory;
-	private static double currentEvent = 0;
+	private static int currentEvent = 0;
 	private int eventStock;
 	
 
@@ -81,7 +81,7 @@ public class Fluctuation implements MarketInterface{
 	public void fillEvents(){
 		
 		int randomEvent = (int) (Math.random()*3 + 1);
-		currentEvent = (double) (randomEvent);
+		currentEvent = randomEvent;
 			
 		if(randomEvent == _RECESSION){
 			events.add("RECESSION");

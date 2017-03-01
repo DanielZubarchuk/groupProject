@@ -15,9 +15,10 @@ public class Stock implements StockInterface {
 	private static double stockPrice;
 	private static double growthRate;
 	
-	public Stock(String s, double d){
+	public Stock(String s, double d, double g){
 		setStockName(s);
 		setStockPrice(d);
+		setGrowthRate(g);
 	}
 	/* (non-Javadoc)
 	 * @see stackInterfaces.StockInterface#getStockName(java.lang.String)
