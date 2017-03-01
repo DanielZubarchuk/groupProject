@@ -63,6 +63,7 @@ public class VictorDemo extends GUIApplication {
 		private MultiLineTextLabel historyDisplay;
 		private MultiLineTextLabel historyDisplay2;
 		private MultiLineTextLabel historyDisplay3;
+		
 //		private ArrayList<ThemedTextLabel> stockDisplay;
 		
 		
@@ -99,7 +100,7 @@ public class VictorDemo extends GUIApplication {
 			updateStock = new Button(40, 220, 190, 40, "Update Stock", Color.blue, new Action() {
 				@Override
 				public void act() {
-					Fluctuation.getEventHistory().add("Current state of " + Transaction.stocks.get(VictorDemo.fluctuation.getEventStock()).getStockName()
+					fluctuation.getEventHistory().add("Current state of " + Transaction.stocks.get(VictorDemo.fluctuation.getEventStock()).getStockName()
 							+ ": "
 							+ VictorDemo.fluctuation.outputEvent() 
 							+ "(" + String.format( "%.2f", Transaction.stocks.get(VictorDemo.fluctuation.getEventStock()).getStockPrice() )
@@ -126,14 +127,14 @@ public class VictorDemo extends GUIApplication {
 					*	// but change the g.drawString method
 					* }
 					**/
-					if(Fluctuation.getEventHistory().size() >= 1){
-						historyDisplay.setText(Fluctuation.getEventHistory().get(Fluctuation.getEventHistory().size()-1) );
+					if(fluctuation.getEventHistory().size() >= 1){
+						historyDisplay.setText(fluctuation.getEventHistory().get(fluctuation.getEventHistory().size()-1) );
 					}
-					if(Fluctuation.getEventHistory().size() >= 2){
-						historyDisplay2.setText(Fluctuation.getEventHistory().get(Fluctuation.getEventHistory().size()-2) );
+					if(fluctuation.getEventHistory().size() >= 2){
+						historyDisplay2.setText(fluctuation.getEventHistory().get(fluctuation.getEventHistory().size()-2) );
 					}
-					if(Fluctuation.getEventHistory().size() >= 3){
-						historyDisplay3.setText(Fluctuation.getEventHistory().get(Fluctuation.getEventHistory().size()-3) );
+					if(fluctuation.getEventHistory().size() >= 3){
+						historyDisplay3.setText(fluctuation.getEventHistory().get(fluctuation.getEventHistory().size()-3) );
 					}
 //					historyDisplay.setText("Hello\nWorld");
 					

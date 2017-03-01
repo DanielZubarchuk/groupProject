@@ -11,6 +11,7 @@ import guiPractice8.component.Button;
 import guiPractice8.component.ClickableScreen;
 import guiPractice8.component.Graphic;
 import guiPractice8.component.Visible;
+import projectComponents.MultiLineTextLabel;
 import projectComponents.ThemedTextLabel;
 
 public class StockMainMenu extends GUIApplication {
@@ -19,9 +20,12 @@ public class StockMainMenu extends GUIApplication {
 		public static DemoInventoryScreen inventoryDemo;
 		public static User inventoryScreen;
 		public static Screen demo;
+		private static Transaction transaction;
+		private static Fluctuation fluctuation;
 		
 		public StockMainMenu() {
-			
+			transaction = new Transaction();
+			fluctuation = new Fluctuation();
 		}
 		
 		
@@ -60,30 +64,11 @@ private class DemoScreen extends ClickableScreen{
 	private String Apple;
 	private String Glascow;
 	private String Generalmotors;
-	private String DanielString;
-	private ThemedTextLabel SamsungLabel;
-	private ThemedTextLabel BlackgateLabel;
-	private ThemedTextLabel AppleLabel;
-	private ThemedTextLabel GlascowLabel;
-	private ThemedTextLabel GeneralmotorsLabel;
 	private String selectedStock;
 	private int shareNumber;
 	private ThemedTextLabel shareLabel;
-	private int share1; //int that refers to shares of Samsung
-	private int share2; //int that refers to shares of Blackgate
-	private int share3; //int that refers to shares of Apple
-	private int share4;//int that refers to shares of Glascow
-	private int share5;//int that refers to shares of General Motors
-	private Button plus; //plus and minus buttons are for increasing/decreasing the shares of their respective #
-	//private Button plus2;
-	//private Button plus3;
-	//private Button plus4;
-	//private Button plus5;
+	private Button plus;
 	private Button minus;
-	//private Button minus2;
-	//private Button minus3;
-	//private Button minus4;
-	//private Button minus5;
 	private Button select1;//buttons for selecting which stock the user wants to buy or sell
 	private Button select2;
 	private Button select3;
@@ -92,7 +77,6 @@ private class DemoScreen extends ClickableScreen{
 	private Graphic logo;
 	private ThemedTextLabel goal;
 	private ThemedTextLabel turn;
-	//private ThemedTextLabel event;
 	private Graphic background;
 	private Button buy;
 	private Button sell;
@@ -100,6 +84,11 @@ private class DemoScreen extends ClickableScreen{
 	private Button end;
 	private int turncount;
 	private int goalcount;
+	private MultiLineTextLabel historyDisplay;
+	private MultiLineTextLabel historyDisplay2;
+	private MultiLineTextLabel historyDisplay3;
+	private Button eventHistory;
+	private MultiLineTextLabel eventDisplay;
 	
 	/*
 	 * To Do List:
@@ -113,7 +102,6 @@ private class DemoScreen extends ClickableScreen{
 				
 	}
 	public void selectStock(String stock){
-		DanielString = stock;
 		selectedStock = stock;
 		result.setText("You selected "+selectedStock+" as your stock");
 	}
@@ -130,6 +118,10 @@ private class DemoScreen extends ClickableScreen{
 		result = new ThemedTextLabel(150, 50, 800, 25, "Choose an action.");
 		turncount = 0;
 		goalcount = 50000;
+		historyDisplay = new MultiLineTextLabel(40, 250, 800, 50,"");
+		historyDisplay2 = new MultiLineTextLabel(40, 270, 800, 50,"");
+		historyDisplay3 = new MultiLineTextLabel(40, 290, 800, 50,"");
+		eventDisplay = new MultiLineTextLabel(40, 170, 800, 25, "");
 		
 		
 		background=new Graphic(0,0,getWidth(),getHeight(),"resources/images/newmoneybackground.png");
@@ -144,6 +136,48 @@ private class DemoScreen extends ClickableScreen{
 		goal = new ThemedTextLabel(470, 35, 200,90,"Goal:$" + goalcount);
 		view.add(goal);
 		
+		eventHistory = new Button(290,220 , 250, 40, "Event History", Color.green, new Action() {
+			
+			@Override
+			public void act() {
+				//each line should be another element in eventHistory
+				/**
+				* for(String s: Fluctuation.getEventHistory){
+				* 	// either use scrollpanes or
+				*	// use y+getFontMetrics() to show multiple lines of events
+				*	// make a new text label component for multi lined strings 
+				*	// but change the g.drawString method
+				* }
+				**/
+				StockMainMenu.fluctuation.updateStock();
+				
+				fluctuation.getEventHistory().add("Current state of " + transaction.getStocks().get(StockMainMenu.fluctuation.getEventStock()).getStockName()
+						+ ": "
+						+ StockMainMenu.fluctuation.outputEvent() 
+						+ "(" + transaction.getStocks().get(StockMainMenu.fluctuation.getEventStock()).getStockPrice()
+						+ " )" + transaction.getStocks().get(StockMainMenu.fluctuation.getEventStock()).getStockName());
+				
+				eventDisplay.setText("Current state of " + transaction.getStocks().get(StockMainMenu.fluctuation.getEventStock()).getStockName() 
+						+ ": "
+						+ StockMainMenu.fluctuation.outputEvent() 
+						+ "(" + transaction.getStocks().get(StockMainMenu.fluctuation.getEventStock()).getGrowthRate() 
+						+ " )" + transaction.getStocks().get(StockMainMenu.fluctuation.getEventStock()).getStockPrice());
+				
+				if(fluctuation.getEventHistory().size() >= 1){
+					historyDisplay.setText(fluctuation.getEventHistory().get(fluctuation.getEventHistory().size()-1) );
+				}
+				if(fluctuation.getEventHistory().size() >= 2){
+					historyDisplay2.setText(fluctuation.getEventHistory().get(fluctuation.getEventHistory().size()-2) );
+				}
+				if(fluctuation.getEventHistory().size() >= 3){
+					historyDisplay3.setText(fluctuation.getEventHistory().get(fluctuation.getEventHistory().size()-3) );
+				}
+				
+				StockMainMenu.fluctuation.updateStock();
+//				historyDisplay.setText("Hello\nWorld");
+				
+			}
+		});
 		
 		//SamsungLabel = new ThemedTextLabel(120,80,70,90,Integer.toString(share1));
 		//view.add(SamsungLabel);
@@ -273,6 +307,11 @@ private class DemoScreen extends ClickableScreen{
 					
 				}
 		});
+		view.add(eventDisplay);
+		view.add(historyDisplay);
+		view.add(historyDisplay2);
+		view.add(historyDisplay3);
+		view.add(eventHistory);
 		view.add(result);
 		view.add(end);
 			

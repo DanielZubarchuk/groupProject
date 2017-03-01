@@ -103,7 +103,7 @@ public class Fluctuation implements MarketInterface{
 		return events.get(events.size()-1);
 	}
 
-	public static ArrayList<String> getEventHistory() {
+	public ArrayList<String> getEventHistory() {
 		return eventHistory;
 	}
 	
