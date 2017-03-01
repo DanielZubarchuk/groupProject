@@ -78,7 +78,7 @@ public class DanielDemo extends GUIApplication {
 			background = new Graphic(0,0,getWidth(),getHeight(),"resources/images/moneybackground.jpg");
 			transactionDisplay = new ThemedTextLabel(40, 150, 800, 25, "");
 			logo = new Graphic(40, 50, 90, 90, "resources/images/logo.png");
-			startDialogue = new TextLabel(130,230,300,40,"Do you want to buy or sell?");
+			//startDialogue = new TextLabel(130,230,300,40,"Do you want to buy or sell?");
 			//userBal = new TextLabel(130,230,300,40, Transaction.userBalance);
 			
 			buyAStock = new Button(40, 200, 190, 40, "Buy", Color.blue, new Action() {

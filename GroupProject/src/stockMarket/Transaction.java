@@ -12,7 +12,7 @@ import stackInterfaces.StockInventory;
 
 public class Transaction implements StockInventory{
 	
-	public static ArrayList<String> transactionHistory = new ArrayList<String>();
+	public ArrayList<String> transactionHistory = new ArrayList<String>();
 	public static ArrayList<Double> transactionPrices  = new ArrayList<Double>();
 	public static ArrayList<StockInterface> stocks = new ArrayList<StockInterface>();
 	
@@ -37,7 +37,7 @@ public class Transaction implements StockInventory{
 		fillStockArray();
 	}
 	
-	public static void buyAStock(){
+	public void buyAStock(){
 		chosenStock = stockNames[buyIndex];
 		buyIndex = (buyIndex + 1) % stockNames.length;
 		if(userBalance > 0){
@@ -64,22 +64,22 @@ public class Transaction implements StockInventory{
 		}
 	}
 	
-	public static void sellAStock(){
+	public void sellAStock(){
 		findStock();
 		userBalance = (stocks.get(buyIndex).getStockPrice() * chosenShareAmount) + userBalance;
 	}
 	
-	private static void fillStock(String stk) {
+	private void fillStock(String stk) {
 		System.out.println(stk);
 		transactionHistory.add(0,stk);
 	}
 	
-	private static void fillPrices(double prc){
+	private void fillPrices(double prc){
 		System.out.println(prc);
 		transactionPrices.add(0,prc);
 	}
 	
-	public static int findStock(){
+	public int findStock(){
 		//helper method
 		
 		for(int i = 0;i < stocks.size(); i++){

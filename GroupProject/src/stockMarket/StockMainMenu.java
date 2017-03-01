@@ -90,6 +90,10 @@ private class DemoScreen extends ClickableScreen{
 	private Button eventHistory;
 	private MultiLineTextLabel eventDisplay;
 	
+	private ThemedTextLabel transactionDisplay;
+	private boolean dialogueBuy;
+	private int stockIndex = 0;
+	
 	/*
 	 * To Do List:
 	 * - Create method for plus and minus buttons (SimonScreen + Veeraj Screen)
@@ -254,18 +258,13 @@ private class DemoScreen extends ClickableScreen{
 		view.add(minus);
 		
 		buy = new Button(350, 260, 90, 40, "Buy", Color.green, new Action() {
-			
-			@Override
-			public void act() {
-				if(shareNumber == 0 || selectedStock == null){
-					result.setText("You need to select a stock or add shares.");
-				}
-				else{
-					result.setText("You bought " + shareNumber + " shares of "+ selectedStock);
-				}
-				//System.out.println(shareNumber);
-				//System.out.println(selectedStock);
-				//System.out.println("you bought " + shareNumber + "shares of "+ selectedStock);
+				public void act() {
+					dialogueBuy = true;
+					transaction.buyAStock();
+					transactionDisplay.setText(transaction.transactionHistory.get(stockIndex) + " was bought for " 
+					+ Transaction.transactionPrices.get(stockIndex));
+//					index++;
+					view.add(transactionDisplay);
 			}
 		});
 		view.add(buy);
@@ -286,15 +285,16 @@ private class DemoScreen extends ClickableScreen{
 				
 				@Override
 				public void act() {
-					System.out.println("You sold a stock");
-					result.setText("You sold a stock.");
-					//rewardDisplay.setText("You earned a reward total points equals
-					// +"SamDemo.reward.getPoints());
-					
+					dialogueBuy = false;
+					transactionDisplay.setText(transaction.transactionHistory.get(stockIndex) + " was sold for " 
+					+ Transaction.transactionPrices.get(stockIndex));
+					transaction.sellAStock();
+//					index++;
 				}
-		});
-		view.add(sell);
-		view.add(result);
+			});
+			
+			view.add(sell);
+			view.add(transactionDisplay);
 			
 		end = new Button(350, 350, 100, 40, "End Turn", Color.green, new Action() {
 				
