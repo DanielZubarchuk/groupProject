@@ -43,11 +43,9 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 	 *        TTTTT          HHHHH    HHHHH   IIIII   NNNNN    NNNNNN     GGGGGGGG         SSSS
 	 * 
 	 * - Re-photoshop the background
-	 * - get a background for stats and manager
+	 * - get a background for stats
 	 * - get icons
-	 * - FIX DANIEL'S GUI
 	 * - make loading bar
-	 * - make manager screen 
 	 * - make stats screen
 	 * 
 	 * 
