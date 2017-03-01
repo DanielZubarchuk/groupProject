@@ -29,7 +29,8 @@ public class HistoryScreen extends ClickableScreen implements App, MouseListener
 	}
 
 	public void initObjects(ArrayList<Visible> view) {
-		homeButton = new Button(getWidth()/2-70, (int) (5 * getHeight()/6), 70, 30, "Home", new Color(0,0,0), new Action(){
+		appPics = new ArrayList<Graphic>();
+		homeButton = new Button(getWidth()/2-30, (int) (5 * getHeight()/6), 60, 30, "Home", new Color(0,0,0), new Action(){
 			public void act(){
 				MainMenu.mms.setScreen(MainMenu.menuScreen);
 			}
@@ -58,14 +59,26 @@ public class HistoryScreen extends ClickableScreen implements App, MouseListener
 				}
 			});
 		}
-		if(!advOpened && !stockOpened){
-			historyText = new TextLabel(getWidth()/2 - 400, getHeight()/4, 760, 40, "Here is the history for all the apps you have opened. There is currently nothing in here.");
-			view.add(historyText);
-		}
 		
 		view.add(homeButton);
 	}
 	
+	public void addToHistory(Graphic g){
+		appPics.add(g);
+		if(appPics != null){
+			g.setX(700);
+			close = new Button(g.getWidth(), g.getHeight() - 50, 70, 30, "Close", new Color(0,0,0), new Action(){
+				public void act(){
+					appPics.remove(g);
+					
+				}
+			});
+		}
+		else{
+			g.setX(400);
+		}
+		addObject(g);//this makes this display on the screen
+	}
 	
 	@Override
 	public void mouseDragged(MouseEvent arg0) {
