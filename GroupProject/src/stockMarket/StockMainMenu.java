@@ -20,7 +20,7 @@ public class StockMainMenu extends GUIApplication {
 		public static StockMainMenu mainDemoScreen;
 		public static DemoInventoryScreen inventoryDemo;
 		public static User inventoryScreen;
-		public static Screen demo;
+		public static Screen gameScreen;
 		private static Transaction transaction;
 		private static Fluctuation fluctuation;
 		
@@ -33,9 +33,10 @@ public class StockMainMenu extends GUIApplication {
 		@Override
 		protected void initScreen() {
 			// for screens of phone and games
-			demo = new DemoScreen(getWidth(), getHeight());
-			inventoryDemo = new DemoInventoryScreen(getWidth(), getHeight());
-			setScreen(demo);
+			gameScreen = new MenuScreen(1000, 600);
+			//demo = new DemoScreen(getWidth(), getHeight());
+			inventoryDemo = new DemoInventoryScreen(1000, 600);
+			setScreen(gameScreen);
 		}
 
 		/**
@@ -49,7 +50,7 @@ public class StockMainMenu extends GUIApplication {
 		}
 		
 //nested inner class
-private class DemoScreen extends ClickableScreen{
+private class MenuScreen extends ClickableScreen{
 
 	/**
 	 * Checklist:
@@ -102,7 +103,7 @@ private class DemoScreen extends ClickableScreen{
 	 * - Change imports
 	 */
 	
-	public DemoScreen(int width, int height) {
+	public MenuScreen(int width, int height) {
 		super(width, height);
 				
 	}

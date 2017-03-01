@@ -26,7 +26,7 @@ public class DemoInventoryScreen extends ClickableScreen{
 			
 			@Override
 			public void act() {
-				StockMainMenu.mainDemoScreen.setScreen(StockMainMenu.demo);
+				StockMainMenu.mainDemoScreen.setScreen(StockMainMenu.gameScreen);
 				
 			}
 		});
