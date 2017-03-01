@@ -128,10 +128,10 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 		private Graphic newspaper;//made
 		private Graphic carwash;//made
 		private Graphic pizza;//made
-		private Graphic donut;
-		private Graphic shrimp;
-		private Graphic hocky;
-		private Graphic film;
+		private Graphic donut;//made
+		private Graphic shrimp;//made
+		private Graphic hocky;//made
+		private Graphic film;//made
 		
 		private boolean button1Disabled = true;
 		private boolean button2Disabled = true;
