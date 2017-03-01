@@ -18,7 +18,9 @@ public class HistoryScreen extends ClickableScreen implements App, MouseListener
 	private Button close;
 	private Graphic stockIcon;
 	private Graphic advIcon;
+	private Graphic backgroundPic;
 	private TextLabel historyText;
+	private TextLabel nothing;
 	static boolean advOpened;
 	static boolean stockOpened;
 	private ArrayList<Graphic> appPics;
@@ -35,47 +37,67 @@ public class HistoryScreen extends ClickableScreen implements App, MouseListener
 				MainMenu.mms.setScreen(MainMenu.menuScreen);
 			}
 		});
-		if(stockOpened){
-			stockIcon = new Graphic((int) (2 * getWidth()/3 ), getHeight()/2 - 50, "resources/sampleImages/stockMarketIcon.png");
-			view.add(stockIcon);
-			appPics.add(stockIcon);
-			close = new Button(stockIcon.getWidth(), stockIcon.getHeight() - 50, 70, 30, "Close", new Color(0,0,0), new Action(){
-				public void act(){
-					view.remove(stockIcon);
-					view.remove(close);
+//		if(stockOpened){
+//			stockIcon = new Graphic((int) (2 * getWidth()/3 ), getHeight()/2 - 50, "resources/sampleImages/stockMarketIcon.png");
+//			view.add(stockIcon);
+//			appPics.add(stockIcon);
+//			close = new Button(stockIcon.getWidth(), stockIcon.getHeight() - 50, 70, 30, "Close", new Color(0,0,0), new Action(){
+//				public void act(){
+//					view.remove(stockIcon);
+//					view.remove(close);
+//					appPics.remove(stockIcon);
+//				}
+//			});
+//		}
+//		if(advOpened){
+//			advIcon = new Graphic((int) (getWidth()/3 - 87.5), getHeight()/2 - 50, "resources/sampleImages/advCapIcon.png");
+//			view.add(advIcon);
+//			appPics.add(advIcon);
+//			close = new Button(advIcon.getWidth(), advIcon.getHeight() - 50, 70, 30, "Close", new Color(0,0,0), new Action(){
+//				public void act(){
+//					view.remove(advIcon);
+//					view.remove(close);
+//					appPics.remove(advIcon);
+//				}
+//			});
+//		}
+		close = new Button(getWidth()/2 - 30, getHeight()/2 - 15, 60, 30, "Close Apps", new Color(0,0,0), new Action() {
+			public void act() {
+				System.out.println("this has been clickedsdas");
+				if(appPics == null){
+					nothing = new TextLabel(getWidth()/2 - 125, getHeight()/3, 760, 40, "There is nothing to close!");
+					System.out.println("this has been clicked");
+				}
+				if(view.contains(stockIcon)){
 					appPics.remove(stockIcon);
 				}
-			});
-		}
-		if(advOpened){
-			advIcon = new Graphic((int) (getWidth()/3 - 87.5), getHeight()/2 - 50, "resources/sampleImages/advCapIcon.png");
-			view.add(advIcon);
-			appPics.add(advIcon);
-			close = new Button(advIcon.getWidth(), advIcon.getHeight() - 50, 70, 30, "Close", new Color(0,0,0), new Action(){
-				public void act(){
-					view.remove(advIcon);
-					view.remove(close);
+				else if(view.contains(advIcon)){
 					appPics.remove(advIcon);
 				}
-			});
-		}
-		
+				else{
+					appPics.remove(stockIcon);
+					appPics.remove(advIcon);
+				}
+			}
+		});
+		backgroundPic = new Graphic(50, 25, "resources/sampleImages/background.png");
+		viewObjects.add(backgroundPic);
+		view.add(close);
 		view.add(homeButton);
 	}
 	
 	public void addToHistory(Graphic g){
 		appPics.add(g);
+		close = new Button(g.getX(), g.getY() - 50, 70, 30, "Close", new Color(0,0,0), new Action(){
+			public void act(){
+				appPics.remove(g);
+			}
+		});
 		if(appPics != null){
-			g.setX(700);
-			close = new Button(g.getWidth(), g.getHeight() - 50, 70, 30, "Close", new Color(0,0,0), new Action(){
-				public void act(){
-					appPics.remove(g);
-					
-				}
-			});
+			g.setX(400);
 		}
 		else{
-			g.setX(400);
+			g.setX(700);
 		}
 		addObject(g);//this makes this display on the screen
 	}
