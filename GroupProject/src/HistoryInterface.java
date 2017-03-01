@@ -1,6 +1,8 @@
+
 /**
  * @author Katherine
  */
+
 public interface HistoryInterface {
 
 	String getProperty();
