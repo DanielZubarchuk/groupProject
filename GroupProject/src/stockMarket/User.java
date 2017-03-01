@@ -5,11 +5,11 @@ import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.List;
 
-import guiPractice8.component.Action;
-import guiPractice8.component.Button;
-import guiPractice8.component.ClickableScreen;
-import guiPractice8.component.Graphic;
-import guiPractice8.component.Visible;
+import guiPractice.components.Action;
+import guiPractice.components.Button;
+import guiPractice.ClickableScreen;
+import guiPractice.components.Graphic;
+import guiPractice.components.Visible;
 import projectComponents.ThemedTextLabel;
 import stackInterfaces.DanielInterface;
 import stackInterfaces.StockInterface;
@@ -42,7 +42,7 @@ public class User extends ClickableScreen{
 	private static ArrayList<StockInterface> stocksInventory = new ArrayList<StockInterface>();
 	
 	@Override
-	public void initAllObjects(List<Visible> viewObjects) {
+	public void initAllObjects(ArrayList<Visible> viewObjects) {
 		background = new Graphic(0,0,getWidth(),getHeight(),"resources/images/moneybackground.jpg");
 		viewObjects.add(background);
 		

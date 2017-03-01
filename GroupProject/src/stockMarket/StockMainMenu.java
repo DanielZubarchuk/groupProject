@@ -2,15 +2,16 @@ package stockMarket;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.util.ArrayList;
 import java.util.List;
 
-import guiPractice8.GUIApplication;
-import guiPractice8.Screen;
-import guiPractice8.component.Action;
-import guiPractice8.component.Button;
-import guiPractice8.component.ClickableScreen;
-import guiPractice8.component.Graphic;
-import guiPractice8.component.Visible;
+import guiPractice.GUIApplication;
+import guiPractice.Screen;
+import guiPractice.components.Action;
+import guiPractice.components.Button;
+import guiPractice.ClickableScreen;
+import guiPractice.components.Graphic;
+import guiPractice.components.Visible;
 import projectComponents.MultiLineTextLabel;
 import projectComponents.ThemedTextLabel;
 
@@ -90,9 +91,9 @@ private class DemoScreen extends ClickableScreen{
 	private Button eventHistory;
 	private MultiLineTextLabel eventDisplay;
 	
-	private ThemedTextLabel transactionDisplay;
-	private boolean dialogueBuy;
-	private int stockIndex = 0;
+	//private ThemedTextLabel transactionDisplay;
+	//private boolean dialogueBuy;
+	//private int stockIndex = 0;
 	
 	/*
 	 * To Do List:
@@ -109,9 +110,8 @@ private class DemoScreen extends ClickableScreen{
 		selectedStock = stock;
 		result.setText("You selected "+selectedStock+" as your stock");
 	}
-	
 	@Override
-	public void initAllObjects(List<Visible> view) {
+	public void initAllObjects(ArrayList<Visible> view) {
 		
 		//String[] stocks = { "Samsung","Blackgate", "Apple","Glascow","General Motors"};
 		Samsung = "Samsung";
@@ -259,12 +259,12 @@ private class DemoScreen extends ClickableScreen{
 		
 		buy = new Button(350, 260, 90, 40, "Buy", Color.green, new Action() {
 				public void act() {
-					dialogueBuy = true;
-					transaction.buyAStock();
-					transactionDisplay.setText(transaction.transactionHistory.get(stockIndex) + " was bought for " 
-					+ Transaction.transactionPrices.get(stockIndex));
+					//dialogueBuy = true;
+					//transaction.buyAStock();
+					//transactionDisplay.setText(transaction.transactionHistory.get(stockIndex) + " was bought for " 
+					//+ Transaction.transactionPrices.get(stockIndex));
 //					index++;
-					view.add(transactionDisplay);
+					//view.add(transactionDisplay);
 			}
 		});
 		view.add(buy);
@@ -285,16 +285,16 @@ private class DemoScreen extends ClickableScreen{
 				
 				@Override
 				public void act() {
-					dialogueBuy = false;
-					transactionDisplay.setText(transaction.transactionHistory.get(stockIndex) + " was sold for " 
-					+ Transaction.transactionPrices.get(stockIndex));
-					transaction.sellAStock();
+					//dialogueBuy = false;
+					//transactionDisplay.setText(transaction.transactionHistory.get(stockIndex) + " was sold for " 
+					//+ Transaction.transactionPrices.get(stockIndex));
+				//	transaction.sellAStock();
 //					index++;
 				}
 			});
 			
 			view.add(sell);
-			view.add(transactionDisplay);
+			//view.add(transactionDisplay);
 			
 		end = new Button(350, 350, 100, 40, "End Turn", Color.green, new Action() {
 				

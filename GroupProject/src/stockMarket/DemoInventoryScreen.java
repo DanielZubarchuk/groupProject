@@ -1,12 +1,13 @@
 package stockMarket;
 
 import java.awt.Color;
+import java.util.ArrayList;
 import java.util.List;
 
-import guiPractice8.component.Action;
-import guiPractice8.component.Button;
-import guiPractice8.component.ClickableScreen;
-import guiPractice8.component.Visible;
+import guiPractice.components.Action;
+import guiPractice.components.Button;
+import guiPractice.ClickableScreen;
+import guiPractice.components.Visible;
 import projectComponents.ThemedTextLabel;
 
 public class DemoInventoryScreen extends ClickableScreen{
@@ -20,7 +21,7 @@ public class DemoInventoryScreen extends ClickableScreen{
 	}
 
 	@Override
-	public void initAllObjects(List<Visible> view) {
+	public void initAllObjects(ArrayList<Visible> view) {
 		back = new Button(40,40,90,90,"back", Color.blue, new Action() {
 			
 			@Override

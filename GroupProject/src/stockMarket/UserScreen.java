@@ -1,6 +1,6 @@
 package stockMarket;
 
-import guiPractice8.GUIApplication;
+import guiPractice.GUIApplication;
 
 /**
  * @author Risa

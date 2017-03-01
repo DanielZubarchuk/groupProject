@@ -2,7 +2,7 @@ package stackInterfaces;
 
 import java.awt.Color;
 
-import guiPractice8.component.Action;
+import guiPractice.components.Action;
 
 public interface ButtonInterface {
 	void setColor(Color color);

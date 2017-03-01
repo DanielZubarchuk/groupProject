@@ -5,7 +5,7 @@ import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.util.ArrayList;
 
-import guiPractice8.component.Component;
+import guiPractice.components.Component;
 import stackInterfaces.StockInterface;
 import stackInterfaces.StockInventory;
 

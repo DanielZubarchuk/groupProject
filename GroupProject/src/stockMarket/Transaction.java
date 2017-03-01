@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 import java.util.List;
 import java.util.Scanner;
-import guiPractice8.component.TextLabel;
-import guiPractice8.component.Visible;
+import guiPractice.TextLabel;
+import guiPractice.components.Visible;
 import stackInterfaces.DanielInterface;
 import stackInterfaces.StockInterface;
 import stackInterfaces.StockInventory;

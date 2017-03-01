@@ -8,7 +8,7 @@ import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 
-import guiPractice8.component.TextLabel;
+import guiPractice.TextLabel;
 
 /**
  * @author hotfi

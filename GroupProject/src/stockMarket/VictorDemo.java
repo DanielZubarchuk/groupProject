@@ -9,12 +9,12 @@ import java.awt.RenderingHints;
 import java.util.ArrayList;
 import java.util.List;
 
-import guiPractice8.GUIApplication;
-import guiPractice8.component.Action;
-import guiPractice8.component.Button;
-import guiPractice8.component.ClickableScreen;
-import guiPractice8.component.Graphic;
-import guiPractice8.component.Visible;
+import guiPractice.GUIApplication;
+import guiPractice.components.Action;
+import guiPractice.components.Button;
+import guiPractice.ClickableScreen;
+import guiPractice.components.Graphic;
+import guiPractice.components.Visible;
 import projectComponents.MultiLineTextLabel;
 import projectComponents.ThemedTextLabel;
 
@@ -87,7 +87,7 @@ public class VictorDemo extends GUIApplication {
 //		}
 		
 		@Override
-		public void initAllObjects(List<Visible> view) {
+		public void initAllObjects(ArrayList<Visible> view) {
 //			instantiateStocksDisplay();
 			
 			eventDisplay = new MultiLineTextLabel(40, 170, 800, 25, "");
