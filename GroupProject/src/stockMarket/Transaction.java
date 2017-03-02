@@ -89,6 +89,7 @@ public class Transaction implements StockInventory{
 	}
 	
 	public void fillStockArray(){
+		//helper method
 		for(int a = 0; a < stockNames.length; a++){
 			Stock s = new Stock(stockNames[a], stockPrices[a], stockGrowths[a]);
 			stocks.add(s);

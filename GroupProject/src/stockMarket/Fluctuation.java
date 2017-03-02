@@ -6,7 +6,6 @@ package stockMarket;
 import java.util.ArrayList;
 
 import stackInterfaces.MarketInterface;
-import stackInterfaces.StockInterface;
 
 /**
  * @author hotfi
@@ -38,7 +37,6 @@ public class Fluctuation implements MarketInterface{
 	public Fluctuation() {
 		events = new ArrayList<String>();
 		eventHistory = new ArrayList<String>();
-		updateStock();
 	}
 	
 	/**
@@ -53,28 +51,28 @@ public class Fluctuation implements MarketInterface{
 	 *  void sell
 	 */
 
-	public void updateStock(){
+	public void updateStock(Transaction transaction){
 		/**
 		 * Each time BUY/SELL is clicked, the anonymous inner class (act) should call this method to update the stocks.
 		 */
-		eventStock = (int) (Math.random()*Transaction.stocks.size());
+		eventStock = (int) (Math.random()*transaction.getStocks().size());
 		fillEvents();
 			
-		if((int)(Transaction.stocks.get(eventStock).getStockPrice()) == _BANKRUPT){
-			reviveStock(eventStock);
+		if((int)(transaction.getStocks().get(eventStock).getStockPrice()) == _BANKRUPT){
+			reviveStock(eventStock, transaction);
 		}
 		double effect = currentEvent/2;
-		double newGrowth = Transaction.stocks.get(eventStock).getGrowthRate() * effect;
-		double newPrice = Transaction.stocks.get(eventStock).getStockPrice() * newGrowth;
+		double newGrowth = transaction.getStocks().get(eventStock).getGrowthRate() * effect;
+		double newPrice = transaction.getStocks().get(eventStock).getStockPrice() * newGrowth;
 		
-		Transaction.stocks.get(eventStock).setGrowthRate(newGrowth);
-		Transaction.stocks.get(eventStock).setStockPrice(newPrice);
+		transaction.getStocks().get(eventStock).setGrowthRate(newGrowth);
+		transaction.getStocks().get(eventStock).setStockPrice(newPrice);
 		
 	}
 	
-	private void reviveStock(int index) {
-		Transaction.stocks.get(eventStock).setStockPrice(70);
-		Transaction.stocks.get(eventStock).setGrowthRate(1.0);
+	private void reviveStock(int index, Transaction transaction) {
+		transaction.getStocks().get(eventStock).setStockPrice(70);
+		transaction.getStocks().get(eventStock).setGrowthRate(1.0);
 		
 	}
 
