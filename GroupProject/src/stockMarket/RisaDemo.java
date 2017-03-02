@@ -71,7 +71,7 @@ public class RisaDemo extends GUIApplication {
 			super(width, height);
 		}
 
-		public void initAllObjects(List<Visible> viewObjects) {
+		public void initAllObjects(ArrayList<Visible> viewObjects) {
 			background = new Graphic(0,0,getWidth(),getHeight(),"resources/images/moneybackground.jpg");
 			viewObjects.add(background);
 			
@@ -79,7 +79,7 @@ public class RisaDemo extends GUIApplication {
 			backButton = new Button(10, 30, 90, 40, "back", Color.blue, new Action(){
 				
 				public void act(){
-					RisaDemo.demo.setScreen(StockMainMenu.demo);
+					RisaDemo.demo.setScreen(StockMainMenu.gameScreen);
 					System.out.println("goes back to main menu");
 				}
 			});
@@ -93,7 +93,7 @@ public class RisaDemo extends GUIApplication {
 			viewObjects.add(stocksTitle);
 			
 			stockInventory = new Transaction();
-			StockComponent stocks = new StockComponent(10, 170, 250, 25, stockInventory);
+			StockComponent stocks = new StockComponent(10, 170, 250, 25, stockInventory, 0);
 			viewObjects.add(stocks);
 			
 			viewAllStocks = new Button(250, 130, 100, 30, "View All", Color.blue, new Action(){

@@ -1,5 +1,10 @@
 package stackInterfaces;
 
+/**
+ * @author Risa
+ *
+ */
+
 public interface StockInterface {
 
 	public String getStockName();

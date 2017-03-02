@@ -1,9 +1,7 @@
 package stockMarket;
 
 import java.awt.Color;
-import java.awt.event.MouseListener;
 import java.util.ArrayList;
-import java.util.List;
 
 import guiPractice.components.Action;
 import guiPractice.components.Button;
@@ -11,7 +9,6 @@ import guiPractice.ClickableScreen;
 import guiPractice.components.Graphic;
 import guiPractice.components.Visible;
 import projectComponents.ThemedTextLabel;
-import stackInterfaces.DanielInterface;
 import stackInterfaces.StockInterface;
 import stackInterfaces.StockInventory;
 
@@ -26,30 +23,36 @@ public class User extends ClickableScreen{
 		super(width, height);
 	}
 	
+	private Graphic background;
+	
+	public static double balance;
 	private ThemedTextLabel balanceDisplay;
+	
 	private Button backButton;
 	private Button viewAllStocks;
 	private Button viewAllTransactions;
-	private Graphic background;
+	
 	private ThemedTextLabel stocksTitle;
-	private ThemedTextLabel allStocks;
 	private ThemedTextLabel transactionTitle;
-	private ThemedTextLabel allTransactions;
-	private ArrayList<String> history;
-	public static double balance;
 	
 	private StockInventory stockInventory;
+	
+	private final int ALL_STOCKS = 0;
+	private final int ALL_TRANSACTIONS = 1;
+	private final int _STOCK = 3;
+	private final int _TRANSACTION = 4;
+	
 	private static ArrayList<StockInterface> stocksInventory = new ArrayList<StockInterface>();
 	
-	public void initAllObjects(List<Visible> viewObjects) {
-		background = new Graphic(0,0,getWidth(),getHeight(),"resources/images/moneybackground.jpg");
+	public void initAllObjects(ArrayList<Visible> viewObjects) {
+		background = new Graphic(0,0,getWidth(),getHeight(),"resources/images/newmoneybackground.png");
 		viewObjects.add(background);
 		
 		//picture??
 		backButton = new Button(10, 30, 90, 40, "back", Color.blue, new Action(){
 			
 			public void act(){
-				UserScreen.user.setScreen(StockMainMenu.demo);
+				UserScreen.user.setScreen(StockMainMenu.gameScreen);
 			}
 		});
 		viewObjects.add(backButton);
@@ -61,49 +64,39 @@ public class User extends ClickableScreen{
 		stocksTitle = new ThemedTextLabel(10, 130, 220, 25, "Current Stocks:");
 		viewObjects.add(stocksTitle);
 		
-		viewAllStocks = new Button(250, 130, 100, 30, "View All", Color.blue, new Action(){
+		transactionTitle = new ThemedTextLabel(10, 230, 220, 25, "Transaction History:");
+		viewObjects.add(transactionTitle);
+		
+		stockInventory = new Transaction();
+		StockComponent stocks = new StockComponent(10, 170, 250, 25, stockInventory, _STOCK);
+		viewObjects.add(stocks);
+		
+		StockComponent transactions = new StockComponent(10, 270, 250, 25, stockInventory, _TRANSACTION);
+		viewObjects.add(transactions);
+		
+		
+		viewAllStocks = new Button(250, 130, 100, 30, "View All", Color.black, new Action(){
 
 			@Override
 			public void act() {
-				allStocks = new ThemedTextLabel(15, 170, 300, 25, "You don't own any stocks!");
+				StockComponent allStocks = new StockComponent(10, 170, 250, 25, stockInventory, ALL_STOCKS);
 				viewObjects.add(allStocks);
 			}
 			
 		});
 		viewObjects.add(viewAllStocks);
 		
-		transactionTitle = new ThemedTextLabel(10, 230, 220, 25, "Transaction History:");
-		viewObjects.add(transactionTitle);
-		
-		//updateTransactionHistory();
-		
-		viewAllTransactions = new Button(250, 230, 100, 30, "View All", Color.blue, new Action(){
+		viewAllTransactions = new Button(250, 230, 100, 30, "View All", Color.black, new Action(){
 
 			@Override
 			public void act() {
-				allTransactions = new ThemedTextLabel(15, 270, 400, 25, "There are no previous transactions!");
+				StockComponent allTransactions = new StockComponent(10, 270, 250, 25, stockInventory, ALL_TRANSACTIONS);
 				viewObjects.add(allTransactions);
 			}
 			
 		});
 		viewObjects.add(viewAllTransactions);
-		
-		stockInventory = new Transaction();
-		StockComponent stocks = new StockComponent(10, 170, 250, 25, stockInventory);
-		viewObjects.add(stocks);
-		
-		
-	}		
-
-
-//	private void updateTransactionHistory(){
-//		if(Transaction.transactionHistory != null){
-//			for(int i = 0; i < Transaction.transactionHistory.size(); i++){
-//				history.add("You bought " + " shares of " + Transaction.transactionHistory.get(i) + " for $" + Transaction.transactionPrices.get(i));
-//			}
-//				
-//		}
-//	}
+	}
 		
 	public static ArrayList<StockInterface> getStocksInventory() {
 		return stocksInventory;

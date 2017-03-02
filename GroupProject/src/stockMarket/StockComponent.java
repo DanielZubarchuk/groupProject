@@ -9,22 +9,71 @@ import guiPractice.components.Component;
 import stackInterfaces.StockInterface;
 import stackInterfaces.StockInventory;
 
+/**
+ * @author Risa
+ *
+ */
+
 public class StockComponent extends Component {
 
-	private StockInventory inventory;
-	private Stock stocks;
+	private static ArrayList<String> history;
 	
-	public StockComponent(int x, int y, int w, int h, StockInventory inventory) {
+	
+	
+	private StockInventory inventory;
+	
+	private int viewAll;
+	private final int ALL_STOCKS = 0;
+	private final int ALL_TRANSACTIONS = 1;
+	private final int _STOCK = 3;
+	private final int _TRANSACTION = 4;
+	
+	public StockComponent(int x, int y, int w, int h, StockInventory inventory, int viewAll) {
 		super(x, y, w, h);
 		this.inventory = inventory;
-		update();
+		this.viewAll = viewAll;
 	}
 
 	@Override
 	public void update(Graphics2D g) {
+		
 		int y = 0;
 		
-		//System.out.println("a");
+		if(history == null){
+			g.drawString("You have no previous transactions!", 10, 270);
+			return;
+		}else{
+			
+			if(viewAll == ALL_TRANSACTIONS){
+				viewAllTransactions(g);
+				return;
+			}
+			
+			if(viewAll == _TRANSACTION){
+				
+				return;
+			}
+			
+		}
+		
+		if(){
+			g.drawString("You don't own any stocks!", 10, 170);
+			return;
+		}else{
+			
+			if(viewAll == ALL_STOCKS){
+				viewAllStocks(g);
+				return;
+			}
+			
+			
+			if(viewAll == _STOCK){
+				
+				return;
+			}
+			
+		}
+		
 		
 		if(inventory != null && !inventory.getStocks().isEmpty()){
 			clear();
@@ -37,15 +86,12 @@ public class StockComponent extends Component {
 				g.fillRect(10, y, 60, 40);
 				g.drawRect(10, y, 60, 40);
 				
-				g.drawString("huhhh", x, y);
 				
 				g.drawString(s.getStockName(), x, y);
 				g.drawString(Double.toString(s.getStockPrice()), x + 50, y);
 				
 				y += 40;
 			}
-			
-			//g.drawString(s.getStockName(Transaction.chosenStock) + s.getStockPrice(Transaction.stockPrice), 35, y);
 			
 			
 //			int inventorySize = inventory.getStocks().size();
@@ -70,6 +116,18 @@ public class StockComponent extends Component {
 //			}
 		}
 	}
+	
+	private void viewAllStocks(Graphics2D g) {
+		clear();
+		
+	}
+
+	private void viewAllTransactions(Graphics2D g){
+		clear();
+		g.drawString("test", 0, 0);
+	}
+	
+	
 	
 //	public void displayAll(Graphics2D g){
 //		clear();
