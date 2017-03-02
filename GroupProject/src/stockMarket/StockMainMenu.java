@@ -37,7 +37,7 @@ public class StockMainMenu extends GUIApplication {
 			// for screens of phone and games
 			gameScreen = new MenuScreen(1000, 600);
 			//demo = new DemoScreen(getWidth(), getHeight());
-			inventoryDemo = new DemoInventoryScreen(1000, 600);
+			inventoryScreen = new User(1000, 600);
 			setScreen(gameScreen);
 		}
 
@@ -251,7 +251,7 @@ private class MenuScreen extends ClickableScreen{
 			@Override
 			public void act() {
 				System.out.println("Transporting to your portfolio");
-				StockMainMenu.mainDemoScreen.setScreen(inventoryDemo);
+				StockMainMenu.mainDemoScreen.setScreen(inventoryScreen);
 			}
 		});
 		view.add(user);
