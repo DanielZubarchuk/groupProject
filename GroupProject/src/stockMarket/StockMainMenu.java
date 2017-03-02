@@ -24,6 +24,7 @@ public class StockMainMenu extends GUIApplication {
 		public static Screen gameScreen;
 		private static Transaction transaction;
 		private static Fluctuation fluctuation;
+		public static String selectedStock;
 		
 		public StockMainMenu() {
 			transaction = new Transaction();
@@ -59,7 +60,9 @@ private class MenuScreen extends ClickableScreen{
 	private String Apple;
 	private String Glascow;
 	private String Generalmotors;
-	private String selectedStock;
+	
+	//public String selectedStock;
+	
 	private ThemedTextLabel shareText;
 	private int shareNumber;
 	private ThemedTextLabel shareLabel;

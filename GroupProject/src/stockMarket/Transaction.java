@@ -38,7 +38,7 @@ public class Transaction implements StockInventory{
 	}
 	
 	public void buyAStock(){
-		chosenStock = stockNames[buyIndex];
+		chosenStock = StockMainMenu.selectedStock;
 		buyIndex = (buyIndex + 1) % stockNames.length;
 		if(userBalance > 0){
 			findStock();
@@ -48,9 +48,7 @@ public class Transaction implements StockInventory{
 //				containStocks(chosenStock);
 				fillStock(chosenStock);
 				fillPrices(stockPrice);
-				
-				if(userBalance <= 0){
-					userBalance += stockPrice;
+				if(userBalance <= stockPrice){
 					return;
 				}
 				if(userBalance == 0){
