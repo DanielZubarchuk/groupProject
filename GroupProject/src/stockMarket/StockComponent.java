@@ -15,9 +15,6 @@ import stackInterfaces.StockInventory;
  */
 
 public class StockComponent extends Component {
-
-	private static ArrayList<String> history;
-	private static ArrayList<StockInventory> stockInventory;
 	
 	private StockInventory inventory;
 	
@@ -35,11 +32,13 @@ public class StockComponent extends Component {
 
 	@Override
 	public void update(Graphics2D g) {
+		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+		g.setColor(Color.black);
 		
 		int y = 0;
 		
-		if(history == null){
-			g.drawString("You have no previous transactions!", 10, 270);
+		if(User.history.isEmpty()){
+			g.drawString("You have no previous transactions!", 100, 55);
 			return;
 		}else{
 			
@@ -55,7 +54,7 @@ public class StockComponent extends Component {
 			
 		}
 		
-		if(stockInventory.isEmpty()){
+		if(User.stocksInventory.isEmpty()){
 			g.drawString("You don't own any stocks!", 10, 170);
 			return;
 		}else{
@@ -80,8 +79,6 @@ public class StockComponent extends Component {
 			for(StockInterface s : inventory.getStocks()){
 				int x = 35;
 				
-				g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-				g.setColor(Color.black);
 				g.fillRect(10, y, 60, 40);
 				g.drawRect(10, y, 60, 40);
 				

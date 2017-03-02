@@ -42,7 +42,8 @@ public class User extends ClickableScreen{
 	private final int _STOCK = 3;
 	private final int _TRANSACTION = 4;
 	
-	private static ArrayList<StockInterface> stocksInventory = new ArrayList<StockInterface>();
+	public static ArrayList<String> history = new ArrayList<String>();
+	public static ArrayList<StockInterface> stocksInventory = new ArrayList<StockInterface>();
 	
 	public void initAllObjects(ArrayList<Visible> viewObjects) {
 		background = new Graphic(0,0,getWidth(),getHeight(),"resources/images/newmoneybackground.png");
