@@ -37,47 +37,33 @@ public class HistoryScreen extends ClickableScreen implements App, MouseListener
 				MainMenu.mms.setScreen(MainMenu.menuScreen);
 			}
 		});
-//		if(stockOpened){
-//			stockIcon = new Graphic((int) (2 * getWidth()/3 ), getHeight()/2 - 50, "resources/sampleImages/stockMarketIcon.png");
-//			view.add(stockIcon);
-//			appPics.add(stockIcon);
-//			close = new Button(stockIcon.getWidth(), stockIcon.getHeight() - 50, 70, 30, "Close", new Color(0,0,0), new Action(){
-//				public void act(){
-//					view.remove(stockIcon);
-//					view.remove(close);
+//		close = new Button(getWidth()/2 - 30, getHeight()/2 - 15, 60, 30, "Close Apps", new Color(0,0,0), new Action() {
+//			public void act() {
+//				System.out.println("this has been clickedsdas");
+//				if(appPics == null){
+//					nothing = new TextLabel(getWidth()/2 - 125, getHeight()/3, 760, 40, "There is nothing to close!");
+//					System.out.println("this has been clicked");
+//				}
+//				if(view.contains(stockIcon)){
 //					appPics.remove(stockIcon);
+//					remove(stockIcon);
 //				}
-//			});
-//		}
-//		if(advOpened){
-//			advIcon = new Graphic((int) (getWidth()/3 - 87.5), getHeight()/2 - 50, "resources/sampleImages/advCapIcon.png");
-//			view.add(advIcon);
-//			appPics.add(advIcon);
-//			close = new Button(advIcon.getWidth(), advIcon.getHeight() - 50, 70, 30, "Close", new Color(0,0,0), new Action(){
-//				public void act(){
-//					view.remove(advIcon);
-//					view.remove(close);
+//				else if(view.contains(advIcon)){
 //					appPics.remove(advIcon);
+//					remove(advIcon);
 //				}
-//			});
-//		}
-		close = new Button(getWidth()/2 - 30, getHeight()/2 - 15, 60, 30, "Close Apps", new Color(0,0,0), new Action() {
-			public void act() {
-				System.out.println("this has been clickedsdas");
-				if(appPics == null){
-					nothing = new TextLabel(getWidth()/2 - 125, getHeight()/3, 760, 40, "There is nothing to close!");
-					System.out.println("this has been clicked");
-				}
-				if(view.contains(stockIcon)){
-					appPics.remove(stockIcon);
-				}
-				else if(view.contains(advIcon)){
-					appPics.remove(advIcon);
-				}
-				else{
-					appPics.remove(stockIcon);
-					appPics.remove(advIcon);
-				}
+//				else{
+//					appPics.remove(stockIcon);
+//					appPics.remove(advIcon);
+//					remove(stockIcon);
+//					remove(advIcon);
+//					
+//				}
+//			}
+//		});
+		close = new Button(getWidth()/2 - 60, getHeight()/2 - 15, 120, 30, "Close Apps", new Color(0,0,0), new Action() {
+			public void act(){
+				
 			}
 		});
 		backgroundPic = new Graphic(50, 25, "resources/sampleImages/background.png");
@@ -88,9 +74,17 @@ public class HistoryScreen extends ClickableScreen implements App, MouseListener
 	
 	public void addToHistory(Graphic g){
 		appPics.add(g);
-		close = new Button(g.getX(), g.getY() - 50, 70, 30, "Close", new Color(0,0,0), new Action(){
+		close = new Button(getWidth()/2 - 30, getHeight()/2 - 15, 60, 30, "Close Apps", new Color(0,0,0), new Action(){
 			public void act(){
-				appPics.remove(g);
+				if(appPics != null){
+					for (int i = 0; i < appPics.size(); i++){
+						appPics.remove(i);
+						remove(g);
+					}
+				}
+				else {
+					System.out.println("There is nothing here");
+				}
 			}
 		});
 		if(appPics != null){
