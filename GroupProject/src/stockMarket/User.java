@@ -45,6 +45,12 @@ public class User extends ClickableScreen{
 	public static ArrayList<String> history = new ArrayList<String>();
 	public static ArrayList<StockInterface> stocksInventory = new ArrayList<StockInterface>();
 	
+	public void goToGameScreen(){
+		System.out.println(""+StockMainMenu.mainDemoScreen);
+		
+		StockMainMenu.mainDemoScreen.setScreen(StockMainMenu.gameScreen);
+	}
+	
 	public void initAllObjects(ArrayList<Visible> viewObjects) {
 		background = new Graphic(0,0,getWidth(),getHeight(),"resources/images/newmoneybackground.png");
 		viewObjects.add(background);
@@ -53,7 +59,7 @@ public class User extends ClickableScreen{
 		backButton = new Button(10, 30, 90, 40, "back", Color.blue, new Action(){
 			
 			public void act(){
-				StockMainMenu.mainDemoScreen.setScreen(StockMainMenu.gameScreen);
+				goToGameScreen();
 			}
 		});
 		viewObjects.add(backButton);
