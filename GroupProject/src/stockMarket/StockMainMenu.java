@@ -205,7 +205,7 @@ private class MenuScreen extends ClickableScreen{
 			@Override
 			public void act() {
 	
-				StockMainMenu.fluctuation.updateStock();
+				StockMainMenu.fluctuation.updateStock(transaction);
 				
 				fluctuation.getEventHistory().add("Current state of " + transaction.getStocks().get(StockMainMenu.fluctuation.getEventStock()).getStockName()
 						+ ": "
@@ -229,7 +229,7 @@ private class MenuScreen extends ClickableScreen{
 					historyDisplay3.setText(fluctuation.getEventHistory().get(fluctuation.getEventHistory().size()-3) );
 				}
 				
-				StockMainMenu.fluctuation.updateStock();
+				StockMainMenu.fluctuation.updateStock(transaction);
 //				historyDisplay.setText("Hello\nWorld");
 				
 			}

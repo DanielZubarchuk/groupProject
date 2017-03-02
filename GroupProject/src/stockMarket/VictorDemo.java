@@ -111,7 +111,7 @@ public class VictorDemo extends GUIApplication {
 							+ VictorDemo.fluctuation.outputEvent() 
 							+ "(" + String.format( "%.2f", Transaction.stocks.get(VictorDemo.fluctuation.getEventStock()).getGrowthRate() )
 							+ " )" + String.format( "%.2f", Transaction.stocks.get(VictorDemo.fluctuation.getEventStock()).getStockPrice()));
-					VictorDemo.fluctuation.updateStock();
+//					VictorDemo.fluctuation.updateStock();
 				}
 			});
 			eventHistory = new Button(290,220 , 250, 40, "Event History", Color.green, new Action() {
