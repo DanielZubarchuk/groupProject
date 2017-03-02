@@ -17,8 +17,7 @@ import stackInterfaces.StockInventory;
 public class StockComponent extends Component {
 
 	private static ArrayList<String> history;
-	
-	
+	private static ArrayList<StockInventory> stockInventory;
 	
 	private StockInventory inventory;
 	
@@ -56,7 +55,7 @@ public class StockComponent extends Component {
 			
 		}
 		
-		if(){
+		if(stockInventory.isEmpty()){
 			g.drawString("You don't own any stocks!", 10, 170);
 			return;
 		}else{
