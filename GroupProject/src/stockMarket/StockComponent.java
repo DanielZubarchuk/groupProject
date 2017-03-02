@@ -3,7 +3,6 @@ package stockMarket;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
-import java.util.ArrayList;
 
 import guiPractice.components.Component;
 import stackInterfaces.StockInterface;
@@ -43,8 +42,23 @@ public class StockComponent extends Component {
 		}else{
 			
 			if(viewAll == ALL_TRANSACTIONS){
-				viewAllTransactions(g);
-				return;
+				if(inventory != null && !inventory.getStocks().isEmpty()){
+					clear();
+					System.out.println("b");
+					
+					for(StockInterface s : inventory.getStocks()){
+						int x = 35;
+						
+						g.fillRect(10, y, 60, 40);
+						g.drawRect(10, y, 60, 40);
+						
+						
+						g.drawString(s.getStockName(), x, y);
+						g.drawString(Double.toString(s.getStockPrice()), x + 50, y);
+						
+						y += 40;
+					}
+					return;
 			}
 			
 			if(viewAll == _TRANSACTION){
@@ -71,23 +85,6 @@ public class StockComponent extends Component {
 			}
 			
 		}
-		
-		
-		if(inventory != null && !inventory.getStocks().isEmpty()){
-			clear();
-			System.out.println("b");
-			for(StockInterface s : inventory.getStocks()){
-				int x = 35;
-				
-				g.fillRect(10, y, 60, 40);
-				g.drawRect(10, y, 60, 40);
-				
-				
-				g.drawString(s.getStockName(), x, y);
-				g.drawString(Double.toString(s.getStockPrice()), x + 50, y);
-				
-				y += 40;
-			}
 			
 			
 //			int inventorySize = inventory.getStocks().size();
@@ -117,13 +114,6 @@ public class StockComponent extends Component {
 		clear();
 		
 	}
-
-	private void viewAllTransactions(Graphics2D g){
-		clear();
-		g.drawString("test", 0, 0);
-	}
-	
-	
 	
 //	public void displayAll(Graphics2D g){
 //		clear();

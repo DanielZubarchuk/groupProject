@@ -53,7 +53,7 @@ public class User extends ClickableScreen{
 		backButton = new Button(10, 30, 90, 40, "back", Color.blue, new Action(){
 			
 			public void act(){
-				UserScreen.user.setScreen(StockMainMenu.gameScreen);
+				StockMainMenu.mainDemoScreen.setScreen(StockMainMenu.gameScreen);
 			}
 		});
 		viewObjects.add(backButton);
