@@ -87,15 +87,6 @@ public class Transaction implements StockInventory{
 		}
 		return -1;
 	}
-
-//	@Override
-//	public ArrayList<StockInterface> getStocks() {
-//		for(int a = 0;a < transactionHistory.size(); a++){
-//			Stock s = new Stock(transactionHistory.get(a), transactionPrices.get(a));
-//			stocks.add(s);
-//		}
-//		return stocks;
-//	}
 	
 	public void fillStockArray(){
 		for(int a = 0; a < stockNames.length; a++){
@@ -108,4 +99,13 @@ public class Transaction implements StockInventory{
 	public ArrayList<StockInterface> getStocks() {
 		return stocks;
 	}
+	
+//	@Override
+//	public ArrayList<StockInterface> getStocks() {
+//		for(int a = 0;a < transactionHistory.size(); a++){
+//			Stock s = new Stock(transactionHistory.get(a), transactionPrices.get(a));
+//			stocks.add(s);
+//		}
+//		return stocks;
+//	}
 }
