@@ -227,7 +227,6 @@ private class MenuScreen extends ClickableScreen{
 		
 		buy = new Button(500, 200, 90, 40, "Buy", Color.green, new Action() {
 				public void act() {
-					//dialogueBuy = true;
 					//transaction.buyAStock();
 					//transactionDisplay.setText(transaction.transactionHistory.get(stockIndex) + " was bought for " 
 					//+ Transaction.transactionPrices.get(stockIndex));
@@ -253,7 +252,6 @@ private class MenuScreen extends ClickableScreen{
 				
 				@Override
 				public void act() {
-					//dialogueBuy = false;
 					//transactionDisplay.setText(transaction.transactionHistory.get(stockIndex) + " was sold for " 
 					//+ Transaction.transactionPrices.get(stockIndex));
 				//	transaction.sellAStock();
