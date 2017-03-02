@@ -55,6 +55,7 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 	 */
 	public RichardDemo() {
 		// TODO Auto-generated constructor stub
+		setBounds(50,50,1000,600);
 	}
 
 	/* (non-Javadoc)
