@@ -7,6 +7,7 @@ import java.util.List;
 
 import guiPractice.GUIApplication;
 import guiPractice.Screen;
+import guiPractice.TextLabel;
 import guiPractice.components.Action;
 import guiPractice.components.Button;
 import guiPractice.ClickableScreen;
@@ -52,7 +53,7 @@ public class StockMainMenu extends GUIApplication {
 //nested inner class
 private class MenuScreen extends ClickableScreen{
 
-	private ThemedTextLabel result;
+	private ThemedTextLabel display;
 	private String Samsung;
 	private String Blackgate;
 	private String Apple;
@@ -84,15 +85,21 @@ private class MenuScreen extends ClickableScreen{
 	private MultiLineTextLabel historyDisplay3;
 	private Button eventHistory;
 	private MultiLineTextLabel eventDisplay;
+	public int stockIndex;
 	
 	
 	public MenuScreen(int width, int height) {
 		super(width, height);
 				
 	}
+	
+	public void createStocks(){
+		
+	}
+	
 	public void selectStock(String stock){
 		selectedStock = stock;
-		result.setText("You selected "+selectedStock+" as your stock");
+		display.setText("You selected "+selectedStock+" as your stock");
 	}
 	@Override
 	public void initAllObjects(ArrayList<Visible> view) {
@@ -102,7 +109,7 @@ private class MenuScreen extends ClickableScreen{
 		Apple = "Apple";
 		Glascow = "Glascow";
 		Generalmotors = "General Motors";
-		result = new ThemedTextLabel(300, 70, 800, 25, "Choose an action.");
+		display = new ThemedTextLabel(300, 70, 800, 25, "Choose an action.");
 		turncount = 0;
 		goalcount = 50000;
 		historyDisplay = new MultiLineTextLabel(40, 430, 800, 50,"");
@@ -126,7 +133,7 @@ private class MenuScreen extends ClickableScreen{
 		shareText = new ThemedTextLabel(200,155,70,90,"Shares:");
 		view.add(shareText);
 				
-		select1 = new Button(20,140,90,30,"Samsung", Color.green,new Action(){
+		select1 = new Button(20,140,90,30,Samsung, Color.green,new Action(){
 			@Override
 			public void act() {
 				selectStock(Samsung);	
@@ -134,7 +141,7 @@ private class MenuScreen extends ClickableScreen{
 		});
 		view.add(select1);
 		
-		select2 = new Button(20,180,90,30,"Blackgate", Color.green,new Action() {
+		select2 = new Button(20,180,90,30,Blackgate, Color.green,new Action() {
 			@Override
 			public void act() {
 				selectStock(Blackgate);	
@@ -142,7 +149,7 @@ private class MenuScreen extends ClickableScreen{
 		});
 		view.add(select2);
 		
-		select3 = new Button(20,215,90,30,"Apple", Color.green,new Action() {
+		select3 = new Button(20,215,90,30,Apple, Color.green,new Action() {
 			@Override
 			public void act() {
 				selectStock(Apple);	
@@ -150,7 +157,7 @@ private class MenuScreen extends ClickableScreen{
 		});
 		view.add(select3);
 		
-		select4 = new Button(20,250,90,30,"Glascow", Color.green,new Action() {
+		select4 = new Button(20,250,90,30,Glascow, Color.green,new Action() {
 			@Override
 			public void act() {
 				selectStock(Glascow);	
@@ -158,7 +165,7 @@ private class MenuScreen extends ClickableScreen{
 		});
 		view.add(select4);
 		
-		select5 = new Button(20,290,145,30,"General Motors", Color.green,new Action() {
+		select5 = new Button(20,290,145,30,Generalmotors, Color.green,new Action() {
 			@Override
 			public void act() {
 				selectStock(Generalmotors);	
@@ -226,16 +233,15 @@ private class MenuScreen extends ClickableScreen{
 		});
 		
 		buy = new Button(500, 200, 90, 40, "Buy", Color.green, new Action() {
+			
 				public void act() {
-					//transaction.buyAStock();
-					//transactionDisplay.setText(transaction.transactionHistory.get(stockIndex) + " was bought for " 
-					//+ Transaction.transactionPrices.get(stockIndex));
-//					index++;
-					//view.add(transactionDisplay);
+					transaction.buyAStock();
+					display.setText(transaction.transactionHistory.get(stockIndex) + " was sold for $" 
+							+ Transaction.transactionPrices.get(stockIndex));
 			}
 		});
 		view.add(buy);
-		view.add(result);
+		view.add(display);
 
 		user = new Button(500, 250, 200, 40, "User Portfolio", Color.green, new Action() {
 			
@@ -246,7 +252,7 @@ private class MenuScreen extends ClickableScreen{
 			}
 		});
 		view.add(user);
-		view.add(result);
+		view.add(display);
 			
 		sell = new Button(600, 200, 90, 40, "Sell", Color.green, new Action() {
 				
@@ -254,7 +260,7 @@ private class MenuScreen extends ClickableScreen{
 				public void act() {
 					//transactionDisplay.setText(transaction.transactionHistory.get(stockIndex) + " was sold for " 
 					//+ Transaction.transactionPrices.get(stockIndex));
-				//	transaction.sellAStock();
+					//transaction.sellAStock();
 //					index++;
 				}
 			});
@@ -267,7 +273,7 @@ private class MenuScreen extends ClickableScreen{
 				@Override
 				public void act() {
 					System.out.println("Turn ended.");
-					result.setText("Turn ended.");
+					display.setText("Turn ended.");
 					turncount++;
 					turn.setText("Turn " + turncount); 
 					
@@ -278,7 +284,7 @@ private class MenuScreen extends ClickableScreen{
 		view.add(historyDisplay2);
 		view.add(historyDisplay3);
 		view.add(eventHistory);
-		view.add(result);
+		view.add(display);
 		view.add(end);
 			
 	}
