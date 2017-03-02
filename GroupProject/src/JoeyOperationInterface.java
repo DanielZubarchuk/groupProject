@@ -3,7 +3,7 @@
  * @author Katherine
  */
 
-public interface HistoryInterface {
+public interface JoeyOperationInterface {
 
 	String getProperty();
 	int getQuantity();

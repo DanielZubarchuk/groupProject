@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class History {
 	
 	public static ArrayList<String> history;
-	private static HistoryInterface h;
+	private static JoeyOperationInterface h;
 
 	public static void main(String[] args) {
 		String temp;
