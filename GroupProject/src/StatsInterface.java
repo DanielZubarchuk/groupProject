@@ -5,9 +5,9 @@
 
 public interface StatsInterface {
 	
-	double currentBalance = 0;
-	static double getMoney() {
-		return currentBalance;
-	}
+	double getMoney();
+	void setMoney(double money);
+	int[] getQuantityArray();
+	void setQuantityArray(int index, int amount);
 	
 }
