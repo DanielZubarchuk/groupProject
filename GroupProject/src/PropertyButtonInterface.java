@@ -1,3 +1,8 @@
+
+/**
+ * @author Katherine
+ */
+
 public interface PropertyButtonInterface {
 	 
 	public boolean isClicked();
