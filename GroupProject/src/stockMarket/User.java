@@ -99,7 +99,7 @@ public class User extends ClickableScreen{
 		viewObjects.add(viewAllTransactions);
 	}
 		
-	public static ArrayList<StockInterface> getStocksInventory() {
+	public ArrayList<StockInterface> getStocksInventory() {
 		return stocksInventory;
 	}
 }

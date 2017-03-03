@@ -358,7 +358,7 @@ private class MenuScreen extends ClickableScreen{
 					if(selectedStock == null || shareNumber ==0){
 						display.setText("You must select a stock and shares.");
 					}
-					if(!User.stocksInventory.contains(selectedStock)){
+					if(!inventoryScreen.getStocksInventory().contains(selectedStock)){
 						display.setText("You dont have that stock or enough shares to sell.");
 					}
 					else{
