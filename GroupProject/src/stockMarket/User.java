@@ -34,6 +34,7 @@ public class User extends ClickableScreen{
 	
 	private ThemedTextLabel stocksTitle;
 	private ThemedTextLabel transactionTitle;
+	private ThemedTextLabel transaction;
 	
 	private StockInventory stockInventory;
 	
@@ -50,7 +51,7 @@ public class User extends ClickableScreen{
 		viewObjects.add(background);
 		
 		//picture??
-		backButton = new Button(10, 30, 90, 40, "back", Color.green, new Action(){
+		backButton = new Button(10, 30, 90, 40, "back", Color.black, new Action(){
 			
 			public void act(){
 				StockMainMenu.mainScreen.setScreen(StockMainMenu.gameScreen);
@@ -59,22 +60,28 @@ public class User extends ClickableScreen{
 		viewObjects.add(backButton);
 		
 		balance = Transaction.userBalance;
-		balanceDisplay = new ThemedTextLabel(250, 70, 800, 25, "Balance: $" + balance);
+		int stringLength = (("Balance: $" + balance).length()) + 100;
+		balanceDisplay = new ThemedTextLabel((getWidth()- stringLength) / 2, 80, 800, 25, "Balance: $" + balance);
 		viewObjects.add(balanceDisplay);
 		
 		stocksTitle = new ThemedTextLabel(10, 130, 220, 25, "Current Stocks:");
 		viewObjects.add(stocksTitle);
 		
-		transactionTitle = new ThemedTextLabel(10, 230, 220, 25, "Transaction History:");
+		transactionTitle = new ThemedTextLabel(580, 130, 220, 25, "Transaction History:");
 		viewObjects.add(transactionTitle);
 		
 		stockInventory = new Transaction();
 		StockComponent stocks = new StockComponent(10, 170, 250, 25, stockInventory, _STOCK);
 		viewObjects.add(stocks);
 		
-		StockComponent transactions = new StockComponent(10, 270, 250, 25, stockInventory, _TRANSACTION);
-		viewObjects.add(transactions);
-		
+		if(stockInventory.getStocks().isEmpty()){
+			transaction = new ThemedTextLabel(580, 180, 220, 25, "You don't have any previous transactions");
+			viewObjects.add(transaction);
+		}else{
+			for(StockInterface s : stocksInventory.getStocks()){
+				transaction = new ThemedTextLabel(x, y, 220, 25, "You bought " + s.getStockQuantity() + " " + s.getStockName() + " for " + s.getStockPrice());
+			}
+		}
 		
 		viewAllStocks = new Button(250, 130, 100, 30, "View All", Color.black, new Action(){
 
@@ -87,7 +94,7 @@ public class User extends ClickableScreen{
 		});
 		viewObjects.add(viewAllStocks);
 		
-		viewAllTransactions = new Button(250, 230, 100, 30, "View All", Color.black, new Action(){
+		viewAllTransactions = new Button(800, 130, 100, 30, "View All", Color.black, new Action(){
 
 			@Override
 			public void act() {

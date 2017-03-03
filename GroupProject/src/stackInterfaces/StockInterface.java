@@ -12,4 +12,5 @@ public interface StockInterface {
 	public void setStockPrice(double stockPrice);
 	public void setStockName(String stockName);
 	public void setGrowthRate(double growthRate);
+	public int getStockQuantity();
 }

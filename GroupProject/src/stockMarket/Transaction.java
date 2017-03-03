@@ -94,11 +94,11 @@ public class Transaction implements StockInventory{
 //			Stock s = new Stock(stockNames[a], stockPrices[a], stockGrowths[a]);
 //			stocks.add(s);
 //		}
-		stocks.add(new Stock("Blackgate", 100, 1.1));
-		stocks.add(new Stock("Apple", 70, 1.4));
-		stocks.add(new Stock("Samsung", 80, 1.3));
-		stocks.add(new Stock("Glascow", 110, 1.0));
-		stocks.add(new Stock("General Motors", 90, 1.2));
+		stocks.add(new Stock("Blackgate", 100, 1.1, chosenShareAmount));
+		stocks.add(new Stock("Apple", 70, 1.4, chosenShareAmount));
+		stocks.add(new Stock("Samsung", 80, 1.3, chosenShareAmount));
+		stocks.add(new Stock("Glascow", 110, 1.0, chosenShareAmount));
+		stocks.add(new Stock("General Motors", 90, 1.2, chosenShareAmount));
 	}
 
 	@Override

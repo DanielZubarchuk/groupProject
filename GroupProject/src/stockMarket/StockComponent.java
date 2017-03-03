@@ -1,6 +1,7 @@
 package stockMarket;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 
@@ -27,17 +28,24 @@ public class StockComponent extends Component {
 		super(x, y, w, h);
 		this.inventory = inventory;
 		this.viewAll = viewAll;
+		
+		update();
 	}
 
 	@Override
 	public void update(Graphics2D g) {
+		g = clear();
 		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		g.setColor(Color.black);
 		
 		int y = 0;
+		System.out.println("A");
+		
 		
 		if(User.history.isEmpty()){
+			
 			g.drawString("You have no previous transactions!", 100, 55);
+			System.out.println("B");
 			return;
 		}else{
 			
@@ -111,7 +119,7 @@ public class StockComponent extends Component {
 	}
 	
 	private void viewAllStocks(Graphics2D g) {
-		clear();
+		
 		
 	}
 	
