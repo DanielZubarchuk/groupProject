@@ -20,7 +20,7 @@ import guiPratice.components.TextLabel;
 import guiPratice.components.Visible;
 import guiPratice.sampleGames.ClickableScreen;
 
-public class AdventureCapScreen extends ClickableScreen implements MouseMotionListener, MouseListener{
+public class AdventureCapScreen extends ClickableScreen {
 	
 	public AdventureCapScreen(int width, int height) {
 		super(width, height);
@@ -39,6 +39,7 @@ public class AdventureCapScreen extends ClickableScreen implements MouseMotionLi
 		mangerButton = new Button(50, 350, 150, 40, "MANAGER", new Color(0,0,0), new Action(){
 			public void act(){
 				//take me to manager screen
+				System.out.println("Clicked");
 				AdventureCapGame.game.setScreen(AdventureCapGame.manager);
 			}
 		});
@@ -55,49 +56,6 @@ public class AdventureCapScreen extends ClickableScreen implements MouseMotionLi
 				
 			}
 		});
-	}
-	
-	@Override
-	public void mouseDragged(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mouseMoved(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-	
-
-	@Override
-	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
