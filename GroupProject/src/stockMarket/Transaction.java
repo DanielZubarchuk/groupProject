@@ -67,12 +67,12 @@ public class Transaction implements StockInventory{
 		userBalance = (stocks.get(buyIndex).getStockPrice() * chosenShareAmount) + userBalance;
 	}
 	
-	private void fillStock(String stk) {
+	public void fillStock(String stk) {
 		System.out.println(stk);
 		transactionHistory.add(0,stk);
 	}
 	
-	private void fillPrices(double prc){
+	public void fillPrices(double prc){
 		System.out.println(prc);
 		transactionPrices.add(0,prc);
 	}

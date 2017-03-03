@@ -78,7 +78,7 @@ public class Fluctuation implements MarketInterface{
 
 	public void fillEvents(){
 		
-		int randomEvent = (int) (Math.random()*3 + 1);
+		int randomEvent = (int) (Math.random()*3)+1;
 		currentEvent = randomEvent;
 			
 		if(randomEvent == _RECESSION){
