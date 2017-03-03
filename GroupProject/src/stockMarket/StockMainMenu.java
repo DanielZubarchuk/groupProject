@@ -18,7 +18,7 @@ import src.projectComponents.MultiLineTextLabel;
 import src.projectComponents.ThemedTextLabel;
 import src.stackInterfaces.StockInterface;
 
-public class StockMainMenu extends GUIApplication {
+public class StockMainMenu extends GUIApplication{
 	
 		public static StockMainMenu mainScreen;
 		public static WinScreen winScreen;
@@ -61,7 +61,7 @@ public class StockMainMenu extends GUIApplication {
 		}
 
 //nested inner class
-public static class MenuScreen extends ClickableScreen implements App{
+public static class MenuScreen extends ClickableScreen implements App, src.stackInterfaces.StockMenuInterface{
 	
 	private ArrayList<Button> buttons;
 	private Button homeButton;
