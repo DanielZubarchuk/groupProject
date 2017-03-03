@@ -27,6 +27,7 @@ import guiPratice.GUIApplication;
 public class RichardDemo extends GUIApplication implements MouseMotionListener, MouseListener{
 	
 	public static int currentAmount;
+	public static TextLabel moneyDisplay;
 
 	public static RichardDemo demos;
 	public static RichardDemo2 demo2;
@@ -141,8 +142,6 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 		private boolean button2Disabled = true;
 		private boolean button3Disabled = false;
 		
-		private int[][] xyPos;
-		
 //		private TextLabel buyText;
 		
 		public DemoScreen(int width, int height) {
@@ -162,14 +161,13 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 			//if showing act
 			//if not dont act
 			
-			xyPos = new int[2][8];
-			
 			background = new Graphic(1,1,1.0,"Resources/background/cfafa34141.png");
 			iconleft = new Graphic(56,220,1.0, "Resources/icon/dbjhasdfjndfm.jpg");
 			
 			reset = new TextLabel(50, 540, 800, 25, " ");
 			buyText = new TextLabel(250, 50, 800, 25, " ");
-			
+			moneyDisplay = new TextLabel(10, 0, 700, 100, "0.00");
+					
 			xNumButton = new Button(800, 40, 100, 50, " X 1", new Color(100,100,100), new Action(){
 
 				public void act() {
@@ -472,6 +470,9 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 	public static int getCurrentAmount() {
 		// TODO Auto-generated method stub
 		return currentAmount;
+	}
+	public void setMoneyText(String text){
+		moneyDisplay.setText(text);
 	}
 }
 
