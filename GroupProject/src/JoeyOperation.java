@@ -223,7 +223,10 @@ public class JoeyOperation{
 	
 	
 	
-	
+	public static ArrayList<Button> makeManagers(){
+		return null;
+		
+	}
 	
 	
 	
@@ -239,42 +242,42 @@ public class JoeyOperation{
 	public static ArrayList<Button> generateMoneyButtons(){
 		Button lemonMoney = new Button(10, 180, 150, 40, "Money!", new Color(255,255,0), new Action(){
 			public void act(){
-				doButtonAction(lemonMoney,lemon);
+				doButtonAction(lemonMoney,lemon, 0);
 			}
 		});
 		Button newspaperMoney = new Button(510, 180, 150, 40, "Money!", new Color(255,255,0), new Action(){
 			public void act(){
-				doButtonAction(newspaperMoney,newspaper);
+				doButtonAction(newspaperMoney,newspaper, 1);
 			}
 		});
 		Button carMoney = new Button(10, 280, 150, 40, "Money!", new Color(255,255,0), new Action(){
 			public void act(){
-				doButtonAction(carMoney	,car);
+				doButtonAction(carMoney	,car, 2);
 			}
 		});
 		Button pizzaMoney = new Button(510, 280, 150, 40, "Money!", new Color(255,255,0), new Action(){
 			public void act(){
-				doButtonAction(pizzaMoney,pizza);
+				doButtonAction(pizzaMoney,pizza, 3);
 			}
 		});
 		Button donutMoney = new Button(10, 380, 150, 40, "Money!", new Color(255,255,0), new Action(){
 			public void act(){
-				doButtonAction(donutMoney,donut);
+				doButtonAction(donutMoney,donut, 4);
 			}
 		});
 		Button shrimpMoney = new Button(510, 380, 150, 40, "Money!", new Color(255,255,0), new Action(){
 			public void act(){
-				doButtonAction(shrimpMoney,shrimp);
+				doButtonAction(shrimpMoney,shrimp, 5);
 			}
 		});
 		Button hockeyMoney = new Button(10, 480, 150, 40, "Money!", new Color(255,255,0), new Action(){
 			public void act(){
-				doButtonAction(hockeyMoney,hockey);
+				doButtonAction(hockeyMoney,hockey, 6);
 			}
 		});
 		Button movieMoney = new Button(510, 480, 150, 40, "Money!", new Color(255,255,0), new Action(){
 			public void act(){
-				doButtonAction(movieMoney,movie);
+				doButtonAction(movieMoney,movie, 7);
 			}
 		});
 		ArrayList<Button> buttonsList = new ArrayList<Button>();
@@ -290,7 +293,7 @@ public class JoeyOperation{
 		return buttonsList;
 	}
 	
-	protected static void doButtonAction(Button buyButton, PropertyButton property) {
+	protected static void doButtonAction(Button buyButton, PropertyButton property, int number) {
 
 		Thread actionToDo = new Thread(new Runnable(){
 
@@ -302,9 +305,11 @@ public class JoeyOperation{
 				}catch(InterruptedException e){
 					e.printStackTrace();
 				}
-				playerMoney += property.getPayout() * quantityOwned[0];
-				playerMoney = roundNumber(playerMoney);
-				buyText.setText("$"+playerMoney);
+				double money = Statistics.getMoney();
+				int[]qtyOwned = Statistics.getQuantityArray();
+				money += property.getPayout() * qtyOwned[0];
+				money = roundNumber(money);
+				AdventureCapScreen.AdvCapDemo.setMoneyText("$"+money);
 				buyButton.setEnabled(true);
 			}
 
@@ -313,6 +318,9 @@ public class JoeyOperation{
 
 
 	}
-	
+	public static double roundNumber(double amount){
+		double newNumber = (((int)(amount*100))/100.00);
+		return newNumber;
+	}
 	
 }

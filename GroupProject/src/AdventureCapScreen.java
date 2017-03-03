@@ -32,7 +32,7 @@ public class AdventureCapScreen extends ClickableScreen implements AdventureCapS
 	public static StatsScreen stats;
 	
 	
-	private TextLabel moneyText;
+	private static TextLabel moneyText;
 	private int currentAmount;
 	
 	
@@ -70,12 +70,7 @@ public class AdventureCapScreen extends ClickableScreen implements AdventureCapS
 		generateMenuButtons();
 		ArrayList<PropertyButtonInterface> properties = JoeyOperation.generateButtons();
 		ArrayList<guiPractice8.component.Button> moneyButtons = JoeyOperation.generateMoneyButtons();
-		for(PropertyButtonInterface x:properties){
-			viewObjects.add(x);
-		}
-		for(guiPractice8.component.Button x:moneyButtons){
-			viewObjects.add(x);
-		}
+		
 		
 		viewObjects.add(mangerButton);
 		viewObjects.add(statsButton);
@@ -88,7 +83,6 @@ public class AdventureCapScreen extends ClickableScreen implements AdventureCapS
 		return currentAmount;
 	}
 
-	@Override
 	public void setMoneyText(String text) {
 		// TODO Auto-generated method stub
 		moneyText.setText(text);
