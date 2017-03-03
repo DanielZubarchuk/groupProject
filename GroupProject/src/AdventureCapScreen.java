@@ -37,12 +37,12 @@ public class AdventureCapScreen extends ClickableScreen implements AdventureCapS
 	
 	
 	
-	private Button mangerButton;//made
 	private Button statsButton;//made
 	private Button restartButton;//made
+	private Button managerButton;
 	
 	public void generateMenuButtons(){
-		mangerButton = new Button(50, 230, 150, 40, "MANAGER", new Color(0,0,0), new Action(){
+		managerButton = new Button(50, 230, 150, 40, "MANAGER", new Color(0,0,0), new Action(){
 			public void act(){
 				//take me to manager screen
 				System.out.println("Clicked");
@@ -73,7 +73,7 @@ public class AdventureCapScreen extends ClickableScreen implements AdventureCapS
 		ArrayList<guiPractice8.component.Button> moneyButtons = JoeyOperation.generateMoneyButtons();
 		
 		
-		viewObjects.add(mangerButton);
+		viewObjects.add(managerButton);
 		viewObjects.add(statsButton);
 		viewObjects.add(restartButton);
 	}
