@@ -8,7 +8,6 @@ import guiPractice.components.Button;
 import guiPractice.ClickableScreen;
 import guiPractice.components.Graphic;
 import guiPractice.components.Visible;
-import src.phone.App;
 import src.projectComponents.ThemedTextLabel;
 import src.stackInterfaces.StockInterface;
 import src.stackInterfaces.StockInventory;
@@ -18,7 +17,7 @@ import src.stackInterfaces.StockInventory;
  *
  */
 
-public class User extends ClickableScreen implements App{
+public class User extends ClickableScreen{
 	
 	public User(int width, int height) {
 		super(width, height);
@@ -29,7 +28,6 @@ public class User extends ClickableScreen implements App{
 	public static double balance;
 	private ThemedTextLabel balanceDisplay;
 	
-	private Button homeButton;
 	private Button backButton;
 	private Button viewAllStocks;
 	private Button viewAllTransactions;
@@ -37,7 +35,7 @@ public class User extends ClickableScreen implements App{
 	private ThemedTextLabel stocksTitle;
 	private ThemedTextLabel transactionTitle;
 	private ThemedTextLabel transaction;
-	private ThemedTextLabel stocksLabel;
+	private ThemedTextLabel stocks;
 	
 	
 	public static ArrayList<String> history = new ArrayList<String>();
@@ -58,7 +56,7 @@ public class User extends ClickableScreen implements App{
 		});
 		viewObjects.add(backButton);
 		
-		balance = Transaction.userBalance;
+		balance = StockMainMenu.getTransaction().getUserBalance();
 		int stringLength = (("Balance: $" + balance).length()) + 100;
 		balanceDisplay = new ThemedTextLabel((getWidth()- stringLength) / 2, 80, 800, 25, "Balance: $" + balance);
 		viewObjects.add(balanceDisplay);
@@ -66,28 +64,17 @@ public class User extends ClickableScreen implements App{
 		stocksTitle = new ThemedTextLabel(10, 130, 220, 25, "Current Stocks:");
 		viewObjects.add(stocksTitle);
 		
-		transactionTitle = new ThemedTextLabel(10, 230, 220, 25, "Transaction History:");
-		viewObjects.add(transactionTitle);
-		
-		inventory = StockMainMenu.getTransaction();
-		StockComponent stocks = new StockComponent(10, 170, 250, 25, inventory, _STOCK);
-		viewObjects.add(stocks);
-		
-		StockComponent transactions = new StockComponent(10, 270, 250, 25, inventory, _TRANSACTION);
-		viewObjects.add(transactions);
-		
-
 		if(!stocksInventory.isEmpty()){
 			int y = 180;
 			for(StockInterface s : inventory.getStocks()){
 				stocksInventory.add(s);
 				String temp = s.getStockName() + "	$" + s.getStockPrice() + " " + s.getStockQuantity(); 
-				stocksLabel = new ThemedTextLabel(10, y, 600, 25, temp);
+				stocks = new ThemedTextLabel(10, y, 600, 25, temp);
 				y += 40;
 				viewObjects.add(stocks);
 			}
 		}else{
-			stocksLabel = new ThemedTextLabel(10, 180, 400, 25, "You don't own any stocks.");
+			stocks = new ThemedTextLabel(10, 180, 400, 25, "You don't own any stocks.");
 			viewObjects.add(stocks);
 		}
 		
@@ -100,7 +87,7 @@ public class User extends ClickableScreen implements App{
 					int y = 180;
 					for(StockInterface s : stocksInventory){
 						String temp = s.getStockName() + "	$" + s.getStockPrice() + " " + s.getStockQuantity(); 
-						stocksLabel = new ThemedTextLabel(10, y, 600, 25, temp);
+						stocks = new ThemedTextLabel(10, y, 600, 25, temp);
 						y += 40;
 						viewObjects.add(stocks);
 					}
@@ -147,27 +134,9 @@ public class User extends ClickableScreen implements App{
 			
 		});
 		viewObjects.add(viewAllTransactions);
-		homeButton = new Button(getWidth()/2-30, 560 , 60, 30, "Home", new Color(0,0,0), new Action(){
-			@Override
-			public void act(){
-				src.phone.MainMenu.mms.setScreen(src.phone.MainMenu.menuScreen);
-			}
-		});
-		viewObjects.add(homeButton);
 	}
 		
 	public ArrayList<StockInterface> getStocksInventory() {
 		return stocksInventory;
-	}
-
-	@Override
-	public Graphic getGraphic() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void setHomeButton(Button homeButton) {
-		this.homeButton = homeButton;		
 	}
 }
