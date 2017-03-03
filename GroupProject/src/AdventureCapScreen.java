@@ -63,7 +63,9 @@ public class AdventureCapScreen extends ClickableScreen implements AdventureCapS
 			}
 		});
 	}
-	
+	public void generateAmountButton(){
+		
+	}
 	
 	@Override
 	public void initAllObjects(ArrayList<Visible> arg0) {
