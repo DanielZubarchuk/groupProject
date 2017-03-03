@@ -1,4 +1,4 @@
-package src;
+package src.phone;
 
 import guiPractice.GUIApplication;
 import guiPractice.Screen;
