@@ -1,4 +1,4 @@
-package stockMarket;
+package src.stockMarket;
 
 import java.awt.Color;
 import java.util.ArrayList;
@@ -8,7 +8,7 @@ import guiPractice.components.Action;
 import guiPractice.components.Button;
 import guiPractice.ClickableScreen;
 import guiPractice.components.Visible;
-import projectComponents.ThemedTextLabel;
+import src.projectComponents.ThemedTextLabel;
 
 public class DemoInventoryScreen extends ClickableScreen{
 

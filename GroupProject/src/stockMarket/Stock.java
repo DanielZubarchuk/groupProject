@@ -1,9 +1,9 @@
 /**
  * 
  */
-package stockMarket;
+package src.stockMarket;
 
-import stackInterfaces.StockInterface;
+import src.stackInterfaces.StockInterface;
 
 /**
  * @author Daniel

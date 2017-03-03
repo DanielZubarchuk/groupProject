@@ -1,12 +1,12 @@
-package stockMarket;
+package src.stockMarket;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 
 import guiPractice.components.Component;
-import stackInterfaces.StockInterface;
-import stackInterfaces.StockInventory;
+import src.stackInterfaces.StockInterface;
+import src.stackInterfaces.StockInventory;
 
 /**
  * @author Risa

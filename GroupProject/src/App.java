@@ -1,3 +1,5 @@
+package src;
+
 import guiPractice.components.Button;
 import guiPractice.components.ClickableGraphic;
 import guiPractice.components.Graphic;

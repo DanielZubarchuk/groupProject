@@ -1,4 +1,4 @@
-package stockMarket;
+package src.stockMarket;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -13,8 +13,9 @@ import guiPractice.components.Button;
 import guiPractice.ClickableScreen;
 import guiPractice.components.Graphic;
 import guiPractice.components.Visible;
-import projectComponents.MultiLineTextLabel;
-import projectComponents.ThemedTextLabel;
+import src.projectComponents.MultiLineTextLabel;
+import src.projectComponents.ThemedTextLabel;
+import src.stackInterfaces.StockInterface;
 
 public class StockMainMenu extends GUIApplication {
 	

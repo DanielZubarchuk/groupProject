@@ -1,6 +1,6 @@
-package stackInterfaces;
+package src.stackInterfaces;
 
-import stockMarket.Transaction;
+import src.stockMarket.Transaction;
 /**
  * @author Victor
  *

@@ -1,4 +1,4 @@
-package stackInterfaces;
+package src.stackInterfaces;
 
 /**
  * @author Victor

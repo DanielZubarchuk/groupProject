@@ -1,4 +1,4 @@
-package stackInterfaces;
+package src.stackInterfaces;
 
 import java.awt.Color;
 

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package stockMarket;
+package src.stockMarket;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -15,8 +15,8 @@ import guiPractice.components.Button;
 import guiPractice.ClickableScreen;
 import guiPractice.components.Graphic;
 import guiPractice.components.Visible;
-import projectComponents.MultiLineTextLabel;
-import projectComponents.ThemedTextLabel;
+import src.projectComponents.MultiLineTextLabel;
+import src.projectComponents.ThemedTextLabel;
 
 /**
  * @author hotfi

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package stockMarket;
+package src.stockMarket;
 
 import java.awt.Color;
 import java.util.ArrayList;
@@ -15,7 +15,7 @@ import guiPractice.TextLabel;
 import guiPractice.components.Graphic;
 import guiPractice.components.Visible;
 import guiPractice.sampleGames.TextArea;
-import projectComponents.ThemedTextLabel;
+import src.projectComponents.ThemedTextLabel;
 
 /**
  * @author Daniel

@@ -1,4 +1,4 @@
-package stockMarket;
+package src.stockMarket;
 
 import guiPractice.GUIApplication;
 import guiPractice.Screen;

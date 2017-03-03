@@ -1,4 +1,4 @@
-package stockMarket;
+package src.stockMarket;
 
 import java.awt.Color;
 import java.util.ArrayList;
@@ -8,9 +8,9 @@ import guiPractice.components.Button;
 import guiPractice.ClickableScreen;
 import guiPractice.components.Graphic;
 import guiPractice.components.Visible;
-import projectComponents.ThemedTextLabel;
-import stackInterfaces.StockInterface;
-import stackInterfaces.StockInventory;
+import src.projectComponents.ThemedTextLabel;
+import src.stackInterfaces.StockInterface;
+import src.stackInterfaces.StockInventory;
 
 /**
  * @author Risa

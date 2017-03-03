@@ -1,11 +1,11 @@
 /**
  * 
  */
-package stockMarket;
+package src.stockMarket;
 
 import java.util.ArrayList;
 
-import stackInterfaces.MarketInterface;
+import src.stackInterfaces.MarketInterface;
 
 /**
  * @author Victor
@@ -143,12 +143,5 @@ public class Fluctuation implements MarketInterface{
 		return events.get(events.size()-1);
 	}
 
-	public ArrayList<String> getEventHistory() {
-		return eventHistory;
-	}
-	
-	public int getEventStock() {
-		return eventStock;
-	}
 
 }

@@ -1,4 +1,4 @@
-package stockMarket;
+package src.stockMarket;
 
 import java.util.ArrayList;
 
@@ -6,9 +6,9 @@ import java.util.List;
 import java.util.Scanner;
 import guiPractice.TextLabel;
 import guiPractice.components.Visible;
-import stackInterfaces.DanielInterface;
-import stackInterfaces.StockInterface;
-import stackInterfaces.StockInventory;
+import src.stackInterfaces.DanielInterface;
+import src.stackInterfaces.StockInterface;
+import src.stackInterfaces.StockInventory;
 
 public class Transaction implements StockInventory{
 	

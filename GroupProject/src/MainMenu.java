@@ -1,3 +1,5 @@
+package src;
+
 import guiPractice.GUIApplication;
 import guiPractice.Screen;
 
