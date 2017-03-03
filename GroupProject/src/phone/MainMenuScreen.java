@@ -1,4 +1,4 @@
-package src;
+package src.phone;
 
 import java.awt.Color;
 import java.awt.event.MouseEvent;

@@ -13,8 +13,8 @@ import guiPractice.components.Button;
 import guiPractice.ClickableScreen;
 import guiPractice.components.Graphic;
 import guiPractice.components.Visible;
-import src.App;
-import src.MainMenu;
+import src.phone.App;
+import src.phone.MainMenu;
 import src.projectComponents.MultiLineTextLabel;
 import src.projectComponents.ThemedTextLabel;
 import src.stackInterfaces.StockInterface;
@@ -424,7 +424,7 @@ public static class MenuScreen extends ClickableScreen implements App{
 		homeButton = new Button(getWidth()/2-30, 560 , 60, 30, "Home", new Color(0,0,0), new Action(){
 			@Override
 			public void act(){
-				src.MainMenu.mms.setScreen(src.MainMenu.menuScreen);
+				src.phone.MainMenu.mms.setScreen(src.phone.MainMenu.menuScreen);
 			}
 		});
 		viewObjects.add(homeButton);
