@@ -14,11 +14,13 @@ public class Stock implements StockInterface {
 	private String stockName;
 	private double stockPrice;
 	private double growthRate;
+	private int stockQuantity;
 	
-	public Stock(String s, double d, double g){
+	public Stock(String s, double d, double g, int q){
 		this.stockName = s;
 		this.stockPrice = d;
 		this.growthRate = g;
+		this.stockQuantity = q;
 	}
 	/* (non-Javadoc)
 	 * @see stackInterfaces.StockInterface#getStockName(java.lang.String)
@@ -47,6 +49,12 @@ public class Stock implements StockInterface {
 	}
 	public void setGrowthRate(double growth) {
 		this.growthRate = growth;
+	}
+
+	@Override
+	public int getStockQuantity() {
+		// TODO Auto-generated method stub
+		return this.stockQuantity;
 	}
 
 }
