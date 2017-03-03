@@ -54,6 +54,7 @@ public class StockMainMenu extends GUIApplication {
 private class MenuScreen extends ClickableScreen{
 	
 	private ArrayList<Button> buttons;
+	private Button homeButton;
 	private ThemedTextLabel display;
 	private String Samsung;
 	private String Blackgate;
@@ -108,7 +109,10 @@ private class MenuScreen extends ClickableScreen{
 				Button temp = new Button(20,140+(50*i),90,30,"",Color.GREEN, new Action() {
 					@Override
 					public void act() {
-						selectStock(Samsung);
+						for(int i =0; i<5; i++){
+							selectStock(stocks[i]);
+							return;
+						}
 					}
 				});
 				temp.setSize(20);
@@ -363,7 +367,14 @@ private class MenuScreen extends ClickableScreen{
 		viewObjects.add(historyDisplay3);
 		viewObjects.add(display);
 		viewObjects.add(end);
-			
+		
+		homeButton = new Button(getWidth()/2-30, (int) (5 * getHeight()/6), 60, 30, "Home", new Color(0,0,0), new Action(){
+			public void act(){
+				MainMenu.mms.setScreen(MainMenu.menuScreen);
+			}
+		});
+		viewObjects.add(homeButton);
+
 	}
 	
 	}
