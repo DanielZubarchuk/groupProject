@@ -26,10 +26,8 @@ public class AdventureCapScreen extends Screen implements MouseMotionListener, M
 		super(width, height);
 		// TODO Auto-generated constructor stub
 	}
-
-	public static Screen demo;
 	
-	public static AdventureCapGame AdvCapDemo;
+	public static AdventureCapScreen AdvCapDemo;
 	public static ManagerScreen manager;
 	public static StatsScreen stats;
 	
@@ -41,13 +39,13 @@ public class AdventureCapScreen extends Screen implements MouseMotionListener, M
 		mangerButton = new Button(50, 350, 150, 40, "MANAGER", new Color(0,0,0), new Action(){
 			public void act(){
 				//take me to manager screen
-				AdventureCapScreen.AdvCapDemo.setScreen(manager);
+				AdventureCapGame.game.setScreen(AdventureCapGame.manager);
 			}
 		});
 		
 		statsButton = new Button(50, 410, 150, 40, "STATISTICS", new Color(0,0,0), new Action(){
 			public void act(){
-				AdventureCapScreen.AdvCapDemo.setScreen(stats);
+				AdventureCapGame.game.setScreen(AdventureCapGame.stats);
 			}
 		});
 		
@@ -103,9 +101,13 @@ public class AdventureCapScreen extends Screen implements MouseMotionListener, M
 	}
 
 	@Override
-	public void initObjects(ArrayList<Visible> arg0) {
+	public void initObjects(ArrayList<Visible> viewObjects) {
 		// TODO Auto-generated method stub
 		generateMenuButtons();
+		
+		viewObjects.add(mangerButton);
+		viewObjects.add(statsButton);
+		viewObjects.add(restartButton);
 	}
 
 }
