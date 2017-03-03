@@ -3,11 +3,11 @@
  * @author Katherine
  */
 
-public class Statistics implements StatsInterface{
+public class Statistics{
 	
-	private double currentBalance;
+	private static double currentBalance;
 	public int lifetimeEarnings;
-	public int[] quantityOwnedArray;
+	public static int[] quantityOwnedArray;
 	//public static int[] propertyTimeArray;
 	public int numResets;
 	
@@ -20,30 +20,28 @@ public class Statistics implements StatsInterface{
 	}
 	
 	
-	public double getMoney() {
+	public static double getMoney() {
 		// TODO Auto-generated method stub
 		return currentBalance;
 	}
 
 
-	public void setMoney(double money) {
+	public static void setMoney(double money) {
 		currentBalance = money;
 	}
 
 
 
 
-	@Override
-	public int[] getQuantityArray() {
+	public static int[] getQuantityArray() {
 		// TODO Auto-generated method stub
-		return null;
+		return quantityOwnedArray;
 	}
 
 
-	@Override
-	public void setQuantityArray(int index, int amount) {
+	public static void setQuantityArray(int index, int amount) {
 		// TODO Auto-generated method stub
-		
+		quantityOwnedArray[index] = amount;
 	}
 	
 	

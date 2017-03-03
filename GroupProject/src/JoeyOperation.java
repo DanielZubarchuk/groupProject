@@ -5,7 +5,7 @@ import java.util.List;
 import guiPractice8.component.Action;
 import guiPractice8.component.Button;
 
-public class JoeyOperation implements JoeyOperationInterface{
+public class JoeyOperation{
 	private static ArrayList<AmountButtonInterface> amountButtons;
 	private static PropertyButton lemon;
 	private static PropertyButton newspaper;
@@ -17,7 +17,7 @@ public class JoeyOperation implements JoeyOperationInterface{
 	private static PropertyButton movie;
 
 
-	public static ArrayList<AmountButton> amountButtonList;
+	public static ArrayList<PropertyButton> propertyButtonList;
 
 
 
@@ -57,187 +57,213 @@ public class JoeyOperation implements JoeyOperationInterface{
 	//amount button 900 50
 	//
 	
-	public AmountButton currentAmount(){
-		return amountButtonList.get(theButton );
-	}
 	
-	public int getCurrentAmount(){
-		return 0;
-	}
+	
+	
+	
+	
+	
 	
 	public void generateButtons(){
 		
-		lemon = new PropertyButton(220,180,200,50,"Buy x"+one.getAmount()+"  $4.00", Color.ORANGE, new Action(){
+		lemon = new PropertyButton(220,180,200,50,"Buy x"+RichardDemo.getCurrentAmount()+"  $4.00", Color.ORANGE, new Action(){
 			public void act(){
 				if(lemon.getPrice()<=Statistics.getMoney()){
-					quantityOwned[0]+=getCurrentAmount();
-					playerMoney -= lemon.getPrice();
-					buyText.setText("$"+playerMoney);
+					double money = Statistics.getMoney();
+					int[] qtyOwned = Statistics.getQuantityArray();
+					Statistics.setQuantityArray(0, qtyOwned[0]+=RichardDemo.getCurrentAmount());
+					money -= lemon.getPrice();
+					RichardDemo.setMoneyText("$"+money);
 					priceScaling(lemon);
 					lemon.setText("Buy x"+RichardDemo.getCurrentAmount()+"  $"+lemon.getPrice());
+					Statistics.setMoney(money);
 				}
 			}
-		}, 4, 1, 1.07, 1000, false );
+		}, 4, 1, 1.07, 1000);
 		
-		newspaper = new PropertyButton(720,180,200,50,"Buy x"+one.getAmount()+"  $60.00", Color.ORANGE, new Action(){
+		newspaper = new PropertyButton(720,180,200,50,"Buy x"+RichardDemo.getCurrentAmount()+"  $60.00", Color.ORANGE, new Action(){
 			public void act(){
-				if(newspaper.getPrice()<=playerMoney){
-					quantityOwned[1]+=RichardDemo.getCurrentAmount();
-					playerMoney -= newspaper.getPrice();
-					buyText.setText("$"+playerMoney);
+				if(newspaper.getPrice()<=Statistics.getMoney()){
+					double money = Statistics.getMoney();
+					int[] qtyOwned = Statistics.getQuantityArray();
+					Statistics.setQuantityArray(0, qtyOwned[0]+=RichardDemo.getCurrentAmount());
+					money -= newspaper.getPrice();
+					RichardDemo.setMoneyText("$"+money);
 					priceScaling(newspaper);
 					newspaper.setText("Buy x"+RichardDemo.getCurrentAmount()+"  $"+newspaper.getPrice());
+					Statistics.setMoney(money);
 				}					
 			}
-		}, 60, 60, 1.15, 2000, false);
+		}, 60, 60, 1.15, 2000);
 		
-		car = new PropertyButton(220,280,200,50,"Buy x"+one.getAmount()+"  $720.00", Color.ORANGE, new Action(){
+		car = new PropertyButton(220,280,200,50,"Buy x"+RichardDemo.getCurrentAmount()+"  $720.00", Color.ORANGE, new Action(){
 			public void act(){
-				if(car.getPrice()<=playerMoney){
-					quantityOwned[2]+=RichardDemo.getCurrentAmount();
-					playerMoney -= car.getPrice();
-					buyText.setText("$"+playerMoney);
+				if(car.getPrice()<=Statistics.getMoney()){
+					double money = Statistics.getMoney();
+					int[] qtyOwned = Statistics.getQuantityArray();
+					Statistics.setQuantityArray(0, qtyOwned[0]+=RichardDemo.getCurrentAmount());
+					money -= car.getPrice();
+					RichardDemo.setMoneyText("$"+money);
 					priceScaling(car);
 					car.setText("Buy x"+RichardDemo.getCurrentAmount()+"  $"+car.getPrice());
+					Statistics.setMoney(money);
 				}
 			}
-		}, 720, 540, 1.14, 3000, false );
+		}, 720, 540, 1.14, 3000);
 		
 		pizza = new PropertyButton(720,280,200,50,"Buy x"+RichardDemo.getCurrentAmount()+"  $8,640.00", Color.ORANGE, new Action(){
 			public void act(){
-				if(pizza.getPrice()<=playerMoney){
-					quantityOwned[3]+=RichardDemo.getCurrentAmount();
-					playerMoney -= pizza.getPrice();
-					buyText.setText("$"+playerMoney);
+				if(pizza.getPrice()<=Statistics.getMoney()){
+					double money = Statistics.getMoney();
+					int[] qtyOwned = Statistics.getQuantityArray();
+					Statistics.setQuantityArray(0, qtyOwned[0]+=RichardDemo.getCurrentAmount());
+					money -= pizza.getPrice();
+					RichardDemo.setMoneyText("$"+money);
 					priceScaling(pizza);
 					pizza.setText("Buy x"+RichardDemo.getCurrentAmount()+"  $"+pizza.getPrice());
+					Statistics.setMoney(money);
 				}
 			}
-		}, 8640, 4320, 1.13, 5000, false );
+		}, 8640, 4320, 1.13, 5000);
 		
 		donut = new PropertyButton(220,380,200,50,"Buy x"+RichardDemo.getCurrentAmount()+"  $103,680.00", Color.ORANGE, new Action(){
 			public void act(){
-				if(donut.getPrice()<=playerMoney){
-					quantityOwned[4]+=RichardDemo.getCurrentAmount();
-					playerMoney -= donut.getPrice();
-					buyText.setText("$"+playerMoney);
+				if(donut.getPrice()<=Statistics.getMoney()){
+					double money = Statistics.getMoney();
+					int[] qtyOwned = Statistics.getQuantityArray();
+					Statistics.setQuantityArray(0, qtyOwned[0]+=RichardDemo.getCurrentAmount());
+					money -= donut.getPrice();
+					RichardDemo.setMoneyText("$"+money);
 					priceScaling(donut);
 					donut.setText("Buy x"+RichardDemo.getCurrentAmount()+"  $"+donut.getPrice());
+					Statistics.setMoney(money);
 				}
 			}
-		}, 103680, 51840, 1.12, 12000, false );
+		}, 103680, 51840, 1.12, 12000);
 		
 		shrimp = new PropertyButton(720,380,200,50,"Buy x"+RichardDemo.getCurrentAmount()+"  $1.244 mill", Color.ORANGE, new Action(){
 			public void act(){
-				if(shrimp.getPrice()<=playerMoney){
-					quantityOwned[5]+=RichardDemo.getCurrentAmount();
-					playerMoney -= shrimp.getPrice();
-					buyText.setText("$"+playerMoney);
+				if(shrimp.getPrice()<=Statistics.getMoney()){
+					double money = Statistics.getMoney();
+					int[] qtyOwned = Statistics.getQuantityArray();
+					Statistics.setQuantityArray(0, qtyOwned[0]+=RichardDemo.getCurrentAmount());
+					money -= shrimp.getPrice();
+					RichardDemo.setMoneyText("$"+money);
 					priceScaling(shrimp);	
 					shrimp.setText("Buy x"+RichardDemo.getCurrentAmount()+"  $"+shrimp.getPrice());		
+					Statistics.setMoney(money);
 				}
 			}
-		}, 1244000, 622080, 1.11, 47000, false );
+		}, 1244000, 622080, 1.11, 47000 );
 		
 		hockey = new PropertyButton(220,480,200,50,"Buy x"+RichardDemo.getCurrentAmount()+"  $14.929 mill", Color.ORANGE, new Action(){
 			public void act(){
-				if(hockey.getPrice()<=playerMoney){
-					quantityOwned[6]+=RichardDemo.getCurrentAmount();
-					playerMoney -= hockey.getPrice();
-					buyText.setText("$"+playerMoney);
+				if(hockey.getPrice()<=Statistics.getMoney()){
+					double money = Statistics.getMoney();
+					int[] qtyOwned = Statistics.getQuantityArray();
+					Statistics.setQuantityArray(0, qtyOwned[0]+=RichardDemo.getCurrentAmount());
+					money -= hockey.getPrice();
+					RichardDemo.setMoneyText("$"+money);
 					priceScaling(hockey);		
 					hockey.setText("Buy x"+RichardDemo.getCurrentAmount()+"  $"+hockey.getPrice());	
+					Statistics.setMoney(money);
 				}
 			}
-		}, 14929000, 7464000, 1.10, 192000, false );
+		}, 14929000, 7464000, 1.10, 192000);
 		
 		movie = new PropertyButton(720,480,200,50,"Buy x"+RichardDemo.getCurrentAmount()+"  $179.159 mill", Color.ORANGE, new Action(){
 			public void act(){
-				if(movie.getPrice()<=playerMoney){
-					quantityOwned[7]+=RichardDemo.getCurrentAmount();
-					playerMoney -= movie.getPrice();
-					buyText.update();
+				if(movie.getPrice()<=Statistics.getMoney()){
+					double money = Statistics.getMoney();
+					int[] qtyOwned = Statistics.getQuantityArray();
+					Statistics.setQuantityArray(0, qtyOwned[0]+=RichardDemo.getCurrentAmount());
+					money -= movie.getPrice();
+					RichardDemo.setMoneyText("$"+money);
 					priceScaling(movie);		
 					movie.setText("Buy x"+RichardDemo.getCurrentAmount()+"  $"+movie.getPrice());	
+					Statistics.setMoney(money);
 				}
 			}
-		}, 179159000, 89579000, 1.09, 768000, false );
+		}, 179159000, 89579000, 1.09, 768000);
 		
 
 	}
 	
+	
+	
+	
+	
+	
+	
+	
+	
 	public void generateMoneyButtons(){
 		Button lemonMoney = new Button(10, 180, 150, 40, "Make Money!", new Color(255,255,0), new Action(){
-
 			public void act(){
-				double money = Statistics.getMoney();
-				money += lemon.getPayout() * quantityOwned[0];
-				buyText.setText("$"+money);
-				Statistics.setMoney(money);
+				doButtonAction(lemonMoney,lemon);
 			}
 		});
 		Button newspaperMoney = new Button(510, 180, 150, 40, "Make Money!", new Color(255,255,0), new Action(){
 			public void act(){
-				double money = Statistics.getMoney();
-				money += newspaper.getPayout() * quantityOwned[1];
-				buyText.setText("$"+Statistics.currentBalance);
+				doButtonAction(newspaperMoney,newspaper);
 			}
 		});
 		Button carMoney = new Button(10, 280, 150, 40, "Make Money!", new Color(255,255,0), new Action(){
 			public void act(){
-				Statistics.currentBalance+=car.getPayout() * quantityOwned[2];
-				buyText.setText("$"+Statistics.currentBalance);
+				doButtonAction(carMoney	,car);
 			}
 		});
 		Button pizzaMoney = new Button(510, 280, 150, 40, "Make Money!", new Color(255,255,0), new Action(){
 			public void act(){
-				Statistics.currentBalance += pizza.getPayout() * quantityOwned[3];
-				buyText.setText("$"+Statistics.currentBalance);			
+				doButtonAction(pizzaMoney,pizza);
 			}
 		});
 		Button donutMoney = new Button(10, 380, 150, 40, "Make Money!", new Color(255,255,0), new Action(){
 			public void act(){
-				Statistics.currentBalance += donut.getPayout() * quantityOwned[4];
-				buyText.setText("$"+Statistics.currentBalance);
+				doButtonAction(donutMoney,donut);
 			}
 		});
 		Button shrimpMoney = new Button(510, 380, 150, 40, "Make Money!", new Color(255,255,0), new Action(){
 			public void act(){
-				Statistics.currentBalance += shrimp.getPayout() * quantityOwned[5];
-				buyText.setText("$"+Statistics.currentBalance);		
+				doButtonAction(shrimpMoney,shrimp);
 			}
 		});
 		Button hockeyMoney = new Button(10, 480, 150, 40, "Make Money!", new Color(255,255,0), new Action(){
 			public void act(){
-				Statistics.currentBalance += hockey.getPayout() * quantityOwned[6];
-				buyText.setText("$"+Statistics.currentBalance);
+				doButtonAction(hockeyMoney,hockey);
 			}
 		});
 		Button movieMoney = new Button(510, 480, 150, 40, "Make Money!", new Color(255,255,0), new Action(){
 			public void act(){
-				Statistics.currentBalance += movie.getPayout() * quantityOwned[7];
-				buyText.setText("$"+Statistics.currentBalance);
+				doButtonAction(movieMoney,movie);
 			}
 		});
 		
 	}
+	
+	protected void doButtonAction(Button buyButton, PropertyButton property) {
 
-	@Override
-	public String getProperty() {
-		// TODO Auto-generated method stub
-		return null;
+		Thread actionToDo = new Thread(new Runnable(){
+
+			@Override
+			public void run() {
+				buyButton.setEnabled(false);
+				try{
+					Thread.sleep((long) property.getTime());
+				}catch(InterruptedException e){
+					e.printStackTrace();
+				}
+				playerMoney += property.getPayout() * quantityOwned[0];
+				playerMoney = roundNumber(playerMoney);
+				buyText.setText("$"+playerMoney);
+				buyButton.setEnabled(true);
+			}
+
+		});
+		actionToDo.start();
+
+
 	}
-
-	@Override
-	public int getQuantity() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int getPrice() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
+	
+	
 }
