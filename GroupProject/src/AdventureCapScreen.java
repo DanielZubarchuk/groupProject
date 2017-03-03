@@ -36,7 +36,7 @@ public class AdventureCapScreen extends ClickableScreen {
 	private Button restartButton;//made
 	
 	public void generateMenuButtons(){
-		mangerButton = new Button(50, 350, 150, 40, "MANAGER", new Color(0,0,0), new Action(){
+		mangerButton = new Button(50, 230, 150, 40, "MANAGER", new Color(0,0,0), new Action(){
 			public void act(){
 				//take me to manager screen
 				System.out.println("Clicked");
@@ -44,13 +44,13 @@ public class AdventureCapScreen extends ClickableScreen {
 			}
 		});
 		
-		statsButton = new Button(50, 410, 150, 40, "STATISTICS", new Color(0,0,0), new Action(){
+		statsButton = new Button(50, 290, 150, 40, "STATISTICS", new Color(0,0,0), new Action(){
 			public void act(){
 				AdventureCapGame.game.setScreen(AdventureCapGame.stats);
 			}
 		});
 		
-		restartButton = new Button(50, 470, 150, 40, "restart*", new Color(0,0,0), new Action(){
+		restartButton = new Button(50, 350, 150, 40, "restart*", new Color(0,0,0), new Action(){
 			public void act(){
 //				reset.setText("You have reseted");
 				
