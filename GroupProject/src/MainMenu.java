@@ -6,6 +6,8 @@ public class MainMenu extends GUIApplication {
 	public static MainMenuScreen menuScreen;
 	public static HistoryScreen histScreen;
 	public static SampleScreen sampleScreen;
+//	nested inner class ??
+//	public static StockMainMenu.MenuScreen stockLink;
 	public static MainMenu mms;
 	
 	@Override
@@ -13,6 +15,7 @@ public class MainMenu extends GUIApplication {
 		menuScreen = new MainMenuScreen(1100, 700);
 		histScreen = new HistoryScreen(1100, 700);
 		sampleScreen = new SampleScreen(1100, 700);
+//		stockLink = new StockMainMenu.MenuScreen(1100, 700)
 		setScreen(menuScreen);
 	}
 
