@@ -63,7 +63,8 @@ public class HistoryScreen extends ClickableScreen implements App, MouseListener
 //		});
 		close = new Button(getWidth()/2 - 60, getHeight()/2 - 15, 120, 30, "Close Apps", new Color(0,0,0), new Action() {
 			public void act(){
-				
+				viewObjects.remove(viewObjects.size()-1);
+				viewObjects.remove(viewObjects.size()-2);
 			}
 		});
 		backgroundPic = new Graphic(50, 25, "resources/sampleImages/background.png");
@@ -73,27 +74,32 @@ public class HistoryScreen extends ClickableScreen implements App, MouseListener
 	}
 	
 	public void addToHistory(Graphic g){
+		
 		appPics.add(g);
-		close = new Button(getWidth()/2 - 30, getHeight()/2 - 15, 60, 30, "Close Apps", new Color(0,0,0), new Action(){
+		System.out.println(appPics);
+		System.out.println(viewObjects);
+		if(appPics.size() == 1){
+			g.setX(300);
+		}
+		else{
+			g.setX(700);
+		}
+		close = new Button(getWidth()/2 - 60, getHeight()/2 - 15, 120, 30, "Close Apps", new Color(0,0,0), new Action(){
 			public void act(){
-				if(appPics != null){
-					for (int i = 0; i < appPics.size(); i++){
-						appPics.remove(i);
-						remove(g);
-					}
+				if(appPics.size() != 0){
+					appPics.removeAll(appPics);
+					viewObjects.removeAll(viewObjects);
+					viewObjects.add(backgroundPic);
+					viewObjects.add(homeButton);
+					viewObjects.add(close);
 				}
 				else {
 					System.out.println("There is nothing here");
 				}
 			}
 		});
-		if(appPics != null){
-			g.setX(400);
-		}
-		else{
-			g.setX(700);
-		}
-		addObject(g);//this makes this display on the screen
+		viewObjects.add(g);//this makes this display on the screen
+		System.out.println(viewObjects);
 	}
 	
 	@Override
