@@ -52,7 +52,7 @@ public class StockMainMenu extends GUIApplication {
 		
 //nested inner class
 private class MenuScreen extends ClickableScreen{
-
+	
 	private ArrayList<Button> buttons;
 	private ThemedTextLabel display;
 	private String Samsung;
@@ -60,6 +60,7 @@ private class MenuScreen extends ClickableScreen{
 	private String Apple;
 	private String Glascow;
 	private String Generalmotors;
+	public String[] stocks = {Samsung, Blackgate, Apple, Glascow, Generalmotors};
 	private ThemedTextLabel price1;
 	private ThemedTextLabel price2;
 	private ThemedTextLabel price3;
@@ -69,7 +70,7 @@ private class MenuScreen extends ClickableScreen{
 	private Button stock2;
 	private Button stock3;
 	private Button stock4;
-	private Button stock5;
+	//private Button[] stockButtons = {stock1, stock2, stock3, stock3, stock4);
 	private ThemedTextLabel shareText;
 	private int shareNumber;
 	private ThemedTextLabel shareLabel;
@@ -104,8 +105,14 @@ private class MenuScreen extends ClickableScreen{
 	
 	public void createStocks(){
 			for(int i = 0; i < 5; i++){
-				Button temp = new Button(20,140+(50*i),90,30,"test",Color.GREEN,null);
-				temp.setSize(30);
+				Button temp = new Button(20,140+(50*i),90,30,"",Color.GREEN, new Action() {
+					@Override
+					public void act() {
+						selectStock(Samsung);
+					}
+				});
+				temp.setSize(20);
+				temp.setText(stocks[i]);
 				if(i == 0){
 					temp.setText(Samsung);
 					stock1 = temp;
@@ -140,9 +147,15 @@ private class MenuScreen extends ClickableScreen{
 		display.setText("You selected "+selectedStock+" as your stock");
 	}
 	
-	@Override
-	public void initAllObjects(ArrayList<Visible> view) {
+	public void printStocks(ArrayList<Button> buttons){
+		for(int i = 0; i < buttons.size(); i++){
+			viewObjects.add(buttons.get(i));
+		}
+	}
 	
+	@Override
+	public void initAllObjects(ArrayList<Visible> viewObjects) {
+		
 		buttons = new ArrayList<Button>();
 		Samsung = "Samsung";
 		Blackgate = "Blackgate";
@@ -159,21 +172,22 @@ private class MenuScreen extends ClickableScreen{
 		
 		
 		background=new Graphic(0,0,getWidth(),getHeight(),"resources/images/newmoneybackground.png");
-		view.add(background);
+		viewObjects.add(background);
 		
 		logo = new Graphic(40, 50, 90, 90, "resources/images/logo.png"); 
-		view.add(logo);
+		viewObjects.add(logo);
 		
 		turn = new ThemedTextLabel(700, 10, 90,90,"Turn " + turncount);
-		view.add(turn);
+		viewObjects.add(turn);
 		
 		goal = new ThemedTextLabel(680, 35, 200,90,"Goal:$" + goalcount);
-		view.add(goal);
+		viewObjects.add(goal);
 		
 		shareText = new ThemedTextLabel(200,155,70,90,"Shares:");
-		view.add(shareText);
+		viewObjects.add(shareText);
 		
-		view.add(stock1);
+		createStocks();
+		printStocks(buttons);
 		/**		
 		select1 = new Button(20,140,90,30,Samsung, Color.green,new Action(){
 			@Override
@@ -181,12 +195,12 @@ private class MenuScreen extends ClickableScreen{
 				selectStock(Samsung);	
 			}
 		});
-		view.add(select1);
+		viewObjects.add(select1);
 		
 		price1 = new ThemedTextLabel(40,140,90,30,"");
 		//price1.setText(""+transaction.getStocks().get(0).getStockPrice());
 		//System.out.println(transaction.getStocks().get(transaction.getStocks().size()).getStockPrice());
-		view.add(price1);
+		viewObjects.add(price1);
 		
 		select2 = new Button(20,180,90,30,Blackgate, Color.green,new Action() {
 			@Override
@@ -194,7 +208,7 @@ private class MenuScreen extends ClickableScreen{
 				selectStock(Blackgate);	
 			}
 		});
-		view.add(select2);
+		viewObjects.add(select2);
 		
 		select3 = new Button(20,215,90,30,Apple, Color.green,new Action() {
 			@Override
@@ -202,7 +216,7 @@ private class MenuScreen extends ClickableScreen{
 				selectStock(Apple);	
 			}
 		});
-		view.add(select3);
+		viewObjects.add(select3);
 		
 		select4 = new Button(20,250,90,30,Glascow, Color.green,new Action() {
 			@Override
@@ -210,7 +224,7 @@ private class MenuScreen extends ClickableScreen{
 				selectStock(Glascow);	
 			}
 		});
-		view.add(select4);
+		viewObjects.add(select4);
 		
 		select5 = new Button(20,290,145,30,Generalmotors, Color.green,new Action() {
 			@Override
@@ -218,11 +232,11 @@ private class MenuScreen extends ClickableScreen{
 				selectStock(Generalmotors);	
 			}
 		});
-		view.add(select5);
+		viewObjects.add(select5);
 		*/
 		
 		shareLabel = new ThemedTextLabel(225,180,70,90,Integer.toString(shareNumber));
-		view.add(shareLabel);
+		viewObjects.add(shareLabel);
 		
 		plus = new Button(260,245,25,20,"+",Color.green, new Action() {
 			@Override
@@ -231,7 +245,7 @@ private class MenuScreen extends ClickableScreen{
 				shareLabel.setText(Integer.toString(shareNumber) );
 			}
 		});
-		view.add(plus);
+		viewObjects.add(plus);
 		
 		minus = new Button(200,245,25,20,"-",Color.green, new Action() {
 			@Override
@@ -243,7 +257,7 @@ private class MenuScreen extends ClickableScreen{
 				shareLabel.setText(Integer.toString(shareNumber));
 			}
 		});
-		view.add(minus);
+		viewObjects.add(minus);
 		
 		buy = new Button(500, 200, 90, 40, "Buy", Color.green, new Action() {
 			
@@ -281,8 +295,8 @@ private class MenuScreen extends ClickableScreen{
 					
 			}
 		});
-		view.add(buy);
-		view.add(display);
+		viewObjects.add(buy);
+		viewObjects.add(display);
 
 		user = new Button(500, 250, 200, 40, "User Portfolio", Color.green, new Action() {
 			
@@ -292,8 +306,8 @@ private class MenuScreen extends ClickableScreen{
 				StockMainMenu.mainScreen.setScreen(inventoryScreen);
 			}
 		});
-		view.add(user);
-		view.add(display);
+		viewObjects.add(user);
+		viewObjects.add(display);
 			
 		sell = new Button(600, 200, 90, 40, "Sell", Color.green, new Action() {
 				
@@ -327,8 +341,8 @@ private class MenuScreen extends ClickableScreen{
 				}
 			});
 			
-			view.add(sell);
-			//view.add(transactionDisplay);
+			viewObjects.add(sell);
+			//viewObjects.add(transactionDisplay);
 			
 		end = new Button(500, 300, 100, 40, "End Turn", Color.green, new Action() {
 				
@@ -341,12 +355,12 @@ private class MenuScreen extends ClickableScreen{
 					
 				}
 		});
-		view.add(eventDisplay);
-		view.add(historyDisplay);
-		view.add(historyDisplay2);
-		view.add(historyDisplay3);
-		view.add(display);
-		view.add(end);
+		viewObjects.add(eventDisplay);
+		viewObjects.add(historyDisplay);
+		viewObjects.add(historyDisplay2);
+		viewObjects.add(historyDisplay3);
+		viewObjects.add(display);
+		viewObjects.add(end);
 			
 	}
 	
