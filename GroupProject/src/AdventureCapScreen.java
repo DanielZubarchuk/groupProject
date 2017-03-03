@@ -20,8 +20,13 @@ import guiPratice.components.TextLabel;
 import guiPratice.components.Visible;
 import guiPratice.sampleGames.ClickableScreen;
 
-public class AdventureCapScreen extends GUIApplication implements MouseMotionListener, MouseListener{
+public class AdventureCapScreen extends Screen implements MouseMotionListener, MouseListener{
 	
+	public AdventureCapScreen(int width, int height) {
+		super(width, height);
+		// TODO Auto-generated constructor stub
+	}
+
 	public static Screen demo;
 	
 	public static AdventureCapGame AdvCapDemo;
@@ -98,8 +103,9 @@ public class AdventureCapScreen extends GUIApplication implements MouseMotionLis
 	}
 
 	@Override
-	protected void initScreen() {
+	public void initObjects(ArrayList<Visible> arg0) {
 		// TODO Auto-generated method stub
-		
+		generateMenuButtons();
 	}
+
 }

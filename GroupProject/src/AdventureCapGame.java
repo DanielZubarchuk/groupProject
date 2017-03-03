@@ -12,8 +12,6 @@ public class AdventureCapGame extends GUIApplication{
 	public static ManagerScreen manager;
 	public static StatsScreen stats;
 	
-	public static Screen demo;
-	
 	public static AdventureCapGame game;
 	
 	public AdventureCapGame() {
@@ -31,10 +29,10 @@ public class AdventureCapGame extends GUIApplication{
 	protected void initScreen() {
 		// TODO Auto-generated method stub
 		//		demo3 = new RichardDemo3(1000, 600);
-		AdvCapDemo = new AdventureCapScreen();
+		AdvCapDemo = new AdventureCapScreen(1000,600);
 		manager = new ManagerScreen(1000, 600);
 		stats = new StatsScreen(1000, 600);
-		setScreen(demo);
+		setScreen(AdvCapDemo);
 	}
 
 }
