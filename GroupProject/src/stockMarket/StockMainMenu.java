@@ -19,6 +19,7 @@ import projectComponents.ThemedTextLabel;
 public class StockMainMenu extends GUIApplication {
 	
 		public static StockMainMenu mainScreen;
+		public static LoseScreen endScreen;
 		public static User inventoryScreen;
 		public static Screen gameScreen;
 		private static Transaction transaction;
@@ -35,7 +36,7 @@ public class StockMainMenu extends GUIApplication {
 		protected void initScreen() {
 			// for screens of phone and games
 			gameScreen = new MenuScreen(1000, 600);
-			//demo = new DemoScreen(getWidth(), getHeight());
+			endScreen = new LoseScreen(1000,600);
 			inventoryScreen = new User(1000, 600);
 			setScreen(gameScreen);
 		}
@@ -61,27 +62,16 @@ private class MenuScreen extends ClickableScreen{
 	private String Apple;
 	private String Glascow;
 	private String Generalmotors;
-	public String[] stocks = {Samsung, Blackgate, Apple, Glascow, Generalmotors};
-	private ThemedTextLabel price1;
-	private ThemedTextLabel price2;
-	private ThemedTextLabel price3;
-	private ThemedTextLabel price4;
-	private ThemedTextLabel price5;
 	private Button stock1;
 	private Button stock2;
 	private Button stock3;
 	private Button stock4;
-	private Button[] stockButtons = {stock1, stock2, stock3, stock3, stock4};
+	private Button stock5;
 	private ThemedTextLabel shareText;
 	private int shareNumber;
 	private ThemedTextLabel shareLabel;
 	private Button plus;
 	private Button minus;
-	private Button select1;
-	private Button select2;
-	private Button select3;
-	private Button select4;
-	private Button select5;
 	private Graphic logo;
 	private ThemedTextLabel goal;
 	private ThemedTextLabel turn;
@@ -89,7 +79,6 @@ private class MenuScreen extends ClickableScreen{
 	private Button buy;
 	private Button sell;
 	private Button user;
-	private Button end;
 	private int turncount;
 	private int goalcount;
 	private MultiLineTextLabel historyDisplay;
@@ -98,66 +87,12 @@ private class MenuScreen extends ClickableScreen{
 	private MultiLineTextLabel eventDisplay;
 	public int stockIndex;
 	private Button eventHistory;
+	private Button testButton;
 	
 	
 	public MenuScreen(int width, int height) {
 		super(width, height);
 				
-	}
-	
-	public void createStocks(){
-			for(int i = 0; i < 5; i++){
-				Button temp = new Button(20,140+(50*i),90,30,"",Color.GREEN, new Action() {
-					@Override
-					public void act() {
-						for(int i =0; i<5; i++){
-							selectStock(stocks[i]);
-							return;
-						}
-					}
-				});
-				temp.setSize(20);
-				//temp.setText(stocks[i]);
-				//stockButtons[i] = temp;
-				//buttons.add(stockButtons[i]);
-				if(i == 0){
-					temp.setText(Samsung);
-					stock1 = temp;
-					buttons.add(stock1);
-				}
-				if(i == 1){
-					temp.setText(Blackgate);
-					stock2 = temp;
-					buttons.add(stock2);
-				}
-				if(i == 2){
-					temp.setText(Apple);
-					stock3 = temp;
-					buttons.add(stock3);
-				}
-				if(i == 3){
-					temp.setText(Glascow);
-					stock4 = temp;
-					buttons.add(stock4);
-				}
-				if(i == 4){
-					temp.setText(Generalmotors);
-					stock4 = temp;
-					buttons.add(stock4);
-				}
-			}					
-			return;
-	}
-	
-	public void selectStock(String stock){
-		selectedStock = stock;
-		display.setText("You selected "+selectedStock+" as your stock");
-	}
-	
-	public void printStocks(ArrayList<Button> buttons){
-		for(int i = 0; i < buttons.size(); i++){
-			viewObjects.add(buttons.get(i));
-		}
 	}
 	
 	@Override
@@ -169,7 +104,7 @@ private class MenuScreen extends ClickableScreen{
 		Apple = "Apple";
 		Glascow = "Glascow";
 		Generalmotors = "General Motors";
-		display = new ThemedTextLabel(300, 70, 800, 25, "Choose an action.");
+		display = new ThemedTextLabel(200, 70, 800, 25, "Choose an action.");
 		turncount = 0;
 		goalcount = 50000;
 		historyDisplay = new MultiLineTextLabel(40, 430, 800, 50,"");
@@ -195,52 +130,6 @@ private class MenuScreen extends ClickableScreen{
 		
 		createStocks();
 		printStocks(buttons);
-		/**		
-		select1 = new Button(20,140,90,30,Samsung, Color.green,new Action(){
-			@Override
-			public void act() {
-				selectStock(Samsung);	
-			}
-		});
-		viewObjects.add(select1);
-		
-		price1 = new ThemedTextLabel(40,140,90,30,"");
-		//price1.setText(""+transaction.getStocks().get(0).getStockPrice());
-		//System.out.println(transaction.getStocks().get(transaction.getStocks().size()).getStockPrice());
-		viewObjects.add(price1);
-		
-		select2 = new Button(20,180,90,30,Blackgate, Color.green,new Action() {
-			@Override
-			public void act() {
-				selectStock(Blackgate);	
-			}
-		});
-		viewObjects.add(select2);
-		
-		select3 = new Button(20,215,90,30,Apple, Color.green,new Action() {
-			@Override
-			public void act() {
-				selectStock(Apple);	
-			}
-		});
-		viewObjects.add(select3);
-		
-		select4 = new Button(20,250,90,30,Glascow, Color.green,new Action() {
-			@Override
-			public void act() {
-				selectStock(Glascow);	
-			}
-		});
-		viewObjects.add(select4);
-		
-		select5 = new Button(20,290,145,30,Generalmotors, Color.green,new Action() {
-			@Override
-			public void act() {
-				selectStock(Generalmotors);	
-			}
-		});
-		viewObjects.add(select5);
-		*/
 		
 		shareLabel = new ThemedTextLabel(225,180,70,90,Integer.toString(shareNumber));
 		viewObjects.add(shareLabel);
@@ -311,6 +200,8 @@ private class MenuScreen extends ClickableScreen{
 						transaction.buyAStock();
 						display.setText(shareNumber+ " shares of " + transaction.transactionHistory.get(stockIndex) + " were bought for $" 
 								+ String.format( "%.2f",Transaction.transactionPrices.get(stockIndex)));
+						turncount++;
+						turn.setText("Turn " + turncount); 
 						StockMainMenu.fluctuation.updateStock(transaction);
 						
 						fluctuation.getEventHistory().add("Current state of " + transaction.getStocks().get(StockMainMenu.fluctuation.getEventStock()).getStockName()
@@ -366,6 +257,8 @@ private class MenuScreen extends ClickableScreen{
 						display.setText(shareNumber+ " shares of " + transaction.transactionHistory.get(stockIndex) + " were bought for $" 
 								+ String.format( "%.2f",Transaction.transactionPrices.get(stockIndex)));
 						StockMainMenu.fluctuation.updateStock(transaction);
+						turncount++;
+						turn.setText("Turn " + turncount); 
 						
 						fluctuation.getEventHistory().add("Current state of " + transaction.getStocks().get(StockMainMenu.fluctuation.getEventStock()).getStockName()
 								+ ": "
@@ -392,23 +285,20 @@ private class MenuScreen extends ClickableScreen{
 			viewObjects.add(sell);
 			//viewObjects.add(transactionDisplay);
 			
-		end = new Button(500, 300, 100, 40, "End Turn", Color.green, new Action() {
+			testButton = new Button(600, 500, 90, 40, "Test", Color.green, new Action() {
 				
 				@Override
 				public void act() {
-					System.out.println("Turn ended.");
-					display.setText("Turn ended.");
-					turncount++;
-					turn.setText("Turn " + turncount); 
-					
+					StockMainMenu.mainScreen.setScreen(endScreen);
 				}
-		});
+			});
+			viewObjects.add(testButton);
+	
 		viewObjects.add(eventDisplay);
 		viewObjects.add(historyDisplay);
 		viewObjects.add(historyDisplay2);
 		viewObjects.add(historyDisplay3);
 		viewObjects.add(display);
-		viewObjects.add(end);
 		
 		homeButton = new Button(getWidth()/2-30, 560 , 60, 30, "Home", new Color(0,0,0), new Action(){
 			public void act(){
@@ -419,5 +309,76 @@ private class MenuScreen extends ClickableScreen{
 
 	}
 	
+	public void createStocks(){
+		for(int i = 0; i < 5; i++){
+			if(i == 0){
+				Button temp = new Button(20,140+(50*i),90,30,Samsung,Color.GREEN, new Action() {
+					@Override
+					public void act() {
+						selectStock(Samsung);	
+					}
+				});
+				temp.setSize(20);
+				stock1 = temp;
+				buttons.add(stock1);
+			}
+			if(i == 1){
+				Button temp = new Button(20,140+(50*i),90,30,Blackgate,Color.GREEN, new Action() {
+					@Override
+					public void act() {
+						selectStock(Blackgate);
+					}
+				});
+				temp.setSize(20);
+				stock2 = temp;
+				buttons.add(stock2);
+			}
+			if(i == 2){
+				Button temp = new Button(20,140+(50*i),90,30,Apple,Color.GREEN, new Action() {
+					@Override
+					public void act() {
+						selectStock(Apple);	
+					}
+				});
+				temp.setSize(20);
+				stock3 = temp;
+				buttons.add(stock3);
+			}
+			if(i == 3){
+				Button temp = new Button(20,140+(50*i),90,30,Glascow,Color.GREEN, new Action() {
+					@Override
+					public void act() {
+						selectStock(Glascow);
+					}
+				});
+				temp.setSize(20);
+				stock4 = temp;
+				buttons.add(stock4);
+			}
+			if(i == 4){
+				Button temp = new Button(20,140+(50*i),90,30,Generalmotors,Color.GREEN, new Action() {
+					@Override
+					public void act() {
+						selectStock(Generalmotors);
+					}
+				});
+				temp.setSize(20);
+				stock5 = temp;
+				buttons.add(stock5);
+			}
+		}					
+		return;
+}
+
+	public void selectStock(String stock){
+		selectedStock = stock;
+		display.setText("You selected "+selectedStock+" as your stock");
+	}
+
+	public void printStocks(ArrayList<Button> buttons){
+		for(int i = 0; i < buttons.size(); i++){
+			viewObjects.add(buttons.get(i));
+		}
+	}
 	}
 }
