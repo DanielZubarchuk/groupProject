@@ -26,7 +26,7 @@ public class JoeyOperation{
 	private static Button movieMoney;
 	
 
-	public static ArrayList<PropertyButton> properties;
+	public static ArrayList<PropertyButtonInterface> properties;
 
 
 
@@ -38,7 +38,7 @@ public class JoeyOperation{
 		return userMoney>cost;
 	}
 
-	private void priceScaling(PropertyButton button){
+	private static void priceScaling(PropertyButton button){
 		double newPrice = Math.pow(1.08, RichardDemo.getCurrentAmount())*button.getPrice();
 		button.setPrice(newPrice);
 	}
@@ -72,7 +72,7 @@ public class JoeyOperation{
 	
 	
 	
-	public ArrayList<PropertyButton> generateButtons(){
+	public static ArrayList<PropertyButtonInterface> generateButtons(){
 		
 		lemon = new PropertyButton(220,180,200,50,"Buy x"+RichardDemo.getCurrentAmount()+"  $4.00", Color.ORANGE, new Action(){
 			public void act(){
@@ -194,7 +194,7 @@ public class JoeyOperation{
 			}
 		}, 179159000, 89579000, 1.09, 768000);
 		
-		properties = new ArrayList<PropertyButton>();
+		properties = new ArrayList<PropertyButtonInterface>();
 		properties.add(lemon);
 		properties.add(newspaper);
 		properties.add(car);
@@ -236,43 +236,43 @@ public class JoeyOperation{
 	
 	
 	
-	public ArrayList<Button> generateMoneyButtons(){
-		Button lemonMoney = new Button(10, 180, 150, 40, "Make Money!", new Color(255,255,0), new Action(){
+	public static ArrayList<Button> generateMoneyButtons(){
+		Button lemonMoney = new Button(10, 180, 150, 40, "Money!", new Color(255,255,0), new Action(){
 			public void act(){
 				doButtonAction(lemonMoney,lemon);
 			}
 		});
-		Button newspaperMoney = new Button(510, 180, 150, 40, "Make Money!", new Color(255,255,0), new Action(){
+		Button newspaperMoney = new Button(510, 180, 150, 40, "Money!", new Color(255,255,0), new Action(){
 			public void act(){
 				doButtonAction(newspaperMoney,newspaper);
 			}
 		});
-		Button carMoney = new Button(10, 280, 150, 40, "Make Money!", new Color(255,255,0), new Action(){
+		Button carMoney = new Button(10, 280, 150, 40, "Money!", new Color(255,255,0), new Action(){
 			public void act(){
 				doButtonAction(carMoney	,car);
 			}
 		});
-		Button pizzaMoney = new Button(510, 280, 150, 40, "Make Money!", new Color(255,255,0), new Action(){
+		Button pizzaMoney = new Button(510, 280, 150, 40, "Money!", new Color(255,255,0), new Action(){
 			public void act(){
 				doButtonAction(pizzaMoney,pizza);
 			}
 		});
-		Button donutMoney = new Button(10, 380, 150, 40, "Make Money!", new Color(255,255,0), new Action(){
+		Button donutMoney = new Button(10, 380, 150, 40, "Money!", new Color(255,255,0), new Action(){
 			public void act(){
 				doButtonAction(donutMoney,donut);
 			}
 		});
-		Button shrimpMoney = new Button(510, 380, 150, 40, "Make Money!", new Color(255,255,0), new Action(){
+		Button shrimpMoney = new Button(510, 380, 150, 40, "Money!", new Color(255,255,0), new Action(){
 			public void act(){
 				doButtonAction(shrimpMoney,shrimp);
 			}
 		});
-		Button hockeyMoney = new Button(10, 480, 150, 40, "Make Money!", new Color(255,255,0), new Action(){
+		Button hockeyMoney = new Button(10, 480, 150, 40, "Money!", new Color(255,255,0), new Action(){
 			public void act(){
 				doButtonAction(hockeyMoney,hockey);
 			}
 		});
-		Button movieMoney = new Button(510, 480, 150, 40, "Make Money!", new Color(255,255,0), new Action(){
+		Button movieMoney = new Button(510, 480, 150, 40, "Money!", new Color(255,255,0), new Action(){
 			public void act(){
 				doButtonAction(movieMoney,movie);
 			}
@@ -290,7 +290,7 @@ public class JoeyOperation{
 		return buttonsList;
 	}
 	
-	protected void doButtonAction(Button buyButton, PropertyButton property) {
+	protected static void doButtonAction(Button buyButton, PropertyButton property) {
 
 		Thread actionToDo = new Thread(new Runnable(){
 

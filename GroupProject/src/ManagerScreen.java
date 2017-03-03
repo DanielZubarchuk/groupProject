@@ -24,7 +24,6 @@ public class ManagerScreen extends ClickableScreen implements MouseMotionListene
 	
 	private Graphic theLeungTag;
 	
-	private ArrayList<ManagerInterface> managers;
 	private ArrayList<PropertyButtonInterface> properties;
 
 	public ManagerScreen(int width, int height) {

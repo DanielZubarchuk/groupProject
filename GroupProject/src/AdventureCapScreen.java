@@ -20,7 +20,7 @@ import guiPratice.components.TextLabel;
 import guiPratice.components.Visible;
 import guiPratice.sampleGames.ClickableScreen;
 
-public class AdventureCapScreen extends ClickableScreen {
+public class AdventureCapScreen extends ClickableScreen implements AdventureCapScreenInterface{
 	
 	public AdventureCapScreen(int width, int height) {
 		super(width, height);
@@ -30,6 +30,12 @@ public class AdventureCapScreen extends ClickableScreen {
 	public static AdventureCapScreen AdvCapDemo;
 	public static ManagerScreen manager;
 	public static StatsScreen stats;
+	
+	
+	private TextLabel moneyText;
+	private int currentAmount;
+	
+	
 	
 	private Button mangerButton;//made
 	private Button statsButton;//made
@@ -62,10 +68,30 @@ public class AdventureCapScreen extends ClickableScreen {
 	public void initAllObjects(ArrayList<Visible> arg0) {
 		// TODO Auto-generated method stub
 		generateMenuButtons();
+		ArrayList<PropertyButtonInterface> properties = JoeyOperation.generateButtons();
+		ArrayList<guiPractice8.component.Button> moneyButtons = JoeyOperation.generateMoneyButtons();
+		for(PropertyButtonInterface x:properties){
+			viewObjects.add(x);
+		}
+		for(guiPractice8.component.Button x:moneyButtons){
+			viewObjects.add(x);
+		}
 		
 		viewObjects.add(mangerButton);
 		viewObjects.add(statsButton);
 		viewObjects.add(restartButton);
+	}
+
+	@Override
+	public int getCurrentAmount() {
+		// TODO Auto-generated method stub
+		return currentAmount;
+	}
+
+	@Override
+	public void setMoneyText(String text) {
+		// TODO Auto-generated method stub
+		moneyText.setText(text);
 	}
 
 }

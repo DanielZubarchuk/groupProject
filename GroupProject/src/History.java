@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class History implements HistoryInterface {
 	
 	public static ArrayList<String> history;
-	private static RichardDemoInterface h;
+	private static AdventureCapScreenInterface h;
 
 	@Override
 	public void updateHistory(int cost, String property) {	

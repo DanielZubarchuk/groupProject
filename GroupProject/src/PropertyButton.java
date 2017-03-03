@@ -6,6 +6,7 @@ import java.awt.Color;
 
 import guiPractice8.component.Action;
 import guiPractice8.component.Button;
+import guiPratice.components.Visible;
 
 public class PropertyButton extends Button implements PropertyButtonInterface{
 	 

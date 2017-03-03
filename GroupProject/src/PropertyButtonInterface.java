@@ -1,11 +1,10 @@
 
 /**
- * @author Katherine
+ * @author Katherine/Richard
  */
 
 public interface PropertyButtonInterface {
 	 
-	public boolean isClicked();
 	public double getPrice();
 	public double getPayout();
 	//public int setTime();
