@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import stackInterfaces.MarketInterface;
 
 /**
- * @author hotfi
+ * @author Victor
  *
  */
 public class Fluctuation implements MarketInterface{

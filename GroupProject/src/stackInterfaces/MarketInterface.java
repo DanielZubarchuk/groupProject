@@ -1,7 +1,10 @@
 package stackInterfaces;
 
 import stockMarket.Transaction;
-
+/**
+ * @author Victor
+ *
+ */
 public interface MarketInterface {
 
 	void updateStock(Transaction transaction);
