@@ -8,8 +8,8 @@ public class Statistics implements StatsInterface{
 	public static double currentBalance;
 	public double lifetimeEarnings;
 	public static int numResets;
-	//public static int[] quantityOwnedArray;
-	//public static int[] propertyTimeArray;
+	public static int[] quantityOwnedArray;
+	public static int[] propertyTimeArray;
 	
 	public void instantiateStats(){
 		//quantityOwnedArray = new int[8];
@@ -21,42 +21,34 @@ public class Statistics implements StatsInterface{
 	
 	
 	
-	@Override
 	public double getCurrentBalance() {
 		return currentBalance;
 	}
 
 
-	@Override
 	public int getNumResets() {
 		return numResets;
 	}
 	
 	
 	
-//	public static double getMoney() {
-//		// TODO Auto-generated method stub
-//		return currentBalance;
-//	}
-//
-//
-//	public static void setMoney(double money) {
-//		currentBalance = money;
-//	}
+
+	public void setMoney(double money) {
+		currentBalance = money;
+	}
 
 
 
 
-//	public static int[] getQuantityArray() {
-//		// TODO Auto-generated method stub
-//		return quantityOwnedArray;
-//	}
-//
-//
-//	public static void setQuantityArray(int index, int amount) {
-//		// TODO Auto-generated method stub
-//		quantityOwnedArray[index] = amount;
-//	}
+	public int[] getQuantityArray() {
+		return quantityOwnedArray;
+	}
+
+
+	public void setQuantityArray(int index, int amount) {
+		// TODO Auto-generated method stub
+		quantityOwnedArray[index] = amount;
+	}
 
 
 	

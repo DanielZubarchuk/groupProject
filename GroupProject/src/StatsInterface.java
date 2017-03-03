@@ -1,9 +1,9 @@
-
-/**
- * @author Richard
+/*
+ * author joey
  */
-
 public interface StatsInterface {
 	double getCurrentBalance();
-	int getNumResets();
+	void setMoney(double money);
+	int[] getQuantityArray();
+	void setQuantityArray(int index, int amount);
 }
