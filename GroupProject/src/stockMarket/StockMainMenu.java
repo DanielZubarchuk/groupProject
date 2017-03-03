@@ -111,8 +111,8 @@ private class MenuScreen extends ClickableScreen{
 						selectStock(Samsung);
 					}
 				});
-				temp.setSize(20);
-				temp.setText(stocks[i]);
+				//temp.setSize(20);
+				//temp.setText(stocks[i]);
 				if(i == 0){
 					temp.setText(Samsung);
 					stock1 = temp;
