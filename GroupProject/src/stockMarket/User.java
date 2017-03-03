@@ -35,16 +35,13 @@ public class User extends ClickableScreen{
 	private ThemedTextLabel stocksTitle;
 	private ThemedTextLabel transactionTitle;
 	private ThemedTextLabel transaction;
+	private ThemedTextLabel stocks;
 	
-	private StockInventory stockInventory;
-	
-	private final int ALL_STOCKS = 0;
-	private final int ALL_TRANSACTIONS = 1;
-	private final int _STOCK = 3;
-	private final int _TRANSACTION = 4;
 	
 	public static ArrayList<String> history = new ArrayList<String>();
 	public static ArrayList<StockInterface> stocksInventory = new ArrayList<StockInterface>();
+	
+	private StockInventory inventory;
 	
 	public void initAllObjects(ArrayList<Visible> viewObjects) {
 		background = new Graphic(0,0,getWidth(),getHeight(),"resources/images/newmoneybackground.png");
@@ -67,39 +64,72 @@ public class User extends ClickableScreen{
 		stocksTitle = new ThemedTextLabel(10, 130, 220, 25, "Current Stocks:");
 		viewObjects.add(stocksTitle);
 		
-		transactionTitle = new ThemedTextLabel(580, 130, 220, 25, "Transaction History:");
-		viewObjects.add(transactionTitle);
-		
-		stockInventory = new Transaction();
-		StockComponent stocks = new StockComponent(10, 170, 250, 25, stockInventory, _STOCK);
-		viewObjects.add(stocks);
-		
-		if(stockInventory.getStocks().isEmpty()){
-			transaction = new ThemedTextLabel(580, 180, 220, 25, "You don't have any previous transactions");
-			viewObjects.add(transaction);
-		}else{
-			for(StockInterface s : stocksInventory.getStocks()){
-				transaction = new ThemedTextLabel(x, y, 220, 25, "You bought " + s.getStockQuantity() + " " + s.getStockName() + " for " + s.getStockPrice());
+		if(!stocksInventory.isEmpty()){
+			int y = 180;
+			for(StockInterface s : inventory.getStocks()){
+				stocksInventory.add(s);
+				String temp = s.getStockName() + "	$" + s.getStockPrice() + " " + s.getStockQuantity(); 
+				stocks = new ThemedTextLabel(10, y, 600, 25, temp);
+				y += 40;
+				viewObjects.add(stocks);
 			}
+		}else{
+			stocks = new ThemedTextLabel(10, 180, 400, 25, "You don't own any stocks.");
+			viewObjects.add(stocks);
 		}
 		
 		viewAllStocks = new Button(250, 130, 100, 30, "View All", Color.black, new Action(){
 
 			@Override
 			public void act() {
-				StockComponent allStocks = new StockComponent(10, 170, 250, 25, stockInventory, ALL_STOCKS);
-				viewObjects.add(allStocks);
+				
+				if(!stocksInventory.isEmpty()){
+					int y = 180;
+					for(StockInterface s : stocksInventory){
+						String temp = s.getStockName() + "	$" + s.getStockPrice() + " " + s.getStockQuantity(); 
+						stocks = new ThemedTextLabel(10, y, 600, 25, temp);
+						y += 40;
+						viewObjects.add(stocks);
+					}
+				}
 			}
 			
 		});
 		viewObjects.add(viewAllStocks);
 		
+		
+		transactionTitle = new ThemedTextLabel(580, 130, 220, 25, "Transaction History:");
+		viewObjects.add(transactionTitle);
+	
+		
+		if(history.isEmpty()){
+			transaction = new ThemedTextLabel(580, 180, 400, 25, "You don't have any previous transactions.");
+			viewObjects.add(transaction);
+		}else{
+			int y = 180;
+			for(StockInterface s : inventory.getStocks()){
+				String temp = "You bought " + s.getStockQuantity() + " " + s.getStockName() + " for " + s.getStockPrice();
+				history.add(temp);
+				transaction = new ThemedTextLabel(580, y, 600, 25, temp);
+				viewObjects.add(transaction);
+				y += 40;
+			}
+		}
+		
 		viewAllTransactions = new Button(800, 130, 100, 30, "View All", Color.black, new Action(){
 
 			@Override
 			public void act() {
-				StockComponent allTransactions = new StockComponent(10, 270, 250, 25, stockInventory, ALL_TRANSACTIONS);
-				viewObjects.add(allTransactions);
+				
+				if(!history.isEmpty()){
+					int x = 580;
+					int y = 180;
+					for(String s : history){
+						transaction = new ThemedTextLabel(x, y, 600, 25, s);
+						viewObjects.add(transaction);
+						y += 40;
+					}
+				}
 			}
 			
 		});
