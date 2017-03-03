@@ -8,7 +8,7 @@ import guiPratice.Screen;
 import guiPratice.components.Action;
 import guiPratice.components.Button;
 import guiPratice.components.Visible;
-import guiPratice.sampleGames.ClickableSceen;
+import guiPratice.sampleGames.ClickableScreen;
 
 public class StatsScreen extends ClickableScreen implements MouseMotionListener,MouseListener{
 
@@ -74,6 +74,12 @@ public class StatsScreen extends ClickableScreen implements MouseMotionListener,
 			}
 		});
 		viewObjects.add(back);
+	}
+
+	@Override
+	public void initAllObjects(ArrayList<Visible> arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

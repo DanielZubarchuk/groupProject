@@ -13,8 +13,8 @@ import javax.swing.ImageIcon;
 import guiPratice.components.AnimatedComponent;
 import guiPratice.GUIApplication;
 import guiPratice.Screen;
-import guiPratice.component.Action;
-import guiPratice.component.Button;
+import guiPratice.components.Action;
+import guiPratice.components.Button;
 import guiPratice.components.Graphic;
 import guiPratice.components.TextLabel;
 import guiPratice.components.Visible;
@@ -35,7 +35,7 @@ public class AdventureCapScreen extends ClickableScreen implements AdventureCapS
 	private static TextLabel moneyText;
 	private int currentAmount;
 	
-	
+	private Graphic background;//made
 	
 	private Button statsButton;//made
 	private Button restartButton;//made
@@ -67,11 +67,14 @@ public class AdventureCapScreen extends ClickableScreen implements AdventureCapS
 	
 	@Override
 	public void initAllObjects(ArrayList<Visible> arg0) {
-		// TODO Auto-generated method stub
-		generateMenuButtons();
-		ArrayList<PropertyButtonInterface> properties = JoeyOperation.generateButtons();
-		ArrayList<guiPractice8.component.Button> moneyButtons = JoeyOperation.generateMoneyButtons();
 		
+		background = new Graphic(1,1,1.0,"Resources/background/cfafa34141.png");
+
+		generateMenuButtons();
+	//	ArrayList<PropertyButtonInterface> properties = JoeyOperation.generateButtons();
+	//	ArrayList<guiPractice8.component.Button> moneyButtons = JoeyOperation.generateMoneyButtons();
+		
+		viewObjects.add(background);
 		
 		viewObjects.add(managerButton);
 		viewObjects.add(statsButton);
