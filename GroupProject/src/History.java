@@ -13,7 +13,7 @@ public class History implements HistoryInterface {
 	@Override
 	public void updateHistory(int cost, String property) {	
 		String temp;
-		temp = "You purchased " + h.getQuantity() + " " + property + "for " + cost;
+		temp = "You purchased " + h.getCurrentAmount() + " " + property + "for " + cost;
 		if(history.size() == 10){
 			history.remove(0);
 			history.add(temp);
