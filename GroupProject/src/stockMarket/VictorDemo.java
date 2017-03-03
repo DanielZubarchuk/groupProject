@@ -29,7 +29,7 @@ public class VictorDemo extends GUIApplication {
 	 * 
 	 */
 	public VictorDemo() {
-		fluctuation = new Fluctuation();
+//		fluctuation = new Fluctuation();
 	}
 
 	/* (non-Javadoc)

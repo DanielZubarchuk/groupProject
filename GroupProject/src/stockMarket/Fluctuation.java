@@ -18,8 +18,8 @@ public class Fluctuation implements MarketInterface{
 	 */
 	//events
 	private ArrayList<String> events;
-	private static ArrayList<String> eventHistory;
-	private static int currentEvent = 0;
+	private ArrayList<String> eventHistory;
+	private int currentEvent = 0;
 	private int eventStock;
 	
 
@@ -29,10 +29,10 @@ public class Fluctuation implements MarketInterface{
 //	private static double[] stockGrowths = {1.1,2.6,1.3,.8,.9,2.0};
 	
 	//constants
-	private static final int _BANKRUPT = 0;
-	private static final int _RECESSION = 1;
-	private static final int _STABILITY = 2;
-	private static final int _PROGRESS = 3;
+	private final int _BANKRUPT = 0;
+	private final int _RECESSION = 1;
+	private final int _STABILITY = 2;
+	private final int _PROGRESS = 3;
 	
 	public Fluctuation() {
 		events = new ArrayList<String>();
@@ -55,7 +55,8 @@ public class Fluctuation implements MarketInterface{
 		/**
 		 * Each time BUY/SELL is clicked, the anonymous inner class (act) should call this method to update the stocks.
 		 */
-//		System.out.println(transaction.getStocks().size()); why is this 10. it should be 5.
+		System.out.println(transaction.getStocks().size()); // why is this 10. it should be 5.
+		
 		eventStock = (int) (Math.random()*transaction.getStocks().size());
 		fillEvents();
 			

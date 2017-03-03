@@ -70,7 +70,7 @@ public class User extends ClickableScreen implements App{
 		transactionTitle = new ThemedTextLabel(10, 230, 220, 25, "Transaction History:");
 		viewObjects.add(transactionTitle);
 		
-		stockInventory = new Transaction();
+		stockInventory = StockMainMenu.getTransaction();
 		StockComponent stocks = new StockComponent(10, 170, 250, 25, stockInventory, _STOCK);
 		viewObjects.add(stocks);
 		

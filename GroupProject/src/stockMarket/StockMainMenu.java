@@ -53,6 +53,10 @@ public class StockMainMenu extends GUIApplication {
 
 		}
 		
+		public static Transaction getTransaction() {
+			return transaction;
+		}
+
 //nested inner class
 public static class MenuScreen extends ClickableScreen implements App{
 	
@@ -95,10 +99,10 @@ public static class MenuScreen extends ClickableScreen implements App{
 	private Button end;
 	private int turncount;
 	private int goalcount;
-	private MultiLineTextLabel historyDisplay;
-	private MultiLineTextLabel historyDisplay2;
-	private MultiLineTextLabel historyDisplay3;
-	private MultiLineTextLabel eventDisplay;
+	private ThemedTextLabel historyDisplay;
+	private ThemedTextLabel historyDisplay2;
+	private ThemedTextLabel historyDisplay3;
+	private ThemedTextLabel eventDisplay;
 	public int stockIndex;
 	private Button eventHistory;
 	
@@ -175,10 +179,13 @@ public static class MenuScreen extends ClickableScreen implements App{
 		display = new ThemedTextLabel(300, 70, 800, 25, "Choose an action.");
 		turncount = 0;
 		goalcount = 50000;
-		historyDisplay = new MultiLineTextLabel(40, 430, 800, 50,"");
-		historyDisplay2 = new MultiLineTextLabel(40, 470, 800, 50,"");
-		historyDisplay3 = new MultiLineTextLabel(40, 510, 800, 50,"");
-		eventDisplay = new MultiLineTextLabel(40, 380, 800, 25, "");
+		historyDisplay = new ThemedTextLabel(40, 430,800, 50,"");
+		historyDisplay2 = new ThemedTextLabel(40, 470, 800, 50,"");
+		historyDisplay2.setBgcolor(Color.green);
+		historyDisplay3 = new ThemedTextLabel(40, 510, 800, 50,"");
+		historyDisplay3.setBgcolor(Color.green);
+		eventDisplay = new ThemedTextLabel(40, 380, 800, 25, "");
+		eventDisplay.setBgcolor(Color.green);
 		
 		
 		background=new Graphic(0,0,getWidth(),getHeight(),"resources/images/newmoneybackground.png");
@@ -285,6 +292,7 @@ public static class MenuScreen extends ClickableScreen implements App{
 				
 				if(fluctuation.getEventHistory().size() >= 1){
 					historyDisplay.setText(fluctuation.getEventHistory().get(fluctuation.getEventHistory().size()-1) );
+					historyDisplay.setBgcolor(Color.green);
 				}
 				if(fluctuation.getEventHistory().size() >= 2){
 					historyDisplay2.setText(fluctuation.getEventHistory().get(fluctuation.getEventHistory().size()-2) );
@@ -293,7 +301,7 @@ public static class MenuScreen extends ClickableScreen implements App{
 					historyDisplay3.setText(fluctuation.getEventHistory().get(fluctuation.getEventHistory().size()-3) );
 				}
 				
-				StockMainMenu.fluctuation.updateStock(transaction);
+//				StockMainMenu.fluctuation.updateStock(transaction);
 //				historyDisplay.setText("Hello\nWorld");
 				
 			}
