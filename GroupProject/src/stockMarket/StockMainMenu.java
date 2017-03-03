@@ -181,11 +181,8 @@ public static class MenuScreen extends ClickableScreen implements App{
 		goalcount = 50000;
 		historyDisplay = new ThemedTextLabel(40, 430,800, 50,"");
 		historyDisplay2 = new ThemedTextLabel(40, 470, 800, 50,"");
-		historyDisplay2.setBgcolor(Color.green);
 		historyDisplay3 = new ThemedTextLabel(40, 510, 800, 50,"");
-		historyDisplay3.setBgcolor(Color.green);
 		eventDisplay = new ThemedTextLabel(40, 380, 800, 25, "");
-		eventDisplay.setBgcolor(Color.green);
 		
 		
 		background=new Graphic(0,0,getWidth(),getHeight(),"resources/images/newmoneybackground.png");
@@ -289,6 +286,7 @@ public static class MenuScreen extends ClickableScreen implements App{
 						+ " )" +  String.format( "%.2f",transaction.getStocks().get(StockMainMenu.fluctuation.getEventStock()).getStockPrice()));
 				
 				eventDisplay.setText(fluctuation.getEventHistory().get(fluctuation.getEventHistory().size()-1));
+				eventDisplay.setBgcolor(Color.green);
 				
 				if(fluctuation.getEventHistory().size() >= 1){
 					historyDisplay.setText(fluctuation.getEventHistory().get(fluctuation.getEventHistory().size()-1) );
@@ -296,9 +294,11 @@ public static class MenuScreen extends ClickableScreen implements App{
 				}
 				if(fluctuation.getEventHistory().size() >= 2){
 					historyDisplay2.setText(fluctuation.getEventHistory().get(fluctuation.getEventHistory().size()-2) );
+					historyDisplay2.setBgcolor(Color.green);
 				}
 				if(fluctuation.getEventHistory().size() >= 3){
 					historyDisplay3.setText(fluctuation.getEventHistory().get(fluctuation.getEventHistory().size()-3) );
+					historyDisplay3.setBgcolor(Color.green);
 				}
 				
 //				StockMainMenu.fluctuation.updateStock(transaction);

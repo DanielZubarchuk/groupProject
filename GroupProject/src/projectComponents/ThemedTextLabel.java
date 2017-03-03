@@ -33,6 +33,7 @@ public class ThemedTextLabel extends TextLabel {
 	
 	public void setBgcolor(Color bgcolor) {
 		this.bgcolor = bgcolor;
+		update();
 	}
 
 	public void setText(String s){
