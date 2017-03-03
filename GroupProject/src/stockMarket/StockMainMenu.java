@@ -271,22 +271,22 @@ private class MenuScreen extends ClickableScreen{
 								+ Transaction.transactionPrices.get(stockIndex));
 						StockMainMenu.fluctuation.updateStock(transaction);
 						
-						fluctuation.getEventHistory().add("Current state of " + transaction.getStocks().get(StockMainMenu.fluctuation.getEventStock()).getStockName()
+						Fluctuation.getEventHistory().add("Current state of " + transaction.getStocks().get(StockMainMenu.fluctuation.getEventStock()).getStockName()
 								+ ": "
 								+ StockMainMenu.fluctuation.outputEvent() 
 								+ "(" + transaction.getStocks().get(StockMainMenu.fluctuation.getEventStock()).getGrowthRate()
 								+ " )" + transaction.getStocks().get(StockMainMenu.fluctuation.getEventStock()).getStockPrice());
 						
-						eventDisplay.setText(fluctuation.getEventHistory().get(fluctuation.getEventHistory().size()-1));
+						eventDisplay.setText(Fluctuation.getEventHistory().get(Fluctuation.getEventHistory().size()-1));
 						
-						if(fluctuation.getEventHistory().size() >= 1){
-							historyDisplay.setText(fluctuation.getEventHistory().get(fluctuation.getEventHistory().size()-1) );
+						if(Fluctuation.getEventHistory().size() >= 1){
+							historyDisplay.setText(Fluctuation.getEventHistory().get(Fluctuation.getEventHistory().size()-1) );
 						}
-						if(fluctuation.getEventHistory().size() >= 2){
-							historyDisplay2.setText(fluctuation.getEventHistory().get(fluctuation.getEventHistory().size()-2) );
+						if(Fluctuation.getEventHistory().size() >= 2){
+							historyDisplay2.setText(Fluctuation.getEventHistory().get(Fluctuation.getEventHistory().size()-2) );
 						}
-						if(fluctuation.getEventHistory().size() >= 3){
-							historyDisplay3.setText(fluctuation.getEventHistory().get(fluctuation.getEventHistory().size()-3) );
+						if(Fluctuation.getEventHistory().size() >= 3){
+							historyDisplay3.setText(Fluctuation.getEventHistory().get(Fluctuation.getEventHistory().size()-3) );
 						}
 						
 						StockMainMenu.fluctuation.updateStock(transaction);
@@ -319,22 +319,22 @@ private class MenuScreen extends ClickableScreen{
 //					index++;
 					StockMainMenu.fluctuation.updateStock(transaction);
 					
-					fluctuation.getEventHistory().add("Current state of " + transaction.getStocks().get(StockMainMenu.fluctuation.getEventStock()).getStockName()
+					Fluctuation.getEventHistory().add("Current state of " + transaction.getStocks().get(StockMainMenu.fluctuation.getEventStock()).getStockName()
 							+ ": "
 							+ StockMainMenu.fluctuation.outputEvent() 
 							+ "(" + transaction.getStocks().get(StockMainMenu.fluctuation.getEventStock()).getGrowthRate()
 							+ " )" + transaction.getStocks().get(StockMainMenu.fluctuation.getEventStock()).getStockPrice());
 					
-					eventDisplay.setText(fluctuation.getEventHistory().get(fluctuation.getEventHistory().size()-1));
+					eventDisplay.setText(Fluctuation.getEventHistory().get(Fluctuation.getEventHistory().size()-1));
 					
-					if(fluctuation.getEventHistory().size() >= 1){
-						historyDisplay.setText(fluctuation.getEventHistory().get(fluctuation.getEventHistory().size()-1) );
+					if(Fluctuation.getEventHistory().size() >= 1){
+						historyDisplay.setText(Fluctuation.getEventHistory().get(Fluctuation.getEventHistory().size()-1) );
 					}
-					if(fluctuation.getEventHistory().size() >= 2){
-						historyDisplay2.setText(fluctuation.getEventHistory().get(fluctuation.getEventHistory().size()-2) );
+					if(Fluctuation.getEventHistory().size() >= 2){
+						historyDisplay2.setText(Fluctuation.getEventHistory().get(Fluctuation.getEventHistory().size()-2) );
 					}
-					if(fluctuation.getEventHistory().size() >= 3){
-						historyDisplay3.setText(fluctuation.getEventHistory().get(fluctuation.getEventHistory().size()-3) );
+					if(Fluctuation.getEventHistory().size() >= 3){
+						historyDisplay3.setText(Fluctuation.getEventHistory().get(Fluctuation.getEventHistory().size()-3) );
 					}
 					
 					StockMainMenu.fluctuation.updateStock(transaction);
