@@ -1,8 +1,7 @@
 package stackInterfaces;
 
 /**
- * @author Risa
- *
+ * @author Victor
  */
 
 public interface StockInterface {
