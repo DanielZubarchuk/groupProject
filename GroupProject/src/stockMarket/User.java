@@ -46,9 +46,9 @@ public class User extends ClickableScreen{
 	public static ArrayList<StockInterface> stocksInventory = new ArrayList<StockInterface>();
 	
 	public void goToGameScreen(){
-		System.out.println(""+StockMainMenu.mainDemoScreen);
+		System.out.println(""+StockMainMenu.mainScreen);
 		
-		StockMainMenu.mainDemoScreen.setScreen(StockMainMenu.gameScreen);
+		StockMainMenu.mainScreen.setScreen(StockMainMenu.gameScreen);
 	}
 	
 	public void initAllObjects(ArrayList<Visible> viewObjects) {
