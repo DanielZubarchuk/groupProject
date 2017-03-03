@@ -2,7 +2,7 @@ package src.stackInterfaces;
 
 import src.stockMarket.Transaction;
 /**
- * @author Victor
+ * @author Gabriel
  *
  */
 public interface MarketInterface {
