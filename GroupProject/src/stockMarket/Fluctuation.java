@@ -55,13 +55,25 @@ public class Fluctuation implements MarketInterface{
 		/**
 		 * Each time BUY/SELL is clicked, the anonymous inner class (act) should call this method to update the stocks.
 		 */
+//		System.out.println(transaction.getStocks().size()); why is this 10. it should be 5.
 		eventStock = (int) (Math.random()*transaction.getStocks().size());
 		fillEvents();
 			
-		if((int)(transaction.getStocks().get(eventStock).getStockPrice()) == _BANKRUPT){
-			reviveStock(eventStock, transaction);
-		}
-		double effect = currentEvent/2;
+		double effect = 1;
+		
+		reviveStock(eventStock, transaction);
+		
+//		if(checkDepression()){
+//			effect = 0;
+//		}else{
+//			if(checkPeak()){
+//				effect = 2;
+//			}else{
+//				effect = currentEvent/2;
+//			}
+//		}
+		
+		effect = currentEvent/2;
 		double newGrowth = transaction.getStocks().get(eventStock).getGrowthRate() * effect;
 		double newPrice = transaction.getStocks().get(eventStock).getStockPrice() * newGrowth;
 		
@@ -70,9 +82,48 @@ public class Fluctuation implements MarketInterface{
 		
 	}
 	
+//	private boolean checkPeak() {
+//		int continuousPeak = 0;
+//		for(int i = events.size() - 1; i > 0; i--){
+//			if(events.get(i) == "PROGRESS"){
+//				continuousPeak++;
+//			}else{
+//				if(continuousPeak >= 3){
+//					System.out.println("Peak");
+//					return true;
+//				}else{
+//					continuousPeak = 0;
+//				}
+//			}
+//			
+//		}
+//		return false;
+//	}
+//
+//	private boolean checkDepression() {
+//		int continuousRecession = 0;
+//		for(int i = events.size() - 1; i > 0; i--){
+//			if(events.get(i) == "RECESSION"){
+//				continuousRecession++;
+//			}else{
+//				if(continuousRecession >= 3){
+//					System.out.println("Recession");
+//					return true;
+//				}else{
+//					continuousRecession = 0;
+//				}
+//			}
+//			
+//		}
+//		return false;
+//	}
+
 	private void reviveStock(int index, Transaction transaction) {
-		transaction.getStocks().get(eventStock).setStockPrice(70);
-		transaction.getStocks().get(eventStock).setGrowthRate(1.0);
+		if((int)(transaction.getStocks().get(eventStock).getStockPrice()) == _BANKRUPT){
+			transaction.getStocks().get(eventStock).setStockPrice(70);
+			transaction.getStocks().get(eventStock).setGrowthRate(1.0);
+		}
+		
 		
 	}
 
@@ -101,7 +152,7 @@ public class Fluctuation implements MarketInterface{
 		return events.get(events.size()-1);
 	}
 
-	public ArrayList<String> getEventHistory() {
+	public static ArrayList<String> getEventHistory() {
 		return eventHistory;
 	}
 	
