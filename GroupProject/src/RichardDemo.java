@@ -471,7 +471,7 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 		// TODO Auto-generated method stub
 		return currentAmount;
 	}
-	public void setMoneyText(String text){
+	public static void setMoneyText(String text){
 		moneyDisplay.setText(text);
 	}
 }

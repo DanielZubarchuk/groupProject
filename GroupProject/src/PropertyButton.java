@@ -17,13 +17,12 @@ public class PropertyButton extends Button implements PropertyButtonInterface{
 	private boolean active;
 	//private int time;
 	
-	public PropertyButton(int x, int y, int w, int h, String text, Color color, Action action, double price, double payout, double rate, double time, boolean active) {
+	public PropertyButton(int x, int y, int w, int h, String text, Color color, Action action, double price, double payout, double rate, double time) {
 		super(x, y, w, h, text, color, action);
 		this.price = price;
 		this.payout = payout;
 		this.rate = rate;
 		this.time = time;
-		this.active = active;
 		// TODO Auto-generated constructor stub
 	}
 	
