@@ -3,12 +3,12 @@
  * @author Katherine
  */
 
-public class Reset {
+public class Reset implements ResetInterface{
 	
 	private static StatsInterface stats;
-	private int currentBalance = stats.getCurrentBalance();
+	private double cBalance = stats.getCurrentBalance();
 	private int numResets = stats.getNumResets();
-	private int lastCurrentBalance = 0;
+	private double lastCurrentBalance = 0;
 	private boolean received = false;
 	private int numInvestors;
 
@@ -22,14 +22,14 @@ public class Reset {
 	}
 	
 	public int getInvestors(){
-		int rounds = numTimes(currentBalance - lastCurrentBalance);	
-		if(lastCurrentBalance > currentBalance){
+		int rounds = numTimes(cBalance - lastCurrentBalance);	
+		if(lastCurrentBalance > cBalance){
 			received = true;
 			return numInvestors;
 		}
 		else if(received == false){
-			lastCurrentBalance = currentBalance;
-			if(currentBalance == 0){
+			lastCurrentBalance = cBalance;
+			if(cBalance == 0){
 				numInvestors = numInvestors + (3*rounds);
 			}
 			else{
@@ -40,24 +40,30 @@ public class Reset {
 		return numInvestors;
 	}
 	
-	public int numTimes(int balance){
-		int rounds = 0;
-		if(balance%5000 == 0){
+	public int numTimes(double balance){
+		int times = 0;
+		balance = Math.floor(balance);
+		if(balance%5000.00 == 0){
 			while(balance > 0){
-				balance = balance - 5000;
-				rounds++;
+				balance = balance - 5000.00;
+				times++;
 			}
 		}
 		
-		return rounds;
+		return times;
 	}
 	
-	public int setCurrentBalance(){
-		return currentBalance = 0;
+	public void setCurrentBalance(){
+		Statistics.currentBalance = 0;
 	}
 	
-	public int setNumResets(){
-		return numResets++;
+	public void setNumResets(){
+		Statistics.numResets = numResets + 1;
+	}
+
+	@Override
+	public int getNumInvestors() {
+		return numInvestors;
 	}
 
 }

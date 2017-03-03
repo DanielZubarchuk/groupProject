@@ -4,6 +4,6 @@
  */
 
 public interface StatsInterface {
-	int getCurrentBalance();
+	double getCurrentBalance();
 	int getNumResets();
 }
