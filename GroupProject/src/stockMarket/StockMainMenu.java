@@ -203,7 +203,7 @@ public static class MenuScreen extends ClickableScreen implements App{
 					if(selectedStock == null || shareNumber ==0){
 						display.setText("You must select a stock and shares.");
 					}
-					if(Transaction.userBalance < Transaction.stockPrice){
+					if(transaction.userBalance < Transaction.stockPrice){
 						display.setText("You don't have enough money");
 					}
 					else{
@@ -212,10 +212,10 @@ public static class MenuScreen extends ClickableScreen implements App{
 								+ String.format( "%.2f",Transaction.transactionPrices.get(stockIndex)));
 						turncount++;
 						turn.setText("Turn " + turncount); 
-						if(turncount ==50 || Transaction.userBalance >= 50000){
+						if(turncount ==50 || transaction.userBalance >= 50000){
 							StockMainMenu.mainScreen.setScreen(winScreen);
 						}
-						if(turncount == 50 && Transaction.userBalance < 50000){
+						if(turncount == 50 && transaction.userBalance < 50000){
 							StockMainMenu.mainScreen.setScreen(loseScreen);
 						}
 						StockMainMenu.fluctuation.updateStock(transaction);
@@ -274,10 +274,10 @@ public static class MenuScreen extends ClickableScreen implements App{
 								+ String.format( "%.2f",Transaction.transactionPrices.get(stockIndex)));
 						StockMainMenu.fluctuation.updateStock(transaction);
 						turncount++;
-						if(turncount ==50 || Transaction.userBalance >= 50000){
+						if(turncount ==50 || transaction.userBalance >= 50000){
 							StockMainMenu.mainScreen.setScreen(winScreen);
 						}
-						if(turncount == 50 && Transaction.userBalance < 50000){
+						if(turncount == 50 && transaction.userBalance < 50000){
 							StockMainMenu.mainScreen.setScreen(loseScreen);
 						}
 						turn.setText("Turn " + turncount); 
