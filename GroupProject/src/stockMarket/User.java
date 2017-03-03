@@ -9,6 +9,7 @@ import guiPractice.ClickableScreen;
 import guiPractice.components.Graphic;
 import guiPractice.components.Visible;
 import src.projectComponents.ThemedTextLabel;
+import src.stackInterfaces.DanielInterface;
 import src.stackInterfaces.StockInterface;
 import src.stackInterfaces.StockInventory;
 
@@ -17,7 +18,7 @@ import src.stackInterfaces.StockInventory;
  *
  */
 
-public class User extends ClickableScreen{
+public class User extends ClickableScreen implements DanielInterface{
 	
 	public User(int width, int height) {
 		super(width, height);
@@ -56,7 +57,7 @@ public class User extends ClickableScreen{
 		});
 		viewObjects.add(backButton);
 		
-//		balance = StockMainMenu.getTransaction().getUserBalance();
+		balance = Transaction.userBalance;
 		int stringLength = (("Balance: $" + balance).length()) + 100;
 		balanceDisplay = new ThemedTextLabel((getWidth()- stringLength) / 2, 80, 800, 25, "Balance: $" + balance);
 		viewObjects.add(balanceDisplay);
@@ -83,17 +84,8 @@ public class User extends ClickableScreen{
 			@Override
 			public void act() {
 				
-				if(!stocksInventory.isEmpty()){
-					int y = 180;
-					for(StockInterface s : stocksInventory){
-						String temp = s.getStockName() + "	$" + s.getStockPrice() + " " + s.getStockQuantity(); 
-						stocks = new ThemedTextLabel(10, y, 600, 25, temp);
-						y += 40;
-						viewObjects.add(stocks);
-					}
-				}
+				viewStocks();
 			}
-			
 		});
 		viewObjects.add(viewAllStocks);
 		
@@ -121,19 +113,35 @@ public class User extends ClickableScreen{
 			@Override
 			public void act() {
 				
-				if(!history.isEmpty()){
-					int x = 580;
-					int y = 180;
-					for(String s : history){
-						transaction = new ThemedTextLabel(x, y, 600, 25, s);
-						viewObjects.add(transaction);
-						y += 40;
-					}
-				}
+				viewTransactions();
 			}
 			
 		});
 		viewObjects.add(viewAllTransactions);
+	}
+	
+	public void viewStocks() {
+		if(!stocksInventory.isEmpty()){
+			int y = 180;
+			for(StockInterface s : stocksInventory){
+				String temp = s.getStockName() + "	$" + s.getStockPrice() + " " + s.getStockQuantity(); 
+				stocks = new ThemedTextLabel(10, y, 600, 25, temp);
+				y += 40;
+				viewObjects.add(stocks);
+			}
+		}
+	}
+	
+	public void viewTransactions(){
+		if(!history.isEmpty()){
+			int x = 580;
+			int y = 180;
+			for(String s : history){
+				transaction = new ThemedTextLabel(x, y, 600, 25, s);
+				viewObjects.add(transaction);
+				y += 40;
+			}
+		}
 	}
 		
 	public ArrayList<StockInterface> getStocksInventory() {
