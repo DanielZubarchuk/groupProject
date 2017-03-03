@@ -75,7 +75,7 @@ public class DanielDemo extends GUIApplication {
 		}
 
 		public void initAllObjects(ArrayList<Visible> view) {
-			background = new Graphic(0,0,getWidth(),getHeight(),"resources/images/moneybackground.jpg");
+			background = new Graphic(0,0,getWidth(),getHeight(),"resources/images/newmoneybackground.jpg");
 			transactionDisplay = new ThemedTextLabel(40, 150, 800, 25, "");
 			logo = new Graphic(40, 50, 90, 90, "resources/images/logo.png");
 			//startDialogue = new TextLabel(130,230,300,40,"Do you want to buy or sell?");

@@ -27,7 +27,7 @@ public class Transaction implements StockInventory{
 	public static double stockPrice;
 	private static Object choiceSelection;
 	
-	public static double userBalance = 50000;
+	public static double userBalance = 5000;
 	public static String[] stockNames = {"Blackgate","Apple","Samsung",
 			"Glascow","General Motors"};
 	public static double[] stockPrices = {100,78,90,120,111,87};
