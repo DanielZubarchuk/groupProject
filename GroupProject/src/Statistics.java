@@ -3,46 +3,63 @@
  * @author Katherine
  */
 
-public class Statistics{
+public class Statistics implements StatsInterface{
 	
-	private static double currentBalance;
-	public int lifetimeEarnings;
-	public static int[] quantityOwnedArray;
+	public static double currentBalance;
+	public double lifetimeEarnings;
+	public static int numResets;
+	//public static int[] quantityOwnedArray;
 	//public static int[] propertyTimeArray;
-	public int numResets;
 	
 	public void instantiateStats(){
-		quantityOwnedArray = new int[8];
-		quantityOwnedArray[0] = 1;
+		//quantityOwnedArray = new int[8];
+		//quantityOwnedArray[0] = 1;
 		currentBalance = 0;
 		lifetimeEarnings = 0;
 		numResets = 0;
 	}
 	
 	
-	public static double getMoney() {
-		// TODO Auto-generated method stub
+	
+	@Override
+	public double getCurrentBalance() {
 		return currentBalance;
 	}
 
 
-	public static void setMoney(double money) {
-		currentBalance = money;
+	@Override
+	public int getNumResets() {
+		return numResets;
 	}
+	
+	
+	
+//	public static double getMoney() {
+//		// TODO Auto-generated method stub
+//		return currentBalance;
+//	}
+//
+//
+//	public static void setMoney(double money) {
+//		currentBalance = money;
+//	}
 
 
 
 
-	public static int[] getQuantityArray() {
-		// TODO Auto-generated method stub
-		return quantityOwnedArray;
-	}
+//	public static int[] getQuantityArray() {
+//		// TODO Auto-generated method stub
+//		return quantityOwnedArray;
+//	}
+//
+//
+//	public static void setQuantityArray(int index, int amount) {
+//		// TODO Auto-generated method stub
+//		quantityOwnedArray[index] = amount;
+//	}
 
 
-	public static void setQuantityArray(int index, int amount) {
-		// TODO Auto-generated method stub
-		quantityOwnedArray[index] = amount;
-	}
+	
 	
 	
 	
