@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import guiPractice.ClickableScreen;
 import guiPractice.Screen;
+import guiPractice.TextLabel;
 import guiPractice.components.Action;
 import guiPractice.components.Button;
 import guiPractice.components.ClickableGraphic;
@@ -19,6 +20,8 @@ public class MainMenuScreen extends ClickableScreen implements MouseMotionListen
 	private ClickableGraphic stockGameLink;
 	private ClickableGraphic advCapLink;
 	private Graphic backgroundPic;
+	private TextLabel menuText;
+	private TextLabel menuText2;
 	private ArrayList<ClickableGraphic> appLinks;
 	
 	public MainMenuScreen(int width, int height) {
@@ -28,38 +31,53 @@ public class MainMenuScreen extends ClickableScreen implements MouseMotionListen
 
 	public void initObjects(ArrayList<Visible> viewObjects) {
 		
-		advCapLink = new ClickableGraphic((int) (getWidth()/3 - 87.5), getHeight()/2 - 50, .5, "resources/sampleImages/advCapIcon.png");
-		stockGameLink = new ClickableGraphic((int) (2 * getWidth()/3 ), getHeight()/2 - 50, .5, "resources/sampleImages/stockMarketIcon.png");
-		homeButton = new Button(getWidth()/2-70, (int) (5 * getHeight()/6), 70, 30, "Home", new Color(0,0,0), new Action(){
+		advCapLink = new ClickableGraphic((int) (getWidth()/2 - 287.5), getHeight()/2 - 50, .5, "resources/sampleImages/advCapIcon.png");
+		stockGameLink = new ClickableGraphic((int) (getWidth()/2 +200), getHeight()/2 - 50, .5, "resources/sampleImages/stockMarketIcon.png");
+		homeButton = new Button(getWidth()/2-30, (int) (5 * getHeight()/6), 60, 30, "Home", new Color(0,0,0), new Action(){
 			public void act(){
 				MainMenu.mms.setScreen(MainMenu.menuScreen);
 			}
 		});
-		history = new Button(getWidth()/2, (int) (5 * getHeight()/6), 70, 30, "History", new Color(0,0,0), new Action(){
+		history = new Button(getWidth()/2 - 35, (int) (7 * getHeight()/8), 70, 30, "History", new Color(0,0,0), new Action(){
 			public void act(){
 				MainMenu.mms.setScreen(MainMenu.histScreen);
 			}
 		});
 		stockGameLink.setAction(new Action() {
 			public void act(){
-				MainMenu.histScreen.stockOpened = true;
-				MainMenu.histScreen.addToHistory(new Graphic((int) (2 * getWidth()/3 ), getHeight()/2 - 50, .5, "resources/sampleImages/stockMarketIcon.png"));			
-				MainMenu.mms.setScreen(MainMenu.sampleScreen);
+				if(!MainMenu.histScreen.stockOpened){
+					MainMenu.histScreen.stockOpened = true;
+					MainMenu.histScreen.addToHistory(new Graphic((int) (2 * getWidth()/3 ), getHeight()/2 - 50, .5, "resources/sampleImages/stockMarketIcon.png"));			
+					MainMenu.mms.setScreen(MainMenu.sampleScreen);
+				}
+				else{
+					MainMenu.mms.setScreen(MainMenu.sampleScreen);
+				}
 			}
 		});
 		advCapLink.setAction(new Action() {
 			public void act(){
-				MainMenu.histScreen.advOpened = true;
-				MainMenu.histScreen.addToHistory(new Graphic((int) (2 * getWidth()/3 ), getHeight()/2 - 50, .5, "resources/sampleImages/advCapIcon.png"));	
-				MainMenu.mms.setScreen(MainMenu.sampleScreen);
+				if(!MainMenu.histScreen.advOpened){
+					MainMenu.histScreen.advOpened = true;
+					MainMenu.histScreen.addToHistory(new Graphic((int) (2 * getWidth()/3 ), getHeight()/2 - 50, .5, "resources/sampleImages/advCapIcon.png"));	
+					MainMenu.mms.setScreen(MainMenu.sampleScreen);
+				}
+				else{
+					MainMenu.mms.setScreen(MainMenu.sampleScreen);
+				}
 			}
 		});
+		menuText = new TextLabel(getWidth()/2 - 100, getHeight()/5, 760, 40, "This is the Main Menu");
+		menuText2 = new TextLabel(getWidth()/2 - 135, (int)(getHeight()/4.2), 760, 40, "Click any app to start playing!");
 		backgroundPic = new Graphic(50, 25, "resources/sampleImages/background.png");
+		
 		viewObjects.add(backgroundPic);
 		viewObjects.add(homeButton);
 		viewObjects.add(history);
 		viewObjects.add(advCapLink);
 		viewObjects.add(stockGameLink);
+		viewObjects.add(menuText);
+		viewObjects.add(menuText2);
 	}
 
 	public void mouseClicked(MouseEvent e) {

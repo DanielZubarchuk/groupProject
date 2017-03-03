@@ -20,6 +20,7 @@ public class HistoryScreen extends ClickableScreen implements App, MouseListener
 	private Graphic advIcon;
 	private Graphic backgroundPic;
 	private TextLabel historyText;
+	private TextLabel historyText2;
 	private TextLabel nothing;
 	static boolean advOpened;
 	static boolean stockOpened;
@@ -63,26 +64,28 @@ public class HistoryScreen extends ClickableScreen implements App, MouseListener
 //		});
 		close = new Button(getWidth()/2 - 60, getHeight()/2 - 15, 120, 30, "Close Apps", new Color(0,0,0), new Action() {
 			public void act(){
-				viewObjects.remove(viewObjects.size()-1);
-				viewObjects.remove(viewObjects.size()-2);
+				
 			}
 		});
+		nothing = new TextLabel(getWidth()/2 - 115, getHeight()/3, 760, 40, "There is nothing to close");
+		historyText = new TextLabel(getWidth()/2 - 115, getHeight()/5, 760, 40, "This is the history screen");
+		historyText2 = new TextLabel(getWidth()/2 - 250, (int) (getHeight()/4.2), 760, 40, "Press the 'Close Apps' button to close your opened apps");
 		backgroundPic = new Graphic(50, 25, "resources/sampleImages/background.png");
 		viewObjects.add(backgroundPic);
 		view.add(close);
 		view.add(homeButton);
+		viewObjects.add(nothing);
+		viewObjects.add(historyText);
+		viewObjects.add(historyText2);
 	}
 	
 	public void addToHistory(Graphic g){
-		
 		appPics.add(g);
-		System.out.println(appPics);
-		System.out.println(viewObjects);
 		if(appPics.size() == 1){
-			g.setX(300);
+			g.setX((int) (getWidth()/2 - 287.5));
 		}
 		else{
-			g.setX(700);
+			g.setX((int) (getWidth()/2 + 200));
 		}
 		close = new Button(getWidth()/2 - 60, getHeight()/2 - 15, 120, 30, "Close Apps", new Color(0,0,0), new Action(){
 			public void act(){
@@ -92,14 +95,20 @@ public class HistoryScreen extends ClickableScreen implements App, MouseListener
 					viewObjects.add(backgroundPic);
 					viewObjects.add(homeButton);
 					viewObjects.add(close);
-				}
-				else {
-					System.out.println("There is nothing here");
+					stockOpened = false;
+					advOpened = false;
+					viewObjects.add(nothing);
+					viewObjects.add(historyText);
+					viewObjects.add(historyText2);
 				}
 			}
 		});
+		System.out.print(appPics.size());
+		System.out.print(viewObjects.size());
+		if (appPics.size() != 0){
+				viewObjects.remove(nothing);
+		}
 		viewObjects.add(g);//this makes this display on the screen
-		System.out.println(viewObjects);
 	}
 	
 	@Override
