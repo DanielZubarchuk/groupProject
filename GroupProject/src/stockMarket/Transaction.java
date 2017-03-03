@@ -15,17 +15,13 @@ public class Transaction implements StockInventory{
 	public static ArrayList<String> transactionHistory = new ArrayList<String>();
 	public static ArrayList<Double> transactionPrices  = new ArrayList<Double>();
 	public static ArrayList<StockInterface> stocks = new ArrayList<StockInterface>();
-	
-	
-	static Scanner input;
-	
-	private static int chosenShareAmount = 1;
+		
+	private static int chosenShareAmount = StockMainMenu.shareNumber;
 	
 	public static String chosenStock;
 	private static int i;
 	private static int buyIndex = 0;
 	public static double stockPrice;
-	private static Object choiceSelection;
 	
 	public double userBalance = 5000;
 	

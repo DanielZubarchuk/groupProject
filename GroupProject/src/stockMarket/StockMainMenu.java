@@ -28,6 +28,7 @@ public class StockMainMenu extends GUIApplication {
 		private static Transaction transaction;
 		private static Fluctuation fluctuation;
 		public static String selectedStock;
+		public static int shareNumber;
 		
 		public StockMainMenu() {
 			transaction = new Transaction();
