@@ -8,8 +8,9 @@ import guiPratice.Screen;
 import guiPratice.components.Action;
 import guiPratice.components.Button;
 import guiPratice.components.Visible;
+import guiPratice.sampleGames.ClickableSceen;
 
-public class StatsScreen extends Screen implements MouseMotionListener,MouseListener{
+public class StatsScreen extends ClickableScreen implements MouseMotionListener,MouseListener{
 
 	private Button back;
 	
