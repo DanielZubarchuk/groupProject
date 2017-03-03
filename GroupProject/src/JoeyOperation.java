@@ -2,6 +2,7 @@ import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 
+import Demos.RichardDemo;
 import guiPractice8.component.Action;
 import guiPractice8.component.Button;
 
