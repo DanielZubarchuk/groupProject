@@ -275,8 +275,8 @@ private class MenuScreen extends ClickableScreen{
 				fluctuation.getEventHistory().add("Current state of " + transaction.getStocks().get(StockMainMenu.fluctuation.getEventStock()).getStockName()
 						+ ": "
 						+ StockMainMenu.fluctuation.outputEvent() 
-						+ "(" + transaction.getStocks().get(StockMainMenu.fluctuation.getEventStock()).getGrowthRate()
-						+ " )" + transaction.getStocks().get(StockMainMenu.fluctuation.getEventStock()).getStockPrice());
+						+ "(" +  String.format( "%.2f",transaction.getStocks().get(StockMainMenu.fluctuation.getEventStock()).getGrowthRate())
+						+ " )" +  String.format( "%.2f",transaction.getStocks().get(StockMainMenu.fluctuation.getEventStock()).getStockPrice()));
 				
 				eventDisplay.setText(fluctuation.getEventHistory().get(fluctuation.getEventHistory().size()-1));
 				
