@@ -40,7 +40,7 @@ public class StockMainMenu extends GUIApplication {
 			gameScreen = new MenuScreen(1000, 600);
 			//demo = new DemoScreen(getWidth(), getHeight());
 			inventoryScreen = new User(1000, 600);
-			setScreen(gameScreen);
+//			setScreen(gameScreen);
 		}
 
 		/**

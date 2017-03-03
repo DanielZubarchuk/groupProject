@@ -19,7 +19,8 @@ public class MainMenu extends GUIApplication {
 		menuScreen = new MainMenuScreen(1100, 700);
 		histScreen = new HistoryScreen(1100, 700);
 		sampleScreen = new SampleScreen(1100, 700);
-
+		src.stockMarket.StockMainMenu.mainScreen = new StockMainMenu();
+		
 		stockLink = new MenuScreen(1100, 700);
 		setScreen(menuScreen);
 	}
@@ -28,6 +29,8 @@ public class MainMenu extends GUIApplication {
 		mms = new MainMenu();
 		Thread app = new Thread(mms);
 		app.start();
+		
+		
 	}
 
 }
