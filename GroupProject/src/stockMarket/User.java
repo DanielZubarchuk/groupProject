@@ -37,7 +37,7 @@ public class User extends ClickableScreen implements App{
 	private ThemedTextLabel stocksTitle;
 	private ThemedTextLabel transactionTitle;
 	private ThemedTextLabel transaction;
-	private ThemedTextLabel stocks;
+	private ThemedTextLabel stocksLabel;
 	
 	
 	public static ArrayList<String> history = new ArrayList<String>();
@@ -69,11 +69,11 @@ public class User extends ClickableScreen implements App{
 		transactionTitle = new ThemedTextLabel(10, 230, 220, 25, "Transaction History:");
 		viewObjects.add(transactionTitle);
 		
-		stockInventory = StockMainMenu.getTransaction();
-		StockComponent stocks = new StockComponent(10, 170, 250, 25, stockInventory, _STOCK);
+		inventory = StockMainMenu.getTransaction();
+		StockComponent stocks = new StockComponent(10, 170, 250, 25, inventory, _STOCK);
 		viewObjects.add(stocks);
 		
-		StockComponent transactions = new StockComponent(10, 270, 250, 25, stockInventory, _TRANSACTION);
+		StockComponent transactions = new StockComponent(10, 270, 250, 25, inventory, _TRANSACTION);
 		viewObjects.add(transactions);
 		
 
@@ -82,12 +82,12 @@ public class User extends ClickableScreen implements App{
 			for(StockInterface s : inventory.getStocks()){
 				stocksInventory.add(s);
 				String temp = s.getStockName() + "	$" + s.getStockPrice() + " " + s.getStockQuantity(); 
-				stocks = new ThemedTextLabel(10, y, 600, 25, temp);
+				stocksLabel = new ThemedTextLabel(10, y, 600, 25, temp);
 				y += 40;
 				viewObjects.add(stocks);
 			}
 		}else{
-			stocks = new ThemedTextLabel(10, 180, 400, 25, "You don't own any stocks.");
+			stocksLabel = new ThemedTextLabel(10, 180, 400, 25, "You don't own any stocks.");
 			viewObjects.add(stocks);
 		}
 		
@@ -100,7 +100,7 @@ public class User extends ClickableScreen implements App{
 					int y = 180;
 					for(StockInterface s : stocksInventory){
 						String temp = s.getStockName() + "	$" + s.getStockPrice() + " " + s.getStockQuantity(); 
-						stocks = new ThemedTextLabel(10, y, 600, 25, temp);
+						stocksLabel = new ThemedTextLabel(10, y, 600, 25, temp);
 						y += 40;
 						viewObjects.add(stocks);
 					}
