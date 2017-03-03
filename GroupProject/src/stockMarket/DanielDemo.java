@@ -4,16 +4,17 @@
 package stockMarket;
 
 import java.awt.Color;
+
 import java.util.List;
 
-import guiPractice8.GUIApplication;
-import guiPractice8.component.Action;
-import guiPractice8.component.Button;
-import guiPractice8.component.ClickableScreen;
-import guiPractice8.component.TextArea;
-import guiPractice8.component.Graphic;
-import guiPractice8.component.TextLabel;
-import guiPractice8.component.Visible;
+import guiPractice.GUIApplication;
+import guiPractice.components.Action;
+import guiPractice.components.Button;
+//import guiPractice.components.ClickableScreen;
+//import guiPractice.components.TextArea;
+//import guiPractice.components.TextLabel;
+import guiPractice.components.Graphic;
+import guiPractice.components.Visible;
 import projectComponents.ThemedTextLabel;
 
 /**
