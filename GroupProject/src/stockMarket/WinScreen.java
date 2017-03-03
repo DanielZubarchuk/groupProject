@@ -1,8 +1,11 @@
 package stockMarket;
 
+import java.awt.Color;
 import java.util.ArrayList;
 
 import guiPractice.ClickableScreen;
+import guiPractice.components.Action;
+import guiPractice.components.Button;
 import guiPractice.components.Graphic;
 import guiPractice.components.Visible;
 import projectComponents.ThemedTextLabel;
@@ -11,6 +14,7 @@ public class WinScreen extends ClickableScreen {
 
 	private Graphic background;
 	private ThemedTextLabel winText;
+	private Button homeButton;
 	
 	public WinScreen(int width, int height) {
 		super(width, height);
@@ -26,6 +30,14 @@ public class WinScreen extends ClickableScreen {
 		winText.setSize(30);
 		viewObjects.add(winText);
 		
+		homeButton = new Button(200, 450, 60, 30, "Home", new Color(0,0,0), new Action() {
+			
+			@Override
+			public void act() {
+				//MainMenu.mms.setScreen(MainMenu.menuScreen);
+			}
+		});
+		viewObjects.add(homeButton);
 	}
 	
 }

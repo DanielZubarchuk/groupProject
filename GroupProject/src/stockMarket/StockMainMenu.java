@@ -7,7 +7,6 @@ import java.util.List;
 
 import guiPractice.GUIApplication;
 import guiPractice.Screen;
-import guiPractice.TextLabel;
 import guiPractice.components.Action;
 import guiPractice.components.Button;
 import guiPractice.ClickableScreen;
@@ -19,7 +18,8 @@ import projectComponents.ThemedTextLabel;
 public class StockMainMenu extends GUIApplication {
 	
 		public static StockMainMenu mainScreen;
-		public static LoseScreen endScreen;
+		public static WinScreen winScreen;
+		public static LoseScreen loseScreen;
 		public static User inventoryScreen;
 		public static Screen gameScreen;
 		private static Transaction transaction;
@@ -36,7 +36,8 @@ public class StockMainMenu extends GUIApplication {
 		protected void initScreen() {
 			// for screens of phone and games
 			gameScreen = new MenuScreen(1000, 600);
-			endScreen = new LoseScreen(1000,600);
+			winScreen = new WinScreen(1000,600);
+			loseScreen = new LoseScreen(1000,600);
 			inventoryScreen = new User(1000, 600);
 			setScreen(gameScreen);
 		}
@@ -87,8 +88,6 @@ private class MenuScreen extends ClickableScreen{
 	private MultiLineTextLabel eventDisplay;
 	public int stockIndex;
 	private Button eventHistory;
-	private Button testButton;
-	
 	
 	public MenuScreen(int width, int height) {
 		super(width, height);
@@ -134,7 +133,7 @@ private class MenuScreen extends ClickableScreen{
 		shareLabel = new ThemedTextLabel(225,180,70,90,Integer.toString(shareNumber));
 		viewObjects.add(shareLabel);
 		
-		plus = new Button(260,245,25,20,"+",Color.green, new Action() {
+		plus = new Button(260,245,25,20,"+",Color.black, new Action() {
 			@Override
 			public void act() {
 				shareNumber++;
@@ -143,7 +142,7 @@ private class MenuScreen extends ClickableScreen{
 		});
 		viewObjects.add(plus);
 		
-		minus = new Button(200,245,25,20,"-",Color.green, new Action() {
+		minus = new Button(200,245,25,20,"-",Color.black, new Action() {
 			@Override
 			public void act() {
 				if(shareNumber > 0){
@@ -154,7 +153,7 @@ private class MenuScreen extends ClickableScreen{
 			}
 		});
 		viewObjects.add(minus);
-			eventHistory = new Button(500,150, 250, 40, "Event History", Color.green, new Action() {
+			eventHistory = new Button(500,150, 250, 40, "Event History", Color.black, new Action() {
 			
 			@Override
 			public void act() {
@@ -187,7 +186,7 @@ private class MenuScreen extends ClickableScreen{
 			
 		viewObjects.add(eventHistory);
 		
-		buy = new Button(500, 200, 90, 40, "Buy", Color.green, new Action() {
+		buy = new Button(500, 200, 90, 40, "Buy", Color.black, new Action() {
 			
 				public void act() {
 					if(selectedStock == null || shareNumber ==0){
@@ -202,6 +201,12 @@ private class MenuScreen extends ClickableScreen{
 								+ String.format( "%.2f",Transaction.transactionPrices.get(stockIndex)));
 						turncount++;
 						turn.setText("Turn " + turncount); 
+						if(turncount ==50 || Transaction.userBalance >= 50000){
+							StockMainMenu.mainScreen.setScreen(winScreen);
+						}
+						if(turncount == 50 && Transaction.userBalance < 50000){
+							StockMainMenu.mainScreen.setScreen(loseScreen);
+						}
 						StockMainMenu.fluctuation.updateStock(transaction);
 						
 						fluctuation.getEventHistory().add("Current state of " + transaction.getStocks().get(StockMainMenu.fluctuation.getEventStock()).getStockName()
@@ -231,7 +236,7 @@ private class MenuScreen extends ClickableScreen{
 		viewObjects.add(buy);
 		viewObjects.add(display);
 
-		user = new Button(500, 250, 200, 40, "User Portfolio", Color.green, new Action() {
+		user = new Button(500, 250, 200, 40, "User Portfolio", Color.black, new Action() {
 			
 			@Override
 			public void act() {
@@ -242,7 +247,7 @@ private class MenuScreen extends ClickableScreen{
 		viewObjects.add(user);
 		viewObjects.add(display);
 			
-		sell = new Button(600, 200, 90, 40, "Sell", Color.green, new Action() {
+		sell = new Button(600, 200, 90, 40, "Sell", Color.black, new Action() {
 				
 				@Override
 				public void act() {
@@ -258,6 +263,12 @@ private class MenuScreen extends ClickableScreen{
 								+ String.format( "%.2f",Transaction.transactionPrices.get(stockIndex)));
 						StockMainMenu.fluctuation.updateStock(transaction);
 						turncount++;
+						if(turncount ==50 || Transaction.userBalance >= 50000){
+							StockMainMenu.mainScreen.setScreen(winScreen);
+						}
+						if(turncount == 50 && Transaction.userBalance < 50000){
+							StockMainMenu.mainScreen.setScreen(loseScreen);
+						}
 						turn.setText("Turn " + turncount); 
 						
 						fluctuation.getEventHistory().add("Current state of " + transaction.getStocks().get(StockMainMenu.fluctuation.getEventStock()).getStockName()
@@ -285,20 +296,11 @@ private class MenuScreen extends ClickableScreen{
 			viewObjects.add(sell);
 			//viewObjects.add(transactionDisplay);
 			
-			testButton = new Button(600, 500, 90, 40, "Test", Color.green, new Action() {
-				
-				@Override
-				public void act() {
-					StockMainMenu.mainScreen.setScreen(endScreen);
-				}
-			});
-			viewObjects.add(testButton);
-	
-		viewObjects.add(eventDisplay);
-		viewObjects.add(historyDisplay);
-		viewObjects.add(historyDisplay2);
-		viewObjects.add(historyDisplay3);
-		viewObjects.add(display);
+			viewObjects.add(eventDisplay);
+			viewObjects.add(historyDisplay);
+			viewObjects.add(historyDisplay2);
+			viewObjects.add(historyDisplay3);
+			viewObjects.add(display);
 		
 		homeButton = new Button(getWidth()/2-30, 560 , 60, 30, "Home", new Color(0,0,0), new Action(){
 			public void act(){
@@ -312,7 +314,7 @@ private class MenuScreen extends ClickableScreen{
 	public void createStocks(){
 		for(int i = 0; i < 5; i++){
 			if(i == 0){
-				Button temp = new Button(20,140+(50*i),90,30,Samsung,Color.GREEN, new Action() {
+				Button temp = new Button(20,140+(50*i),90,30,Samsung,Color.black, new Action() {
 					@Override
 					public void act() {
 						selectStock(Samsung);	
@@ -323,7 +325,7 @@ private class MenuScreen extends ClickableScreen{
 				buttons.add(stock1);
 			}
 			if(i == 1){
-				Button temp = new Button(20,140+(50*i),90,30,Blackgate,Color.GREEN, new Action() {
+				Button temp = new Button(20,140+(50*i),90,30,Blackgate,Color.black, new Action() {
 					@Override
 					public void act() {
 						selectStock(Blackgate);
@@ -334,7 +336,7 @@ private class MenuScreen extends ClickableScreen{
 				buttons.add(stock2);
 			}
 			if(i == 2){
-				Button temp = new Button(20,140+(50*i),90,30,Apple,Color.GREEN, new Action() {
+				Button temp = new Button(20,140+(50*i),90,30,Apple,Color.black, new Action() {
 					@Override
 					public void act() {
 						selectStock(Apple);	
@@ -345,7 +347,7 @@ private class MenuScreen extends ClickableScreen{
 				buttons.add(stock3);
 			}
 			if(i == 3){
-				Button temp = new Button(20,140+(50*i),90,30,Glascow,Color.GREEN, new Action() {
+				Button temp = new Button(20,140+(50*i),90,30,Glascow,Color.black, new Action() {
 					@Override
 					public void act() {
 						selectStock(Glascow);
@@ -356,7 +358,7 @@ private class MenuScreen extends ClickableScreen{
 				buttons.add(stock4);
 			}
 			if(i == 4){
-				Button temp = new Button(20,140+(50*i),90,30,Generalmotors,Color.GREEN, new Action() {
+				Button temp = new Button(20,140+(50*i),90,30,Generalmotors,Color.black, new Action() {
 					@Override
 					public void act() {
 						selectStock(Generalmotors);
