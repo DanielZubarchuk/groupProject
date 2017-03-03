@@ -48,15 +48,15 @@ public class Transaction implements StockInventory{
 //				containStocks(chosenStock);
 				fillStock(chosenStock);
 				fillPrices(stockPrice);
-				if(userBalance <= stockPrice){
-					return;
-				}
-				if(userBalance == 0){
-					return;
-				}
 			}else{
 				return;
 			}	
+			if(userBalance < stockPrice){
+				return;
+			}
+			if(userBalance == 0){
+				return;
+			}
 		}else{
 			return;
 		}
