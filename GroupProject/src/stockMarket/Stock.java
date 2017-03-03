@@ -31,19 +31,19 @@ public class Stock implements StockInterface {
 
 	}
 	public double getStockPrice() {
-		return stockPrice;
+		return this.stockPrice;
 	}
 	public void setStockPrice(double price) {
 		this.stockPrice = price;
 	}
 	public String getStockName() {
-		return stockName;
+		return this.stockName;
 	}
 	public void setStockName(String name) {
 		this.stockName = name;
 	}
 	public double getGrowthRate() {
-		return growthRate;
+		return this.growthRate;
 	}
 	public void setGrowthRate(double growth) {
 		this.growthRate = growth;
