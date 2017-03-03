@@ -10,20 +10,22 @@ import java.util.List;
 
 import javax.swing.ImageIcon;
 
-import guiPractice.Screen;
-import guiPractice.components.Action;
-import guiPractice.components.Button;
-import guiPractice.components.Graphic;
-import guiPractice.TextLabel;
-import guiPractice.components.Visible;
-import guiPractice.ClickableScreen;
-import guiPractice.GUIApplication;
+import guiPratice.Screen;
+import guiPratice.components.Action;
+import guiPratice.components.Button;
+import guiPratice.components.Graphic;
+import guiPratice.components.TextLabel;
+import guiPratice.components.Visible;
+import guiPratice.sampleGames.ClickableScreen;
+import guiPratice.GUIApplication;
 
 /**
  * @author Richard
  *
  */
 public class RichardDemo extends GUIApplication implements MouseMotionListener, MouseListener{
+	
+	public static int currentAmount;
 
 	public static RichardDemo demos;
 	public static RichardDemo2 demo2;
@@ -84,9 +86,7 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 		//joey making these
 		//all i need to do is set x and set y
 		//wait for him for more info
-		
-		public ArrayList<Button> buttonArray;
-		
+
 		private Button xNumButton;//made
 		private Button xNumButton2;//made
 		private Button xNumButton3;//made
@@ -169,9 +169,7 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 			reset = new TextLabel(50, 540, 800, 25, " ");
 			buyText = new TextLabel(250, 50, 800, 25, " ");
 			
-			buttonArray = new ArrayList<Button>();
-			
-			xNumButton = new Button(800, 40, 100, 50, " X 1", new Color(255,255,0), new Action(){
+			xNumButton = new Button(800, 40, 100, 50, " X 1", new Color(100,100,100), new Action(){
 
 				public void act() {
 					// TODO Auto-generated method stub
@@ -186,10 +184,13 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 						moveToFront(xNumButton3);
 						button3Disabled = !button3Disabled;
 						button1Disabled = !button1Disabled;
+						currentAmount = 100;
+						System.out.println("button 1");
+						System.out.println(currentAmount);
 						}
 					}
 				});
-			xNumButton2 = new Button(807, 50, 100, 50, " X 10", new Color(255,255,0), new Action(){
+			xNumButton2 = new Button(807, 50, 100, 50, " X 10", new Color(100,100,100), new Action(){
 
 				public void act() {
 					// TODO Auto-generated method stub
@@ -203,11 +204,13 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 						moveToFront(xNumButton);
 						button1Disabled = !button1Disabled;
 						button2Disabled = !button2Disabled;
-						
+						currentAmount = 1;
+						System.out.println("button 2");
+						System.out.println(currentAmount);
 					}
 				}
 				});
-			xNumButton3 = new Button(793, 45, 100, 50, " X 50", new Color(255,255,0), new Action(){
+			xNumButton3 = new Button(793, 45, 100, 50, " X 100", new Color(100,100,100), new Action(){
 
 				
 					public void act() {
@@ -222,111 +225,109 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 							moveToFront(xNumButton2);
 							button2Disabled = !button2Disabled;
 							button3Disabled = !button3Disabled;
+							currentAmount = 10;
+							System.out.println("button 3");
+							System.out.println(currentAmount);
 						}
 					}
 				});
-			
-			buttonArray.add(xNumButton);
-			buttonArray.add(xNumButton2);
-			buttonArray.add(xNumButton3);
-			
-			mangerButton = new Button(50, 350, 150, 40, "MANAGER", new Color(255,255,0), new Action(){
+			mangerButton = new Button(50, 350, 150, 40, "MANAGER", new Color(0,0,0), new Action(){
 				public void act(){
 					//take me to manager screen
 					RichardDemo.demos.setScreen(demo2);
 				}
 			});
 			
-			statsButton = new Button(50, 410, 150, 40, "STATISTICS", new Color(255,255,0), new Action(){
+			statsButton = new Button(50, 410, 150, 40, "STATISTICS", new Color(0,0,0), new Action(){
 				public void act(){
 					RichardDemo.demos.setScreen(demo3);
 				}
 			});
 			
-			restartButton = new Button(50, 470, 150, 40, "restart*", new Color(255,255,0), new Action(){
+			restartButton = new Button(50, 470, 150, 40, "restart*", new Color(0,0,0), new Action(){
 				public void act(){
 					reset.setText("You have reseted");
 					
 				}
 			});
 			
-			buyButton1 = new Button(420, 180, 100, 40, "BUY", new Color(255,255,0), new Action(){
+			buyButton1 = new Button(420, 180, 100, 40, "BUY", new Color(0,0,0), new Action(){
 				public void act(){
 					buyText.setText("You have bought girgwiglg1");
 				}
 			});
-			buyButton2 = new Button(790, 180, 100, 40, "BUY", new Color(255,255,0), new Action(){
+			buyButton2 = new Button(790, 180, 100, 40, "BUY", new Color(0,0,0), new Action(){
 				public void act(){
 					buyText.setText("You have bought girgwiglg2");
 				}
 			});
-			buyButton3 = new Button(420, 280, 100, 40, "BUY", new Color(255,255,0), new Action(){
+			buyButton3 = new Button(420, 280, 100, 40, "BUY", new Color(0,0,0), new Action(){
 				public void act(){
 					buyText.setText("You have bought girgwiglg3");
 				}
 			});
-			buyButton4 = new Button(790, 280, 100, 40, "BUY", new Color(255,255,0), new Action(){
+			buyButton4 = new Button(790, 280, 100, 40, "BUY", new Color(0,0,0), new Action(){
 				public void act(){
 					buyText.setText("You have bought girgwiglg4");
 				}
 			});
-			buyButton5 = new Button(420, 380, 100, 40, "BUY", new Color(255,255,0), new Action(){
+			buyButton5 = new Button(420, 380, 100, 40, "BUY", new Color(0,0,0), new Action(){
 				public void act(){
 					buyText.setText("You have bought girgwiglg5");
 				}
 			});
-			buyButton6 = new Button(790, 380, 100, 40, "BUY", new Color(255,255,0), new Action(){
+			buyButton6 = new Button(790, 380, 100, 40, "BUY", new Color(0,0,0), new Action(){
 				public void act(){
 					buyText.setText("You have bought girgwiglg6");
 				}
 			});
-			buyButton7 = new Button(420, 480, 100, 40, "BUY", new Color(255,255,0), new Action(){
+			buyButton7 = new Button(420, 480, 100, 40, "BUY", new Color(0,0,0), new Action(){
 				public void act(){
 					buyText.setText("You have bought girgwiglg7");
 				}
 			});
-			buyButton8 = new Button(790, 480, 100, 40, "BUY", new Color(255,255,0), new Action(){
+			buyButton8 = new Button(790, 480, 100, 40, "BUY", new Color(0,0,0), new Action(){
 				public void act(){
 					buyText.setText("You have bought girgwiglg8");
 				}
 			});
 			
-			makeMoneyButton1 = new Button(521, 180, 100, 40, "$$$", new Color(255,255,0), new Action(){
+			makeMoneyButton1 = new Button(521, 180, 100, 40, "$$$", new Color(0,0,0), new Action(){
 				public void act(){
 					buyText.setText("You have dofgjsioprjhbilr1");
 				}
 			});
-			makeMoneyButton2 = new Button(891, 180, 100, 40, "$$$", new Color(255,255,0), new Action(){
+			makeMoneyButton2 = new Button(891, 180, 100, 40, "$$$", new Color(0,0,0), new Action(){
 				public void act(){
 					buyText.setText("You have dofgjsioprjhbilr2");
 				}
 			});
-			makeMoneyButton3 = new Button(521, 280, 100, 40, "$$$", new Color(255,255,0), new Action(){
+			makeMoneyButton3 = new Button(521, 280, 100, 40, "$$$", new Color(0,0,0), new Action(){
 				public void act(){
 					buyText.setText("You have dofgjsioprjhbilr3");
 				}
 			});
-			makeMoneyButton4 = new Button(891, 280, 100, 40, "$$$", new Color(255,255,0), new Action(){
+			makeMoneyButton4 = new Button(891, 280, 100, 40, "$$$", new Color(0,0,0), new Action(){
 				public void act(){
 					buyText.setText("You have dofgjsioprjhbilr4");
 				}
 			});
-			makeMoneyButton5 = new Button(521, 380, 100, 40, "$$$", new Color(255,255,0), new Action(){
+			makeMoneyButton5 = new Button(521, 380, 100, 40, "$$$", new Color(0,0,0), new Action(){
 				public void act(){
 					buyText.setText("You have dofgjsioprjhbilr5");
 				}
 			});
-			makeMoneyButton6 = new Button(891, 380, 100, 40, "$$$", new Color(255,255,0), new Action(){
+			makeMoneyButton6 = new Button(891, 380, 100, 40, "$$$", new Color(0,0,0), new Action(){
 				public void act(){
 					buyText.setText("You have dofgjsioprjhbilr6");
 				}
 			});
-			makeMoneyButton7 = new Button(521, 480, 100, 40, "$$$", new Color(255,255,0), new Action(){
+			makeMoneyButton7 = new Button(521, 480, 100, 40, "$$$", new Color(0,0,0), new Action(){
 				public void act(){
 					buyText.setText("You have dofgjsioprjhbilr7");
 				}
 			});
-			makeMoneyButton8 = new Button(891, 480, 100, 40, "$$$", new Color(255,255,0), new Action(){
+			makeMoneyButton8 = new Button(891, 480, 100, 40, "$$$", new Color(0,0,0), new Action(){
 				public void act(){
 					buyText.setText("You have dofgjsioprjhbilr8");
 				}
@@ -456,6 +457,10 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 //		viewObjects.add(a);
 //		a.play();
 //	}
-	
+
+	public static int getCurrentAmount() {
+		// TODO Auto-generated method stub
+		return currentAmount;
+	}
 }
 
