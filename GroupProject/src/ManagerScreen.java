@@ -44,7 +44,7 @@ public class ManagerScreen extends ClickableScreen implements MouseMotionListene
 				Color.GRAY, new Action() {
 			
 			public void act() {
-				RichardDemo.demos.setScreen(RichardDemo.demo);
+				AdventureCapGame.game.setScreen(AdventureCapGame.AdvCapDemo);
 			}
 		});
 		viewObjects.add(background);

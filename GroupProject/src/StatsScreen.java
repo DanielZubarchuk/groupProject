@@ -19,9 +19,11 @@ public class StatsScreen extends Screen implements MouseMotionListener,MouseList
 	}
 
 	@Override
-	public void mouseClicked(MouseEvent arg0) {
+	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+		if(back.isHovered(e.getX(), e.getY())){
+			back.act();
+		}
 	}
 
 	@Override
@@ -67,7 +69,7 @@ public class StatsScreen extends Screen implements MouseMotionListener,MouseList
 				Color.GRAY, new Action() {
 			
 			public void act() {
-				AdventureCapScreen.AdvCapDemo.setScreen(AdventureCapScreen.demo);
+				AdventureCapGame.game.setScreen(AdventureCapGame.AdvCapDemo);
 			}
 		});
 		viewObjects.add(back);
