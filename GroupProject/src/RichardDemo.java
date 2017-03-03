@@ -10,6 +10,7 @@ import java.util.List;
 
 import javax.swing.ImageIcon;
 
+import guiPratice.components.AnimatedComponent;
 import guiPratice.Screen;
 import guiPratice.components.Action;
 import guiPratice.components.Button;
@@ -384,7 +385,7 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 			viewObjects.add(reset);
 			viewObjects.add(buyText);
 			
-//			addAnimation(viewObjects);
+			addAnimation(viewObjects);
 		}
 	}
 
@@ -429,34 +430,44 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 		// TODO Auto-generated method stub
 		
 	}
-//	private void addAnimation(List<Visible> viewObjects) {
-//		// TODO Auto-generated method stub
-//		AnimatedComponent a = new AnimatedComponent(40,40,150,150);
-//		try{
-//			int numberInRow = 7;
-//			int rows = 4;
-//			int w = 80;
-//			int h = 160;
-//			ImageIcon icon = new ImageIcon("resources/sampleImages/zanpto_sprite_sheet.png");
-//			//create a for loop that will take a "sub-length from the sprite grid
-//			for(int i = 0; i < numberInRow*rows; i++){
-//				//declare the "cropped image" 
-//				BufferedImage cropped = new BufferedImage(w,h,BufferedImage.TYPE_INT_ARGB);
-//				int leftMargin = 0;
-//				int topMargin = 0;
-//				int x1 = leftMargin + w*(i%numberInRow);
-//				int y1 = topMargin + h*(1/numberInRow);
-//				Graphics2D g = cropped.createGraphics();
-//				g.drawImage(icon.getImage(), 0, 0, w, h, x1, y1, x1 + w, y1 + h, null);
-//				a.addFrame(cropped, 120);
-//			}
-//		}
-//		catch(Exception e){
-//			e.printStackTrace();
-//		}
-//		viewObjects.add(a);
-//		a.play();
-//	}
+	private void addAnimation(ArrayList<Visible> viewObjects) {
+		// TODO Auto-generated method stub
+		AnimatedComponent a = new AnimatedComponent(0,0,56*2,72*2);
+		//size of pic on screen
+		try{
+//			int numberInRow = 1;
+//			int rows = 53;
+//			int w = 303;
+//			int h = 103;
+			int numberInRow = 4;
+			int rows = 1;
+			int w = 56;
+			int h = 79;
+			ImageIcon icon = new ImageIcon("resources/animatedPic/zanpto_sprite_sheet.png");
+			//create a for loop that will take a "sub-length from the sprite grid
+			for(int k = 0; k< rows; k++){
+				for(int i = 0; i < numberInRow; i++){
+					//declare the "cropped image" 
+					BufferedImage cropped = new BufferedImage(w,h,BufferedImage.TYPE_INT_ARGB);
+					int leftMargin = 0;
+					int topMargin = 0;
+					int x1 = leftMargin + w*(i%numberInRow);
+					int y1 = topMargin + h*(k%numberInRow);
+					Graphics2D g = cropped.createGraphics();
+					g.drawImage(icon.getImage(), 0, 0, w, h, x1, y1, x1 + w, y1 + h, null);
+					//                           compress horizontal
+					//								compress vertical
+					
+					a.addFrame(cropped, 200);
+				}
+			}
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		viewObjects.add(a);
+		a.play();
+	}
 
 	public static int getCurrentAmount() {
 		// TODO Auto-generated method stub
