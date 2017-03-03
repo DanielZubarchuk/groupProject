@@ -51,10 +51,10 @@ public class MainMenuScreen extends ClickableScreen implements MouseMotionListen
 					MainMenu.histScreen.stockOpened = true;
 					MainMenu.histScreen.addToHistory(new Graphic((int) (2 * getWidth()/3 ), getHeight()/2 - 50, .5, "resources/sampleImages/stockMarketIcon.png"));			
 //					nested inner class ??
-//					MainMenu.mms.setScreen(MainMenu.stockLink);
+					MainMenu.mms.setScreen(MainMenu.stockLink);
 				}
 				else{
-//					MainMenu.mms.setScreen(MainMenu.stockLink);
+					MainMenu.mms.setScreen(MainMenu.stockLink);
 				}
 			}
 		});

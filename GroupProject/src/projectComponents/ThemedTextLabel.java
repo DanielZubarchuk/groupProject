@@ -1,7 +1,7 @@
 /**
  * 
  */
-package projectComponents;
+package src.projectComponents;
 
 import java.awt.Color;
 import java.awt.Font;

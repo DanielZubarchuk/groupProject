@@ -13,6 +13,8 @@ import guiPractice.components.Button;
 import guiPractice.ClickableScreen;
 import guiPractice.components.Graphic;
 import guiPractice.components.Visible;
+import src.App;
+import src.MainMenu;
 import src.projectComponents.MultiLineTextLabel;
 import src.projectComponents.ThemedTextLabel;
 import src.stackInterfaces.StockInterface;
@@ -52,7 +54,7 @@ public class StockMainMenu extends GUIApplication {
 		}
 		
 //nested inner class
-private class MenuScreen extends ClickableScreen{
+public static class MenuScreen extends ClickableScreen implements App{
 	
 	private ArrayList<Button> buttons;
 	private Button homeButton;
@@ -412,12 +414,25 @@ private class MenuScreen extends ClickableScreen{
 		viewObjects.add(end);
 		
 		homeButton = new Button(getWidth()/2-30, 560 , 60, 30, "Home", new Color(0,0,0), new Action(){
+			@Override
 			public void act(){
-				//MainMenu.mms.setScreen(MainMenu.menuScreen);
+				src.MainMenu.mms.setScreen(src.MainMenu.menuScreen);
 			}
 		});
 		viewObjects.add(homeButton);
 
+	}
+
+	@Override
+	public Graphic getGraphic() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setHomeButton(Button homeButton) {
+		this.homeButton = homeButton;
+		
 	}
 	
 	}

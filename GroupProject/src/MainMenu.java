@@ -2,6 +2,8 @@ package src;
 
 import guiPractice.GUIApplication;
 import guiPractice.Screen;
+import src.stockMarket.StockMainMenu;
+import src.stockMarket.StockMainMenu.MenuScreen;
 
 public class MainMenu extends GUIApplication {
 
@@ -9,7 +11,7 @@ public class MainMenu extends GUIApplication {
 	public static HistoryScreen histScreen;
 	public static SampleScreen sampleScreen;
 //	nested inner class ??
-//	public static StockMainMenu.MenuScreen stockLink;
+	public static StockMainMenu.MenuScreen stockLink;
 	public static MainMenu mms;
 	
 	@Override
@@ -17,7 +19,8 @@ public class MainMenu extends GUIApplication {
 		menuScreen = new MainMenuScreen(1100, 700);
 		histScreen = new HistoryScreen(1100, 700);
 		sampleScreen = new SampleScreen(1100, 700);
-//		stockLink = new StockMainMenu.MenuScreen(1100, 700)
+
+		stockLink = new MenuScreen(1100, 700);
 		setScreen(menuScreen);
 	}
 
