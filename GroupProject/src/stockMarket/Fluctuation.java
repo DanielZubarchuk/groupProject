@@ -63,17 +63,16 @@ public class Fluctuation implements MarketInterface{
 		
 		reviveStock(eventStock, transaction);
 		
-//		if(checkDepression()){
-//			effect = 0;
-//		}else{
-//			if(checkPeak()){
-//				effect = 2;
-//			}else{
-//				effect = currentEvent/2;
-//			}
-//		}
+		if(checkDepression()){
+			effect = 0;
+		}else{
+			if(checkPeak()){
+				effect = 2;
+			}else{
+				effect = currentEvent/2;
+			}
+		}
 		
-		effect = currentEvent/2;
 		double newGrowth = transaction.getStocks().get(eventStock).getGrowthRate() * effect;
 		double newPrice = transaction.getStocks().get(eventStock).getStockPrice() * newGrowth;
 		
@@ -82,41 +81,31 @@ public class Fluctuation implements MarketInterface{
 		
 	}
 	
-//	private boolean checkPeak() {
-//		int continuousPeak = 0;
-//		for(int i = events.size() - 1; i > 0; i--){
-//			if(events.get(i) == "PROGRESS"){
-//				continuousPeak++;
-//			}else{
-//				if(continuousPeak >= 3){
-//					System.out.println("Peak");
-//					return true;
-//				}else{
-//					continuousPeak = 0;
-//				}
-//			}
-//			
-//		}
-//		return false;
-//	}
-//
-//	private boolean checkDepression() {
-//		int continuousRecession = 0;
-//		for(int i = events.size() - 1; i > 0; i--){
-//			if(events.get(i) == "RECESSION"){
-//				continuousRecession++;
-//			}else{
-//				if(continuousRecession >= 3){
-//					System.out.println("Recession");
-//					return true;
-//				}else{
-//					continuousRecession = 0;
-//				}
-//			}
-//			
-//		}
-//		return false;
-//	}
+	private boolean checkPeak() {
+		int size = events.size();
+		if(events.size() >= 1 && events.get(size-1) == "PROGRESS"){
+			if(events.size() >= 2 && events.get(size-2) == "PROGRESS"){
+				if(events.size() >= 3 && events.get(size-3) == "PROGRESS"){
+					System.out.println("Peak");
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	private boolean checkDepression() {
+		int size = events.size();
+		if(events.size() >= 1 && events.get(size-1) == "RECESSION"){
+			if(events.size() >= 2 && events.get(size-2) == "RECESSION"){
+				if(events.size() >= 3 && events.get(size-3) == "RECESSION"){
+					System.out.println("Recession");
+					return true;
+				}
+			}
+		}
+		return false;
+	}
 
 	private void reviveStock(int index, Transaction transaction) {
 		if((int)(transaction.getStocks().get(eventStock).getStockPrice()) == _BANKRUPT){
