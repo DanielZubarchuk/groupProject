@@ -12,7 +12,7 @@ import stackInterfaces.StockInventory;
 
 public class Transaction implements StockInventory{
 	
-	public ArrayList<String> transactionHistory = new ArrayList<String>();
+	public static ArrayList<String> transactionHistory = new ArrayList<String>();
 	public static ArrayList<Double> transactionPrices  = new ArrayList<Double>();
 	public static ArrayList<StockInterface> stocks = new ArrayList<StockInterface>();
 	

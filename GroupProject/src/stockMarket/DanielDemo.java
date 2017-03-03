@@ -4,7 +4,7 @@
 package stockMarket;
 
 import java.awt.Color;
-
+import java.util.ArrayList;
 import java.util.List;
 
 import guiPractice.GUIApplication;
@@ -74,8 +74,7 @@ public class DanielDemo extends GUIApplication {
 			super(width, height);
 		}
 
-		@Override
-		public void initAllObjects(List<Visible> view) {
+		public void initAllObjects(ArrayList<Visible> view) {
 			background = new Graphic(0,0,getWidth(),getHeight(),"resources/images/moneybackground.jpg");
 			transactionDisplay = new ThemedTextLabel(40, 150, 800, 25, "");
 			logo = new Graphic(40, 50, 90, 90, "resources/images/logo.png");
