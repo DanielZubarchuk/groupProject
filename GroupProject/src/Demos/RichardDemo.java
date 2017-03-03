@@ -1,3 +1,5 @@
+package Demos;
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -417,12 +419,12 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 			
 //			addAnimation(viewObjects);
 //			makeBar();
-
-                        homeButton = new Button(getWidth()/2 - 30, (int) 5 * getHeight()/6, 60, 30, "Home", new Color(0,0,0), new Action() {
-public void act() {
-src.MainMenu.mms.setScreen(src.MainMenu.menuScreen);
-}});
-viewObjects.add(homeButton);
+//
+//                        homeButton = new Button(getWidth()/2 - 30, (int) 5 * getHeight()/6, 60, 30, "Home", new Color(0,0,0), new Action() {
+//public void act() {
+//src.MainMenu.mms.setScreen(src.MainMenu.menuScreen);
+//}});
+//viewObjects.add(homeButton);
 		}
 
 

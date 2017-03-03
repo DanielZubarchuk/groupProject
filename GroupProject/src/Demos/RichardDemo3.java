@@ -1,56 +1,23 @@
+package Demos;
+
 import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
-import java.util.List;
 
 import guiPratice.Screen;
 import guiPratice.components.Action;
 import guiPratice.components.Button;
-import guiPratice.sampleGames.ClickableScreen;
-import guiPratice.components.Graphic;
 import guiPratice.components.Visible;
 
-public class RichardDemo2 extends Screen implements MouseMotionListener, MouseListener{
+public class RichardDemo3 extends Screen implements MouseMotionListener, MouseListener{
 
 	private Button back;
 	
-	private Graphic background;
-	private Graphic theLeung;
-	
-	private Graphic theLeungTag;
-	
-	public RichardDemo2(int width, int height) {
-		super(width, height);
+	public RichardDemo3(int width, int height) {
 		// TODO Auto-generated constructor stub
-	}
-
-	@Override
-	public void initObjects(ArrayList<Visible> viewObjects) {
-		// TODO Auto-generated method stub
-		
-		background = new Graphic(1,1,1.0,"Resources/background/adfasdfasdfadf.png");
-		theLeung = new Graphic(70,100,.5,"Resources/managers/joeeeeeeeeeeeeeey2.png");
-		
-		theLeungTag = new Graphic(70,235,1.0,"Resources/tags/The Leung2.png");
-		
-		back = new Button(850,50,100,60,"Back", 
-				Color.GRAY, new Action() {
-			
-			public void act() {
-				RichardDemo.demos.setScreen(RichardDemo.demo);
-			}
-		});
-		viewObjects.add(background);
-		
-		viewObjects.add(theLeung);
-		
-		viewObjects.add(theLeungTag);
-		
-		viewObjects.add(back);
-		
-		
+		super(width, height);
 	}
 
 	@Override
@@ -96,8 +63,21 @@ public class RichardDemo2 extends Screen implements MouseMotionListener, MouseLi
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public void initObjects(ArrayList<Visible> viewObjects) {
+		// TODO Auto-generated method stub
+		back = new Button(50,50,100,60,"Back", 
+				Color.GRAY, new Action() {
+			
+			public void act() {
+				RichardDemo.demos.setScreen(RichardDemo.demo);
+			}
+		});
+		viewObjects.add(back);
+	}
+
 	public MouseListener getMouseListener(){
 		return this;
 	}
-
 }
