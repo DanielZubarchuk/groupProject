@@ -29,6 +29,9 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 	public static int currentAmount;
 	public static TextLabel moneyDisplay;
 
+	private static ArrayList<Button> amountButton = new ArrayList<Button>();
+	private static ArrayList<Button> priceButton = new ArrayList<Button>();
+	
 	public static RichardDemo demos;
 	public static RichardDemo2 demo2;
 	public static RichardDemo3 demo3;
@@ -83,12 +86,11 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 	}
 
 	//nested inner class
-	private class DemoScreen extends ClickableScreen {
+	private static class DemoScreen extends ClickableScreen {
 
 		//joey making these
 		//all i need to do is set x and set y
 		//wait for him for more info
-
 		private Button xNumButton;//made
 		private Button xNumButton2;//made
 		private Button xNumButton3;//made
@@ -148,7 +150,41 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 			super(width, height);
 		
 		}
-		
+//		public static void makeBar(){
+//			String[]names = new String[]{"Lemon", "NewsPaper", "CarWash", "Pizza","Donut","Shrimp","Hocky","Film"};
+//			for(int i=0; i<names.length; i++){
+//				addAnimation(0,0,names[i],"resources/animatedPic/loading bar2.png ");
+//			}
+//		}
+//		private static void addAnimation(int x, int y, String name, String imgSrc) {
+//			// TODO Auto-generated method stub
+//			AnimatedComponent a = new Bar(x,y,100,100,name,imgSrc);
+//			try{
+//				ImageIcon icon = new ImageIcon(imgSrc);
+//				int numberRow =53 ;
+//				int rows =1;
+//				int w =303;
+//				int h = 103;
+//				for(int k = 0; k< rows; k++){
+//					for(int i=0;i<numberRow*rows;i++){
+//						//declare cropped image
+//						BufferedImage cropped = new BufferedImage(w,h,BufferedImage.TYPE_INT_ARGB);
+//						int leftMargin=0;
+//						int topMargin =0 ;
+//						int x1 = leftMargin + w*(i%numberRow);
+//						int y1=topMargin +h*(k%numberRow);
+//						Graphics g = cropped.createGraphics();
+//						g.drawImage(icon.getImage(),0,0,w,h,x1,y1,x1+w,y1+h,null);
+//						a.addFrame(cropped, 300);
+//					}
+//				}
+//			}
+//			catch(Exception e){
+//				e.printStackTrace();
+//			}
+//			a.setX(x);
+//			a.setY(y);
+//		}
 		@Override
 		public void initAllObjects(ArrayList<Visible> viewObjects) {
 			// TODO Auto-generated method stub
@@ -160,7 +196,7 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 			//everything else false 
 			//if showing act
 			//if not dont act
-			
+			setCurrentAmount(1);
 			background = new Graphic(1,1,1.0,"Resources/background/cfafa34141.png");
 			iconleft = new Graphic(56,220,1.0, "Resources/icon/dbjhasdfjndfm.jpg");
 			
@@ -183,9 +219,10 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 						moveToFront(xNumButton3);
 						button3Disabled = !button3Disabled;
 						button1Disabled = !button1Disabled;
-						currentAmount = 100;
+						setCurrentAmount(100);
 						System.out.println("button 1");
 						System.out.println(currentAmount);
+						changeButton(viewObjects);
 						}
 					}
 				});
@@ -203,9 +240,10 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 						moveToFront(xNumButton);
 						button1Disabled = !button1Disabled;
 						button2Disabled = !button2Disabled;
-						currentAmount = 1;
+						setCurrentAmount(1);
 						System.out.println("button 2");
 						System.out.println(currentAmount);
+						changeButton(viewObjects);
 					}
 				}
 				});
@@ -224,9 +262,10 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 							moveToFront(xNumButton2);
 							button2Disabled = !button2Disabled;
 							button3Disabled = !button3Disabled;
-							currentAmount = 10;
+							setCurrentAmount(10);
 							System.out.println("button 3");
 							System.out.println(currentAmount);
+							changeButton(viewObjects);
 						}
 					}
 				});
@@ -234,12 +273,6 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 				public void act(){
 					//take me to manager screen
 					RichardDemo.demos.setScreen(demo2);
-				}
-			});
-			
-			statsButton = new Button(50, 410, 150, 40, "STATISTICS", new Color(0,0,0), new Action(){
-				public void act(){
-					RichardDemo.demos.setScreen(demo3);
 				}
 			});
 			
@@ -291,42 +324,42 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 				}
 			});
 			
-			makeMoneyButton1 = new Button(521, 180, 100, 40, "$$$", new Color(0,0,0), new Action(){
+			makeMoneyButton1 = new Button(521, 180, 100, 40, "$" + 1*currentAmount, new Color(0,0,0), new Action(){
 				public void act(){
 					buyText.setText("You have dofgjsioprjhbilr1");
 				}
 			});
-			makeMoneyButton2 = new Button(891, 180, 100, 40, "$$$", new Color(0,0,0), new Action(){
+			makeMoneyButton2 = new Button(891, 180, 100, 40, "$" + 2*currentAmount, new Color(0,0,0), new Action(){
 				public void act(){
 					buyText.setText("You have dofgjsioprjhbilr2");
 				}
 			});
-			makeMoneyButton3 = new Button(521, 280, 100, 40, "$$$", new Color(0,0,0), new Action(){
+			makeMoneyButton3 = new Button(521, 280, 100, 40, "$" + 5*currentAmount, new Color(0,0,0), new Action(){
 				public void act(){
 					buyText.setText("You have dofgjsioprjhbilr3");
 				}
 			});
-			makeMoneyButton4 = new Button(891, 280, 100, 40, "$$$", new Color(0,0,0), new Action(){
+			makeMoneyButton4 = new Button(891, 280, 100, 40, "$" + 10*currentAmount, new Color(0,0,0), new Action(){
 				public void act(){
 					buyText.setText("You have dofgjsioprjhbilr4");
 				}
 			});
-			makeMoneyButton5 = new Button(521, 380, 100, 40, "$$$", new Color(0,0,0), new Action(){
+			makeMoneyButton5 = new Button(521, 380, 100, 40, "$" + 20*currentAmount, new Color(0,0,0), new Action(){
 				public void act(){
 					buyText.setText("You have dofgjsioprjhbilr5");
 				}
 			});
-			makeMoneyButton6 = new Button(891, 380, 100, 40, "$$$", new Color(0,0,0), new Action(){
+			makeMoneyButton6 = new Button(891, 380, 100, 40, "$" + 40*currentAmount, new Color(0,0,0), new Action(){
 				public void act(){
 					buyText.setText("You have dofgjsioprjhbilr6");
 				}
 			});
-			makeMoneyButton7 = new Button(521, 480, 100, 40, "$$$", new Color(0,0,0), new Action(){
+			makeMoneyButton7 = new Button(521, 480, 100, 40, "$" + 75*currentAmount, new Color(0,0,0), new Action(){
 				public void act(){
 					buyText.setText("You have dofgjsioprjhbilr7");
 				}
 			});
-			makeMoneyButton8 = new Button(891, 480, 100, 40, "$$$", new Color(0,0,0), new Action(){
+			makeMoneyButton8 = new Button(891, 480, 100, 40, "$" + 150*currentAmount, new Color(0,0,0), new Action(){
 				public void act(){
 					buyText.setText("You have dofgjsioprjhbilr8");
 				}
@@ -345,12 +378,11 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 			viewObjects.add(background);
 			viewObjects.add(iconleft);
 			
-			viewObjects.add(xNumButton);
-			viewObjects.add(xNumButton2);
-			viewObjects.add(xNumButton3);
+			amountButton.add(xNumButton);
+			amountButton.add(xNumButton2);
+			amountButton.add(xNumButton3);	
 			
 			viewObjects.add(mangerButton);
-			viewObjects.add(statsButton);
 			viewObjects.add(restartButton);
 			
 			viewObjects.add(buyButton1);
@@ -362,6 +394,14 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 			viewObjects.add(buyButton7);
 			viewObjects.add(buyButton8);
 			
+			priceButton.add(makeMoneyButton1);
+			priceButton.add(makeMoneyButton2);
+			priceButton.add(makeMoneyButton3);
+			priceButton.add(makeMoneyButton4);
+			priceButton.add(makeMoneyButton5);
+			priceButton.add(makeMoneyButton6);
+			priceButton.add(makeMoneyButton7);
+			priceButton.add(makeMoneyButton8);
 			viewObjects.add(makeMoneyButton1);
 			viewObjects.add(makeMoneyButton2);
 			viewObjects.add(makeMoneyButton3);
@@ -383,7 +423,122 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 			viewObjects.add(reset);
 			viewObjects.add(buyText);
 			
-			addAnimation(viewObjects);
+//			addAnimation(viewObjects);
+//			makeBar();
+			intiAmountButton(viewObjects);
+		}
+//		private void addAnimation(ArrayList<Visible> viewObjects) {
+//			// TODO Auto-generated method stub
+//			AnimatedComponent a = new AnimatedComponent(100,0,200,200);
+//			//size of pic on screen
+//			try{
+//				int numberInRow = 1;
+//				int rows = 53;
+//				int w = 303;
+//				int h = 103;
+////				int numberInRow = 4;
+////				int rows = 1;
+////				int w = 56;
+////				int h = 79;
+//				ImageIcon icon = new ImageIcon("resources/animatedPic/Untitled1.png");
+//				//create a for loop that will take a "sub-length from the sprite grid
+//
+//					for(int i = 0; i < numberInRow; i++){
+//						//declare the "cropped image" 
+//						BufferedImage cropped = new BufferedImage(w,h,BufferedImage.TYPE_INT_ARGB);
+//						int leftMargin = 0;
+//						int topMargin = 0;
+//						int x1 = leftMargin + w*(i%numberInRow);
+//						int y1 = topMargin + h*(1/numberInRow);
+//						Graphics2D g = cropped.createGraphics();
+//						g.drawImage(icon.getImage(), 0, 0, w, h, x1, y1, x1 + w, y1 + h, null);
+//						//                           compress horizontal
+//						//								compress vertical
+//						
+//						a.addFrame(cropped, 200);
+//					}
+//			}
+//			catch(Exception e){
+//				e.printStackTrace();
+//			}
+//			viewObjects.add(a);
+//			a.play();
+//		}
+		public void changeButton(ArrayList<Visible> buttonthing){
+			System.out.println("x");
+			priceButton.clear();
+			priceButton.add(makeMoneyButton1);
+			priceButton.add(makeMoneyButton2);
+			priceButton.add(makeMoneyButton3);
+			priceButton.add(makeMoneyButton4);
+			priceButton.add(makeMoneyButton5);
+			priceButton.add(makeMoneyButton6);
+			priceButton.add(makeMoneyButton7);
+			priceButton.add(makeMoneyButton8);
+			
+			buttonthing.remove(makeMoneyButton1);
+			buttonthing.remove(makeMoneyButton2);
+			buttonthing.remove(makeMoneyButton3);
+			buttonthing.remove(makeMoneyButton4);
+			buttonthing.remove(makeMoneyButton5);
+			buttonthing.remove(makeMoneyButton6);
+			buttonthing.remove(makeMoneyButton7);
+			buttonthing.remove(makeMoneyButton8);
+			
+			System.out.println(currentAmount);
+			makeMoneyButton1 = new Button(521, 180, 100, 40, "$" + 1*currentAmount, new Color(0,0,0), new Action(){
+				public void act(){
+					buyText.setText("You have dofgjsioprjhbilr1");
+				}
+			});
+			makeMoneyButton2 = new Button(891, 180, 100, 40, "$" + 2*currentAmount, new Color(0,0,0), new Action(){
+				public void act(){
+					buyText.setText("You have dofgjsioprjhbilr2");
+				}
+			});
+			makeMoneyButton3 = new Button(521, 280, 100, 40, "$" + 5*currentAmount, new Color(0,0,0), new Action(){
+				public void act(){
+					buyText.setText("You have dofgjsioprjhbilr3");
+				}
+			});
+			makeMoneyButton4 = new Button(891, 280, 100, 40, "$" + 10*currentAmount, new Color(0,0,0), new Action(){
+				public void act(){
+					buyText.setText("You have dofgjsioprjhbilr4");
+				}
+			});
+			makeMoneyButton5 = new Button(521, 380, 100, 40, "$" + 20*currentAmount, new Color(0,0,0), new Action(){
+				public void act(){
+					buyText.setText("You have dofgjsioprjhbilr5");
+				}
+			});
+			makeMoneyButton6 = new Button(891, 380, 100, 40, "$" + 40*currentAmount, new Color(0,0,0), new Action(){
+				public void act(){
+					buyText.setText("You have dofgjsioprjhbilr6");
+				}
+			});
+			makeMoneyButton7 = new Button(521, 480, 100, 40, "$" + 75*currentAmount, new Color(0,0,0), new Action(){
+				public void act(){
+					buyText.setText("You have dofgjsioprjhbilr7");
+				}
+			});
+			makeMoneyButton8 = new Button(891, 480, 100, 40, "$" + 150*currentAmount, new Color(0,0,0), new Action(){
+				public void act(){
+					buyText.setText("You have dofgjsioprjhbilr8");
+				}
+			});
+			buttonthing.add(makeMoneyButton1);
+			buttonthing.add(makeMoneyButton2);
+			buttonthing.add(makeMoneyButton3);
+			buttonthing.add(makeMoneyButton4);
+			buttonthing.add(makeMoneyButton5);
+			buttonthing.add(makeMoneyButton6);
+			buttonthing.add(makeMoneyButton7);
+			buttonthing.add(makeMoneyButton8);
+		}
+		public void intiAmountButton(ArrayList<Visible> Button){
+			Button.add(xNumButton);
+			Button.add(xNumButton2);
+			Button.add(xNumButton3);
 		}
 	}
 
@@ -433,15 +588,15 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 		AnimatedComponent a = new AnimatedComponent(0,0,56*2,72*2);
 		//size of pic on screen
 		try{
-//			int numberInRow = 1;
-//			int rows = 53;
-//			int w = 303;
-//			int h = 103;
-			int numberInRow = 4;
-			int rows = 1;
-			int w = 56;
-			int h = 79;
-			ImageIcon icon = new ImageIcon("resources/animatedPic/zanpto_sprite_sheet.png");
+			int numberInRow = 1;
+			int rows = 53;
+			int w = 303;
+			int h = 103;
+//			int numberInRow = 4;
+//			int rows = 1;
+//			int w = 56;
+//			int h = 79;
+			ImageIcon icon = new ImageIcon("resources/animatedPic/loading bar2.png");
 			//create a for loop that will take a "sub-length from the sprite grid
 			for(int k = 0; k< rows; k++){
 				for(int i = 0; i < numberInRow; i++){
@@ -466,12 +621,14 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 		viewObjects.add(a);
 		a.play();
 	}
-
+	public static void setCurrentAmount(int x){
+		currentAmount =x;
+	}
 	public static int getCurrentAmount() {
 		// TODO Auto-generated method stub
 		return currentAmount;
 	}
-	public static void setMoneyText(String text){
+	public void setMoneyText(String text){
 		moneyDisplay.setText(text);
 	}
 }
