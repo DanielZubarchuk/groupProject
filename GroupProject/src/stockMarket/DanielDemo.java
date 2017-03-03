@@ -10,11 +10,11 @@ import java.util.List;
 import guiPractice.GUIApplication;
 import guiPractice.components.Action;
 import guiPractice.components.Button;
-//import guiPractice.components.ClickableScreen;
-//import guiPractice.components.TextArea;
-//import guiPractice.components.TextLabel;
+import guiPractice.ClickableScreen;
+import guiPractice.TextLabel;
 import guiPractice.components.Graphic;
 import guiPractice.components.Visible;
+import guiPractice.sampleGames.TextArea;
 import projectComponents.ThemedTextLabel;
 
 /**
