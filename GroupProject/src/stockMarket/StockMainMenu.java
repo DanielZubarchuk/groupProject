@@ -97,6 +97,7 @@ private class MenuScreen extends ClickableScreen{
 	private MultiLineTextLabel historyDisplay3;
 	private MultiLineTextLabel eventDisplay;
 	public int stockIndex;
+	private Button eventHistory;
 	
 	
 	public MenuScreen(int width, int height) {
@@ -264,6 +265,38 @@ private class MenuScreen extends ClickableScreen{
 			}
 		});
 		viewObjects.add(minus);
+			eventHistory = new Button(500,150, 250, 40, "Event History", Color.green, new Action() {
+			
+			@Override
+			public void act() {
+	
+				StockMainMenu.fluctuation.updateStock(transaction);
+				
+				fluctuation.getEventHistory().add("Current state of " + transaction.getStocks().get(StockMainMenu.fluctuation.getEventStock()).getStockName()
+						+ ": "
+						+ StockMainMenu.fluctuation.outputEvent() 
+						+ "(" + transaction.getStocks().get(StockMainMenu.fluctuation.getEventStock()).getGrowthRate()
+						+ " )" + transaction.getStocks().get(StockMainMenu.fluctuation.getEventStock()).getStockPrice());
+				
+				eventDisplay.setText(fluctuation.getEventHistory().get(fluctuation.getEventHistory().size()-1));
+				
+				if(fluctuation.getEventHistory().size() >= 1){
+					historyDisplay.setText(fluctuation.getEventHistory().get(fluctuation.getEventHistory().size()-1) );
+				}
+				if(fluctuation.getEventHistory().size() >= 2){
+					historyDisplay2.setText(fluctuation.getEventHistory().get(fluctuation.getEventHistory().size()-2) );
+				}
+				if(fluctuation.getEventHistory().size() >= 3){
+					historyDisplay3.setText(fluctuation.getEventHistory().get(fluctuation.getEventHistory().size()-3) );
+				}
+				
+				StockMainMenu.fluctuation.updateStock(transaction);
+//				historyDisplay.setText("Hello\nWorld");
+				
+			}
+		});
+			
+		viewObjects.add(eventHistory);
 		
 		buy = new Button(500, 200, 90, 40, "Buy", Color.green, new Action() {
 			
@@ -277,14 +310,14 @@ private class MenuScreen extends ClickableScreen{
 					else{
 						transaction.buyAStock();
 						display.setText(shareNumber+ " shares of " + transaction.transactionHistory.get(stockIndex) + " were bought for $" 
-								+ Transaction.transactionPrices.get(stockIndex));
+								+ String.format( "%.2f",Transaction.transactionPrices.get(stockIndex)));
 						StockMainMenu.fluctuation.updateStock(transaction);
 						
 						fluctuation.getEventHistory().add("Current state of " + transaction.getStocks().get(StockMainMenu.fluctuation.getEventStock()).getStockName()
 								+ ": "
 								+ StockMainMenu.fluctuation.outputEvent() 
-								+ "(" + transaction.getStocks().get(StockMainMenu.fluctuation.getEventStock()).getGrowthRate()
-								+ " )" + transaction.getStocks().get(StockMainMenu.fluctuation.getEventStock()).getStockPrice());
+								+ "(" + String.format( "%.2f",transaction.getStocks().get(StockMainMenu.fluctuation.getEventStock()).getGrowthRate())
+								+ " )" + String.format( "%.2f",transaction.getStocks().get(StockMainMenu.fluctuation.getEventStock()).getStockPrice()));
 						
 						eventDisplay.setText(fluctuation.getEventHistory().get(fluctuation.getEventHistory().size()-1));
 						
@@ -331,14 +364,14 @@ private class MenuScreen extends ClickableScreen{
 					else{
 						transaction.buyAStock();
 						display.setText(shareNumber+ " shares of " + transaction.transactionHistory.get(stockIndex) + " were bought for $" 
-								+ Transaction.transactionPrices.get(stockIndex));
+								+ String.format( "%.2f",Transaction.transactionPrices.get(stockIndex)));
 						StockMainMenu.fluctuation.updateStock(transaction);
 						
 						fluctuation.getEventHistory().add("Current state of " + transaction.getStocks().get(StockMainMenu.fluctuation.getEventStock()).getStockName()
 								+ ": "
 								+ StockMainMenu.fluctuation.outputEvent() 
-								+ "(" + transaction.getStocks().get(StockMainMenu.fluctuation.getEventStock()).getGrowthRate()
-								+ " )" + transaction.getStocks().get(StockMainMenu.fluctuation.getEventStock()).getStockPrice());
+								+ "(" + String.format( "%.2f",transaction.getStocks().get(StockMainMenu.fluctuation.getEventStock()).getGrowthRate())
+								+ " )" + String.format( "%.2f",transaction.getStocks().get(StockMainMenu.fluctuation.getEventStock()).getStockPrice()));
 						
 						eventDisplay.setText(fluctuation.getEventHistory().get(fluctuation.getEventHistory().size()-1));
 						

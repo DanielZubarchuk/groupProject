@@ -61,7 +61,9 @@ public class Fluctuation implements MarketInterface{
 			
 		double effect = 1;
 		
-		reviveStock(eventStock, transaction);
+		if(Math.random() > .5){
+			reviveStock(eventStock, transaction);
+		}
 		
 		if(checkDepression()){
 			effect = 0;
@@ -141,7 +143,7 @@ public class Fluctuation implements MarketInterface{
 		return events.get(events.size()-1);
 	}
 
-	public static ArrayList<String> getEventHistory() {
+	public ArrayList<String> getEventHistory() {
 		return eventHistory;
 	}
 	
