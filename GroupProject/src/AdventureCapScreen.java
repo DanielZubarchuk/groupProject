@@ -1,49 +1,105 @@
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
+import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 import java.util.List;
 
-import guiPractice8.component.ClickableScreen;
-import guiPractice8.component.Visible;
+import javax.swing.ImageIcon;
 
-public class AdventureCapScreen extends ClickableScreen{
+import guiPratice.components.AnimatedComponent;
+import guiPratice.GUIApplication;
+import guiPratice.Screen;
+import guiPratice.components.Action;
+import guiPratice.components.Button;
+import guiPratice.components.Graphic;
+import guiPratice.components.TextLabel;
+import guiPratice.components.Visible;
+import guiPratice.sampleGames.ClickableScreen;
+
+public class AdventureCapScreen extends GUIApplication implements MouseMotionListener, MouseListener{
 	
-	public AdventureCapScreen(int width, int height) {
-		super(width, height);
-		// TODO Auto-generated constructor stub
+	public static Screen demo;
+	
+	public static AdventureCapGame AdvCapDemo;
+	public static ManagerScreen manager;
+	public static StatsScreen stats;
+	
+	private Button mangerButton;//made
+	private Button statsButton;//made
+	private Button restartButton;//made
+	
+	public void generateMenuButtons(){
+		mangerButton = new Button(50, 350, 150, 40, "MANAGER", new Color(0,0,0), new Action(){
+			public void act(){
+				//take me to manager screen
+				AdventureCapScreen.AdvCapDemo.setScreen(manager);
+			}
+		});
+		
+		statsButton = new Button(50, 410, 150, 40, "STATISTICS", new Color(0,0,0), new Action(){
+			public void act(){
+				AdventureCapScreen.AdvCapDemo.setScreen(stats);
+			}
+		});
+		
+		restartButton = new Button(50, 470, 150, 40, "restart*", new Color(0,0,0), new Action(){
+			public void act(){
+//				reset.setText("You have reseted");
+				
+			}
+		});
+	}
+	
+	@Override
+	public void mouseDragged(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
-	public void initAllObjects(List<Visible> arg0) {
+	public void mouseMoved(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
-		//add "buy" buttons
-		addBuyButtons();
-		//add "swag & stats" buttons
-		addSASButton();
-		//add "X + num" button (top right thing that shows multiple buys)
-		addXNumButton();
 	}
+	
 
-	private void addXNumButton() {
+	@Override
+	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	private void addSASButton() {
+	@Override
+	public void mouseEntered(MouseEvent e) {
 		// TODO Auto-generated method stub
-		int numberOfSASButtons = 3;
-//		for(int i = 0; i<numberOfSASButtons; i++){
-//			
-//		}
-	}
-
-	private void addBuyButtons() {
-		// TODO Auto-generated method stub
-		int numberOfBuyButtons = 8;
 		
-//		for(int i = 0; i<=numberOfBuyButtons/2; i++){
-//			for(int j = 0; j<2; j++){
-//				
-//			}
-//		} 
 	}
 
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected void initScreen() {
+		// TODO Auto-generated method stub
+		
+	}
 }
