@@ -3,9 +3,8 @@ import guiPractice.components.ClickableGraphic;
 import guiPractice.components.Graphic;
 
 public interface App {
-
-	Graphic getGraphic();
 	
+	Graphic getGraphic();
 	void setHomeButton(Button homeButton);
 	
 }

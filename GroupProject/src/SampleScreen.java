@@ -10,10 +10,15 @@ import guiPractice.TextLabel;
 import guiPractice.components.Action;
 import guiPractice.components.Button;
 import guiPractice.components.ClickableGraphic;
+import guiPractice.components.Graphic;
 import guiPractice.components.Visible;
 
 public class SampleScreen extends ClickableScreen implements App, MouseMotionListener, MouseListener {
-
+	/**
+	 * @author Hao
+	 * 
+	 */
+	
 	private Button homeButton;
 	private TextLabel sample;
 	private TextLabel sample2;
@@ -24,7 +29,7 @@ public class SampleScreen extends ClickableScreen implements App, MouseMotionLis
 	}
 
 	@Override
-	public ClickableGraphic getGraphic() {
+	public Graphic getGraphic() {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -37,7 +42,7 @@ public class SampleScreen extends ClickableScreen implements App, MouseMotionLis
 	public void initObjects(ArrayList<Visible> view) {
 		homeButton = new Button(getWidth()/2-30, (int) (5 * getHeight()/6), 60, 30, "Home", new Color(0,0,0), new Action(){
 			public void act(){
-				HaosDemo.demos.setScreen(HaosDemo.demo);
+				MainMenu.mms.setScreen(MainMenu.menuScreen);
 			}
 		});
 		sample = new TextLabel(getWidth()/2 - 125, getHeight()/3, 760, 40, "This is the Sample Screen");
