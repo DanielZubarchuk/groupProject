@@ -13,7 +13,11 @@ import guiPractice.components.Graphic;
 import guiPractice.components.Visible;
 
 public class HistoryScreen extends ClickableScreen implements App, MouseListener, MouseMotionListener {
-
+	/**
+	 * @author Hao
+	 * 
+	 */
+	
 	private Button homeButton;
 	private Button close;
 	private Graphic stockIcon;

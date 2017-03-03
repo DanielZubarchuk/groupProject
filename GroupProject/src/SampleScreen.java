@@ -14,7 +14,11 @@ import guiPractice.components.Graphic;
 import guiPractice.components.Visible;
 
 public class SampleScreen extends ClickableScreen implements App, MouseMotionListener, MouseListener {
-
+	/**
+	 * @author Hao
+	 * 
+	 */
+	
 	private Button homeButton;
 	private TextLabel sample;
 	private TextLabel sample2;

@@ -12,10 +12,6 @@ import guiPractice.components.Graphic;
 import guiPractice.components.Visible;
 
 /**
- * 
- */
-
-/**
  * @author Hao
  *
  */

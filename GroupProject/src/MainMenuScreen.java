@@ -14,7 +14,11 @@ import guiPractice.components.Graphic;
 import guiPractice.components.Visible;
 
 public class MainMenuScreen extends ClickableScreen implements MouseMotionListener, MouseListener, App{
-
+	/**
+	 * @author Hao
+	 * 
+	 */
+	
 	private Button homeButton;
 	private Button history;
 	private ClickableGraphic stockGameLink;

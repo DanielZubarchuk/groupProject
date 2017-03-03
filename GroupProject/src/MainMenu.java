@@ -2,7 +2,11 @@ import guiPractice.GUIApplication;
 import guiPractice.Screen;
 
 public class MainMenu extends GUIApplication {
-
+	/**
+	 * @author Hao
+	 * 
+	 */
+	
 	public static MainMenuScreen menuScreen;
 	public static HistoryScreen histScreen;
 	public static SampleScreen sampleScreen;
