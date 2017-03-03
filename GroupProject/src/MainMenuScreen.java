@@ -43,8 +43,7 @@ public class MainMenuScreen extends ClickableScreen implements MouseMotionListen
 		stockGameLink.setAction(new Action() {
 			public void act(){
 //				MainMenu.histScreen.stockOpened = true;
-				MainMenu.histScreen.addToHistory(new Graphic((int) (2 * getWidth()/3 ), getHeight()/2 - 50, .5, "resources/sampleImages/stockMarketIcon.png"));
-				
+				MainMenu.histScreen.addToHistory(new Graphic((int) (2 * getWidth()/3 ), getHeight()/2 - 50, .5, "resources/sampleImages/stockMarketIcon.png"));			
 				MainMenu.mms.setScreen(MainMenu.sampleScreen);
 			}
 		});
@@ -64,7 +63,7 @@ public class MainMenuScreen extends ClickableScreen implements MouseMotionListen
 
 	public void mouseClicked(MouseEvent e) {
 		  if(homeButton.isHovered(e.getX(), e.getY())){
-		  homeButton.act();
+			  homeButton.act();
 		  }
 		  if(history.isHovered(e.getX(), e.getY())){
 			  history.act();

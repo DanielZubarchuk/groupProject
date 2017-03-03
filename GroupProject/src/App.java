@@ -5,7 +5,6 @@ import guiPractice.components.Graphic;
 public interface App {
 
 	Graphic getGraphic();
-	
 	void setHomeButton(Button homeButton);
 	
 }
