@@ -7,7 +7,7 @@ import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 
 
-public class Button extends TextLabel implements Clickable{
+public class Button extends TextLabel implements Clickable,Visible{
 
 	private Color color;
 	private Action action;

@@ -6,7 +6,7 @@ import guiPractice8.component.Button;
  * @author Joey
  */
 
-public class AmountButton extends Button implements AmountButtonInterface {
+public class AmountButton extends Button {
 	private int amount;
 	private boolean showing;
 	public AmountButton(int x, int y, int w, int h, String text, Color color, Action action, int amount, boolean showing) {
@@ -16,13 +16,11 @@ public class AmountButton extends Button implements AmountButtonInterface {
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
 	public int getAmount() {
 		// TODO Auto-generated method stub
 		return amount;
 	}
 
-	@Override
 	public boolean isShowing() {
 		// TODO Auto-generated method stub
 		return showing;

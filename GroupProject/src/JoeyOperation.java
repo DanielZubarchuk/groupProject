@@ -184,6 +184,7 @@ public class JoeyOperation{
 					priceScaling(hockey);		
 					hockey.setText("Buy x"+AdventureCapScreen.AdvCapDemo.getCurrentAmount()+"  $"+hockey.getPrice());	
 					Statistics.setMoney(money);
+					History.updateHistory(6, "Hockey Stadium");
 				}
 			}
 		}, 14929000, 7464000, 1.10, 192000);
