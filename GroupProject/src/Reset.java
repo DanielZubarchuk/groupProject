@@ -43,9 +43,9 @@ public class Reset implements ResetInterface{
 	public int numTimes(double balance){
 		int times = 0;
 		balance = Math.floor(balance);
-		if(balance%5000.00 == 0){
+		if(balance%25000.00 == 0){
 			while(balance > 0){
-				balance = balance - 5000.00;
+				balance = balance - 25000.00;
 				times++;
 			}
 		}
