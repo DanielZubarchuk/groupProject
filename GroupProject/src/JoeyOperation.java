@@ -85,105 +85,105 @@ public class JoeyOperation{
 		
 		lemon = new PropertyButton(220,180,200,50,"Buy x"+RichardDemo.getCurrentAmount()+"  $4.00", Color.ORANGE, new Action(){
 			public void act(){
-				if(lemon.getPrice()<=Statistics.getMoney()){
-					double money = Statistics.getMoney();
-					int[] qtyOwned = Statistics.getQuantityArray();
-					Statistics.setQuantityArray(0, qtyOwned[0]+=RichardDemo.getCurrentAmount());
+				if(lemon.getPrice()<=Statistics.stats.getCurrentBalance()){
+					double money = Statistics.stats.getCurrentBalance();
+					int[] qtyOwned = Statistics.stats.getQuantityArray();
+					Statistics.stats.setQuantityArray(0, qtyOwned[0]+=RichardDemo.getCurrentAmount());
 					money -= lemon.getPrice();
 					AdventureCapScreen.AdvCapDemo.setMoneyText("$"+money);
 					priceScaling(lemon);
 					lemon.setText("Buy x"+AdventureCapScreen.AdvCapDemo.getCurrentAmount()+"  $"+lemon.getPrice());
-					Statistics.setMoney(money);
+					Statistics.stats.setMoney(money);
 				}
 			}
 		}, 4, 1, 1.07, 1000);
 		
 		newspaper = new PropertyButton(720,180,200,50,"Buy x"+RichardDemo.getCurrentAmount()+"  $60.00", Color.ORANGE, new Action(){
 			public void act(){
-				if(newspaper.getPrice()<=Statistics.getMoney()){
-					double money = Statistics.getMoney();
-					int[] qtyOwned = Statistics.getQuantityArray();
-					Statistics.setQuantityArray(0, qtyOwned[0]+=RichardDemo.getCurrentAmount());
+				if(newspaper.getPrice()<=Statistics.stats.getCurrentBalance()){
+					double money = Statistics.stats.getCurrentBalance();
+					int[] qtyOwned = Statistics.stats.getQuantityArray();
+					Statistics.stats.setQuantityArray(0, qtyOwned[0]+=RichardDemo.getCurrentAmount());
 					money -= newspaper.getPrice();
 					AdventureCapScreen.AdvCapDemo.setMoneyText("$"+money);
 					priceScaling(newspaper);
 					newspaper.setText("Buy x"+AdventureCapScreen.AdvCapDemo.getCurrentAmount()+"  $"+newspaper.getPrice());
-					Statistics.setMoney(money);
+					Statistics.stats.setMoney(money);
 				}					
 			}
 		}, 60, 60, 1.15, 2000);
 		
 		car = new PropertyButton(220,280,200,50,"Buy x"+RichardDemo.getCurrentAmount()+"  $720.00", Color.ORANGE, new Action(){
 			public void act(){
-				if(car.getPrice()<=Statistics.getMoney()){
-					double money = Statistics.getMoney();
-					int[] qtyOwned = Statistics.getQuantityArray();
-					Statistics.setQuantityArray(0, qtyOwned[0]+=RichardDemo.getCurrentAmount());
+				if(car.getPrice()<=Statistics.stats.getCurrentBalance()){
+					double money = Statistics.stats.getCurrentBalance();
+					int[] qtyOwned = Statistics.stats.getQuantityArray();
+					Statistics.stats.setQuantityArray(0, qtyOwned[0]+=RichardDemo.getCurrentAmount());
 					money -= car.getPrice();
 					AdventureCapScreen.AdvCapDemo.setMoneyText("$"+money);
 					priceScaling(car);
 					car.setText("Buy x"+AdventureCapScreen.AdvCapDemo.getCurrentAmount()+"  $"+car.getPrice());
-					Statistics.setMoney(money);
+					Statistics.stats.setMoney(money);
 				}
 			}
 		}, 720, 540, 1.14, 3000);
 		
 		pizza = new PropertyButton(720,280,200,50,"Buy x"+RichardDemo.getCurrentAmount()+"  $8,640.00", Color.ORANGE, new Action(){
 			public void act(){
-				if(pizza.getPrice()<=Statistics.getMoney()){
-					double money = Statistics.getMoney();
-					int[] qtyOwned = Statistics.getQuantityArray();
-					Statistics.setQuantityArray(0, qtyOwned[0]+=RichardDemo.getCurrentAmount());
+				if(pizza.getPrice()<=Statistics.stats.getCurrentBalance()){
+					double money = Statistics.stats.getCurrentBalance();
+					int[] qtyOwned = Statistics.stats.getQuantityArray();
+					Statistics.stats.setQuantityArray(0, qtyOwned[0]+=RichardDemo.getCurrentAmount());
 					money -= pizza.getPrice();
 					AdventureCapScreen.AdvCapDemo.setMoneyText("$"+money);
 					priceScaling(pizza);
 					pizza.setText("Buy x"+AdventureCapScreen.AdvCapDemo.getCurrentAmount()+"  $"+pizza.getPrice());
-					Statistics.setMoney(money);
+					Statistics.stats.setMoney(money);
 				}
 			}
 		}, 8640, 4320, 1.13, 5000);
 		
 		donut = new PropertyButton(220,380,200,50,"Buy x"+RichardDemo.getCurrentAmount()+"  $103,680.00", Color.ORANGE, new Action(){
 			public void act(){
-				if(donut.getPrice()<=Statistics.getMoney()){
-					double money = Statistics.getMoney();
-					int[] qtyOwned = Statistics.getQuantityArray();
-					Statistics.setQuantityArray(0, qtyOwned[0]+=RichardDemo.getCurrentAmount());
+				if(donut.getPrice()<=Statistics.stats.getCurrentBalance()){
+					double money = Statistics.stats.getCurrentBalance();
+					int[] qtyOwned = Statistics.stats.getQuantityArray();
+					Statistics.stats.setQuantityArray(0, qtyOwned[0]+=RichardDemo.getCurrentAmount());
 					money -= donut.getPrice();
 					AdventureCapScreen.AdvCapDemo.setMoneyText("$"+money);
 					priceScaling(donut);
 					donut.setText("Buy x"+AdventureCapScreen.AdvCapDemo.getCurrentAmount()+"  $"+donut.getPrice());
-					Statistics.setMoney(money);
+					Statistics.stats.setMoney(money);
 				}
 			}
 		}, 103680, 51840, 1.12, 12000);
 		
 		shrimp = new PropertyButton(720,380,200,50,"Buy x"+RichardDemo.getCurrentAmount()+"  $1.244 mill", Color.ORANGE, new Action(){
 			public void act(){
-				if(shrimp.getPrice()<=Statistics.getMoney()){
-					double money = Statistics.getMoney();
-					int[] qtyOwned = Statistics.getQuantityArray();
-					Statistics.setQuantityArray(0, qtyOwned[0]+=RichardDemo.getCurrentAmount());
+				if(shrimp.getPrice()<=Statistics.stats.getCurrentBalance()){
+					double money = Statistics.stats.getCurrentBalance();
+					int[] qtyOwned = Statistics.stats.getQuantityArray();
+					Statistics.stats.setQuantityArray(0, qtyOwned[0]+=RichardDemo.getCurrentAmount());
 					money -= shrimp.getPrice();
 					AdventureCapScreen.AdvCapDemo.setMoneyText("$"+money);
 					priceScaling(shrimp);	
 					shrimp.setText("Buy x"+AdventureCapScreen.AdvCapDemo.getCurrentAmount()+"  $"+shrimp.getPrice());		
-					Statistics.setMoney(money);
+					Statistics.stats.setMoney(money);
 				}
 			}
 		}, 1244000, 622080, 1.11, 47000 );
 		
 		hockey = new PropertyButton(220,480,200,50,"Buy x"+RichardDemo.getCurrentAmount()+"  $14.929 mill", Color.ORANGE, new Action(){
 			public void act(){
-				if(hockey.getPrice()<=Statistics.getMoney()){
-					double money = Statistics.getMoney();
-					int[] qtyOwned = Statistics.getQuantityArray();
-					Statistics.setQuantityArray(0, qtyOwned[0]+=RichardDemo.getCurrentAmount());
+				if(hockey.getPrice()<=Statistics.stats.getCurrentBalance()){
+					double money = Statistics.stats.getCurrentBalance();
+					int[] qtyOwned = Statistics.stats.getQuantityArray();
+					Statistics.stats.setQuantityArray(0, qtyOwned[0]+=RichardDemo.getCurrentAmount());
 					money -= hockey.getPrice();
 					AdventureCapScreen.AdvCapDemo.setMoneyText("$"+money);
 					priceScaling(hockey);		
 					hockey.setText("Buy x"+AdventureCapScreen.AdvCapDemo.getCurrentAmount()+"  $"+hockey.getPrice());	
-					Statistics.setMoney(money);
+					Statistics.stats.setMoney(money);
 					History.updateHistory(6, "Hockey Stadium");
 				}
 			}
@@ -191,15 +191,15 @@ public class JoeyOperation{
 		
 		movie = new PropertyButton(720,480,200,50,"Buy x"+RichardDemo.getCurrentAmount()+"  $179.159 mill", Color.ORANGE, new Action(){
 			public void act(){
-				if(movie.getPrice()<=Statistics.getMoney()){
-					double money = Statistics.getMoney();
-					int[] qtyOwned = Statistics.getQuantityArray();
-					Statistics.setQuantityArray(0, qtyOwned[0]+=RichardDemo.getCurrentAmount());
+				if(movie.getPrice()<=Statistics.stats.getCurrentBalance()){
+					double money = Statistics.stats.getCurrentBalance();
+					int[] qtyOwned = Statistics.stats.getQuantityArray();
+					Statistics.stats.setQuantityArray(0, qtyOwned[0]+=RichardDemo.getCurrentAmount());
 					money -= movie.getPrice();
 					AdventureCapScreen.AdvCapDemo.setMoneyText("$"+money);
 					priceScaling(movie);		
 					movie.setText("Buy x"+AdventureCapScreen.AdvCapDemo.getCurrentAmount()+"  $"+movie.getPrice());	
-					Statistics.setMoney(money);
+					Statistics.stats.setMoney(money);
 				}
 			}
 		}, 179159000, 89579000, 1.09, 768000);
@@ -236,7 +236,7 @@ public class JoeyOperation{
 	public static ArrayList<Button> managers(){
 			lemonManager = new ManagerButton(220, 130, 200, 40, "Manage $100", new Color(255,255,0), new Action(){
 				public void act(){
-					if(Statistics.getMoney()>=lemonManager.getPricexd()){
+					if(Statistics.stats.getCurrentBalance()>=lemonManager.getPricexd()){
 						lemonMoney.setEnabled(false);
 						AdventureCapScreen.AdvCapDemo.viewObjects.remove(lemonManager);
 						boolean x = true;
@@ -248,9 +248,9 @@ public class JoeyOperation{
 			},100);
 			newspaperManager = new ManagerButton(720, 130, 200, 40, "Manage $1000", new Color(255,255,0), new Action(){
 				public void act(){
-					if(Statistics.getMoney()>=newspaperManager.getPricexd()){
+					if(Statistics.stats.getCurrentBalance()>=newspaperManager.getPricexd()){
 						newspaperMoney.setEnabled(false);
-						viewObjects.remove(newspaperManager);		
+						AdventureCapScreen.AdvCapDemo.viewObjects.remove(newspaperManager);		
 						boolean x = true;
 						while(x){							
 							newspaperMoney.act();
@@ -260,9 +260,9 @@ public class JoeyOperation{
 			}, 1000);
 			carManager = new ManagerButton(220, 230, 200, 40, "Manage $10k", new Color(255,255,0), new Action(){
 				public void act(){
-					if(Statistics.getMoney()>=carManager.getPricexd()){
+					if(Statistics.stats.getCurrentBalance()>=carManager.getPricexd()){
 						carMoney.setEnabled(false);
-						viewObjects.remove(carManager);
+						AdventureCapScreen.AdvCapDemo.viewObjects.remove(carManager);
 						boolean x = true;
 						while(x){							
 						carMoney.act();
@@ -272,9 +272,9 @@ public class JoeyOperation{
 			}, 10000);
 			pizzaManager = new ManagerButton(720, 230, 200, 40, "Manage $100k", new Color(255,255,0), new Action(){
 				public void act(){
-					if(Statistics.getMoney()>=pizzaManager.getPricexd()){
+					if(Statistics.stats.getCurrentBalance()>=pizzaManager.getPricexd()){
 						pizzaMoney.setEnabled(false);
-						viewObjects.remove(lemonManager);	
+						AdventureCapScreen.AdvCapDemo.viewObjects.remove(lemonManager);	
 						boolean x = true;
 						while(x){							
 						pizzaMoney.act();
@@ -284,9 +284,9 @@ public class JoeyOperation{
 			},100000);
 			donutManager = new ManagerButton(220, 330, 200,40, "Manage $1 mill", new Color(255,255,0), new Action(){
 				public void act(){
-					if(Statistics.getMoney()>=donutManager.getPricexd()){
+					if(Statistics.stats.getCurrentBalance()>=donutManager.getPricexd()){
 						donutMoney.setEnabled(false);
-						viewObjects.remove(donutManager);	
+						AdventureCapScreen.AdvCapDemo.viewObjects.remove(donutManager);	
 						boolean x = true;
 						while(x){							
 						donutMoney.act();
@@ -296,9 +296,9 @@ public class JoeyOperation{
 			},1000000);
 			shrimpManager = new ManagerButton(720, 330, 200, 40, "Manage $10 mill", new Color(255,255,0), new Action(){
 				public void act(){
-					if(Statistics.getMoney()>=shrimpManager.getPricexd()){
+					if(Statistics.stats.getCurrentBalance()>=shrimpManager.getPricexd()){
 						shrimpMoney.setEnabled(false);
-						viewObjects.remove(shrimpManager);	
+						AdventureCapScreen.AdvCapDemo.viewObjects.remove(shrimpManager);	
 						boolean x = true;
 						while(x){							
 						shrimpMoney.act();
@@ -308,9 +308,9 @@ public class JoeyOperation{
 			},10000000);
 			hockeyManager = new ManagerButton(220, 430, 200, 40, "Manage $100 mill", new Color(255,255,0), new Action(){
 				public void act(){
-					if(Statistics.getMoney()>=hockeyManager.getPricexd()){
+					if(Statistics.stats.getCurrentBalance()>=hockeyManager.getPricexd()){
 						hockeyMoney.setEnabled(false);
-						viewObjects.remove(hockeyManager);	
+						AdventureCapScreen.AdvCapDemo.viewObjects.remove(hockeyManager);	
 						boolean x = true;
 						while(x){							
 						hockeyMoney.act();
@@ -320,9 +320,8 @@ public class JoeyOperation{
 			},100000000);
 			movieManager = new ManagerButton(720, 430, 200, 40, "Manage $1 bill", new Color(255,255,0), new Action(){
 				public void act(){
-					if(Statistics.getMoney()>=movieManager.getPricexd()){
-						movieMoney.setEnabled(false);
-						AdvCapDemo.viewObjects.remove(movieManager);	
+					if(Statistics.stats.getCurrentBalance()>=movieManager.getPricexd()){
+						AdventureCapScreen.AdvCapDemo.viewObjects.remove(movieManager);	
 						boolean x = true;
 						while(x){							
 						movieMoney.act();
@@ -410,7 +409,7 @@ public class JoeyOperation{
 				}catch(InterruptedException e){
 					e.printStackTrace();
 				}
-				double money = Statistics.getMoney();
+				double money = Statistics.getCurrentBalance();
 				int[]qtyOwned = Statistics.getQuantityArray();
 				money += property.getPayout() * qtyOwned[0];
 				money = roundNumber(money);

@@ -5,6 +5,8 @@
 
 public class Statistics implements StatsInterface{
 	
+	public static Statistics stats;
+	
 	public static double currentBalance;
 	public double lifetimeEarnings;
 	public static int numResets;
