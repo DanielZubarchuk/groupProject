@@ -45,21 +45,15 @@ public class User extends ClickableScreen{
 	public static ArrayList<String> history = new ArrayList<String>();
 	public static ArrayList<StockInterface> stocksInventory = new ArrayList<StockInterface>();
 	
-	public void goToGameScreen(){
-		System.out.println(""+StockMainMenu.mainScreen);
-		
-		StockMainMenu.mainScreen.setScreen(StockMainMenu.gameScreen);
-	}
-	
 	public void initAllObjects(ArrayList<Visible> viewObjects) {
 		background = new Graphic(0,0,getWidth(),getHeight(),"resources/images/newmoneybackground.png");
 		viewObjects.add(background);
 		
 		//picture??
-		backButton = new Button(10, 30, 90, 40, "back", Color.blue, new Action(){
+		backButton = new Button(10, 30, 90, 40, "back", Color.green, new Action(){
 			
 			public void act(){
-				goToGameScreen();
+				StockMainMenu.mainScreen.setScreen(StockMainMenu.gameScreen);
 			}
 		});
 		viewObjects.add(backButton);
