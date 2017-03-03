@@ -27,7 +27,6 @@ public class Button extends TextLabel implements Clickable{
 	}
 	
 	public void setEnabled(boolean b){
-		System.out.println("Setting enabled to "+b);
 		enabled = b;
 		update();
 	}
@@ -74,7 +73,6 @@ public class Button extends TextLabel implements Clickable{
 
 	@Override
 	public void act() {
-		System.out.println("Clicked a button that is enabled = "+enabled);
 		if(enabled){
 			action.act();
 		}

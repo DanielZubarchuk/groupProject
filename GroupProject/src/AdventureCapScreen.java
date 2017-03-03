@@ -63,7 +63,8 @@ public class AdventureCapScreen extends ClickableScreen implements AdventureCapS
 			}
 		});
 	}
-
+	
+	
 	@Override
 	public void initAllObjects(ArrayList<Visible> arg0) {
 		// TODO Auto-generated method stub

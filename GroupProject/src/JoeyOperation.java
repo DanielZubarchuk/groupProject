@@ -240,42 +240,42 @@ public class JoeyOperation{
 	
 	
 	public static ArrayList<Button> generateMoneyButtons(){
-		Button lemonMoney = new Button(10, 180, 150, 40, "Money!", new Color(255,255,0), new Action(){
+		lemonMoney = new Button(10, 180, 150, 40, "Money!", new Color(255,255,0), new Action(){
 			public void act(){
 				doButtonAction(lemonMoney,lemon, 0);
 			}
 		});
-		Button newspaperMoney = new Button(510, 180, 150, 40, "Money!", new Color(255,255,0), new Action(){
+		newspaperMoney = new Button(510, 180, 150, 40, "Money!", new Color(255,255,0), new Action(){
 			public void act(){
 				doButtonAction(newspaperMoney,newspaper, 1);
 			}
 		});
-		Button carMoney = new Button(10, 280, 150, 40, "Money!", new Color(255,255,0), new Action(){
+		carMoney = new Button(10, 280, 150, 40, "Money!", new Color(255,255,0), new Action(){
 			public void act(){
 				doButtonAction(carMoney	,car, 2);
 			}
 		});
-		Button pizzaMoney = new Button(510, 280, 150, 40, "Money!", new Color(255,255,0), new Action(){
+		pizzaMoney = new Button(510, 280, 150, 40, "Money!", new Color(255,255,0), new Action(){
 			public void act(){
 				doButtonAction(pizzaMoney,pizza, 3);
 			}
 		});
-		Button donutMoney = new Button(10, 380, 150, 40, "Money!", new Color(255,255,0), new Action(){
+		donutMoney = new Button(10, 380, 150, 40, "Money!", new Color(255,255,0), new Action(){
 			public void act(){
 				doButtonAction(donutMoney,donut, 4);
 			}
 		});
-		Button shrimpMoney = new Button(510, 380, 150, 40, "Money!", new Color(255,255,0), new Action(){
+		shrimpMoney = new Button(510, 380, 150, 40, "Money!", new Color(255,255,0), new Action(){
 			public void act(){
 				doButtonAction(shrimpMoney,shrimp, 5);
 			}
 		});
-		Button hockeyMoney = new Button(10, 480, 150, 40, "Money!", new Color(255,255,0), new Action(){
+		hockeyMoney = new Button(10, 480, 150, 40, "Money!", new Color(255,255,0), new Action(){
 			public void act(){
 				doButtonAction(hockeyMoney,hockey, 6);
 			}
 		});
-		Button movieMoney = new Button(510, 480, 150, 40, "Money!", new Color(255,255,0), new Action(){
+		movieMoney = new Button(510, 480, 150, 40, "Money!", new Color(255,255,0), new Action(){
 			public void act(){
 				doButtonAction(movieMoney,movie, 7);
 			}
