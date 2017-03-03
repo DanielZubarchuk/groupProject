@@ -90,6 +90,7 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 		//joey making these
 		//all i need to do is set x and set y
 		//wait for him for more info
+                private Button homeButton;
 		private Button xNumButton;//made
 		private Button xNumButton2;//made
 		private Button xNumButton3;//made
@@ -417,6 +418,11 @@ public class RichardDemo extends GUIApplication implements MouseMotionListener, 
 //			addAnimation(viewObjects);
 //			makeBar();
 
+                        homeButton = new Button(getWidth()/2 - 30, (int) 5 * getHeight()/6, 60, 30, "Home", new Color(0,0,0), new Action() {
+public void act() {
+src.MainMenu.mms.setScreen(src.MainMenu.menuScreen);
+}});
+viewObjects.add(homeButton);
 		}
 
 
