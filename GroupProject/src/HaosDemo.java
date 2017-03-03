@@ -11,12 +11,11 @@ import guiPractice.components.ClickableGraphic;
 import guiPractice.components.Graphic;
 import guiPractice.components.Visible;
 
-/**
- * @author Hao
- *
- */
 public class HaosDemo extends GUIApplication{
-
+	/**
+	 * @author Hao
+	 *
+	 */
 	public static HaosDemo demos;
 	public static Screen demo;
 	public static SampleScreen test;
