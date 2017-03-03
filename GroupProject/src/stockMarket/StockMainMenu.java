@@ -86,7 +86,6 @@ private class MenuScreen extends ClickableScreen{
 	private MultiLineTextLabel historyDisplay;
 	private MultiLineTextLabel historyDisplay2;
 	private MultiLineTextLabel historyDisplay3;
-	private Button eventHistory;
 	private MultiLineTextLabel eventDisplay;
 	public int stockIndex;
 	
@@ -200,43 +199,34 @@ private class MenuScreen extends ClickableScreen{
 		});
 		view.add(minus);
 		
-		eventHistory = new Button(500,150, 250, 40, "Event History", Color.green, new Action() {
-			
-			@Override
-			public void act() {
-	
-				StockMainMenu.fluctuation.updateStock(transaction);
-				
-				fluctuation.getEventHistory().add("Current state of " + transaction.getStocks().get(StockMainMenu.fluctuation.getEventStock()).getStockName()
-						+ ": "
-						+ StockMainMenu.fluctuation.outputEvent() 
-						+ "(" + transaction.getStocks().get(StockMainMenu.fluctuation.getEventStock()).getGrowthRate()
-						+ " )" + transaction.getStocks().get(StockMainMenu.fluctuation.getEventStock()).getStockPrice());
-				
-				eventDisplay.setText(fluctuation.getEventHistory().get(fluctuation.getEventHistory().size()-1));
-				
-				if(fluctuation.getEventHistory().size() >= 1){
-					historyDisplay.setText(fluctuation.getEventHistory().get(fluctuation.getEventHistory().size()-1) );
-				}
-				if(fluctuation.getEventHistory().size() >= 2){
-					historyDisplay2.setText(fluctuation.getEventHistory().get(fluctuation.getEventHistory().size()-2) );
-				}
-				if(fluctuation.getEventHistory().size() >= 3){
-					historyDisplay3.setText(fluctuation.getEventHistory().get(fluctuation.getEventHistory().size()-3) );
-				}
-				
-				StockMainMenu.fluctuation.updateStock(transaction);
-//				historyDisplay.setText("Hello\nWorld");
-				
-			}
-		});
-		
 		buy = new Button(500, 200, 90, 40, "Buy", Color.green, new Action() {
 			
 				public void act() {
-					transaction.buyAStock();
-					display.setText(transaction.transactionHistory.get(stockIndex) + " was sold for $" 
-							+ Transaction.transactionPrices.get(stockIndex));
+//					transaction.buyAStock();
+//					display.setText(transaction.transactionHistory.get(stockIndex) + " was sold for $" 
+//							+ Transaction.transactionPrices.get(stockIndex));
+					
+					StockMainMenu.fluctuation.updateStock(transaction);
+					
+					fluctuation.getEventHistory().add("Current state of " + transaction.getStocks().get(StockMainMenu.fluctuation.getEventStock()).getStockName()
+							+ ": "
+							+ StockMainMenu.fluctuation.outputEvent() 
+							+ "(" + transaction.getStocks().get(StockMainMenu.fluctuation.getEventStock()).getGrowthRate()
+							+ " )" + transaction.getStocks().get(StockMainMenu.fluctuation.getEventStock()).getStockPrice());
+					
+					eventDisplay.setText(fluctuation.getEventHistory().get(fluctuation.getEventHistory().size()-1));
+					
+					if(fluctuation.getEventHistory().size() >= 1){
+						historyDisplay.setText(fluctuation.getEventHistory().get(fluctuation.getEventHistory().size()-1) );
+					}
+					if(fluctuation.getEventHistory().size() >= 2){
+						historyDisplay2.setText(fluctuation.getEventHistory().get(fluctuation.getEventHistory().size()-2) );
+					}
+					if(fluctuation.getEventHistory().size() >= 3){
+						historyDisplay3.setText(fluctuation.getEventHistory().get(fluctuation.getEventHistory().size()-3) );
+					}
+					
+					StockMainMenu.fluctuation.updateStock(transaction);
 			}
 		});
 		view.add(buy);
@@ -261,6 +251,27 @@ private class MenuScreen extends ClickableScreen{
 					//+ Transaction.transactionPrices.get(stockIndex));
 					//transaction.sellAStock();
 //					index++;
+					StockMainMenu.fluctuation.updateStock(transaction);
+					
+					fluctuation.getEventHistory().add("Current state of " + transaction.getStocks().get(StockMainMenu.fluctuation.getEventStock()).getStockName()
+							+ ": "
+							+ StockMainMenu.fluctuation.outputEvent() 
+							+ "(" + transaction.getStocks().get(StockMainMenu.fluctuation.getEventStock()).getGrowthRate()
+							+ " )" + transaction.getStocks().get(StockMainMenu.fluctuation.getEventStock()).getStockPrice());
+					
+					eventDisplay.setText(fluctuation.getEventHistory().get(fluctuation.getEventHistory().size()-1));
+					
+					if(fluctuation.getEventHistory().size() >= 1){
+						historyDisplay.setText(fluctuation.getEventHistory().get(fluctuation.getEventHistory().size()-1) );
+					}
+					if(fluctuation.getEventHistory().size() >= 2){
+						historyDisplay2.setText(fluctuation.getEventHistory().get(fluctuation.getEventHistory().size()-2) );
+					}
+					if(fluctuation.getEventHistory().size() >= 3){
+						historyDisplay3.setText(fluctuation.getEventHistory().get(fluctuation.getEventHistory().size()-3) );
+					}
+					
+					StockMainMenu.fluctuation.updateStock(transaction);
 				}
 			});
 			
@@ -282,7 +293,6 @@ private class MenuScreen extends ClickableScreen{
 		view.add(historyDisplay);
 		view.add(historyDisplay2);
 		view.add(historyDisplay3);
-		view.add(eventHistory);
 		view.add(display);
 		view.add(end);
 			
