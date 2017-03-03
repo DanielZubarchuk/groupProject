@@ -16,15 +16,23 @@ public class JoeyOperation{
 	private static PropertyButton hockey;
 	private static PropertyButton movie;
 
+	private static Button lemonMoney;
+	private static Button newspaperMoney;
+	private static Button carMoney;
+	private static Button pizzaMoney;
+	private static Button donutMoney;
+	private static Button shrimpMoney;
+	private static Button hockeyMoney;
+	private static Button movieMoney;
+	
 
-	public static ArrayList<PropertyButton> propertyButtonList;
+	public static ArrayList<PropertyButton> properties;
 
 
 
 	private int[] numbers;
 	private int theButton = 0;
 
-	public static ArrayList<PropertyButton> properties;
 
 	private boolean canBuy(int userMoney, int cost){
 		return userMoney>cost;
@@ -64,7 +72,7 @@ public class JoeyOperation{
 	
 	
 	
-	public void generateButtons(){
+	public ArrayList<PropertyButton> generateButtons(){
 		
 		lemon = new PropertyButton(220,180,200,50,"Buy x"+RichardDemo.getCurrentAmount()+"  $4.00", Color.ORANGE, new Action(){
 			public void act(){
@@ -186,6 +194,21 @@ public class JoeyOperation{
 			}
 		}, 179159000, 89579000, 1.09, 768000);
 		
+		properties = new ArrayList<PropertyButton>();
+		properties.add(lemon);
+		properties.add(newspaper);
+		properties.add(car);
+		properties.add(pizza);
+		properties.add(donut);
+		properties.add(shrimp);
+		properties.add(hockey);
+		properties.add(movie);
+		
+		
+		
+		
+		return properties;
+		
 
 	}
 	
@@ -197,7 +220,23 @@ public class JoeyOperation{
 	
 	
 	
-	public void generateMoneyButtons(){
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	public ArrayList<Button> generateMoneyButtons(){
 		Button lemonMoney = new Button(10, 180, 150, 40, "Make Money!", new Color(255,255,0), new Action(){
 			public void act(){
 				doButtonAction(lemonMoney,lemon);
@@ -238,7 +277,17 @@ public class JoeyOperation{
 				doButtonAction(movieMoney,movie);
 			}
 		});
+		ArrayList<Button> buttonsList = new ArrayList<Button>();
+		buttonsList.add(lemonMoney);
+		buttonsList.add(newspaperMoney);
+		buttonsList.add(carMoney);
+		buttonsList.add(pizzaMoney);
+		buttonsList.add(donutMoney);
+		buttonsList.add(shrimpMoney);
+		buttonsList.add(hockeyMoney);
+		buttonsList.add(movieMoney);
 		
+		return buttonsList;
 	}
 	
 	protected void doButtonAction(Button buyButton, PropertyButton property) {
