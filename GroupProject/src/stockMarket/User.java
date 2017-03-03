@@ -8,6 +8,7 @@ import guiPractice.components.Button;
 import guiPractice.ClickableScreen;
 import guiPractice.components.Graphic;
 import guiPractice.components.Visible;
+import src.App;
 import src.projectComponents.ThemedTextLabel;
 import src.stackInterfaces.StockInterface;
 import src.stackInterfaces.StockInventory;
@@ -17,7 +18,7 @@ import src.stackInterfaces.StockInventory;
  *
  */
 
-public class User extends ClickableScreen{
+public class User extends ClickableScreen implements App{
 	
 	public User(int width, int height) {
 		super(width, height);
@@ -28,6 +29,7 @@ public class User extends ClickableScreen{
 	public static double balance;
 	private ThemedTextLabel balanceDisplay;
 	
+	private Button homeButton;
 	private Button backButton;
 	private Button viewAllStocks;
 	private Button viewAllTransactions;
@@ -97,9 +99,27 @@ public class User extends ClickableScreen{
 			
 		});
 		viewObjects.add(viewAllTransactions);
+		homeButton = new Button(getWidth()/2-30, 560 , 60, 30, "Home", new Color(0,0,0), new Action(){
+			@Override
+			public void act(){
+				src.MainMenu.mms.setScreen(src.MainMenu.menuScreen);
+			}
+		});
+		viewObjects.add(homeButton);
 	}
 		
 	public static ArrayList<StockInterface> getStocksInventory() {
 		return stocksInventory;
+	}
+
+	@Override
+	public Graphic getGraphic() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setHomeButton(Button homeButton) {
+		this.homeButton = homeButton;		
 	}
 }
