@@ -56,7 +56,7 @@ public class User extends ClickableScreen{
 		});
 		viewObjects.add(backButton);
 		
-		balance = StockMainMenu.getTransaction().getUserBalance();
+//		balance = StockMainMenu.getTransaction().getUserBalance();
 		int stringLength = (("Balance: $" + balance).length()) + 100;
 		balanceDisplay = new ThemedTextLabel((getWidth()- stringLength) / 2, 80, 800, 25, "Balance: $" + balance);
 		viewObjects.add(balanceDisplay);
