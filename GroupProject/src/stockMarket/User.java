@@ -12,6 +12,8 @@ import src.projectComponents.ThemedTextLabel;
 import src.stackInterfaces.DanielInterface;
 import src.stackInterfaces.StockInterface;
 import src.stackInterfaces.StockInventory;
+import src.stockMarket.StockMainMenu;
+import src.stockMarket.Transaction;
 
 /**
  * @author Risa
@@ -43,6 +45,7 @@ public class User extends ClickableScreen implements DanielInterface{
 	public static ArrayList<StockInterface> stocksInventory = new ArrayList<StockInterface>();
 	
 	private StockInventory inventory;
+	private Transaction transactionClass;
 	
 	public void initAllObjects(ArrayList<Visible> viewObjects) {
 		background = new Graphic(0,0,getWidth(),getHeight(),"resources/images/newmoneybackground.png");
@@ -57,7 +60,7 @@ public class User extends ClickableScreen implements DanielInterface{
 		});
 		viewObjects.add(backButton);
 		
-		balance = Transaction.userBalance;
+		balance = transactionClass.getUserBalance();
 		int stringLength = (("Balance: $" + balance).length()) + 100;
 		balanceDisplay = new ThemedTextLabel((getWidth()- stringLength) / 2, 80, 800, 25, "Balance: $" + balance);
 		viewObjects.add(balanceDisplay);

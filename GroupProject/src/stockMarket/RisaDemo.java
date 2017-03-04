@@ -66,6 +66,7 @@ public class RisaDemo extends GUIApplication {
 		private ThemedTextLabel allTransactions;
 		
 		private StockInventory stockInventory;
+		private Transaction transactionClass;
 		
 		public DemoScreen(int width, int height) {
 			super(width, height);
@@ -85,7 +86,7 @@ public class RisaDemo extends GUIApplication {
 			});
 			viewObjects.add(backButton);
 			
-			balance = Transaction.userBalance;
+			balance = transactionClass.getUserBalance();
 			balanceDisplay = new ThemedTextLabel(250, 70, 800, 25, "Balance: $" + balance);
 			viewObjects.add(balanceDisplay);
 			
