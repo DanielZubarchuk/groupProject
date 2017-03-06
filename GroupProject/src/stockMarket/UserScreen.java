@@ -1,7 +1,6 @@
 package src.stockMarket;
 
 import guiPractice.GUIApplication;
-import guiPractice.Screen;
 
 /**
  * @author Risa

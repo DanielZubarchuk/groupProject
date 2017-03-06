@@ -11,6 +11,6 @@ import java.util.ArrayList;
  */
 public interface DanielInterface {
 	ArrayList<StockInterface> getStocksInventory();
-	void viewStocks();
-	void viewTransactions();
+	void addStock(String name, Double price);
+	void addTransaction(String name, Double price, int quantity);
 }

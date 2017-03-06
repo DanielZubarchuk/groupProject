@@ -11,7 +11,6 @@ import guiPractice.components.Visible;
 import src.projectComponents.ThemedTextLabel;
 import src.stackInterfaces.DanielInterface;
 import src.stackInterfaces.StockInterface;
-import src.stackInterfaces.StockInventory;
 import src.stockMarket.StockMainMenu;
 import src.stockMarket.Transaction;
 
@@ -29,23 +28,21 @@ public class User extends ClickableScreen implements DanielInterface{
 	private Graphic background;
 	
 	public static double balance;
-	private ThemedTextLabel balanceDisplay;
 	
 	private Button backButton;
 	private Button viewAllStocks;
 	private Button viewAllTransactions;
 	
+	private ThemedTextLabel balanceDisplay;
 	private ThemedTextLabel stocksTitle;
 	private ThemedTextLabel transactionTitle;
-	private ThemedTextLabel transaction;
-	private ThemedTextLabel stocks;
 	
-	
-	public static ArrayList<String> history = new ArrayList<String>();
 	public static ArrayList<StockInterface> stocksInventory = new ArrayList<StockInterface>();
 	
-	private StockInventory inventory;
-	private Transaction transactionClass;
+	private final int ALL_STOCKS = 0;
+	private final int ALL_TRANSACTIONS = 1;
+	
+	private Transaction stockInventory;
 	
 	public void initAllObjects(ArrayList<Visible> viewObjects) {
 		background = new Graphic(0,0,getWidth(),getHeight(),"resources/images/newmoneybackground.png");
@@ -60,94 +57,56 @@ public class User extends ClickableScreen implements DanielInterface{
 		});
 		viewObjects.add(backButton);
 		
-		balance = transactionClass.getUserBalance();
+		balance = stockInventory.getUserBalance();
 		int stringLength = (("Balance: $" + balance).length()) + 100;
 		balanceDisplay = new ThemedTextLabel((getWidth()- stringLength) / 2, 80, 800, 25, "Balance: $" + balance);
 		viewObjects.add(balanceDisplay);
 		
-		stocksTitle = new ThemedTextLabel(10, 130, 220, 25, "Current Stocks:");
+		stockInventory = StockMainMenu.getTransaction();
+		
+		stocksTitle = new ThemedTextLabel(10, 130, 220, 25, "Current Stocks");
 		viewObjects.add(stocksTitle);
 		
-		if(!stocksInventory.isEmpty()){
-			int y = 180;
-			for(StockInterface s : inventory.getStocks()){
-				stocksInventory.add(s);
-				String temp = s.getStockName() + "	$" + s.getStockPrice() + " " + s.getStockQuantity(); 
-				stocks = new ThemedTextLabel(10, y, 600, 25, temp);
-				y += 40;
-				viewObjects.add(stocks);
-			}
-		}else{
-			stocks = new ThemedTextLabel(10, 180, 400, 25, "You don't own any stocks.");
-			viewObjects.add(stocks);
-		}
-		
-		viewAllStocks = new Button(250, 130, 100, 30, "View All", Color.black, new Action(){
+		viewAllStocks = new Button(160, 130, 95, 25, "View All", Color.black, new Action(){
 
 			@Override
 			public void act() {
-				
-				viewStocks();
+				StockComponent allStocks = new StockComponent(15, 170, getWidth()/2 - 25, getHeight() - 190, stockInventory, ALL_STOCKS);
+				viewObjects.add(allStocks);
 			}
+			
 		});
 		viewObjects.add(viewAllStocks);
-		
-		
-		transactionTitle = new ThemedTextLabel(580, 130, 220, 25, "Transaction History:");
+
+		transactionTitle = new ThemedTextLabel(getWidth()/2, 130, 220, 25, "Transaction History");
 		viewObjects.add(transactionTitle);
-	
 		
-		if(history.isEmpty()){
-			transaction = new ThemedTextLabel(580, 180, 400, 25, "You don't have any previous transactions.");
-			viewObjects.add(transaction);
-		}else{
-			int y = 180;
-			for(StockInterface s : inventory.getStocks()){
-				String temp = "You bought " + s.getStockQuantity() + " " + s.getStockName() + " for " + s.getStockPrice();
-				history.add(temp);
-				transaction = new ThemedTextLabel(580, y, 600, 25, temp);
-				viewObjects.add(transaction);
-				y += 40;
-			}
-		}
-		
-		viewAllTransactions = new Button(800, 130, 100, 30, "View All", Color.black, new Action(){
+		viewAllTransactions = new Button((getWidth()/2) + 200, 130, 95, 25, "View All", Color.black, new Action(){
 
 			@Override
 			public void act() {
-				
-				viewTransactions();
+				StockComponent allTransactions = new StockComponent((getWidth()/2) + 10, 170, getWidth()/2 - 20, getHeight() - 190, stockInventory, ALL_TRANSACTIONS);
+				viewObjects.add(allTransactions);
 			}
 			
 		});
 		viewObjects.add(viewAllTransactions);
-	}
-	
-	public void viewStocks() {
-		if(!stocksInventory.isEmpty()){
-			int y = 180;
-			for(StockInterface s : stocksInventory){
-				String temp = s.getStockName() + "	$" + s.getStockPrice() + " " + s.getStockQuantity(); 
-				stocks = new ThemedTextLabel(10, y, 600, 25, temp);
-				y += 40;
-				viewObjects.add(stocks);
-			}
-		}
-	}
-	
-	public void viewTransactions(){
-		if(!history.isEmpty()){
-			int x = 580;
-			int y = 180;
-			for(String s : history){
-				transaction = new ThemedTextLabel(x, y, 600, 25, s);
-				viewObjects.add(transaction);
-				y += 40;
-			}
-		}
+
 	}
 		
 	public ArrayList<StockInterface> getStocksInventory() {
 		return stocksInventory;
+	}
+
+	@Override
+	public void addStock(String name, Double price) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void addTransaction(String name, Double price, int quantity) {
+		// TODO Auto-generated method stub
+		
 	}
 }
