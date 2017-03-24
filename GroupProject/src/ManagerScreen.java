@@ -26,6 +26,22 @@ public class ManagerScreen extends ClickableScreen implements MouseMotionListene
 	
 	private ArrayList<PropertyButtonInterface> properties;
 
+	private ManagerButton lemonManager;
+
+	private ManagerButton newspaperManager;
+
+	private ManagerButton carManager;
+
+	private ManagerButton pizzaManager;
+
+	private ManagerButton donutManager;
+
+	private ManagerButton shrimpManager;
+
+	private ManagerButton hockeyManager;
+
+	private ManagerButton movieManager;
+
 	public ManagerScreen(int width, int height) {
 		super(width, height);
 		// TODO Auto-generated constructor stub
@@ -55,6 +71,106 @@ public class ManagerScreen extends ClickableScreen implements MouseMotionListene
 		viewObjects.add(back);
 		
 	}
+	
+	public void managers(){
+		lemonManager = new ManagerButton(220, 130, 200, 40, "Manage $100", new Color(255,255,0), new Action(){
+			public void act(){
+				if(Statistics.stats.getCurrentBalance()>=lemonManager.getPricexd()){
+					AdventureCapScreen.AdvCapDemo.lemonMoney.setEnabled(false);
+					viewObjects.remove(lemonManager);
+					boolean x = true;
+					while(x){							
+					AdventureCapScreen.AdvCapDemo.lemonMoney.act();
+					}
+				}
+			}
+		},100);
+		newspaperManager = new ManagerButton(720, 130, 200, 40, "Manage $1000", new Color(255,255,0), new Action(){
+			public void act(){
+				if(Statistics.stats.getCurrentBalance()>=newspaperManager.getPricexd()){
+					AdventureCapScreen.AdvCapDemo.newspaperMoney.setEnabled(false);
+					viewObjects.remove(newspaperManager);		
+					boolean x = true;
+					while(x){							
+						AdventureCapScreen.AdvCapDemo.newspaperMoney.act();
+					}
+				}
+			}
+		}, 1000);
+		carManager = new ManagerButton(220, 230, 200, 40, "Manage $10k", new Color(255,255,0), new Action(){
+			public void act(){
+				if(Statistics.stats.getCurrentBalance()>=carManager.getPricexd()){
+					AdventureCapScreen.AdvCapDemo.carMoney.setEnabled(false);
+					viewObjects.remove(carManager);
+					boolean x = true;
+					while(x){							
+						AdventureCapScreen.AdvCapDemo.carMoney.act();
+					}
+				}
+			}
+		}, 10000);
+		pizzaManager = new ManagerButton(720, 230, 200, 40, "Manage $100k", new Color(255,255,0), new Action(){
+			public void act(){
+				if(Statistics.stats.getCurrentBalance()>=pizzaManager.getPricexd()){
+					AdventureCapScreen.AdvCapDemo.pizzaMoney.setEnabled(false);
+					viewObjects.remove(lemonManager);	
+					boolean x = true;
+					while(x){							
+						AdventureCapScreen.AdvCapDemo.pizzaMoney.act();
+					}
+				}
+			}
+		},100000);
+		donutManager = new ManagerButton(220, 330, 200,40, "Manage $1 mill", new Color(255,255,0), new Action(){
+			public void act(){
+				if(Statistics.stats.getCurrentBalance()>=donutManager.getPricexd()){
+					AdventureCapScreen.AdvCapDemo.donutMoney.setEnabled(false);
+					viewObjects.remove(donutManager);	
+					boolean x = true;
+					while(x){							
+						AdventureCapScreen.AdvCapDemo.donutMoney.act();
+					}
+				}
+			}
+		},1000000);
+		shrimpManager = new ManagerButton(720, 330, 200, 40, "Manage $10 mill", new Color(255,255,0), new Action(){
+			public void act(){
+				if(Statistics.stats.getCurrentBalance()>=shrimpManager.getPricexd()){
+					AdventureCapScreen.AdvCapDemo.shrimpMoney.setEnabled(false);
+					viewObjects.remove(shrimpManager);	
+					boolean x = true;
+					while(x){							
+						AdventureCapScreen.AdvCapDemo.shrimpMoney.act();
+					}
+				}
+			}
+		},10000000);
+		hockeyManager = new ManagerButton(220, 430, 200, 40, "Manage $100 mill", new Color(255,255,0), new Action(){
+			public void act(){
+				if(Statistics.stats.getCurrentBalance()>=hockeyManager.getPricexd()){
+					AdventureCapScreen.AdvCapDemo.hockeyMoney.setEnabled(false);
+					viewObjects.remove(hockeyManager);	
+					boolean x = true;
+					while(x){							
+						AdventureCapScreen.AdvCapDemo.hockeyMoney.act();
+					}
+				}
+			}
+		},100000000);
+		movieManager = new ManagerButton(720, 430, 200, 40, "Manage $1 bill", new Color(255,255,0), new Action(){
+			public void act(){
+				if(Statistics.stats.getCurrentBalance()>=movieManager.getPricexd()){
+					AdventureCapScreen.AdvCapDemo.movieMoney.setEnabled(false);
+					viewObjects.remove(movieManager);	
+					boolean x = true;
+					while(x){							
+						AdventureCapScreen.AdvCapDemo.movieMoney.act();
+					}
+				}
+			}
+		},1000000000);
+	}
+	
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

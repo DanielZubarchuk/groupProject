@@ -5,13 +5,12 @@
 
 import java.util.ArrayList;
 
-public class History implements HistoryInterface {
+public class History {
 	
 	public static ArrayList<String> history;
 	private static AdventureCapScreenInterface h;
 
-	@Override
-	public void updateHistory(int cost, String property) {	
+	public static void updateHistory(int cost, String property) {	
 		String temp;
 		temp = "You purchased " + h.getCurrentAmount() + " " + property + "for " + cost;
 		if(history.size() == 10){
