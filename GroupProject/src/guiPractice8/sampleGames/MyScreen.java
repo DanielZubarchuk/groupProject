@@ -7,15 +7,15 @@ import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 
 import guiPractice8.Screen;
-import guiPractice8.component.Action;
-import guiPractice8.component.Button;
+import guiPractice8.component.Actions;
+import guiPractice8.component.Buttonssss;
 import guiPractice8.component.Graphic;
 import guiPractice8.component.Visible;
 
 public class MyScreen extends Screen implements MouseMotionListener, MouseListener{
 
 	private Graphic secondPic;
-	private Button back;
+	private Buttonssss back;
 	
 	public MyScreen(int width, int height) {
 		super(width, height);
@@ -24,7 +24,7 @@ public class MyScreen extends Screen implements MouseMotionListener, MouseListen
 	@Override
 	public void initObjects(ArrayList<Visible> viewObjects) {
 		secondPic = new Graphic(200,200,1,"resources/sampleImages/images.jpg");
-		back = new Button(50,50,100,60,"Back", Color.GRAY, new Action() {
+		back = new Buttonssss(50,50,100,60,"Back", Color.GRAY, new Actions() {
 			
 			public void act() {
 				MouseFollower.game.setScreen(MouseFollower.coordScreen);

@@ -11,9 +11,9 @@ import java.util.ArrayList;
 import javax.swing.ImageIcon;
 
 import guiPractice8.Screen;
-import guiPractice8.component.Action;
+import guiPractice8.component.Actions;
 import guiPractice8.component.AnimatedComponent;
-import guiPractice8.component.Button;
+import guiPractice8.component.Buttonssss;
 import guiPractice8.component.ClickableGraphic;
 import guiPractice8.component.Graphic;
 import guiPractice8.component.MovingComponent;
@@ -25,7 +25,7 @@ public class CoordinateScreen extends Screen implements MouseMotionListener, Mou
 
 	private TextLabel label;
 	private TextArea paragraph;
-	private Button button;
+	private Buttonssss button;
 	private Graphic picture;
 	
 	public CoordinateScreen(int width, int height) {
@@ -39,8 +39,8 @@ public class CoordinateScreen extends Screen implements MouseMotionListener, Mou
 				"This is a whole paragraph. Notice how "
 				+ "as the paragraph gets to the edge"
 				+ " of the page, a new line is created.");
-		button = new Button(40,200,80,40,"Button",
-				new Color(100,100,250),new Action() {
+		button = new Buttonssss(40,200,80,40,"Button",
+				new Color(100,100,250),new Actions() {
 			
 			public void act() {
 				MouseFollower.game.setScreen(MouseFollower.moveScreen);

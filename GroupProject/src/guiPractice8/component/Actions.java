@@ -1,6 +1,6 @@
 package guiPractice8.component;
 
-public interface Action {
+public interface Actions {
 	public void act();
 		
 }

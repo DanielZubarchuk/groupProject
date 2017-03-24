@@ -1,15 +1,15 @@
 import java.awt.Color;
 
-import guiPractice8.component.Action;
-import guiPractice8.component.Button;
+import guiPractice8.component.Actions;
+import guiPractice8.component.Buttonssss;
 /**
  * @author Joey
  */
 
-public class AmountButton extends Button {
+public class AmountButton extends Buttonssss {
 	private int amount;
 	private boolean showing;
-	public AmountButton(int x, int y, int w, int h, String text, Color color, Action action, int amount, boolean showing) {
+	public AmountButton(int x, int y, int w, int h, String text, Color color, Actions action, int amount, boolean showing) {
 		super(x, y, w, h, text, color, action);
 		this.amount = amount;
 		this.showing = showing;

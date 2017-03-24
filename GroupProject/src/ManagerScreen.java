@@ -10,6 +10,8 @@ import guiPratice.sampleGames.ClickableScreen;
 import guiPratice.components.Visible;
 import guiPratice.components.Action;
 import guiPratice.components.Button;
+import guiPractice8.component.Actions;
+import guiPractice8.component.Buttonssss;
 import guiPratice.components.Graphic;
 
 /**
@@ -73,7 +75,7 @@ public class ManagerScreen extends ClickableScreen implements MouseMotionListene
 	}
 	
 	public void managers(){
-		lemonManager = new ManagerButton(220, 130, 200, 40, "Manage $100", new Color(255,255,0), new Action(){
+		lemonManager = new ManagerButton(220, 130, 200, 40, "Manage $100", new Color(255,255,0), new Actions(){
 			public void act(){
 				if(Statistics.stats.getCurrentBalance()>=lemonManager.getPricexd()){
 					AdventureCapScreen.AdvCapDemo.lemonMoney.setEnabled(false);
@@ -85,7 +87,7 @@ public class ManagerScreen extends ClickableScreen implements MouseMotionListene
 				}
 			}
 		},100);
-		newspaperManager = new ManagerButton(720, 130, 200, 40, "Manage $1000", new Color(255,255,0), new Action(){
+		newspaperManager = new ManagerButton(720, 130, 200, 40, "Manage $1000", new Color(255,255,0), new Actions(){
 			public void act(){
 				if(Statistics.stats.getCurrentBalance()>=newspaperManager.getPricexd()){
 					AdventureCapScreen.AdvCapDemo.newspaperMoney.setEnabled(false);
@@ -97,7 +99,7 @@ public class ManagerScreen extends ClickableScreen implements MouseMotionListene
 				}
 			}
 		}, 1000);
-		carManager = new ManagerButton(220, 230, 200, 40, "Manage $10k", new Color(255,255,0), new Action(){
+		carManager = new ManagerButton(220, 230, 200, 40, "Manage $10k", new Color(255,255,0), new Actions(){
 			public void act(){
 				if(Statistics.stats.getCurrentBalance()>=carManager.getPricexd()){
 					AdventureCapScreen.AdvCapDemo.carMoney.setEnabled(false);
@@ -109,7 +111,7 @@ public class ManagerScreen extends ClickableScreen implements MouseMotionListene
 				}
 			}
 		}, 10000);
-		pizzaManager = new ManagerButton(720, 230, 200, 40, "Manage $100k", new Color(255,255,0), new Action(){
+		pizzaManager = new ManagerButton(720, 230, 200, 40, "Manage $100k", new Color(255,255,0), new Actions(){
 			public void act(){
 				if(Statistics.stats.getCurrentBalance()>=pizzaManager.getPricexd()){
 					AdventureCapScreen.AdvCapDemo.pizzaMoney.setEnabled(false);
@@ -121,7 +123,7 @@ public class ManagerScreen extends ClickableScreen implements MouseMotionListene
 				}
 			}
 		},100000);
-		donutManager = new ManagerButton(220, 330, 200,40, "Manage $1 mill", new Color(255,255,0), new Action(){
+		donutManager = new ManagerButton(220, 330, 200,40, "Manage $1 mill", new Color(255,255,0), new Actions(){
 			public void act(){
 				if(Statistics.stats.getCurrentBalance()>=donutManager.getPricexd()){
 					AdventureCapScreen.AdvCapDemo.donutMoney.setEnabled(false);
@@ -133,7 +135,7 @@ public class ManagerScreen extends ClickableScreen implements MouseMotionListene
 				}
 			}
 		},1000000);
-		shrimpManager = new ManagerButton(720, 330, 200, 40, "Manage $10 mill", new Color(255,255,0), new Action(){
+		shrimpManager = new ManagerButton(720, 330, 200, 40, "Manage $10 mill", new Color(255,255,0), new Actions(){
 			public void act(){
 				if(Statistics.stats.getCurrentBalance()>=shrimpManager.getPricexd()){
 					AdventureCapScreen.AdvCapDemo.shrimpMoney.setEnabled(false);
@@ -145,7 +147,7 @@ public class ManagerScreen extends ClickableScreen implements MouseMotionListene
 				}
 			}
 		},10000000);
-		hockeyManager = new ManagerButton(220, 430, 200, 40, "Manage $100 mill", new Color(255,255,0), new Action(){
+		hockeyManager = new ManagerButton(220, 430, 200, 40, "Manage $100 mill", new Color(255,255,0), new Actions(){
 			public void act(){
 				if(Statistics.stats.getCurrentBalance()>=hockeyManager.getPricexd()){
 					AdventureCapScreen.AdvCapDemo.hockeyMoney.setEnabled(false);
@@ -157,7 +159,7 @@ public class ManagerScreen extends ClickableScreen implements MouseMotionListene
 				}
 			}
 		},100000000);
-		movieManager = new ManagerButton(720, 430, 200, 40, "Manage $1 bill", new Color(255,255,0), new Action(){
+		movieManager = new ManagerButton(720, 430, 200, 40, "Manage $1 bill", new Color(255,255,0), new Actions(){
 			public void act(){
 				if(Statistics.stats.getCurrentBalance()>=movieManager.getPricexd()){
 					AdventureCapScreen.AdvCapDemo.movieMoney.setEnabled(false);

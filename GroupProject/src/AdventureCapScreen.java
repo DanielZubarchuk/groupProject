@@ -14,8 +14,10 @@ import Demos.RichardDemo;
 import guiPratice.components.AnimatedComponent;
 import guiPratice.GUIApplication;
 import guiPratice.Screen;
-import guiPractice8.component.Action;
-import guiPractice8.component.Button;
+import guiPractice8.component.Actions;
+import guiPractice8.component.Buttonssss;
+import guiPratice.components.Button;
+import guiPratice.components.Action;
 import guiPratice.components.Graphic;
 import guiPratice.components.TextLabel;
 import guiPratice.components.Visible;
@@ -43,14 +45,14 @@ public class AdventureCapScreen extends ClickableScreen implements AdventureCapS
 	private Button managerButton;
 
 
-	public Button lemonMoney;
-	public Button newspaperMoney;
-	public Button carMoney;
-	public Button pizzaMoney;
-	public Button donutMoney;
-	public Button shrimpMoney;
-	public Button hockeyMoney;
-	public Button movieMoney;
+	public Buttonssss lemonMoney;
+	public Buttonssss newspaperMoney;
+	public Buttonssss carMoney;
+	public Buttonssss pizzaMoney;
+	public Buttonssss donutMoney;
+	public Buttonssss shrimpMoney;
+	public Buttonssss hockeyMoney;
+	public Buttonssss movieMoney;
 
 	private PropertyButton lemon;
 	private PropertyButton newspaper;
@@ -69,6 +71,7 @@ public class AdventureCapScreen extends ClickableScreen implements AdventureCapS
 	private TextLabel hockeyT;
 	private TextLabel movieT;
 	private ArrayList<TextLabel> times;
+	protected guiPractice8.component.TextLabel buyText;
 
 	public void generateMenuButtons(){
 		managerButton = new Button(50, 230, 150, 40, "MANAGER", new Color(0,0,0), new Action(){
@@ -132,7 +135,7 @@ public class AdventureCapScreen extends ClickableScreen implements AdventureCapS
 	}
 	public void generateButtons(){
 
-		lemon = new PropertyButton(220,180,200,50,"Buy x"+RichardDemo.getCurrentAmount()+"  $4.00", Color.ORANGE, new Action(){
+		lemon = new PropertyButton(220,180,200,50,"Buy x"+RichardDemo.getCurrentAmount()+"  $4.00", Color.ORANGE, new Actions(){
 			public void act(){
 				if(lemon.getPrice()<=Statistics.stats.getCurrentBalance()){
 					double money = Statistics.stats.getCurrentBalance();
@@ -147,7 +150,7 @@ public class AdventureCapScreen extends ClickableScreen implements AdventureCapS
 			}
 		}, 4, 1, 1.07, 1000);
 
-		newspaper = new PropertyButton(720,180,200,50,"Buy x"+RichardDemo.getCurrentAmount()+"  $60.00", Color.ORANGE, new Action(){
+		newspaper = new PropertyButton(720,180,200,50,"Buy x"+RichardDemo.getCurrentAmount()+"  $60.00", Color.ORANGE, new Actions(){
 			public void act(){
 				if(newspaper.getPrice()<=Statistics.stats.getCurrentBalance()){
 					double money = Statistics.stats.getCurrentBalance();
@@ -162,7 +165,7 @@ public class AdventureCapScreen extends ClickableScreen implements AdventureCapS
 			}
 		}, 60, 60, 1.15, 2000);
 
-		car = new PropertyButton(220,280,200,50,"Buy x"+RichardDemo.getCurrentAmount()+"  $720.00", Color.ORANGE, new Action(){
+		car = new PropertyButton(220,280,200,50,"Buy x"+RichardDemo.getCurrentAmount()+"  $720.00", Color.ORANGE, new Actions(){
 			public void act(){
 				if(car.getPrice()<=Statistics.stats.getCurrentBalance()){
 					double money = Statistics.stats.getCurrentBalance();
@@ -177,7 +180,7 @@ public class AdventureCapScreen extends ClickableScreen implements AdventureCapS
 			}
 		}, 720, 540, 1.14, 3000);
 
-		pizza = new PropertyButton(720,280,200,50,"Buy x"+RichardDemo.getCurrentAmount()+"  $8,640.00", Color.ORANGE, new Action(){
+		pizza = new PropertyButton(720,280,200,50,"Buy x"+RichardDemo.getCurrentAmount()+"  $8,640.00", Color.ORANGE, new Actions(){
 			public void act(){
 				if(pizza.getPrice()<=Statistics.stats.getCurrentBalance()){
 					double money = Statistics.stats.getCurrentBalance();
@@ -192,7 +195,7 @@ public class AdventureCapScreen extends ClickableScreen implements AdventureCapS
 			}
 		}, 8640, 4320, 1.13, 5000);
 
-		donut = new PropertyButton(220,380,200,50,"Buy x"+RichardDemo.getCurrentAmount()+"  $103,680.00", Color.ORANGE, new Action(){
+		donut = new PropertyButton(220,380,200,50,"Buy x"+RichardDemo.getCurrentAmount()+"  $103,680.00", Color.ORANGE, new Actions(){
 			public void act(){
 				if(donut.getPrice()<=Statistics.stats.getCurrentBalance()){
 					double money = Statistics.stats.getCurrentBalance();
@@ -207,7 +210,7 @@ public class AdventureCapScreen extends ClickableScreen implements AdventureCapS
 			}
 		}, 103680, 51840, 1.12, 12000);
 
-		shrimp = new PropertyButton(720,380,200,50,"Buy x"+RichardDemo.getCurrentAmount()+"  $1.244 mill", Color.ORANGE, new Action(){
+		shrimp = new PropertyButton(720,380,200,50,"Buy x"+RichardDemo.getCurrentAmount()+"  $1.244 mill", Color.ORANGE, new Actions(){
 			public void act(){
 				if(shrimp.getPrice()<=Statistics.stats.getCurrentBalance()){
 					double money = Statistics.stats.getCurrentBalance();
@@ -222,7 +225,7 @@ public class AdventureCapScreen extends ClickableScreen implements AdventureCapS
 			}
 		}, 1244000, 622080, 1.11, 47000 );
 
-		hockey = new PropertyButton(220,480,200,50,"Buy x"+RichardDemo.getCurrentAmount()+"  $14.929 mill", Color.ORANGE, new Action(){
+		hockey = new PropertyButton(220,480,200,50,"Buy x"+RichardDemo.getCurrentAmount()+"  $14.929 mill", Color.ORANGE, new Actions(){
 			public void act(){
 				if(hockey.getPrice()<=Statistics.stats.getCurrentBalance()){
 					double money = Statistics.stats.getCurrentBalance();
@@ -238,7 +241,7 @@ public class AdventureCapScreen extends ClickableScreen implements AdventureCapS
 			}
 		}, 14929000, 7464000, 1.10, 192000);
 
-		movie = new PropertyButton(720,480,200,50,"Buy x"+RichardDemo.getCurrentAmount()+"  $179.159 mill", Color.ORANGE, new Action(){
+		movie = new PropertyButton(720,480,200,50,"Buy x"+RichardDemo.getCurrentAmount()+"  $179.159 mill", Color.ORANGE, new Actions(){
 			public void act(){
 				if(movie.getPrice()<=Statistics.stats.getCurrentBalance()){
 					double money = Statistics.stats.getCurrentBalance();
@@ -258,48 +261,48 @@ public class AdventureCapScreen extends ClickableScreen implements AdventureCapS
 
 
 	public void moneyMaker(){
-		lemonMoney = new Button(10, 180, 150, 40, "Money!", new Color(255,255,0), new Action(){
+		lemonMoney = new Buttonssss(10, 180, 150, 40, "Money!", new Color(255,255,0), new Actions(){
 			public void act(){
 				doButtonAction(lemonMoney,lemon, 0);
 			}
 		});
-		newspaperMoney = new Button(510, 180, 150, 40, "Money!", new Color(255,255,0), new Action(){
+		newspaperMoney = new Buttonssss(510, 180, 150, 40, "Money!", new Color(255,255,0), new Actions(){
 			public void act(){
 				doButtonAction(newspaperMoney,newspaper, 1);
 			}
 		});
-		carMoney = new Button(10, 280, 150, 40, "Money!", new Color(255,255,0), new Action(){
+		carMoney = new Buttonssss(10, 280, 150, 40, "Money!", new Color(255,255,0), new Actions(){
 			public void act(){
 				doButtonAction(carMoney	,car, 2);
 			}
 		});
-		pizzaMoney = new Button(510, 280, 150, 40, "Money!", new Color(255,255,0), new Action(){
+		pizzaMoney = new Buttonssss(510, 280, 150, 40, "Money!", new Color(255,255,0), new Actions(){
 			public void act(){
 				doButtonAction(pizzaMoney,pizza, 3);
 			}
 		});
-		donutMoney = new Button(10, 380, 150, 40, "Money!", new Color(255,255,0), new Action(){
+		donutMoney = new Buttonssss(10, 380, 150, 40, "Money!", new Color(255,255,0), new Actions(){
 			public void act(){
 				doButtonAction(donutMoney,donut, 4);
 			}
 		});
-		shrimpMoney = new Button(510, 380, 150, 40, "Money!", new Color(255,255,0), new Action(){
+		shrimpMoney = new Buttonssss(510, 380, 150, 40, "Money!", new Color(255,255,0), new Actions(){
 			public void act(){
 				doButtonAction(shrimpMoney,shrimp, 5);
 			}
 		});
-		hockeyMoney = new Button(10, 480, 150, 40, "Money!", new Color(255,255,0), new Action(){
+		hockeyMoney = new Buttonssss(10, 480, 150, 40, "Money!", new Color(255,255,0), new Actions(){
 			public void act(){
 				doButtonAction(hockeyMoney,hockey, 6);
 			}
 		});
-		movieMoney = new Button(510, 480, 150, 40, "Money!", new Color(255,255,0), new Action(){
+		movieMoney = new Buttonssss(510, 480, 150, 40, "Money!", new Color(255,255,0), new Actions(){
 			public void act(){
 				doButtonAction(movieMoney,movie, 7);
 			}
 		});
 	}
-	protected void doButtonAction(Button buyButton, PropertyButton property, int i) {
+	protected void doButtonAction(Buttonssss buyButton, PropertyButton property, int i) {
 
 		Thread actionToDo = new Thread(new Runnable(){
 
@@ -312,6 +315,7 @@ public class AdventureCapScreen extends ClickableScreen implements AdventureCapS
 				//					}catch(InterruptedException e){
 				//						e.printStackTrace();
 				//					}
+				double playerMoney = Statistics.stats.getCurrentBalance();
 				playerMoney += property.getPayout() * quantityOwned[i];
 				playerMoney = roundNumber(playerMoney);
 				buyText.setText("$"+playerMoney);
@@ -323,7 +327,10 @@ public class AdventureCapScreen extends ClickableScreen implements AdventureCapS
 
 
 	}
-
+	public double roundNumber(double amount){
+		double newNumber = (((int)(amount*100))/100.00);
+		return newNumber;
+	}
 
 	public boolean mill(double x){
 		int d = (int)x;

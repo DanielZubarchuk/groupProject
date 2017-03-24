@@ -6,18 +6,20 @@ import java.awt.FontMetrics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 
+import guiPratice.components.Action;
 
-public class Button extends TextLabel implements Clickable,Visible{
+
+public class Buttonssss extends TextLabel implements Clickable,Visible{
 
 	private Color color;
-	private Action action;
+	private Actions action;
 	private boolean enabled;
 
-	public Button(int x, int y, int w, int h, String text, Color color, Action action) {
+	public Buttonssss(int x, int y, int w, int h, String text, Color color, Actions action2) {
 		super(x, y, w, h, text);
 		enabled = true;
 		this.color = color;
-		this.action = action;
+		this.action = action2;
 		update();
 	}
 	

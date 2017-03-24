@@ -5,7 +5,7 @@ import java.util.List;
 
 public class ClickableGraphic extends Graphic implements Clickable {
 
-	private Action action;
+	private Actions action;
 
 	public ClickableGraphic(int x, int y, String imageLocation) {
 		super(x, y, imageLocation);
@@ -33,7 +33,7 @@ public class ClickableGraphic extends Graphic implements Clickable {
 		if(action != null)action.act();
 	}
 	
-	public void setAction(Action a){
+	public void setAction(Actions a){
 		this.action = a;
 	}
 

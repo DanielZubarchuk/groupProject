@@ -4,11 +4,10 @@
 
 import java.awt.Color;
 
-import guiPractice8.component.Action;
-import guiPractice8.component.Button;
-import guiPratice.components.Visible;
+import guiPractice8.component.Actions;
+import guiPractice8.component.Buttonssss;
 
-public class PropertyButton extends Button implements PropertyButtonInterface{
+public class PropertyButton extends Buttonssss implements PropertyButtonInterface{
 	 
 	private int quantity;
 	private double price;
@@ -18,7 +17,7 @@ public class PropertyButton extends Button implements PropertyButtonInterface{
 	private boolean active;
 	//private int time;
 	
-	public PropertyButton(int x, int y, int w, int h, String text, Color color, Action action, double price, double payout, double rate, double time) {
+	public PropertyButton(int x, int y, int w, int h, String text, Color color, Actions action, double price, double payout, double rate, double time) {
 		super(x, y, w, h, text, color, action);
 		this.price = price;
 		this.payout = payout;

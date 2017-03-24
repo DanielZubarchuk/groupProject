@@ -4,7 +4,7 @@
 package main;
 
 import guiPractice8.GUIApplication;
-import guiPractice8.component.Button;
+import guiPractice8.component.Buttonssss;
 
 /**
  * @author Daniel
@@ -15,7 +15,7 @@ public class StackCity extends GUIApplication {
 	/**
 	 *  static fields
 	 */
-	public static Button homeButton;
+	public static Buttonssss homeButton;
 	public static StackCity game;
 	
 	public StackCity() {

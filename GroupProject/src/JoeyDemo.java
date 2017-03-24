@@ -6,8 +6,8 @@ import java.util.List;
 
 import guiPractice8.GUIApplication;
 import guiPractice8.Screen;
-import guiPractice8.component.Action;
-import guiPractice8.component.Button;
+import guiPractice8.component.Actions;
+import guiPractice8.component.Buttonssss;
 import guiPractice8.component.ClickableScreen;
 import guiPractice8.component.TextLabel;
 import guiPractice8.component.Visible;
@@ -25,7 +25,7 @@ public class JoeyDemo extends GUIApplication {
 	private TextLabel movieT;
 	private TextLabel donutT;
 	private ArrayList<TextLabel> times;
-	private Button lemonManager ;
+	private Buttonssss lemonManager ;
 
 	public JoeyDemo() {
 		// TODO Auto-generated constructor stub
@@ -47,14 +47,14 @@ public class JoeyDemo extends GUIApplication {
 		setScreen(demoxd);
 	}
 	private class DemoScreen extends ClickableScreen {
-		private Button lemonMoney;
-		private Button newspaperMoney;
-		private Button carMoney;
-		private Button pizzaMoney;
-		private Button donutMoney;
-		private Button shrimpMoney;
-		private Button hockeyMoney;
-		private Button movieMoney;
+		private Buttonssss lemonMoney;
+		private Buttonssss newspaperMoney;
+		private Buttonssss carMoney;
+		private Buttonssss pizzaMoney;
+		private Buttonssss donutMoney;
+		private Buttonssss shrimpMoney;
+		private Buttonssss hockeyMoney;
+		private Buttonssss movieMoney;
 
 		private double playerMoney;
 
@@ -97,7 +97,7 @@ public class JoeyDemo extends GUIApplication {
 
 
 		public void createAmountButtons(){
-			one = new AmountButton(800, 40, 100, 50, " x1", new Color(255,255,0), new Action(){
+			one = new AmountButton(800, 40, 100, 50, " x1", new Color(255,255,0), new Actions(){
 
 				public void act() {
 					// TODO Auto-generated method stub
@@ -111,7 +111,7 @@ public class JoeyDemo extends GUIApplication {
 					}
 				}
 			}, 1, true);
-			ten = new AmountButton(807, 50, 100, 50, " x10", new Color(255,255,0), new Action(){
+			ten = new AmountButton(807, 50, 100, 50, " x10", new Color(255,255,0), new Actions(){
 
 				public void act() {
 					// TODO Auto-generated method stub
@@ -124,7 +124,7 @@ public class JoeyDemo extends GUIApplication {
 					}
 				}
 			}, 10, false);
-			hundred = new AmountButton(793, 45, 100, 50, " x100", new Color(255,255,0), new Action(){
+			hundred = new AmountButton(793, 45, 100, 50, " x100", new Color(255,255,0), new Actions(){
 
 
 				public void act() {
@@ -146,7 +146,7 @@ public class JoeyDemo extends GUIApplication {
 		}
 
 		public void generateButtons(){
-			lemon = new PropertyButton(220,180,200,40,"Buy x"+one.getAmount()+"  $4.00", Color.ORANGE, new Action(){
+			lemon = new PropertyButton(220,180,200,40,"Buy x"+one.getAmount()+"  $4.00", Color.ORANGE, new Actions(){
 				public void act(){
 					if(lemon.getPrice()<=playerMoney){
 						quantityOwned[0]+=one.getAmount();
@@ -164,7 +164,7 @@ public class JoeyDemo extends GUIApplication {
 				}
 			}, 4, 1, 1.07, 1000);
 
-			newspaper = new PropertyButton(720,180,200,40,"Buy x"+one.getAmount()+"  $60.00", Color.ORANGE, new Action(){
+			newspaper = new PropertyButton(720,180,200,40,"Buy x"+one.getAmount()+"  $60.00", Color.ORANGE, new Actions(){
 				public void act(){
 					if(newspaper.getPrice()<=playerMoney){
 						quantityOwned[1]+=one.getAmount();
@@ -182,7 +182,7 @@ public class JoeyDemo extends GUIApplication {
 				}
 			}, 60, 60, 1.15, 2000);
 
-			car = new PropertyButton(220,280,200,40,"Buy x"+one.getAmount()+"  $720.00", Color.ORANGE, new Action(){
+			car = new PropertyButton(220,280,200,40,"Buy x"+one.getAmount()+"  $720.00", Color.ORANGE, new Actions(){
 				public void act(){
 					if(car.getPrice()<=playerMoney){
 						quantityOwned[2]+=one.getAmount();
@@ -200,7 +200,7 @@ public class JoeyDemo extends GUIApplication {
 				}
 			}, 720, 540, 1.14, 3000);
 
-			pizza = new PropertyButton(720,280,200,40,"Buy x"+one.getAmount()+"  $8,640.00", Color.ORANGE, new Action(){
+			pizza = new PropertyButton(720,280,200,40,"Buy x"+one.getAmount()+"  $8,640.00", Color.ORANGE, new Actions(){
 				public void act(){
 					if(pizza.getPrice()<=playerMoney){
 						quantityOwned[3]+=one.getAmount();
@@ -219,7 +219,7 @@ public class JoeyDemo extends GUIApplication {
 				}
 			}, 8640, 4320, 1.13, 5000);
 
-			donut = new PropertyButton(220,380,200,40,"Buy x"+one.getAmount()+"  $103,680.00", Color.ORANGE, new Action(){
+			donut = new PropertyButton(220,380,200,40,"Buy x"+one.getAmount()+"  $103,680.00", Color.ORANGE, new Actions(){
 				public void act(){
 					if(donut.getPrice()<=playerMoney){
 						quantityOwned[4]+=one.getAmount();
@@ -239,7 +239,7 @@ public class JoeyDemo extends GUIApplication {
 				}
 			}, 103680, 51840, 1.12, 12000);
 
-			shrimp = new PropertyButton(720,380,200,40,"Buy x"+one.getAmount()+"  $1.244 mill", Color.ORANGE, new Action(){
+			shrimp = new PropertyButton(720,380,200,40,"Buy x"+one.getAmount()+"  $1.244 mill", Color.ORANGE, new Actions(){
 				public void act(){
 					if(shrimp.getPrice()<=playerMoney){
 						quantityOwned[5]+=one.getAmount();
@@ -258,7 +258,7 @@ public class JoeyDemo extends GUIApplication {
 				}
 			}, 1244000, 622080, 1.11, 47000 );
 
-			hockey = new PropertyButton(220,480,200,40,"Buy x"+one.getAmount()+"  $14.929 mill", Color.ORANGE, new Action(){
+			hockey = new PropertyButton(220,480,200,40,"Buy x"+one.getAmount()+"  $14.929 mill", Color.ORANGE, new Actions(){
 				public void act(){
 					if(hockey.getPrice()<=playerMoney){
 						quantityOwned[6]+=one.getAmount();
@@ -276,7 +276,7 @@ public class JoeyDemo extends GUIApplication {
 				}
 			}, 14929000, 7464000, 1.10, 192000);
 
-			movie = new PropertyButton(720,480,200,40,"Buy x"+one.getAmount()+"  $179.159 mill", Color.ORANGE, new Action(){
+			movie = new PropertyButton(720,480,200,40,"Buy x"+one.getAmount()+"  $179.159 mill", Color.ORANGE, new Actions(){
 				public void act(){
 					if(movie.getPrice()<=playerMoney){
 						quantityOwned[7]+=one.getAmount();
@@ -298,7 +298,7 @@ public class JoeyDemo extends GUIApplication {
 
 
 		public void managers(){
-			lemonManager = new ManagerButton(220, 130, 200, 40, "Manage $100", new Color(255,255,0), new Action(){
+			lemonManager = new ManagerButton(220, 130, 200, 40, "Manage $100", new Color(255,255,0), new Actions(){
 				public void act(){
 					if(playerMoney>=lemonManager.getPricexd()){
 						lemonMoney.setEnabled(false);
@@ -310,7 +310,7 @@ public class JoeyDemo extends GUIApplication {
 					}
 				}
 			},100);
-			newspaperManager = new ManagerButton(720, 130, 200, 40, "Manage $1000", new Color(255,255,0), new Action(){
+			newspaperManager = new ManagerButton(720, 130, 200, 40, "Manage $1000", new Color(255,255,0), new Actions(){
 				public void act(){
 					if(playerMoney>=newspaperManager.getPricexd()){
 						newspaperMoney.setEnabled(false);
@@ -322,7 +322,7 @@ public class JoeyDemo extends GUIApplication {
 					}
 				}
 			}, 1000);
-			carManager = new ManagerButton(220, 230, 200, 40, "Manage $10k", new Color(255,255,0), new Action(){
+			carManager = new ManagerButton(220, 230, 200, 40, "Manage $10k", new Color(255,255,0), new Actions(){
 				public void act(){
 					if(playerMoney>=carManager.getPricexd()){
 						carMoney.setEnabled(false);
@@ -334,7 +334,7 @@ public class JoeyDemo extends GUIApplication {
 					}
 				}
 			}, 10000);
-			pizzaManager = new ManagerButton(720, 230, 200, 40, "Manage $100k", new Color(255,255,0), new Action(){
+			pizzaManager = new ManagerButton(720, 230, 200, 40, "Manage $100k", new Color(255,255,0), new Actions(){
 				public void act(){
 					if(playerMoney>=pizzaManager.getPricexd()){
 						pizzaMoney.setEnabled(false);
@@ -346,7 +346,7 @@ public class JoeyDemo extends GUIApplication {
 					}
 				}
 			},100000);
-			donutManager = new ManagerButton(220, 330, 200,40, "Manage $1 mill", new Color(255,255,0), new Action(){
+			donutManager = new ManagerButton(220, 330, 200,40, "Manage $1 mill", new Color(255,255,0), new Actions(){
 				public void act(){
 					if(playerMoney>=donutManager.getPricexd()){
 						donutMoney.setEnabled(false);
@@ -358,7 +358,7 @@ public class JoeyDemo extends GUIApplication {
 					}
 				}
 			},1000000);
-			shrimpManager = new ManagerButton(720, 330, 200, 40, "Manage $10 mill", new Color(255,255,0), new Action(){
+			shrimpManager = new ManagerButton(720, 330, 200, 40, "Manage $10 mill", new Color(255,255,0), new Actions(){
 				public void act(){
 					if(playerMoney>=shrimpManager.getPricexd()){
 						shrimpMoney.setEnabled(false);
@@ -370,7 +370,7 @@ public class JoeyDemo extends GUIApplication {
 					}
 				}
 			},10000000);
-			hockeyManager = new ManagerButton(220, 430, 200, 40, "Manage $100 mill", new Color(255,255,0), new Action(){
+			hockeyManager = new ManagerButton(220, 430, 200, 40, "Manage $100 mill", new Color(255,255,0), new Actions(){
 				public void act(){
 					if(playerMoney>=hockeyManager.getPricexd()){
 						hockeyMoney.setEnabled(false);
@@ -382,7 +382,7 @@ public class JoeyDemo extends GUIApplication {
 					}
 				}
 			},100000000);
-			movieManager = new ManagerButton(720, 430, 200, 40, "Manage $1 bill", new Color(255,255,0), new Action(){
+			movieManager = new ManagerButton(720, 430, 200, 40, "Manage $1 bill", new Color(255,255,0), new Actions(){
 				public void act(){
 					if(playerMoney>=movieManager.getPricexd()){
 						movieMoney.setEnabled(false);
@@ -414,42 +414,42 @@ public class JoeyDemo extends GUIApplication {
 
 
 
-			lemonMoney = new Button(10, 180, 150, 40, "Money!", new Color(255,255,0), new Action(){
+			lemonMoney = new Buttonssss(10, 180, 150, 40, "Money!", new Color(255,255,0), new Actions(){
 				public void act(){
 					doButtonAction(lemonMoney,lemon, 0);
 				}
 			});
-			newspaperMoney = new Button(510, 180, 150, 40, "Money!", new Color(255,255,0), new Action(){
+			newspaperMoney = new Buttonssss(510, 180, 150, 40, "Money!", new Color(255,255,0), new Actions(){
 				public void act(){
 					doButtonAction(newspaperMoney,newspaper, 1);
 				}
 			});
-			carMoney = new Button(10, 280, 150, 40, "Money!", new Color(255,255,0), new Action(){
+			carMoney = new Buttonssss(10, 280, 150, 40, "Money!", new Color(255,255,0), new Actions(){
 				public void act(){
 					doButtonAction(carMoney	,car, 2);
 				}
 			});
-			pizzaMoney = new Button(510, 280, 150, 40, "Money!", new Color(255,255,0), new Action(){
+			pizzaMoney = new Buttonssss(510, 280, 150, 40, "Money!", new Color(255,255,0), new Actions(){
 				public void act(){
 					doButtonAction(pizzaMoney,pizza, 3);
 				}
 			});
-			donutMoney = new Button(10, 380, 150, 40, "Money!", new Color(255,255,0), new Action(){
+			donutMoney = new Buttonssss(10, 380, 150, 40, "Money!", new Color(255,255,0), new Actions(){
 				public void act(){
 					doButtonAction(donutMoney,donut, 4);
 				}
 			});
-			shrimpMoney = new Button(510, 380, 150, 40, "Money!", new Color(255,255,0), new Action(){
+			shrimpMoney = new Buttonssss(510, 380, 150, 40, "Money!", new Color(255,255,0), new Actions(){
 				public void act(){
 					doButtonAction(shrimpMoney,shrimp, 5);
 				}
 			});
-			hockeyMoney = new Button(10, 480, 150, 40, "Money!", new Color(255,255,0), new Action(){
+			hockeyMoney = new Buttonssss(10, 480, 150, 40, "Money!", new Color(255,255,0), new Actions(){
 				public void act(){
 					doButtonAction(hockeyMoney,hockey, 6);
 				}
 			});
-			movieMoney = new Button(510, 480, 150, 40, "Money!", new Color(255,255,0), new Action(){
+			movieMoney = new Buttonssss(510, 480, 150, 40, "Money!", new Color(255,255,0), new Actions(){
 				public void act(){
 					doButtonAction(movieMoney,movie, 7);
 				}
@@ -502,7 +502,7 @@ public class JoeyDemo extends GUIApplication {
 		//			TextLabel lemonTimer = new TextLabel(int x, int y, int w, int h, String text);
 		//		}
 
-		protected void doButtonAction(Button buyButton, PropertyButton property, int i) {
+		protected void doButtonAction(Buttonssss buyButton, PropertyButton property, int i) {
 
 			Thread actionToDo = new Thread(new Runnable(){
 

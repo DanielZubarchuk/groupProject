@@ -4,8 +4,8 @@ import java.awt.Color;
 import java.util.List;
 
 import guiPractice8.GUIApplication;
-import guiPractice8.component.Action;
-import guiPractice8.component.Button;
+import guiPractice8.component.Actions;
+import guiPractice8.component.Buttonssss;
 import guiPractice8.component.ClickableScreen;
 import guiPractice8.component.TextLabel;
 import guiPractice8.component.Visible;
@@ -34,7 +34,7 @@ public class KatDemo extends GUIApplication {
 	private class DemoScreen extends ClickableScreen {
 			
 		private TextLabel label;
-		private Button button;
+		private Buttonssss button;
 			 
 		public DemoScreen(int width, int height) {
 			super(width, height);
@@ -44,7 +44,7 @@ public class KatDemo extends GUIApplication {
 		@Override
 		public void initAllObjects(List<Visible> viewObjects) {
 			label = new TextLabel(20, 40, 100, 25, "");
-			button = new Button(40, 100, 90, 40, "Button", Color.blue, new Action(){
+			button = new Buttonssss(40, 100, 90, 40, "Button", Color.blue, new Actions(){
 
 				@Override
 				public void act() {

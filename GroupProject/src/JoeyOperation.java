@@ -3,8 +3,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Demos.RichardDemo;
-import guiPractice8.component.Action;
-import guiPractice8.component.Button;
+import guiPractice8.component.Actions;
+import guiPractice8.component.Buttonssss;
 
 public class JoeyOperation{
 	private static ArrayList<AmountButtonInterface> amountButtons;
@@ -17,14 +17,14 @@ public class JoeyOperation{
 	private static PropertyButton hockey;
 	private static PropertyButton movie;
 
-	private static Button lemonMoney;
-	private static Button newspaperMoney;
-	private static Button carMoney;
-	private static Button pizzaMoney;
-	private static Button donutMoney;
-	private static Button shrimpMoney;
-	private static Button hockeyMoney;
-	private static Button movieMoney;
+	private static Buttonssss lemonMoney;
+	private static Buttonssss newspaperMoney;
+	private static Buttonssss carMoney;
+	private static Buttonssss pizzaMoney;
+	private static Buttonssss donutMoney;
+	private static Buttonssss shrimpMoney;
+	private static Buttonssss hockeyMoney;
+	private static Buttonssss movieMoney;
 	
 
 	public static ArrayList<PropertyButtonInterface> properties;
@@ -83,7 +83,7 @@ public class JoeyOperation{
 	
 	public static ArrayList<PropertyButtonInterface> generateButtons(){
 		
-		lemon = new PropertyButton(220,180,200,50,"Buy x"+RichardDemo.getCurrentAmount()+"  $4.00", Color.ORANGE, new Action(){
+		lemon = new PropertyButton(220,180,200,50,"Buy x"+RichardDemo.getCurrentAmount()+"  $4.00", Color.ORANGE, new Actions(){
 			public void act(){
 				if(lemon.getPrice()<=Statistics.stats.getCurrentBalance()){
 					double money = Statistics.stats.getCurrentBalance();
@@ -98,7 +98,7 @@ public class JoeyOperation{
 			}
 		}, 4, 1, 1.07, 1000);
 		
-		newspaper = new PropertyButton(720,180,200,50,"Buy x"+RichardDemo.getCurrentAmount()+"  $60.00", Color.ORANGE, new Action(){
+		newspaper = new PropertyButton(720,180,200,50,"Buy x"+RichardDemo.getCurrentAmount()+"  $60.00", Color.ORANGE, new Actions(){
 			public void act(){
 				if(newspaper.getPrice()<=Statistics.stats.getCurrentBalance()){
 					double money = Statistics.stats.getCurrentBalance();
@@ -113,7 +113,7 @@ public class JoeyOperation{
 			}
 		}, 60, 60, 1.15, 2000);
 		
-		car = new PropertyButton(220,280,200,50,"Buy x"+RichardDemo.getCurrentAmount()+"  $720.00", Color.ORANGE, new Action(){
+		car = new PropertyButton(220,280,200,50,"Buy x"+RichardDemo.getCurrentAmount()+"  $720.00", Color.ORANGE, new Actions(){
 			public void act(){
 				if(car.getPrice()<=Statistics.stats.getCurrentBalance()){
 					double money = Statistics.stats.getCurrentBalance();
@@ -128,7 +128,7 @@ public class JoeyOperation{
 			}
 		}, 720, 540, 1.14, 3000);
 		
-		pizza = new PropertyButton(720,280,200,50,"Buy x"+RichardDemo.getCurrentAmount()+"  $8,640.00", Color.ORANGE, new Action(){
+		pizza = new PropertyButton(720,280,200,50,"Buy x"+RichardDemo.getCurrentAmount()+"  $8,640.00", Color.ORANGE, new Actions(){
 			public void act(){
 				if(pizza.getPrice()<=Statistics.stats.getCurrentBalance()){
 					double money = Statistics.stats.getCurrentBalance();
@@ -143,7 +143,7 @@ public class JoeyOperation{
 			}
 		}, 8640, 4320, 1.13, 5000);
 		
-		donut = new PropertyButton(220,380,200,50,"Buy x"+RichardDemo.getCurrentAmount()+"  $103,680.00", Color.ORANGE, new Action(){
+		donut = new PropertyButton(220,380,200,50,"Buy x"+RichardDemo.getCurrentAmount()+"  $103,680.00", Color.ORANGE, new Actions(){
 			public void act(){
 				if(donut.getPrice()<=Statistics.stats.getCurrentBalance()){
 					double money = Statistics.stats.getCurrentBalance();
@@ -158,7 +158,7 @@ public class JoeyOperation{
 			}
 		}, 103680, 51840, 1.12, 12000);
 		
-		shrimp = new PropertyButton(720,380,200,50,"Buy x"+RichardDemo.getCurrentAmount()+"  $1.244 mill", Color.ORANGE, new Action(){
+		shrimp = new PropertyButton(720,380,200,50,"Buy x"+RichardDemo.getCurrentAmount()+"  $1.244 mill", Color.ORANGE, new Actions(){
 			public void act(){
 				if(shrimp.getPrice()<=Statistics.stats.getCurrentBalance()){
 					double money = Statistics.stats.getCurrentBalance();
@@ -173,7 +173,7 @@ public class JoeyOperation{
 			}
 		}, 1244000, 622080, 1.11, 47000 );
 		
-		hockey = new PropertyButton(220,480,200,50,"Buy x"+RichardDemo.getCurrentAmount()+"  $14.929 mill", Color.ORANGE, new Action(){
+		hockey = new PropertyButton(220,480,200,50,"Buy x"+RichardDemo.getCurrentAmount()+"  $14.929 mill", Color.ORANGE, new Actions(){
 			public void act(){
 				if(hockey.getPrice()<=Statistics.stats.getCurrentBalance()){
 					double money = Statistics.stats.getCurrentBalance();
@@ -189,7 +189,7 @@ public class JoeyOperation{
 			}
 		}, 14929000, 7464000, 1.10, 192000);
 		
-		movie = new PropertyButton(720,480,200,50,"Buy x"+RichardDemo.getCurrentAmount()+"  $179.159 mill", Color.ORANGE, new Action(){
+		movie = new PropertyButton(720,480,200,50,"Buy x"+RichardDemo.getCurrentAmount()+"  $179.159 mill", Color.ORANGE, new Actions(){
 			public void act(){
 				if(movie.getPrice()<=Statistics.stats.getCurrentBalance()){
 					double money = Statistics.stats.getCurrentBalance();
@@ -233,8 +233,8 @@ public class JoeyOperation{
 	
 	
 	
-	public static ArrayList<Button> managers(){
-			lemonManager = new ManagerButton(220, 130, 200, 40, "Manage $100", new Color(255,255,0), new Action(){
+	public static ArrayList<Buttonssss> managers(){
+			lemonManager = new ManagerButton(220, 130, 200, 40, "Manage $100", new Color(255,255,0), new Actions(){
 				public void act(){
 					if(Statistics.stats.getCurrentBalance()>=lemonManager.getPricexd()){
 						lemonMoney.setEnabled(false);
@@ -246,7 +246,7 @@ public class JoeyOperation{
 					}
 				}
 			},100);
-			newspaperManager = new ManagerButton(720, 130, 200, 40, "Manage $1000", new Color(255,255,0), new Action(){
+			newspaperManager = new ManagerButton(720, 130, 200, 40, "Manage $1000", new Color(255,255,0), new Actions(){
 				public void act(){
 					if(Statistics.stats.getCurrentBalance()>=newspaperManager.getPricexd()){
 						newspaperMoney.setEnabled(false);
@@ -258,7 +258,7 @@ public class JoeyOperation{
 					}
 				}
 			}, 1000);
-			carManager = new ManagerButton(220, 230, 200, 40, "Manage $10k", new Color(255,255,0), new Action(){
+			carManager = new ManagerButton(220, 230, 200, 40, "Manage $10k", new Color(255,255,0), new Actions(){
 				public void act(){
 					if(Statistics.stats.getCurrentBalance()>=carManager.getPricexd()){
 						carMoney.setEnabled(false);
@@ -270,7 +270,7 @@ public class JoeyOperation{
 					}
 				}
 			}, 10000);
-			pizzaManager = new ManagerButton(720, 230, 200, 40, "Manage $100k", new Color(255,255,0), new Action(){
+			pizzaManager = new ManagerButton(720, 230, 200, 40, "Manage $100k", new Color(255,255,0), new Actions(){
 				public void act(){
 					if(Statistics.stats.getCurrentBalance()>=pizzaManager.getPricexd()){
 						pizzaMoney.setEnabled(false);
@@ -282,7 +282,7 @@ public class JoeyOperation{
 					}
 				}
 			},100000);
-			donutManager = new ManagerButton(220, 330, 200,40, "Manage $1 mill", new Color(255,255,0), new Action(){
+			donutManager = new ManagerButton(220, 330, 200,40, "Manage $1 mill", new Color(255,255,0), new Actions(){
 				public void act(){
 					if(Statistics.stats.getCurrentBalance()>=donutManager.getPricexd()){
 						donutMoney.setEnabled(false);
@@ -294,7 +294,7 @@ public class JoeyOperation{
 					}
 				}
 			},1000000);
-			shrimpManager = new ManagerButton(720, 330, 200, 40, "Manage $10 mill", new Color(255,255,0), new Action(){
+			shrimpManager = new ManagerButton(720, 330, 200, 40, "Manage $10 mill", new Color(255,255,0), new Actions(){
 				public void act(){
 					if(Statistics.stats.getCurrentBalance()>=shrimpManager.getPricexd()){
 						shrimpMoney.setEnabled(false);
@@ -306,7 +306,7 @@ public class JoeyOperation{
 					}
 				}
 			},10000000);
-			hockeyManager = new ManagerButton(220, 430, 200, 40, "Manage $100 mill", new Color(255,255,0), new Action(){
+			hockeyManager = new ManagerButton(220, 430, 200, 40, "Manage $100 mill", new Color(255,255,0), new Actions(){
 				public void act(){
 					if(Statistics.stats.getCurrentBalance()>=hockeyManager.getPricexd()){
 						hockeyMoney.setEnabled(false);
@@ -318,7 +318,7 @@ public class JoeyOperation{
 					}
 				}
 			},100000000);
-			movieManager = new ManagerButton(720, 430, 200, 40, "Manage $1 bill", new Color(255,255,0), new Action(){
+			movieManager = new ManagerButton(720, 430, 200, 40, "Manage $1 bill", new Color(255,255,0), new Actions(){
 				public void act(){
 					if(Statistics.stats.getCurrentBalance()>=movieManager.getPricexd()){
 						AdventureCapScreen.AdvCapDemo.viewObjects.remove(movieManager);	
@@ -343,48 +343,48 @@ public class JoeyOperation{
 	
 	
 	
-	public static ArrayList<Button> generateMoneyButtons(){
-		lemonMoney = new Button(10, 180, 150, 40, "Money!", new Color(255,255,0), new Action(){
+	public static ArrayList<Buttonssss> generateMoneyButtons(){
+		lemonMoney = new Buttonssss(10, 180, 150, 40, "Money!", new Color(255,255,0), new Actions(){
 			public void act(){
 				doButtonAction(lemonMoney,lemon, 0);
 			}
 		});
-		newspaperMoney = new Button(510, 180, 150, 40, "Money!", new Color(255,255,0), new Action(){
+		newspaperMoney = new Buttonssss(510, 180, 150, 40, "Money!", new Color(255,255,0), new Actions(){
 			public void act(){
 				doButtonAction(newspaperMoney,newspaper, 1);
 			}
 		});
-		carMoney = new Button(10, 280, 150, 40, "Money!", new Color(255,255,0), new Action(){
+		carMoney = new Buttonssss(10, 280, 150, 40, "Money!", new Color(255,255,0), new Actions(){
 			public void act(){
 				doButtonAction(carMoney	,car, 2);
 			}
 		});
-		pizzaMoney = new Button(510, 280, 150, 40, "Money!", new Color(255,255,0), new Action(){
+		pizzaMoney = new Buttonssss(510, 280, 150, 40, "Money!", new Color(255,255,0), new Actions(){
 			public void act(){
 				doButtonAction(pizzaMoney,pizza, 3);
 			}
 		});
-		donutMoney = new Button(10, 380, 150, 40, "Money!", new Color(255,255,0), new Action(){
+		donutMoney = new Buttonssss(10, 380, 150, 40, "Money!", new Color(255,255,0), new Actions(){
 			public void act(){
 				doButtonAction(donutMoney,donut, 4);
 			}
 		});
-		shrimpMoney = new Button(510, 380, 150, 40, "Money!", new Color(255,255,0), new Action(){
+		shrimpMoney = new Buttonssss(510, 380, 150, 40, "Money!", new Color(255,255,0), new Actions(){
 			public void act(){
 				doButtonAction(shrimpMoney,shrimp, 5);
 			}
 		});
-		hockeyMoney = new Button(10, 480, 150, 40, "Money!", new Color(255,255,0), new Action(){
+		hockeyMoney = new Buttonssss(10, 480, 150, 40, "Money!", new Color(255,255,0), new Actions(){
 			public void act(){
 				doButtonAction(hockeyMoney,hockey, 6);
 			}
 		});
-		movieMoney = new Button(510, 480, 150, 40, "Money!", new Color(255,255,0), new Action(){
+		movieMoney = new Buttonssss(510, 480, 150, 40, "Money!", new Color(255,255,0), new Actions(){
 			public void act(){
 				doButtonAction(movieMoney,movie, 7);
 			}
 		});
-		ArrayList<Button> buttonsList = new ArrayList<Button>();
+		ArrayList<Buttonssss> buttonsList = new ArrayList<Buttonssss>();
 		buttonsList.add(lemonMoney);
 		buttonsList.add(newspaperMoney);
 		buttonsList.add(carMoney);
@@ -397,7 +397,7 @@ public class JoeyOperation{
 		return buttonsList;
 	}
 	
-	protected static void doButtonAction(Button buyButton, PropertyButton property, int number) {
+	protected static void doButtonAction(Buttonssss buyButton, PropertyButton property, int number) {
 
 		Thread actionToDo = new Thread(new Runnable(){
 
