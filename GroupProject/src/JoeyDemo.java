@@ -46,8 +46,8 @@ public class JoeyDemo extends GUIApplication {
 		demoxd = new DemoScreen(1000, 600);
 		setScreen(demoxd);
 	}
-	private class DemoScreen extends ClickableScreen {
-		private Buttonssss lemonMoney;
+	protected class DemoScreen extends ClickableScreen {
+		Buttonssss lemonMoney;
 		private Buttonssss newspaperMoney;
 		private Buttonssss carMoney;
 		private Buttonssss pizzaMoney;
@@ -56,7 +56,7 @@ public class JoeyDemo extends GUIApplication {
 		private Buttonssss hockeyMoney;
 		private Buttonssss movieMoney;
 
-		private double playerMoney;
+		double playerMoney;
 
 		private int[] quantityOwned;
 
@@ -298,18 +298,18 @@ public class JoeyDemo extends GUIApplication {
 
 
 		public void managers(){
-			lemonManager = new ManagerButton(220, 130, 200, 40, "Manage $100", new Color(255,255,0), new Actions(){
+			setLemonManager(new ManagerButton(220, 130, 200, 40, "Manage $100", new Color(255,255,0), new Actions(){
 				public void act(){
-					if(playerMoney>=lemonManager.getPricexd()){
+					if(playerMoney>=getLemonManager().getPricexd()){
 						lemonMoney.setEnabled(false);
-						viewObjects.remove(lemonManager);
+						viewObjects.remove(getLemonManager());
 						boolean x = true;
 						while(x){							
 						lemonMoney.act();
 						}
 					}
 				}
-			},100);
+			},100));
 			newspaperManager = new ManagerButton(720, 130, 200, 40, "Manage $1000", new Color(255,255,0), new Actions(){
 				public void act(){
 					if(playerMoney>=newspaperManager.getPricexd()){
@@ -338,7 +338,7 @@ public class JoeyDemo extends GUIApplication {
 				public void act(){
 					if(playerMoney>=pizzaManager.getPricexd()){
 						pizzaMoney.setEnabled(false);
-						viewObjects.remove(lemonManager);	
+						viewObjects.remove(getLemonManager());	
 						boolean x = true;
 						while(x){							
 						pizzaMoney.act();
@@ -487,7 +487,17 @@ public class JoeyDemo extends GUIApplication {
 			viewObjects.add(movieT);
 			
 			managers();
-			viewObjects.add(lemonManager);
+			addManagers(viewObjects);
+			
+
+
+		}
+		//		public void createTimerLabels(){
+		//			TextLabel lemonTimer = new TextLabel(int x, int y, int w, int h, String text);
+		//		}
+
+		protected void addManagers(ArrayList<Visible> viewObjects) {
+			viewObjects.add(getLemonManager());
 			viewObjects.add(newspaperManager);
 			viewObjects.add(carManager);
 			viewObjects.add(pizzaManager);
@@ -495,12 +505,7 @@ public class JoeyDemo extends GUIApplication {
 			viewObjects.add(shrimpManager);
 			viewObjects.add(hockeyManager);
 			viewObjects.add(movieManager);
-
-
 		}
-		//		public void createTimerLabels(){
-		//			TextLabel lemonTimer = new TextLabel(int x, int y, int w, int h, String text);
-		//		}
 
 		protected void doButtonAction(Buttonssss buyButton, PropertyButton property, int i) {
 
@@ -525,6 +530,14 @@ public class JoeyDemo extends GUIApplication {
 			actionToDo.start();
 
 
+		}
+
+		public ManagerButton getLemonManager() {
+			return lemonManager;
+		}
+
+		public void setLemonManager(ManagerButton lemonManager) {
+			this.lemonManager = lemonManager;
 		}
 	}
 
